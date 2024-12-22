@@ -6,7 +6,7 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore"
   },
-  "description": "Zephyr conveys lightness, speed, and elegance, which align with the minimal and efficient nature of TailwindCSS",
+  "description": "'Zephyr' UI conveys lightness, speed, and elegance, which align with the minimal and efficient nature of TailwindCSS",
   "author": {
     "email": "danielsaraldi@gmail.com",
     "name": "Daniel Sansão Araldi",
