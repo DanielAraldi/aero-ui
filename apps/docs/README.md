@@ -61,11 +61,11 @@ A quick look at the top-level files and directories included with this template.
 
 3.  **`README.md`**: A text file containing useful reference information about the project.
 
-4. **`App.jsx`**: This is the entry point of your app.  
+4.  **`App.jsx`**: This is the entry point of your app.
 
-5. **`app.config.js`**: This is the configuration file for Expo that allows you to customize your app.
+5.  **`app.config.js`**: This is the configuration file for Expo that allows you to customize your app.
 
-6. **`yarn.lock`**: This is an automatically generated file based on the exact versions of your npm dependencies that were installed.
+6.  **`yarn.lock`**: This is an automatically generated file based on the exact versions of your npm dependencies that were installed.
 
 ## Contribute
 
