@@ -1,12 +1,17 @@
 {
-  "private": false,
+  "name": "zephyr-ui",
+  "description": "'Zephyr' UI conveys lightness, speed, and elegance, which align with the minimal and efficient nature of TailwindCSS",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore"
   },
-  "description": "'Zephyr' UI conveys lightness, speed, and elegance, which align with the minimal and efficient nature of TailwindCSS",
   "author": {
     "email": "danielsaraldi@gmail.com",
     "name": "Daniel Sansão Araldi",
@@ -20,6 +25,5 @@
   "engines": {
     "node": ">=18"
   },
-  "name": "with-react-native-web",
-  "packageManager": "pnpm@9.9.0"
+  "packageManager": "yarn@1.22.22"
 }
