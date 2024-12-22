@@ -2,6 +2,7 @@
   "name": "zephyr-ui",
   "description": "'Zephyr' UI conveys lightness, speed, and elegance, which align with the minimal and efficient nature of TailwindCSS",
   "private": true,
+  "type": "module",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -10,7 +11,8 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore"
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
+    "prepare": "husky"
   },
   "author": {
     "email": "danielsaraldi@gmail.com",
@@ -19,6 +21,9 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "husky": "^9.1.7",
     "prettier": "^3.1.1",
     "turbo": "^2.3.3"
   },
