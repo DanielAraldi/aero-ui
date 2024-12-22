@@ -1,0 +1,25 @@
+{
+  "name": "@zephyr/tokens",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "private": false,
+  "description": "The Zephyr UI tokens.",
+  "author": {
+    "email": "danielsaraldi@gmail.com",
+    "name": "Daniel Sansão Araldi",
+    "url": "https://github.com/DanielAraldi"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "yarn@1.22.22"
+}
