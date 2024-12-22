@@ -10,6 +10,9 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "changeset": "changeset",
+    "changeset:version": "changeset version",
+    "changeset:publish": "changeset publish",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
     "prepare": "husky"
@@ -20,6 +23,9 @@
     "url": "https://github.com/DanielAraldi"
   },
   "license": "MIT",
+  "dependencies": {
+    "@changesets/cli": "^2.27.11"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
