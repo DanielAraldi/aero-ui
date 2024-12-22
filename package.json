@@ -1,0 +1,25 @@
+{
+  "private": false,
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore"
+  },
+  "description": "Zephyr conveys lightness, speed, and elegance, which align with the minimal and efficient nature of TailwindCSS",
+  "author": {
+    "email": "danielsaraldi@gmail.com",
+    "name": "Daniel Sansão Araldi",
+    "url": "https://github.com/DanielAraldi"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.1.1",
+    "turbo": "^2.3.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "name": "with-react-native-web",
+  "packageManager": "pnpm@9.9.0"
+}
