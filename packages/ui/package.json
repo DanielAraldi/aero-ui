@@ -16,6 +16,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
+    "@zephyr/tokens": "*",
     "react": "^18.2.0",
     "react-native": "^0.73.1"
   },
