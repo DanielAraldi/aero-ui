@@ -1,68 +1,68 @@
 export const fontFamilies = {
   clarity: {
     light: {
-      default: 'Mulish-Light',
-      italic: 'Mulish-LightItalic',
+      default: 'Mulish_300Light',
+      italic: 'Mulish_300Light_Italic',
     },
     regular: {
-      default: 'Mulish-Regular',
-      italic: 'Mulish-RegularItalic',
+      default: 'Mulish_400Regular',
+      italic: 'Mulish_400Regular_Italic',
     },
     medium: {
-      default: 'Mulish-Medium',
-      italic: 'Mulish-MediumItalic',
+      default: 'Mulish_500Medium',
+      italic: 'Mulish_500Medium_Italic',
     },
     semibold: {
-      default: 'Mulish-SemiBold',
-      italic: 'Mulish-SemiBoldItalic',
+      default: 'Mulish_600SemiBold',
+      italic: 'Mulish_600SemiBold_Italic',
     },
     bold: {
-      default: 'Mulish-Bold',
-      italic: 'Mulish-BoldItalic',
+      default: 'Mulish_700Bold',
+      italic: 'Mulish_700Bold_Italic',
     },
   },
   trust: {
     light: {
-      default: 'Archivo-Light',
-      italic: 'Archivo-LightItalic',
+      default: 'Archivo_300Light',
+      italic: 'Archivo_300Light_Italic',
     },
     regular: {
-      default: 'Archivo-Regular',
-      italic: 'Archivo-RegularItalic',
+      default: 'Archivo_400Regular',
+      italic: 'Archivo_400Regular_Italic',
     },
     medium: {
-      default: 'Archivo-Medium',
-      italic: 'Archivo-MediumItalic',
+      default: 'Archivo_500Medium',
+      italic: 'Archivo_500Medium_Italic',
     },
     semibold: {
-      default: 'Archivo-SemiBold',
-      italic: 'Archivo-SemiBoldItalic',
+      default: 'Archivo_600SemiBold',
+      italic: 'Archivo_600SemiBold_Italic',
     },
     bold: {
-      default: 'Archivo-Bold',
-      italic: 'Archivo-BoldItalic',
+      default: 'Archivo_700Bold',
+      italic: 'Archivo_700Bold_Italic',
     },
   },
   neutral: {
     light: {
-      default: 'Roboto-Light',
-      italic: 'Roboto-LightItalic',
+      default: 'Roboto_300Light',
+      italic: 'Roboto_300Light_Italic',
     },
     regular: {
-      default: 'Roboto-Regular',
-      italic: 'Roboto-RegularItalic',
+      default: 'Roboto_400Regular',
+      italic: 'Roboto_400Regular_Italic',
     },
     medium: {
-      default: 'Roboto-Medium',
-      italic: 'Roboto-MediumItalic',
+      default: 'Roboto_500Medium',
+      italic: 'Roboto_500Medium_Italic',
     },
     semibold: {
-      default: 'Roboto-SemiBold',
-      italic: 'Roboto-SemiBoldItalic',
+      default: 'Roboto_500Medium',
+      italic: 'Roboto_500Medium_Italic',
     },
     bold: {
-      default: 'Roboto-Bold',
-      italic: 'Roboto-BoldItalic',
+      default: 'Roboto_700Bold',
+      italic: 'Roboto_700Bold_Italic',
     },
   },
 } as const;
