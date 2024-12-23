@@ -1,7 +1,8 @@
 export default ({ config }) => ({
   ...config,
-  name: "Storybook Tutorial Template",
-  slug: "storybook-tutorial-template",
+  name: 'Zephyr UI',
+  slug: 'zephyr-ui',
+  plugins: ['expo-font'],
   extra: {
     storybookEnabled: process.env.STORYBOOK_ENABLED,
   },

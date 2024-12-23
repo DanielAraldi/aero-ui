@@ -1295,6 +1295,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@expo-google-fonts/archivo@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "@expo-google-fonts/archivo@npm:0.2.3"
+  checksum: 10c0/94b8cca13924a681c895f6b73d50f1eb7115abb82e585e05a2c1a0c67b9be365f1aa2ceed167d191a4cec01c460a73e12df22571e67fb5b80e050485f83cd7b3
+  languageName: node
+  linkType: hard
+
+"@expo-google-fonts/mulish@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "@expo-google-fonts/mulish@npm:0.2.3"
+  checksum: 10c0/c644f260bda4f1275ff87d12646cd8b1918194f4cd55cc57d3eb7c9261d18a1fa69ece2043c3226f8aaacca6f8264fdee72bf4a853a14ca9b5aa3e4f579dd540
+  languageName: node
+  linkType: hard
+
+"@expo-google-fonts/roboto@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "@expo-google-fonts/roboto@npm:0.2.3"
+  checksum: 10c0/f2557d888f881003240b74fb015840f4c68ceef610d57f6c492b86fc8b5056d453a9bd824d95bdd258cae61d39d633ff027a182d52c7fd2850379afdee14117b
+  languageName: node
+  linkType: hard
+
 "@expo/bunyan@npm:^4.0.0":
   version: 4.0.1
   resolution: "@expo/bunyan@npm:4.0.1"
@@ -2967,6 +2988,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zephyr/tokens@file:../../packages/tokens::locator=docs%40workspace%3A.":
+  version: 0.1.0
+  resolution: "@zephyr/tokens@file:../../packages/tokens#../../packages/tokens::hash=e8dd34&locator=docs%40workspace%3A."
+  checksum: 10c0/033e4df3f9949c7c9aa156a698cd2cdd72a500fa83ee793bf69383f611dba7d02711560f2132df0160181e6d1c00b567e143a3072eda265d169ae317a456abb7
+  languageName: node
+  linkType: hard
+
 "abbrev@npm:^2.0.0":
   version: 2.0.0
   resolution: "abbrev@npm:2.0.0"
@@ -4466,6 +4494,9 @@ __metadata:
   resolution: "docs@workspace:."
   dependencies:
     "@babel/core": "npm:^7.24.0"
+    "@expo-google-fonts/archivo": "npm:^0.2.3"
+    "@expo-google-fonts/mulish": "npm:^0.2.3"
+    "@expo-google-fonts/roboto": "npm:^0.2.3"
     "@expo/metro-runtime": "npm:~3.2.3"
     "@expo/vector-icons": "npm:^14.0.3"
     "@gorhom/bottom-sheet": "npm:^4.6.4"
@@ -4476,10 +4507,12 @@ __metadata:
     "@storybook/addon-ondevice-controls": "npm:^8.3.5"
     "@storybook/react-native": "npm:^8.3.5"
     "@types/react": "npm:~18.2.79"
+    "@zephyr/tokens": "file:../../packages/tokens"
     babel-loader: "npm:^9.1.3"
     cross-env: "npm:^7.0.3"
     expo: "npm:^51.0.32"
     expo-constants: "npm:~16.0.2"
+    expo-font: "npm:~12.0.10"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-native: "npm:0.74.5"
