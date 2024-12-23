@@ -4,7 +4,7 @@ import { colors, ColorsKeysType } from '@zephyr/tokens';
 
 import { styles } from './styles';
 
-function handleTextColor(key: ColorsKeysType, keyColor: string): string {
+function getTextColor(key: ColorsKeysType, keyColor: string): string {
   if (key === 'black') return colors.white[100];
   else if (Number(keyColor) <= 400) colors.black[100];
   else return colors.white[100];
@@ -12,35 +12,33 @@ function handleTextColor(key: ColorsKeysType, keyColor: string): string {
 
 const meta: Meta = {
   title: 'Tokens',
-  component: () => {
-    return (
-      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-        {Object.keys(colors).map((key: ColorsKeysType) => (
-          <View key={key} style={styles.content}>
-            {Object.entries(colors[key]).map(
-              ([keyColor, color]: [string, string]) => (
-                <View
-                  key={color}
-                  style={[styles.ghostContent, { backgroundColor: color }]}
+  component: () => (
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      {Object.keys(colors).map((key: ColorsKeysType) => (
+        <View key={key} style={styles.content}>
+          {Object.entries(colors[key]).map(
+            ([keyColor, color]: [string, string]) => (
+              <View
+                key={color}
+                style={[styles.ghostContent, { backgroundColor: color }]}
+              >
+                <Text
+                  style={[
+                    styles.text,
+                    {
+                      color: getTextColor(key, keyColor),
+                    },
+                  ]}
                 >
-                  <Text
-                    style={[
-                      styles.text,
-                      {
-                        color: handleTextColor(key, keyColor),
-                      },
-                    ]}
-                  >
-                    {key}/{keyColor} - {color}
-                  </Text>
-                </View>
-              )
-            )}
-          </View>
-        ))}
-      </ScrollView>
-    );
-  },
+                  {key}/{keyColor} - {color}
+                </Text>
+              </View>
+            )
+          )}
+        </View>
+      ))}
+    </ScrollView>
+  ),
 };
 
 export default meta;

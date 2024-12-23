@@ -21,6 +21,5 @@ export const styles = StyleSheet.create({
   text: {
     fontSize: fontSizes.base,
     fontFamily: fontFamilies.clarity.regular.default,
-    fontWeight: fontWeights.regular,
   },
 });
