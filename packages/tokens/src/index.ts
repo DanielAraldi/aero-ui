@@ -1,3 +1,4 @@
+export * from './border-widths';
 export * from './font-sizes';
 export * from './font-weights';
 export * from './letter-spacings';
