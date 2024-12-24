@@ -2,10 +2,6 @@ import { StyleSheet } from 'react-native';
 import { colors, spacings } from '@zephyr/tokens';
 
 export const styles = StyleSheet.create({
-  internalContainer: {
-    gap: spacings[1],
-  },
-
   content: {
     width: 'auto',
     height: spacings[12],

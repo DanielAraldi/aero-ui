@@ -26,7 +26,7 @@ const meta: Meta = {
   component: () => (
     <ScrollView
       style={globalStyles.container}
-      contentContainerStyle={styles.internalContainer}
+      contentContainerStyle={globalStyles.spaceBetweenContent}
       showsVerticalScrollIndicator={false}
     >
       {getSpacingValue().map(spacing => (
