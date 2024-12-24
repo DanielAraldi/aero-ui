@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
 
     width: '100%',
-    height: spacings[20],
+    height: spacings[24],
 
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -17,8 +17,8 @@ export const styles = StyleSheet.create({
   },
 
   rectangle: {
-    width: spacings[16],
-    height: spacings[16],
+    width: spacings[20],
+    height: spacings[20],
 
     justifyContent: 'center',
     alignItems: 'center',
