@@ -2990,8 +2990,8 @@ __metadata:
 
 "@zephyr/tokens@file:../../packages/tokens::locator=docs%40workspace%3A.":
   version: 0.1.0
-  resolution: "@zephyr/tokens@file:../../packages/tokens#../../packages/tokens::hash=e8dd34&locator=docs%40workspace%3A."
-  checksum: 10c0/033e4df3f9949c7c9aa156a698cd2cdd72a500fa83ee793bf69383f611dba7d02711560f2132df0160181e6d1c00b567e143a3072eda265d169ae317a456abb7
+  resolution: "@zephyr/tokens@file:../../packages/tokens#../../packages/tokens::hash=8367b8&locator=docs%40workspace%3A."
+  checksum: 10c0/b9f9abafb1438bf41a721d63fddce36b955dcd216087cfb93478b4c9813ca69cacaea1899195c32ac08a2dcf5ac3e7ee1b048e9846b712a733ecf12593dd562c
   languageName: node
   linkType: hard
 
