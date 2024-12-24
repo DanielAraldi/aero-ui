@@ -13,10 +13,10 @@ const meta: Meta = {
       contentContainerStyle={globalStyles.spaceBetweenContent}
       showsVerticalScrollIndicator={false}
     >
-      {Object.entries(zIndexes).map(([key, value]) => (
+      {Object.entries(zIndexes).map(([key, zIndex]) => (
         <View key={key} style={styles.content}>
           <Text style={globalStyles.text}>
-            {key} - {value}
+            {key} - {zIndex}
           </Text>
         </View>
       ))}

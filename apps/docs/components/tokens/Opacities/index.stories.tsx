@@ -12,10 +12,10 @@ const meta: Meta = {
       style={globalStyles.container}
       showsVerticalScrollIndicator={false}
     >
-      {Object.entries(opacities).map(([key, value]) => (
-        <View key={key} style={[styles.content, { opacity: value }]}>
+      {Object.entries(opacities).map(([key, opacity]) => (
+        <View key={key} style={[styles.content, { opacity }]}>
           <Text style={globalStyles.text}>
-            {key} - {(value * 100).toFixed(2)}%
+            {key} - {(opacity * 100).toFixed(2)}%
           </Text>
         </View>
       ))}

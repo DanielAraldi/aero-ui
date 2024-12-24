@@ -13,19 +13,12 @@ const meta: Meta = {
       contentContainerStyle={globalStyles.spaceBetweenContent}
       showsVerticalScrollIndicator={false}
     >
-      {Object.entries(borderRadius).map(([key, value]) => (
+      {Object.entries(borderRadius).map(([key, borderRadius]) => (
         <View key={key} style={styles.content}>
           <Text style={globalStyles.text}>{key}</Text>
 
-          <View
-            style={[
-              styles.rectangle,
-              {
-                borderRadius: value,
-              },
-            ]}
-          >
-            <Text style={globalStyles.text}>{value}px</Text>
+          <View style={[styles.rectangle, { borderRadius }]}>
+            <Text style={globalStyles.text}>{borderRadius}px</Text>
           </View>
         </View>
       ))}
