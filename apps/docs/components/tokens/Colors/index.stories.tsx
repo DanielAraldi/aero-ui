@@ -3,6 +3,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { colors, ColorsKeysType } from '@zephyr/tokens';
 
 import { styles } from './styles';
+import { globalStyles } from '../../styles';
 
 function getTextColor(key: ColorsKeysType, keyColor: string): string {
   if (key === 'black') return colors.white[100];
@@ -13,7 +14,10 @@ function getTextColor(key: ColorsKeysType, keyColor: string): string {
 const meta: Meta = {
   title: 'Tokens',
   component: () => (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <ScrollView
+      style={globalStyles.container}
+      showsVerticalScrollIndicator={false}
+    >
       {Object.keys(colors).map((key: ColorsKeysType) => (
         <View key={key} style={styles.content}>
           {Object.entries(colors[key]).map(

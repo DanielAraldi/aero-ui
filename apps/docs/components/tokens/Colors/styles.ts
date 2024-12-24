@@ -2,10 +2,6 @@ import { StyleSheet } from 'react-native';
 import { fontFamilies, fontSizes, fontWeights, spacings } from '@zephyr/tokens';
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-
   content: {
     width: '100%',
   },

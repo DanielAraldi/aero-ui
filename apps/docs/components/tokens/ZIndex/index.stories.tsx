@@ -1,15 +1,20 @@
 import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
 import { zIndexes } from '@zephyr/tokens';
+
 import { styles } from './styles';
+import { globalStyles } from '../../styles';
 
 const meta: Meta = {
   title: 'Tokens',
   component: () => (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <ScrollView
+      style={globalStyles.container}
+      showsVerticalScrollIndicator={false}
+    >
       {Object.entries(zIndexes).map(([key, value]) => (
         <View key={key} style={styles.content}>
-          <Text style={styles.text}>
+          <Text style={globalStyles.text}>
             z-index/{key} - {value}
           </Text>
         </View>

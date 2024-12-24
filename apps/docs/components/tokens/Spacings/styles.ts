@@ -1,17 +1,7 @@
 import { StyleSheet } from 'react-native';
-import {
-  colors,
-  fontFamilies,
-  fontSizes,
-  lineHeights,
-  spacings,
-} from '@zephyr/tokens';
+import { colors, spacings } from '@zephyr/tokens';
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-
   internalContainer: {
     gap: spacings[1],
   },
@@ -44,13 +34,5 @@ export const styles = StyleSheet.create({
 
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
-
-  text: {
-    fontSize: fontSizes.base,
-    fontFamily: fontFamilies.clarity.regular.default,
-    lineHeight: lineHeights.base,
-
-    color: colors.blue[900],
   },
 });

@@ -3,6 +3,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { spacings, SpacingKeysType } from '@zephyr/tokens';
 
 import { styles } from './styles';
+import { globalStyles } from '../../styles';
 
 function getKeyByValue(value: number): SpacingKeysType | null {
   for (let property in spacings) {
@@ -24,7 +25,7 @@ const meta: Meta = {
   title: 'Tokens',
   component: () => (
     <ScrollView
-      style={styles.container}
+      style={globalStyles.container}
       contentContainerStyle={styles.internalContainer}
       showsVerticalScrollIndicator={false}
     >
@@ -33,9 +34,9 @@ const meta: Meta = {
           <View style={[styles.progress, { width: spacing }]} />
 
           <View style={styles.textContainer}>
-            <Text style={styles.text}>{spacing}px</Text>
+            <Text style={globalStyles.text}>{spacing}px</Text>
 
-            <Text style={styles.text}>{getKeyByValue(spacing)}</Text>
+            <Text style={globalStyles.text}>{getKeyByValue(spacing)}</Text>
           </View>
         </View>
       ))}
