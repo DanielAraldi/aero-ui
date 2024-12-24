@@ -2,7 +2,7 @@ import { LogBox, StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 import { colors } from '@zephyr/tokens';
 
-import { FontLoader } from './containers';
+import { FontLoader } from './src/components';
 
 LogBox.ignoreAllLogs();
 

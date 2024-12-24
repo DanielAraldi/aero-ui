@@ -1,4 +1,4 @@
-import { FontLoader } from '../containers';
+import { FontLoader } from '../src/components';
 
 /** @type{import("@storybook/react").Preview} */
 const preview = {
