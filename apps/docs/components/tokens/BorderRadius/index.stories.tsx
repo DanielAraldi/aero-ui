@@ -15,9 +15,7 @@ const meta: Meta = {
     >
       {Object.entries(borderRadius).map(([key, value]) => (
         <View key={key} style={styles.content}>
-          <Text style={globalStyles.text}>
-            border-radius/{key} - {value}px
-          </Text>
+          <Text style={globalStyles.text}>{key}</Text>
 
           <View
             style={[
@@ -26,7 +24,9 @@ const meta: Meta = {
                 borderRadius: value,
               },
             ]}
-          />
+          >
+            <Text style={globalStyles.text}>{value}px</Text>
+          </View>
         </View>
       ))}
     </ScrollView>

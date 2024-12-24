@@ -20,6 +20,11 @@ export const styles = StyleSheet.create({
     width: spacings[16],
     height: spacings[16],
 
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    padding: spacings[2],
+
     backgroundColor: colors.blue[400],
   },
 });

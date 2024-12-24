@@ -10,12 +10,13 @@ const meta: Meta = {
   component: () => (
     <ScrollView
       style={globalStyles.container}
+      contentContainerStyle={globalStyles.spaceBetweenContent}
       showsVerticalScrollIndicator={false}
     >
       {Object.entries(zIndexes).map(([key, value]) => (
         <View key={key} style={styles.content}>
           <Text style={globalStyles.text}>
-            z-index/{key} - {value}
+            {key} - {value}
           </Text>
         </View>
       ))}
