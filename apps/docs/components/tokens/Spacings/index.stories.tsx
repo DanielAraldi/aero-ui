@@ -1,25 +1,10 @@
 import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { spacings, SpacingKeysType } from '@zephyr/tokens';
+import { spacings, SpacingKeysType, SpacingObjectType } from '@zephyr/tokens';
 
 import { styles } from './styles';
 import { globalStyles } from '../../styles';
-
-function getKeyByValue(value: number): SpacingKeysType | null {
-  for (let property in spacings) {
-    if (spacings.hasOwnProperty(property)) {
-      if (spacings[property] === value) return property as SpacingKeysType;
-    }
-  }
-
-  return null;
-}
-
-function getSpacingValue(): number[] {
-  return Object.values(spacings).sort(
-    (previousValue, value) => previousValue - value
-  );
-}
+import { getValuesSortedOfObject, getKeyObjectByValue } from '../../utils';
 
 const meta: Meta = {
   title: 'Tokens',
@@ -29,14 +14,19 @@ const meta: Meta = {
       contentContainerStyle={globalStyles.spaceBetweenContent}
       showsVerticalScrollIndicator={false}
     >
-      {getSpacingValue().map(spacing => (
+      {getValuesSortedOfObject<number>(spacings).map(spacing => (
         <View key={spacing} style={styles.content}>
           <View style={[styles.progress, { width: spacing }]} />
 
           <View style={styles.textContainer}>
             <Text style={globalStyles.text}>{spacing}px</Text>
 
-            <Text style={globalStyles.text}>{getKeyByValue(spacing)}</Text>
+            <Text style={globalStyles.text}>
+              {getKeyObjectByValue<SpacingObjectType, SpacingKeysType>(
+                spacings,
+                spacing
+              )}
+            </Text>
           </View>
         </View>
       ))}
