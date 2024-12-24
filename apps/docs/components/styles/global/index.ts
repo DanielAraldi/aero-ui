@@ -3,6 +3,7 @@ import {
   colors,
   fontFamilies,
   fontSizes,
+  letterSpacings,
   lineHeights,
   spacings,
 } from '@zephyr/tokens';
@@ -22,6 +23,7 @@ export const globalStyles = StyleSheet.create({
     fontSize: fontSizes.base,
     fontFamily: fontFamilies.clarity.regular.default,
     lineHeight: lineHeights.base,
+    letterSpacing: letterSpacings.normal,
 
     color: colors.blue[900],
   },
