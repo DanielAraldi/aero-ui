@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { borderRadius, colors, spacings } from '@zephyr/tokens';
+import { borderRadius } from '@zephyr/tokens';
 
 import { globalStyles } from '../../styles';
 import { styles } from './styles';
