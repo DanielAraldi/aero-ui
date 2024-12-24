@@ -24,9 +24,10 @@ const meta: Meta = {
             {getKeyObjectByValue<BorderWidthsObjectType, BorderWidthsKeysType>(
               borderWidths,
               borderWidth
-            )}{' '}
-            - {borderWidth}px
+            )}
           </Text>
+
+          <Text style={globalStyles.text}>{borderWidth}px</Text>
         </View>
       ))}
     </ScrollView>
