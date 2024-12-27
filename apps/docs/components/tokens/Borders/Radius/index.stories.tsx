@@ -28,4 +28,4 @@ const meta: Meta = {
 
 export default meta;
 
-export const BorderRadius: StoryObj = {};
+export const Radius: StoryObj = {};

@@ -36,4 +36,4 @@ const meta: Meta = {
 
 export default meta;
 
-export const BorderWidths: StoryObj = {};
+export const Widths: StoryObj = {};
