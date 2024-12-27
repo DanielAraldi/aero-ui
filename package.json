@@ -1,7 +1,7 @@
 {
   "name": "aero",
   "description": "Aero UI evokes a sense of lightness, fluidity, and sophistication based in the TailwindCSS principles 🍃",
-  "private": true,
+  "private": false,
   "type": "module",
   "workspaces": [
     "apps/*",
