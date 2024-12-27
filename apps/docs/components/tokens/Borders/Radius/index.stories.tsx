@@ -2,11 +2,11 @@ import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
 import { borderRadius } from '@zephyr/tokens';
 
-import { globalStyles } from '../../styles';
+import { globalStyles } from '../../../styles';
 import { styles } from './styles';
 
 const meta: Meta = {
-  title: 'Tokens',
+  title: 'Tokens/Borders',
   component: () => (
     <ScrollView
       style={globalStyles.container}

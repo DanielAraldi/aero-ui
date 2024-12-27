@@ -6,12 +6,12 @@ import {
   BorderWidthsObjectType,
 } from '@zephyr/tokens';
 
-import { globalStyles } from '../../styles';
-import { getKeyObjectByValue, getValuesSortedOfObject } from '../../utils';
+import { globalStyles } from '../../../styles';
+import { getKeyObjectByValue, getValuesSortedOfObject } from '../../../utils';
 import { styles } from './styles';
 
 const meta: Meta = {
-  title: 'Tokens',
+  title: 'Tokens/Borders',
   component: () => (
     <ScrollView
       style={globalStyles.container}
