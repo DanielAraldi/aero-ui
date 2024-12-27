@@ -1,10 +1,10 @@
 {
-  "name": "@zephyr/tokens",
+  "name": "@aero/tokens",
   "version": "0.1.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "private": false,
-  "description": "The Zephyr UI tokens.",
+  "description": "The Aero UI tokens.",
   "author": {
     "email": "danielsaraldi@gmail.com",
     "name": "Daniel Sansão Araldi",

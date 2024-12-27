@@ -5,7 +5,7 @@ import {
   letterSpacings,
   lineHeights,
   spacings,
-} from '@zephyr/tokens';
+} from '@aero/tokens';
 
 export const globalStyles = StyleSheet.create({
   container: {

@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { fontSizes, lineHeights } from '@zephyr/tokens';
+import { fontSizes, lineHeights } from '@aero/tokens';
 
 import { globalStyles } from '../../../styles';
 import { styles } from './styles';

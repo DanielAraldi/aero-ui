@@ -2,20 +2,20 @@
   "version": "0.1.0",
   "private": true,
   "name": "docs",
-  "description": "Zephyr UI documentation",
+  "description": "Aero UI documentation.",
   "author": {
     "email": "danielsaraldi@gmail.com",
     "name": "Daniel Sansão Araldi",
     "url": "https://github.com/DanielAraldi"
   },
   "dependencies": {
+    "@aero/tokens": "file:../../packages/tokens",
     "@expo-google-fonts/archivo": "^0.2.3",
     "@expo-google-fonts/mulish": "^0.2.3",
     "@expo-google-fonts/roboto": "^0.2.3",
     "@expo/metro-runtime": "~3.2.3",
     "@expo/vector-icons": "^14.0.3",
     "@types/react": "~18.2.79",
-    "@zephyr/tokens": "file:../../packages/tokens",
     "expo": "^51.0.32",
     "expo-constants": "~16.0.2",
     "expo-font": "~12.0.10",

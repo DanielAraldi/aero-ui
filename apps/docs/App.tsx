@@ -1,6 +1,6 @@
 import { LogBox, StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
-import { colors } from '@zephyr/tokens';
+import { colors } from '@aero/tokens';
 
 import { FontLoader } from './src/components';
 

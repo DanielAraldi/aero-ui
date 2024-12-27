@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { zIndexes } from '@zephyr/tokens';
+import { zIndexes } from '@aero/tokens';
 
 import { styles } from './styles';
 import { globalStyles } from '../../styles';

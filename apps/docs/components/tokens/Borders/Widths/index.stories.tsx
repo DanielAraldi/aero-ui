@@ -4,7 +4,7 @@ import {
   borderWidths,
   BorderWidthsKeysType,
   BorderWidthsObjectType,
-} from '@zephyr/tokens';
+} from '@aero/tokens';
 
 import { globalStyles } from '../../../styles';
 import { getKeyObjectByValue, getValuesSortedOfObject } from '../../../utils';

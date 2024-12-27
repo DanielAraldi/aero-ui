@@ -9,7 +9,7 @@ export default defineConfig((options: Options) => ({
   },
   clean: true,
   format: ['cjs', 'esm'],
-  external: ['react', 'react-native', '@zephyr/tokens'],
+  external: ['react', 'react-native', '@aero/tokens'],
   dts: true,
   ...options,
 }));

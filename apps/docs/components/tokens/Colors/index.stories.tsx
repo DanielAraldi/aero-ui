@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { colors, ColorsKeysType } from '@zephyr/tokens';
+import { colors, ColorsKeysType } from '@aero/tokens';
 
 import { styles } from './styles';
 import { globalStyles } from '../../styles';

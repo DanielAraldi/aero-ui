@@ -1,6 +1,6 @@
 {
-  "name": "zephyr-ui",
-  "description": "'Zephyr' UI conveys lightness, speed, and elegance, which align with the minimal and efficient nature of TailwindCSS",
+  "name": "aero",
+  "description": "Aero UI evokes a sense of lightness, fluidity, and sophistication based in the TailwindCSS principles 🍃",
   "private": true,
   "type": "module",
   "workspaces": [

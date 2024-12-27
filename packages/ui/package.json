@@ -1,10 +1,10 @@
 {
-  "name": "@zephyr/ui",
+  "name": "@aero/ui",
   "version": "0.1.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "private": false,
-  "description": "The Zephyr UI library.",
+  "description": "Your lightness, fluidity, and sophistication Aero UI library.",
   "author": {
     "email": "danielsaraldi@gmail.com",
     "name": "Daniel Sansão Araldi",
@@ -16,12 +16,12 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@zephyr/tokens": "*",
+    "@aero/tokens": "*",
     "react": "^18.2.0",
     "react-native": "^0.73.1"
   },
   "devDependencies": {
-    "@zephyr/typescript-config": "*",
+    "@aero/typescript-config": "*",
     "@types/react": "^18.2.46",
     "@types/react-native": "^0.73.0",
     "tsup": "^8.0.1",

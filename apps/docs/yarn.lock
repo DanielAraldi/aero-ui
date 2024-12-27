@@ -17,6 +17,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aero/tokens@file:../../packages/tokens::locator=docs%40workspace%3A.":
+  version: 0.1.0
+  resolution: "@aero/tokens@file:../../packages/tokens#../../packages/tokens::hash=705a5c&locator=docs%40workspace%3A."
+  checksum: 10c0/36fd7d8ac43aa4e7a8af8c871da6a2e9a30a09071b8b9bdc918b2c5bb74af02ce4eb7aee42c78c01e7d2ae19a749fce8f4dc2b0ff6085deff09261a878b3fa10
+  languageName: node
+  linkType: hard
+
 "@ampproject/remapping@npm:^2.2.0":
   version: 2.3.0
   resolution: "@ampproject/remapping@npm:2.3.0"
@@ -2988,13 +2995,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zephyr/tokens@file:../../packages/tokens::locator=docs%40workspace%3A.":
-  version: 0.1.0
-  resolution: "@zephyr/tokens@file:../../packages/tokens#../../packages/tokens::hash=e0df05&locator=docs%40workspace%3A."
-  checksum: 10c0/c5bb293c63d0bda2b81c17621259cd46d5354f7b336e8dd2f183f500fbb2450f066b29328647f9c204eefeddf9bdcd97305f94fde4b80deef6ed7f036675e23a
-  languageName: node
-  linkType: hard
-
 "abbrev@npm:^2.0.0":
   version: 2.0.0
   resolution: "abbrev@npm:2.0.0"
@@ -4493,6 +4493,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:."
   dependencies:
+    "@aero/tokens": "file:../../packages/tokens"
     "@babel/core": "npm:^7.24.0"
     "@expo-google-fonts/archivo": "npm:^0.2.3"
     "@expo-google-fonts/mulish": "npm:^0.2.3"
@@ -4507,7 +4508,6 @@ __metadata:
     "@storybook/addon-ondevice-controls": "npm:^8.3.5"
     "@storybook/react-native": "npm:^8.3.5"
     "@types/react": "npm:~18.2.79"
-    "@zephyr/tokens": "file:../../packages/tokens"
     babel-loader: "npm:^9.1.3"
     cross-env: "npm:^7.0.3"
     expo: "npm:^51.0.32"

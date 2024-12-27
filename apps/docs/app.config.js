@@ -1,7 +1,7 @@
 export default ({ config }) => ({
   ...config,
-  name: 'Zephyr UI',
-  slug: 'zephyr-ui',
+  name: 'Aero UI',
+  slug: 'aero-ui',
   plugins: ['expo-font'],
   extra: {
     storybookEnabled: process.env.STORYBOOK_ENABLED,
