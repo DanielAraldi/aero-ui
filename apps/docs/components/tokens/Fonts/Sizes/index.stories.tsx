@@ -2,11 +2,11 @@ import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
 import { fontSizes, lineHeights } from '@zephyr/tokens';
 
-import { globalStyles } from '../../styles';
+import { globalStyles } from '../../../styles';
 import { styles } from './styles';
 
 const meta: Meta = {
-  title: 'Tokens',
+  title: 'Tokens/Fonts',
   component: () => (
     <ScrollView
       style={globalStyles.container}
@@ -40,4 +40,4 @@ const meta: Meta = {
 
 export default meta;
 
-export const FontSizes: StoryObj = {};
+export const Sizes: StoryObj = {};
