@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { fontWeights, fontFamilies } from '@zephyr/tokens';
+import { fontWeights } from '@zephyr/tokens';
 
 import { globalStyles } from '../../styles';
 import { styles } from './styles';
@@ -15,23 +15,9 @@ const meta: Meta = {
     >
       {Object.entries(fontWeights).map(([key, fontWeight]) => (
         <View key={key} style={styles.content}>
-          <Text
-            style={[
-              globalStyles.text,
-              { fontFamily: fontFamilies.clarity[key].default, fontWeight },
-            ]}
-          >
-            {key}
-          </Text>
+          <Text style={[globalStyles.text, { fontWeight }]}>{key}</Text>
 
-          <Text
-            style={[
-              globalStyles.text,
-              { fontFamily: fontFamilies.clarity[key].default, fontWeight },
-            ]}
-          >
-            {fontWeight}
-          </Text>
+          <Text style={[globalStyles.text, { fontWeight }]}>{fontWeight}</Text>
         </View>
       ))}
     </ScrollView>

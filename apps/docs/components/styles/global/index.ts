@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 import {
   colors,
-  fontFamilies,
   fontSizes,
   letterSpacings,
   lineHeights,
@@ -21,7 +20,6 @@ export const globalStyles = StyleSheet.create({
 
   text: {
     fontSize: fontSizes.base,
-    fontFamily: fontFamilies.clarity.regular.default,
     lineHeight: lineHeights.base,
     letterSpacing: letterSpacings.normal,
 

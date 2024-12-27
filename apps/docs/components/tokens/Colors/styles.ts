@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { fontFamilies, fontSizes, fontWeights, spacings } from '@zephyr/tokens';
+import { fontSizes, spacings } from '@zephyr/tokens';
 
 export const styles = StyleSheet.create({
   content: {
@@ -16,6 +16,5 @@ export const styles = StyleSheet.create({
 
   text: {
     fontSize: fontSizes.base,
-    fontFamily: fontFamilies.clarity.regular.default,
   },
 });
