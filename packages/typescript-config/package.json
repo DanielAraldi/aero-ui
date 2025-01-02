@@ -10,10 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DanielAraldi/aero-ui"
+    "url": "https://github.com/DanielAraldi/aero-ui.git",
+    "directory": "packages/typescript-config"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   },
   "engines": {
     "node": ">=18"

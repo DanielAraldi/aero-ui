@@ -12,7 +12,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DanielAraldi/aero-ui"
+    "url": "https://github.com/DanielAraldi/aero-ui.git",
+    "directory": "packages/ui"
   },
   "scripts": {
     "build": "tsup",
@@ -35,7 +36,8 @@
     "node": ">=18"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   },
   "packageManager": "yarn@1.22.22"
 }
