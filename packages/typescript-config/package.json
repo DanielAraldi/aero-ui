@@ -15,7 +15,8 @@
   },
   "publishConfig": {
     "access": "restricted",
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org",
+    "tag": "latest"
   },
   "engines": {
     "node": ">=18"
