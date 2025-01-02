@@ -7,6 +7,10 @@
     "apps/*",
     "packages/*"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanielAraldi/aero-ui"
+  },
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
@@ -17,11 +21,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
     "prepare": "husky"
   },
-  "author": {
-    "email": "danielsaraldi@gmail.com",
-    "name": "Daniel Sansão Araldi",
-    "url": "https://github.com/DanielAraldi"
-  },
+  "author": "Daniel Sansão Araldi <danielsaraldi@gmail.com> (https://github.com/DanielAraldi)",
   "license": "MIT",
   "dependencies": {
     "@changesets/cli": "^2.27.11"

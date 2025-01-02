@@ -10,6 +10,10 @@
     "name": "Daniel Sansão Araldi",
     "url": "https://github.com/DanielAraldi"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanielAraldi/aero-ui"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

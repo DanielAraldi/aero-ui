@@ -1,15 +1,19 @@
 {
   "name": "@aero/typescript-config",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "description": "The Aero UI TypeScript configuration.",
   "author": {
     "email": "danielsaraldi@gmail.com",
     "name": "Daniel Sansão Araldi",
     "url": "https://github.com/DanielAraldi"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanielAraldi/aero-ui"
+  },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   },
   "engines": {
     "node": ">=18"

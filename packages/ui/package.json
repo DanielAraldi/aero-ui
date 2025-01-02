@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "private": false,
+  "private": true,
   "description": "Your lightness, fluidity, and sophistication Aero UI library.",
   "author": {
     "email": "danielsaraldi@gmail.com",
     "name": "Daniel Sansão Araldi",
     "url": "https://github.com/DanielAraldi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanielAraldi/aero-ui"
   },
   "scripts": {
     "build": "tsup",
@@ -31,7 +35,7 @@
     "node": ">=18"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   },
   "packageManager": "yarn@1.22.22"
 }
