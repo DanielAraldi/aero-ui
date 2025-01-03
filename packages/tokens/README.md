@@ -2,9 +2,83 @@
 
 Sample, elegant and beautiful UI tokens of the Aero UI library based in the [TailwindCSS](https://tailwindcss.com/).
 
-## Colors 🎨
+## Summary
 
-### White ⚪️
+- [Installation](#installation)
+- [API](#api)
+  - [Colors 🎨](#colors-)
+    - [White](#white-️)
+    - [Black](#black-️)
+    - [Gray](#gray-)
+    - [Neutral](#neutral-)
+    - [Red](#red-)
+    - [Yellow](#yellow-)
+    - [Green](#green-)
+    - [Blue](#blue-)
+  - [Opacities](#opacities-)
+  - [Spacings](#spacings-)
+  - [Z Indexes](#z-indexes-)
+  - [Borders](#borders-)
+    - [Radius](#radius-️)
+    - [Widths](#widths-)
+  - [Fonts](#fonts-️)
+    - [Sizes](#sizes-)
+    - [Weights](#weights-️)
+    - [Line Heights](#line-heights-)
+    - [Letter Spacings](#letter-spacings-)
+  - [TypeScript Support](#typescript-support)
+
+## Installation
+
+npm:
+
+```sh
+npm install @aero-ui/tokens
+```
+
+Yarn:
+
+```sh
+yarn add @aero-ui/tokens
+```
+
+pnpm:
+
+```sh
+pnpm install @aero-ui/tokens
+```
+
+## API
+
+### Colors 🎨
+
+A small example of how to use colors below:
+
+```ts
+import { StyleSheet } from 'react-native';
+import { colors } from '@aero-ui/tokens';
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.black[100], // #000000
+  },
+
+  card: {
+    backgroundColor: colors.gray[200], // #E5E7EB
+    borderColor: colors.blue[300], // #93C5FD
+  },
+
+  text: {
+    color: colors.white[100], // #FFFFFF
+  },
+
+  highlightText: {
+    color: colors.blue[500], // #3B82F6
+  },
+});
+```
+
+#### White ⚪️
 
 | Key   | Color                                                                                                      |
 | ----- | ---------------------------------------------------------------------------------------------------------- |
@@ -15,7 +89,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `85`  | <span style="opacity: 0.85;">![#ffffffd9](https://placehold.co/16x16/ffffff/ffffff.png)</span> `#ffffffd9` |
 | `100` | ![#ffffff](https://placehold.co/16x16/ffffff/ffffff.png) `#ffffff`                                         |
 
-### Black ⚫️
+#### Black ⚫️
 
 | Key   | Color                                                                                                      |
 | ----- | ---------------------------------------------------------------------------------------------------------- |
@@ -26,7 +100,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `85`  | <span style="opacity: 0.85;">![#000000d9](https://placehold.co/16x16/000000/000000.png)</span> `#000000d9` |
 | `100` | ![#000000](https://placehold.co/16x16/000000/000000.png) `#000000`                                         |
 
-### Gray 🔘
+#### Gray 🔘
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -42,7 +116,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `900` | ![#111827](https://placehold.co/16x16/111827/111827.png) `#111827` |
 | `950` | ![#030712](https://placehold.co/16x16/030712/030712.png) `#030712` |
 
-### Neutral 🔘
+#### Neutral 🔘
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -58,7 +132,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `900` | ![#171717](https://placehold.co/16x16/171717/171717.png) `#171717` |
 | `950` | ![#0a0a0a](https://placehold.co/16x16/0a0a0a/0a0a0a.png) `#0a0a0a` |
 
-### Red 🔴
+#### Red 🔴
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -74,7 +148,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `900` | ![#7f1d1d](https://placehold.co/16x16/7f1d1d/7f1d1d.png) `#7f1d1d` |
 | `950` | ![#450a0a](https://placehold.co/16x16/450a0a/450a0a.png) `#450a0a` |
 
-### Yellow 🟡
+#### Yellow 🟡
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -90,7 +164,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `900` | ![#713f12](https://placehold.co/16x16/713f12/713f12.png) `#713f12` |
 | `950` | ![#422006](https://placehold.co/16x16/422006/422006.png) `#422006` |
 
-### Green 🟢
+#### Green 🟢
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -106,7 +180,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `900` | ![#14532d](https://placehold.co/16x16/14532d/14532d.png) `#14532d` |
 | `950` | ![#052e16](https://placehold.co/16x16/052e16/052e16.png) `#052e16` |
 
-### Blue 🔵
+#### Blue 🔵
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -124,7 +198,28 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 
 ---
 
-## Opacities 🔍
+### Opacities 🔍
+
+A small example of how to use opacities below:
+
+```ts
+import { StyleSheet } from 'react-native';
+import { opacities } from '@aero-ui/tokens';
+
+const styles = StyleSheet.create({
+  visible: {
+    opacity: opacities[100], // 1
+  },
+
+  hidden: {
+    opacity: opacities[0], // 0
+  },
+
+  disabled: {
+    opacity: opacities[70], // 0.7
+  },
+});
+```
 
 | Key   | Value  |
 | ----- | ------ |
@@ -152,7 +247,31 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 
 ---
 
-## Spacings 📐
+### Spacings 📐
+
+A small example of how to use spacings below:
+
+```ts
+import { StyleSheet } from 'react-native';
+import { spacings } from '@aero-ui/tokens';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+
+    paddingHorizontal: spacing[5], // 20
+  },
+
+  card: {
+    width: '100%',
+    height: 'auto',
+    minHeight: spacings[24], // 96,
+
+    padding: spacings[2], // 8,
+    gap: spacings[1], // 4,
+  },
+});
+```
 
 | Key   | Value |
 | ----- | ----- |
@@ -194,7 +313,30 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 
 ---
 
-## Z Indexes 📚
+### Z Indexes 📚
+
+A small example of how to use z-indexes below:
+
+```ts
+import { StyleSheet } from 'react-native';
+import { zIndexes } from '@aero-ui/tokens';
+
+const styles = StyleSheet.create({
+  card: {
+    zIndex: zIndexes[50], // 50
+
+    width: '100%',
+    height: 'auto',
+  },
+
+  tooltip: {
+    zIndex: zIndexes.full, // 9999
+
+    width: 'auto',
+    height: 'auto',
+  },
+});
+```
 
 | Key    | Value  |
 | ------ | ------ |
@@ -207,9 +349,34 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `100`  | `100`  |
 | `full` | `9999` |
 
-## Borders 🔳
+### Borders 🔳
 
-### Radius ⭕️
+A small example of how to use border radius and widths below:
+
+```ts
+import { StyleSheet } from 'react-native';
+import { borderRadius, borderWidths, spacings } from '@aero-ui/tokens';
+
+const styles = StyleSheet.create({
+  card: {
+    width: spacings[4], // 16
+    height: spacings[4], // 16
+
+    borderRadius: borderRadius.lg, // 8
+    borderWidth: borderWidths[2], // 2
+  },
+
+  button: {
+    width: spacings[4], // 16
+    height: spacings[4], // 16
+
+    borderRadius: borderRadius.base, // 4
+    borderWidth: borderWidths.px, // 1
+  },
+});
+```
+
+#### Radius ⭕️
 
 | Key    | Value  |
 | ------ | ------ |
@@ -223,7 +390,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `3xl`  | `24`   |
 | `full` | `9999` |
 
-### Widths 📏
+#### Widths 📏
 
 | Key  | Value |
 | ---- | ----- |
@@ -235,9 +402,37 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 
 ---
 
-## Fonts 🖌️
+### Fonts 🖌️
 
-### Sizes 📏
+A small example of how to use border font sizes, font weights, line heights and letter spacings below:
+
+```ts
+import { StyleSheet } from 'react-native';
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacings,
+} from '@aero-ui/tokens';
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: fontSizes['6xl'], // 60
+    fontWeight: fontWeights.medium, // 500
+    lineHeight: lineHeights['6xl'], // 68
+    letterSpacing: letterSpacings.wide, // 0.4
+  },
+
+  text: {
+    fontSize: fontSizes.base, // 16
+    fontWeight: fontWeights.regular, // 400
+    lineHeight: lineHeights.base, // 24
+    letterSpacing: letterSpacings.normal, // 0
+  },
+});
+```
+
+#### Sizes 📏
 
 | Key    | Value |
 | ------ | ----- |
@@ -255,7 +450,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `8xl`  | `96`  |
 | `9xl`  | `128` |
 
-### Weights ⚖️
+#### Weights ⚖️
 
 | Key        | Value |
 | ---------- | ----- |
@@ -265,7 +460,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `semibold` | `600` |
 | `bold`     | `700` |
 
-### Line Heights 📐
+#### Line Heights 📐
 
 | Key    | Value |
 | ------ | ----- |
@@ -283,7 +478,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `8xl`  | `104` |
 | `9xl`  | `136` |
 
-### Letter Spacings 📏
+#### Letter Spacings 📏
 
 | Key       | Value  |
 | --------- | ------ |
@@ -293,6 +488,15 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `wide`    | `0.4`  |
 | `wider`   | `0.8`  |
 | `widest`  | `1.6`  |
+
+---
+
+## TypeScript Support
+
+Yes! Aero UI **has support** for TypeScript, we divide the types of each token **two parts**:
+
+- Object: It's original object `typeof` of the token, it object typing.
+- Keys: It's original object `keyof typeof` of the token, it all keys of the object.
 
 ---
 
