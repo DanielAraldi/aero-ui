@@ -1,10 +1,10 @@
-# `@aero-ui/tokens` 🎨
+# `@aero-ui/tokens` 🖋️
 
 Sample, elegant and beautiful UI tokens of the Aero UI library based in the [TailwindCSS](https://tailwindcss.com/).
 
-## Colors
+## Colors 🎨
 
-### White
+### White ⚪️
 
 | Key   | Color                                                                                                      |
 | ----- | ---------------------------------------------------------------------------------------------------------- |
@@ -15,7 +15,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `85`  | <span style="opacity: 0.85;">![#ffffffd9](https://placehold.co/16x16/ffffff/ffffff.png)</span> `#ffffffd9` |
 | `100` | ![#ffffff](https://placehold.co/16x16/ffffff/ffffff.png) `#ffffff`                                         |
 
-### Black
+### Black ⚫️
 
 | Key   | Color                                                                                                      |
 | ----- | ---------------------------------------------------------------------------------------------------------- |
@@ -26,7 +26,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `85`  | <span style="opacity: 0.85;">![#000000d9](https://placehold.co/16x16/000000/000000.png)</span> `#000000d9` |
 | `100` | ![#000000](https://placehold.co/16x16/000000/000000.png) `#000000`                                         |
 
-### Gray
+### Gray 🔘
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -42,7 +42,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `900` | ![#111827](https://placehold.co/16x16/111827/111827.png) `#111827` |
 | `950` | ![#030712](https://placehold.co/16x16/030712/030712.png) `#030712` |
 
-### Neutral
+### Neutral 🔘
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -58,7 +58,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `900` | ![#171717](https://placehold.co/16x16/171717/171717.png) `#171717` |
 | `950` | ![#0a0a0a](https://placehold.co/16x16/0a0a0a/0a0a0a.png) `#0a0a0a` |
 
-### Red
+### Red 🔴
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -74,7 +74,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `900` | ![#7f1d1d](https://placehold.co/16x16/7f1d1d/7f1d1d.png) `#7f1d1d` |
 | `950` | ![#450a0a](https://placehold.co/16x16/450a0a/450a0a.png) `#450a0a` |
 
-### Yellow
+### Yellow 🟡
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -90,7 +90,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `900` | ![#713f12](https://placehold.co/16x16/713f12/713f12.png) `#713f12` |
 | `950` | ![#422006](https://placehold.co/16x16/422006/422006.png) `#422006` |
 
-### Green
+### Green 🟢
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -106,7 +106,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `900` | ![#14532d](https://placehold.co/16x16/14532d/14532d.png) `#14532d` |
 | `950` | ![#052e16](https://placehold.co/16x16/052e16/052e16.png) `#052e16` |
 
-### Blue
+### Blue 🔵
 
 | Key   | Color                                                              |
 | ----- | ------------------------------------------------------------------ |
@@ -124,7 +124,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 
 ---
 
-## Opacities
+## Opacities 🔍
 
 | Key   | Value  |
 | ----- | ------ |
@@ -152,7 +152,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 
 ---
 
-## Spacings
+## Spacings 📐
 
 | Key   | Value |
 | ----- | ----- |
@@ -194,7 +194,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 
 ---
 
-## Z Indexes
+## Z Indexes 📚
 
 | Key    | Value  |
 | ------ | ------ |
@@ -207,9 +207,9 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `100`  | `100`  |
 | `full` | `9999` |
 
-## Borders
+## Borders 🔳
 
-### Radius
+### Radius ⭕️
 
 | Key    | Value  |
 | ------ | ------ |
@@ -223,7 +223,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `3xl`  | `24`   |
 | `full` | `9999` |
 
-### Widths
+### Widths 📏
 
 | Key  | Value |
 | ---- | ----- |
@@ -235,9 +235,9 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 
 ---
 
-## Fonts
+## Fonts 🖌️
 
-### Sizes
+### Sizes 📏
 
 | Key    | Value |
 | ------ | ----- |
@@ -255,7 +255,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `8xl`  | `96`  |
 | `9xl`  | `128` |
 
-### Weights
+### Weights ⚖️
 
 | Key        | Value |
 | ---------- | ----- |
@@ -265,7 +265,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `semibold` | `600` |
 | `bold`     | `700` |
 
-### Line Heights
+### Line Heights 📐
 
 | Key    | Value |
 | ------ | ----- |
@@ -283,7 +283,7 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `8xl`  | `104` |
 | `9xl`  | `136` |
 
-### Letter Spacings
+### Letter Spacings 📏
 
 | Key       | Value  |
 | --------- | ------ |
