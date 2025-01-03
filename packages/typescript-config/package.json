@@ -1,7 +1,7 @@
 {
   "name": "@aero-ui/typescript-config",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "The Aero UI TypeScript configuration.",
   "author": {
     "email": "danielsaraldi@gmail.com",
