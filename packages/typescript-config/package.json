@@ -1,5 +1,5 @@
 {
-  "name": "@aero/typescript-config",
+  "name": "@aero-ui/typescript-config",
   "version": "0.1.0",
   "private": true,
   "description": "The Aero UI TypeScript configuration.",

@@ -1,5 +1,5 @@
 {
-  "name": "aero",
+  "name": "aero-ui",
   "description": "Aero UI evokes a sense of lightness, fluidity, and sophistication based in the TailwindCSS principles 🍃",
   "private": true,
   "type": "module",
