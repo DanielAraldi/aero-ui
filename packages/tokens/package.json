@@ -15,6 +15,12 @@
     "url": "git+https://github.com/DanielAraldi/aero-ui.git",
     "directory": "packages/tokens"
   },
+  "keywords": [
+    "Aero",
+    "Aero UI",
+    "Aero Tokens",
+    "Aero UI Tokens"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
