@@ -1,5 +1,3 @@
-import { FontLoader } from '../src/components';
-
 /** @type{import("@storybook/react").Preview} */
 const preview = {
   parameters: {
@@ -11,13 +9,7 @@ const preview = {
     },
   },
 
-  decorators: [
-    Story => (
-      <FontLoader>
-        <Story />
-      </FontLoader>
-    ),
-  ],
+  decorators: [Story => <Story />],
 };
 
 export default preview;

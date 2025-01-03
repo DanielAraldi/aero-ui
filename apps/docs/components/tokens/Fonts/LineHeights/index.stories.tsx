@@ -1,24 +1,24 @@
 import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { letterSpacings } from '@aero-ui/tokens';
+import { lineHeights } from '@aero-ui/tokens';
 
-import { globalStyles } from '../../styles';
+import { globalStyles } from '../../../styles';
 import { styles } from './styles';
 
 const meta: Meta = {
-  title: 'Tokens',
+  title: 'Tokens/Fonts',
   component: () => (
     <ScrollView
       style={globalStyles.container}
       contentContainerStyle={globalStyles.spaceBetweenContent}
       showsVerticalScrollIndicator={false}
     >
-      {Object.entries(letterSpacings).map(([key, letterSpacing]) => (
+      {Object.entries(lineHeights).map(([key, lineHeight]) => (
         <View key={key} style={styles.content}>
-          <Text style={[globalStyles.text, { letterSpacing }]}>{key}</Text>
+          <Text style={[globalStyles.text, { lineHeight }]}>{key}</Text>
 
-          <Text style={[globalStyles.text, { letterSpacing }]}>
-            {letterSpacing}px
+          <Text style={[globalStyles.text, { lineHeight }]}>
+            {lineHeight}px
           </Text>
         </View>
       ))}
@@ -28,4 +28,4 @@ const meta: Meta = {
 
 export default meta;
 
-export const LetterSpacings: StoryObj = {};
+export const LineHeights: StoryObj = {};

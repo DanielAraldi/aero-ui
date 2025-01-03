@@ -17,10 +17,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aero/tokens@file:../../packages/tokens::locator=docs%40workspace%3A.":
-  version: 0.1.0
-  resolution: "@aero/tokens@file:../../packages/tokens#../../packages/tokens::hash=705a5c&locator=docs%40workspace%3A."
-  checksum: 10c0/36fd7d8ac43aa4e7a8af8c871da6a2e9a30a09071b8b9bdc918b2c5bb74af02ce4eb7aee42c78c01e7d2ae19a749fce8f4dc2b0ff6085deff09261a878b3fa10
+"@aero-ui/tokens@file:../../packages/tokens::locator=docs%40workspace%3A.":
+  version: 1.0.0
+  resolution: "@aero-ui/tokens@file:../../packages/tokens#../../packages/tokens::hash=abad8e&locator=docs%40workspace%3A."
+  checksum: 10c0/28e2c0d31f81d9cd32bb099b496054a55c5c0cbbf5207f7243aaf6b6d120981d9aa43840d8f53854dda11a949d2c2514b232bba9988e911778b26f5eb7a49e91
   languageName: node
   linkType: hard
 
@@ -4493,7 +4493,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:."
   dependencies:
-    "@aero/tokens": "file:../../packages/tokens"
+    "@aero-ui/tokens": "file:../../packages/tokens"
     "@babel/core": "npm:^7.24.0"
     "@expo-google-fonts/archivo": "npm:^0.2.3"
     "@expo-google-fonts/mulish": "npm:^0.2.3"
