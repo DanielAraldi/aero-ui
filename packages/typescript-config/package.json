@@ -13,6 +13,14 @@
     "url": "git+https://github.com/DanielAraldi/aero-ui.git",
     "directory": "packages/typescript-config"
   },
+  "keywords": [
+    "Aero",
+    "Aero UI",
+    "Aero TypeScript",
+    "Aero UI TypeScript",
+    "Aero UI TypeScript Config",
+    "Aero UI TypeScript Configuration"
+  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org",
