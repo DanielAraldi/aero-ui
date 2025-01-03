@@ -259,7 +259,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
 
-    paddingHorizontal: spacing[5], // 20
+    paddingHorizontal: spacings[5], // 20
   },
 
   card: {
