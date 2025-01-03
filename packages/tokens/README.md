@@ -2,33 +2,33 @@
 
 Sample, elegant and beautiful UI tokens of the Aero UI library based in the [TailwindCSS](https://tailwindcss.com/).
 
-## Summary
+## Summary 📖
 
-- [Installation](#installation)
-- [API](#api)
+- [Installation ☁️](#installation-️)
+- [API 🏭](#api-)
   - [Colors 🎨](#colors-)
-    - [White](#white-️)
-    - [Black](#black-️)
-    - [Gray](#gray-)
-    - [Neutral](#neutral-)
-    - [Red](#red-)
-    - [Yellow](#yellow-)
-    - [Green](#green-)
-    - [Blue](#blue-)
-  - [Opacities](#opacities-)
-  - [Spacings](#spacings-)
-  - [Z Indexes](#z-indexes-)
-  - [Borders](#borders-)
-    - [Radius](#radius-️)
-    - [Widths](#widths-)
-  - [Fonts](#fonts-️)
-    - [Sizes](#sizes-)
-    - [Weights](#weights-️)
-    - [Line Heights](#line-heights-)
-    - [Letter Spacings](#letter-spacings-)
-  - [TypeScript Support](#typescript-support)
+    - [White ⚪️](#white-️)
+    - [Black ⚫️](#black-️)
+    - [Gray 🔘](#gray-)
+    - [Neutral 🔘](#neutral-)
+    - [Red 🔴](#red-)
+    - [Yellow 🟡](#yellow-)
+    - [Green 🟢](#green-)
+    - [Blue 🔵](#blue-)
+  - [Opacities 🔍](#opacities-)
+  - [Spacings 📐](#spacings-)
+  - [Z Indexes 📚](#z-indexes-)
+  - [Borders 🔳](#borders-)
+    - [Radius ⭕️](#radius-️)
+    - [Widths 📏](#widths-)
+  - [Fonts 🖌️](#fonts-️)
+    - [Sizes 📏](#sizes-)
+    - [Weights ⚖️](#weights-️)
+    - [Line Heights 📐](#line-heights-)
+    - [Letter Spacings 📏](#letter-spacings-)
+  - [TypeScript Support 👨‍🎨](#typescript-support-)
 
-## Installation
+## Installation ☁️
 
 npm:
 
@@ -48,7 +48,7 @@ pnpm:
 pnpm install @aero-ui/tokens
 ```
 
-## API
+## API 🏭
 
 ### Colors 🎨
 
@@ -491,7 +491,7 @@ const styles = StyleSheet.create({
 
 ---
 
-## TypeScript Support
+## TypeScript Support 👨‍🎨
 
 Yes! Aero UI **has support** for TypeScript, we divide the types of each token **two parts**:
 
