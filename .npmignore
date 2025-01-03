@@ -1,0 +1,8 @@
+# Turbo repo
+.turbo
+
+# Source
+src
+
+# Docs
+CHANGELOG.md
