@@ -4,8 +4,6 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 
 ## Colors
 
----
-
 ### White
 
 | Key   | Color                                                                                                      |
@@ -128,8 +126,6 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 
 ## Opacities
 
----
-
 | Key   | Value  |
 | ----- | ------ |
 | `0`   | `0`    |
@@ -157,8 +153,6 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 ---
 
 ## Spacings
-
----
 
 | Key   | Value |
 | ----- | ----- |
@@ -202,8 +196,6 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 
 ## Z Indexes
 
----
-
 | Key    | Value  |
 | ------ | ------ |
 | `0`    | `0`    |
@@ -216,8 +208,6 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 | `full` | `9999` |
 
 ## Borders
-
----
 
 ### Radius
 
@@ -246,8 +236,6 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
 ---
 
 ## Fonts
-
----
 
 ### Sizes
 
