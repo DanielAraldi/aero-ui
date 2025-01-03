@@ -1,5 +1,11 @@
 # @aero-ui/tokens
 
+## 1.1.1
+
+### Patch Changes
+
+- Add summary, typescript support, and example for documentation.
+
 ## 1.1.0
 
 ### Minor Changes
