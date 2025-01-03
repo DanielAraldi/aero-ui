@@ -1,5 +1,5 @@
 {
-  "extends": "@aero-ui/typescript-config/react-native-library",
+  "extends": "@aero-ui/typescript-config/react-native",
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
