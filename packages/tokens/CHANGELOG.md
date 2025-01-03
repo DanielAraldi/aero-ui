@@ -1,5 +1,11 @@
 # @aero-ui/tokens
 
+## 1.1.0
+
+### Minor Changes
+
+- Add documentation about tokens library.
+
 ## 1.0.0
 
 ### Major Changes
