@@ -9,7 +9,7 @@
     "url": "https://github.com/DanielAraldi"
   },
   "dependencies": {
-    "@aero/tokens": "file:../../packages/tokens",
+    "@aero-ui/tokens": "file:../../packages/tokens",
     "@expo-google-fonts/archivo": "^0.2.3",
     "@expo-google-fonts/mulish": "^0.2.3",
     "@expo-google-fonts/roboto": "^0.2.3",

@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { borderRadius } from '@aero/tokens';
+import { borderRadius } from '@aero-ui/tokens';
 
 import { globalStyles } from '../../../styles';
 import { styles } from './styles';

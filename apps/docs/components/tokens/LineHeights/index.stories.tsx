@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { lineHeights } from '@aero/tokens';
+import { lineHeights } from '@aero-ui/tokens';
 
 import { globalStyles } from '../../styles';
 import { styles } from './styles';

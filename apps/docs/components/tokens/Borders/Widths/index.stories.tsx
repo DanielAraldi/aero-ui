@@ -4,7 +4,7 @@ import {
   borderWidths,
   BorderWidthsKeysType,
   BorderWidthsObjectType,
-} from '@aero/tokens';
+} from '@aero-ui/tokens';
 
 import { globalStyles } from '../../../styles';
 import { getKeyObjectByValue, getValuesSortedOfObject } from '../../../utils';

@@ -5,7 +5,7 @@ import {
   letterSpacings,
   lineHeights,
   spacings,
-} from '@aero/tokens';
+} from '@aero-ui/tokens';
 
 export const globalStyles = StyleSheet.create({
   container: {

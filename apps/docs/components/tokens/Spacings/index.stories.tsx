@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { spacings, SpacingKeysType, SpacingObjectType } from '@aero/tokens';
+import { spacings, SpacingKeysType, SpacingObjectType } from '@aero-ui/tokens';
 
 import { styles } from './styles';
 import { globalStyles } from '../../styles';

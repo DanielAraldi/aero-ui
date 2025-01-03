@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, spacings } from '@aero/tokens';
+import { colors, spacings } from '@aero-ui/tokens';
 
 export const styles = StyleSheet.create({
   content: {

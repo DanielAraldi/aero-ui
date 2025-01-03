@@ -1,4 +1,4 @@
-# @aero/tokens
+# @aero-ui/tokens
 
 ## 1.0.0
 
