@@ -1,5 +1,11 @@
 # @aero-ui/tokens
 
+## 1.1.2
+
+### Patch Changes
+
+- Add complete documentation about library.
+
 ## 1.1.1
 
 ### Patch Changes
