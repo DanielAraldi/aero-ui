@@ -2,7 +2,12 @@
   "version": "0.1.0",
   "private": true,
   "name": "docs",
+  "license": "MIT",
   "description": "Aero UI documentation.",
+  "bugs": {
+    "email": "danielsaraldi@gmail.com",
+    "url": "https://github.com/DanielAraldi/aero-ui/issues"
+  },
   "author": {
     "email": "danielsaraldi@gmail.com",
     "name": "Daniel Sansão Araldi",

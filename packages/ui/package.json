@@ -4,7 +4,12 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "private": true,
+  "license": "MIT",
   "description": "Your lightness, fluidity, and sophistication Aero UI library.",
+  "bugs": {
+    "email": "danielsaraldi@gmail.com",
+    "url": "https://github.com/DanielAraldi/aero-ui/issues"
+  },
   "author": {
     "email": "danielsaraldi@gmail.com",
     "name": "Daniel Sansão Araldi",

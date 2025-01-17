@@ -2,7 +2,12 @@
   "name": "@aero-ui/typescript-config",
   "version": "1.1.0",
   "private": false,
+  "license": "MIT",
   "description": "The Aero UI TypeScript configuration.",
+  "bugs": {
+    "email": "danielsaraldi@gmail.com",
+    "url": "https://github.com/DanielAraldi/aero-ui/issues"
+  },
   "author": {
     "email": "danielsaraldi@gmail.com",
     "name": "Daniel Sansão Araldi",
