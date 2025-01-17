@@ -1,12 +1,14 @@
-<p align="center" style="font-size: 40px; font-weight: 900;">
-  Aero UI
-
+<p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/DanielAraldi/aero-ui/HEAD/.github/logo.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/DanielAraldi/aero-ui/HEAD/.github/logo.svg">
     <img alt="Aero UI" src="https://raw.githubusercontent.com/DanielAraldi/aero-ui/HEAD/.github/logo.svg" width="350" height="70" style="max-width: 100%;">
   </picture>
 </p>
+
+<h1 align="center">
+  Aero UI
+</h1>
 
 <p align="center">
   Lightness, fluidity, and sophistication based in the TailwindCSS principles.
