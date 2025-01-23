@@ -18,9 +18,9 @@ __metadata:
   linkType: hard
 
 "@aero-ui/tokens@file:../../packages/tokens::locator=docs%40workspace%3A.":
-  version: 1.0.0
-  resolution: "@aero-ui/tokens@file:../../packages/tokens#../../packages/tokens::hash=abad8e&locator=docs%40workspace%3A."
-  checksum: 10c0/28e2c0d31f81d9cd32bb099b496054a55c5c0cbbf5207f7243aaf6b6d120981d9aa43840d8f53854dda11a949d2c2514b232bba9988e911778b26f5eb7a49e91
+  version: 1.1.2
+  resolution: "@aero-ui/tokens@file:../../packages/tokens#../../packages/tokens::hash=1a5e13&locator=docs%40workspace%3A."
+  checksum: 10c0/50e39717179eabd55d305419631ba39946f69970b54c89ac3555c63429a6d7c71ebd00f126ec64c20803a8b08c54a136bff091c914faab67b578672b4db309eb
   languageName: node
   linkType: hard
 
