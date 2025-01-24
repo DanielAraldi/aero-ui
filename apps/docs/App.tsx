@@ -1,5 +1,6 @@
-import { LogBox, StyleSheet, Text, View } from 'react-native';
+import { LogBox, StyleSheet, View } from 'react-native';
 import Constants from 'expo-constants';
+import { Text } from '@aero-ui/ui';
 import { colors } from '@aero-ui/tokens';
 
 LogBox.ignoreAllLogs();
@@ -7,7 +8,7 @@ LogBox.ignoreAllLogs();
 function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text.Base>Open up App.tsx to start working on your app!</Text.Base>
     </View>
   );
 }

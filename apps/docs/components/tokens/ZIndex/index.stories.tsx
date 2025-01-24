@@ -1,5 +1,6 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
+import { Text } from '@aero-ui/ui';
 import { zIndexes } from '@aero-ui/tokens';
 
 import { styles } from './styles';
@@ -15,9 +16,9 @@ const meta: Meta = {
     >
       {Object.entries(zIndexes).map(([key, zIndex]) => (
         <View key={key} style={styles.content}>
-          <Text style={globalStyles.text}>
+          <Text.Base style={globalStyles.text}>
             {key} - {zIndex}
-          </Text>
+          </Text.Base>
         </View>
       ))}
     </ScrollView>

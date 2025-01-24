@@ -1,5 +1,6 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
+import { Text } from '@aero-ui/ui';
 import { letterSpacings } from '@aero-ui/tokens';
 
 import { globalStyles } from '../../../styles';
@@ -15,11 +16,13 @@ const meta: Meta = {
     >
       {Object.entries(letterSpacings).map(([key, letterSpacing]) => (
         <View key={key} style={styles.content}>
-          <Text style={[globalStyles.text, { letterSpacing }]}>{key}</Text>
+          <Text.Base style={[globalStyles.text, { letterSpacing }]}>
+            {key}
+          </Text.Base>
 
-          <Text style={[globalStyles.text, { letterSpacing }]}>
+          <Text.Base style={[globalStyles.text, { letterSpacing }]}>
             {letterSpacing}px
-          </Text>
+          </Text.Base>
         </View>
       ))}
     </ScrollView>

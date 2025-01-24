@@ -1,5 +1,6 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
+import { Text } from '@aero-ui/ui';
 import { opacities } from '@aero-ui/tokens';
 
 import { styles } from './styles';
@@ -14,9 +15,9 @@ const meta: Meta = {
     >
       {Object.entries(opacities).map(([key, opacity]) => (
         <View key={key} style={[styles.content, { opacity }]}>
-          <Text style={globalStyles.text}>
+          <Text.Base style={globalStyles.text}>
             {key} - {(opacity * 100).toFixed(2)}%
-          </Text>
+          </Text.Base>
         </View>
       ))}
     </ScrollView>

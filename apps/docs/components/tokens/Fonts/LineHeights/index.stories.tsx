@@ -1,5 +1,6 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
+import { Text } from '@aero-ui/ui';
 import { lineHeights } from '@aero-ui/tokens';
 
 import { globalStyles } from '../../../styles';
@@ -15,11 +16,13 @@ const meta: Meta = {
     >
       {Object.entries(lineHeights).map(([key, lineHeight]) => (
         <View key={key} style={styles.content}>
-          <Text style={[globalStyles.text, { lineHeight }]}>{key}</Text>
+          <Text.Base style={[globalStyles.text, { lineHeight }]}>
+            {key}
+          </Text.Base>
 
-          <Text style={[globalStyles.text, { lineHeight }]}>
+          <Text.Base style={[globalStyles.text, { lineHeight }]}>
             {lineHeight}px
-          </Text>
+          </Text.Base>
         </View>
       ))}
     </ScrollView>

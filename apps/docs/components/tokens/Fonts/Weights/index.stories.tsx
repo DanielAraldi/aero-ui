@@ -1,9 +1,10 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
 import { fontWeights } from '@aero-ui/tokens';
 
 import { globalStyles } from '../../../styles';
 import { styles } from './styles';
+import { Text } from '@aero-ui/ui';
 
 const meta: Meta = {
   title: 'Tokens/Fonts',
@@ -15,9 +16,13 @@ const meta: Meta = {
     >
       {Object.entries(fontWeights).map(([key, fontWeight]) => (
         <View key={key} style={styles.content}>
-          <Text style={[globalStyles.text, { fontWeight }]}>{key}</Text>
+          <Text.Base style={[globalStyles.text, { fontWeight }]}>
+            {key}
+          </Text.Base>
 
-          <Text style={[globalStyles.text, { fontWeight }]}>{fontWeight}</Text>
+          <Text.Base style={[globalStyles.text, { fontWeight }]}>
+            {fontWeight}
+          </Text.Base>
         </View>
       ))}
     </ScrollView>

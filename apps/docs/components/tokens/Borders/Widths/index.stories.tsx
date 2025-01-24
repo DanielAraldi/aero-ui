@@ -1,5 +1,6 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
+import { Text } from '@aero-ui/ui';
 import {
   borderWidths,
   BorderWidthsKeysType,
@@ -20,14 +21,14 @@ const meta: Meta = {
     >
       {getValuesSortedOfObject<number>(borderWidths).map(borderWidth => (
         <View key={borderWidth} style={[styles.content, { borderWidth }]}>
-          <Text style={globalStyles.text}>
+          <Text.Base style={globalStyles.text}>
             {getKeyObjectByValue<BorderWidthsObjectType, BorderWidthsKeysType>(
               borderWidths,
               borderWidth
             )}
-          </Text>
+          </Text.Base>
 
-          <Text style={globalStyles.text}>{borderWidth}px</Text>
+          <Text.Base style={globalStyles.text}>{borderWidth}px</Text.Base>
         </View>
       ))}
     </ScrollView>

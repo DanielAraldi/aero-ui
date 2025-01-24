@@ -1,5 +1,6 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
+import { Text } from '@aero-ui/ui';
 import { colors, ColorsKeysType } from '@aero-ui/tokens';
 
 import { styles } from './styles';
@@ -26,7 +27,7 @@ const meta: Meta = {
                 key={color}
                 style={[styles.ghostContent, { backgroundColor: color }]}
               >
-                <Text
+                <Text.Base
                   style={[
                     styles.text,
                     {
@@ -35,7 +36,7 @@ const meta: Meta = {
                   ]}
                 >
                   {key}/{keyColor} - {color}
-                </Text>
+                </Text.Base>
               </View>
             )
           )}

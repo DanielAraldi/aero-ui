@@ -1,5 +1,6 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
+import { Text } from '@aero-ui/ui';
 import { spacings, SpacingKeysType, SpacingObjectType } from '@aero-ui/tokens';
 
 import { styles } from './styles';
@@ -19,14 +20,14 @@ const meta: Meta = {
           <View style={[styles.progress, { width: spacing }]} />
 
           <View style={styles.textContainer}>
-            <Text style={globalStyles.text}>{spacing}px</Text>
+            <Text.Base style={globalStyles.text}>{spacing}px</Text.Base>
 
-            <Text style={globalStyles.text}>
+            <Text.Base style={globalStyles.text}>
               {getKeyObjectByValue<SpacingObjectType, SpacingKeysType>(
                 spacings,
                 spacing
               )}
-            </Text>
+            </Text.Base>
           </View>
         </View>
       ))}
