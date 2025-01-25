@@ -1,5 +1,11 @@
 # @aero-ui/ui
 
+## 1.0.2
+
+### Patch Changes
+
+- Add keyboards for `package.json` of the UI components
+
 ## 1.0.1
 
 ### Patch Changes
