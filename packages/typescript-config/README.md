@@ -62,5 +62,3 @@ A TypeScript configuration for Next.js is available [here](./nextjs.json). This 
 ### React Native ⚛️
 
 A TypeScript configuration for React Native is available [here](./react-native.json). This configuration extends the base configuration and adds support for React Native specific features like bundle splitting, code splitting, and more.
-
----
