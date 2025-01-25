@@ -16,7 +16,7 @@
 
 ## Why Aero? 🤔
 
-**"Aero UI"** embodies lightness, agility, and a sleek aesthetic, perfectly aligned with the modular and efficient nature of [TailwindCSS](https://tailwindcss.com/). 
+**"Aero UI"** embodies lightness, agility, and a sleek aesthetic, perfectly aligned with the modular and efficient nature of [TailwindCSS](https://tailwindcss.com/).
 
 It evokes a sense of modern elegance and simplicity, ideal for a stylish and performant design system for [React Native](https://reactnative.dev/).
 
@@ -24,9 +24,9 @@ It evokes a sense of modern elegance and simplicity, ideal for a stylish and per
 
 Below is a list of our libraries available:
 
+- [`aero-ui/ui`](./packages/ui/README.md): Fluidity and sophistication Aero UI components.
 - [`aero-ui/tokens`](./packages/tokens/README.md): Sample, elegant and beautiful UI tokens of the Aero UI library based in the [TailwindCSS](https://tailwindcss.com/).
 - [`aero-ui/typescript-config`](./packages/typescript-config/README.md): A sample TypeScript configuration of the Aero UI.
-- `aero-ui/ui`: ⚠ Loading... ⚠
 
 ## Issues 🐛
 
