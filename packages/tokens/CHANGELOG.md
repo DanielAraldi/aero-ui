@@ -1,5 +1,11 @@
 # @aero-ui/tokens
 
+## 1.2.0
+
+### Minor Changes
+
+- Add `Text` component for UI and new font weights tokens. Swap the font weights of `string` type for `number` type.
+
 ## 1.1.2
 
 ### Patch Changes
