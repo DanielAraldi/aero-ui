@@ -20,6 +20,12 @@
     "url": "git+https://github.com/DanielAraldi/aero-ui.git",
     "directory": "packages/ui"
   },
+  "keywords": [
+    "Aero",
+    "Aero UI",
+    "Aero Components",
+    "Aero UI Components"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
