@@ -1,5 +1,11 @@
 # @aero-ui/ui
 
+## 1.0.1
+
+### Patch Changes
+
+- Adjust in the publish permissions in the NPM
+
 ## 1.0.0
 
 ### Major Changes
