@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "description": "Your lightness, fluidity, and sophistication Aero UI library.",
   "bugs": {
@@ -41,7 +41,7 @@
     "node": ">=18"
   },
   "publishConfig": {
-    "access": "restricted",
+    "access": "public",
     "registry": "https://registry.npmjs.org",
     "tag": "latest"
   },
