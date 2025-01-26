@@ -238,7 +238,7 @@ const Text9xl = forwardRef(
   }
 );
 
-export const Text = {
+export default {
   Xs: memo(TextXs),
   Sm: memo(TextSm),
   Base: memo(TextBase),
