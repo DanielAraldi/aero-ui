@@ -8,10 +8,10 @@ import { makeStyle } from './styles';
 function Spinner(props: SpinnerProps) {
   const {
     variant = 'unique',
-    color = colors.black[100],
-    overlayColor = 'transparent',
     size = 'normal',
     startBy = 'left',
+    color = colors.black[100],
+    overlayColor = 'transparent',
     duration = 1000,
     easing = Easing.linear,
   } = props;

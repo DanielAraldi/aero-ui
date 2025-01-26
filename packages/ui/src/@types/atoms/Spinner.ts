@@ -7,9 +7,6 @@ export type SpinnerSizeType = 'small' | 'normal' | 'large';
 export type SpinnerStartByType = 'bottom' | 'left' | 'right' | 'top';
 
 export interface SpinnerProps {
-  size?: SpinnerSizeType;
-  color?: ColorValue;
-
   /**
    * @description This property is used to determine the scroll variants of the
    * spinner.
@@ -19,12 +16,11 @@ export interface SpinnerProps {
   variant?: SpinnerVariantType;
 
   /**
-   * @description This property is used to control the color of the spinner
-   * overlay.
+   * @description This property is used to determine the size of the spinner.
    *
-   * @default 'transparent'
+   * @default 'normal'
    */
-  overlayColor?: ColorValue;
+  size?: SpinnerSizeType;
 
   /**
    * @description This property is used to determine the local where the
@@ -33,6 +29,21 @@ export interface SpinnerProps {
    * @default 'left'
    */
   startBy?: SpinnerStartByType;
+
+  /**
+   * @description This property is used to determine the color of the spinner.
+   *
+   * @default 'black'
+   */
+  color?: ColorValue;
+
+  /**
+   * @description This property is used to control the color of the spinner
+   * overlay.
+   *
+   * @default 'transparent'
+   */
+  overlayColor?: ColorValue;
 
   /**
    * @description This property is used to control the duration of the
