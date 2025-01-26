@@ -10,7 +10,15 @@ const TextXs = forwardRef(
 
     const { text } = makeStyle('xs');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -20,7 +28,15 @@ const TextSm = forwardRef(
 
     const { text } = makeStyle('sm');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -30,7 +46,15 @@ const TextBase = forwardRef(
 
     const { text } = makeStyle('base');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -40,7 +64,15 @@ const TextLg = forwardRef(
 
     const { text } = makeStyle('lg');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -50,7 +82,15 @@ const TextXl = forwardRef(
 
     const { text } = makeStyle('xl');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -60,7 +100,15 @@ const Text2xl = forwardRef(
 
     const { text } = makeStyle('2xl');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -70,7 +118,15 @@ const Text3xl = forwardRef(
 
     const { text } = makeStyle('3xl');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -80,7 +136,15 @@ const Text4xl = forwardRef(
 
     const { text } = makeStyle('4xl');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -90,7 +154,15 @@ const Text5xl = forwardRef(
 
     const { text } = makeStyle('5xl');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -100,7 +172,15 @@ const Text6xl = forwardRef(
 
     const { text } = makeStyle('6xl');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -110,7 +190,15 @@ const Text7xl = forwardRef(
 
     const { text } = makeStyle('7xl');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -120,7 +208,15 @@ const Text8xl = forwardRef(
 
     const { text } = makeStyle('8xl');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
@@ -130,7 +226,15 @@ const Text9xl = forwardRef(
 
     const { text } = makeStyle('9xl');
 
-    return <ReactNativeText ref={ref} style={[text, style]} {...rest} />;
+    return (
+      <ReactNativeText
+        ref={ref}
+        accessible
+        accessibilityRole='text'
+        style={[text, style]}
+        {...rest}
+      />
+    );
   }
 );
 
