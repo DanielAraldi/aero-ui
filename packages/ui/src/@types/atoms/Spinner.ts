@@ -1,4 +1,4 @@
-import { ColorValue, EasingFunction } from 'react-native';
+import { ColorValue, EasingFunction, ViewProps } from 'react-native';
 
 export type SpinnerVariantType = 'unique' | 'double' | 'half';
 
@@ -6,7 +6,7 @@ export type SpinnerSizeType = 'small' | 'normal' | 'large';
 
 export type SpinnerStartByType = 'bottom' | 'left' | 'right' | 'top';
 
-export interface SpinnerProps {
+export interface SpinnerProps extends ViewProps {
   /**
    * @description This property is used to determine the scroll variants of the
    * spinner.

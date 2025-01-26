@@ -1,11 +1,11 @@
-import React, { memo, useEffect } from 'react';
-import { Easing, Animated } from 'react-native';
+import React, { ForwardedRef, forwardRef, memo, useEffect } from 'react';
+import { Easing, Animated, View } from 'react-native';
 import { colors, SpacingObjectType } from '@aero-ui/tokens';
 
 import { SpinnerSizeType, SpinnerProps } from '../../@types';
 import { makeStyle } from './styles';
 
-function Spinner(props: SpinnerProps) {
+const Spinner = forwardRef((props: SpinnerProps, ref: ForwardedRef<View>) => {
   const {
     variant = 'unique',
     size = 'normal',
@@ -14,6 +14,8 @@ function Spinner(props: SpinnerProps) {
     overlayColor = 'transparent',
     duration = 1000,
     easing = Easing.linear,
+    style,
+    ...rest
   } = props;
 
   const rotation = new Animated.Value(0, { useNativeDriver: true });
@@ -56,6 +58,7 @@ function Spinner(props: SpinnerProps) {
 
   return (
     <Animated.View
+      ref={ref}
       accessible
       accessibilityRole='none'
       accessibilityLabel='Loading'
@@ -68,9 +71,11 @@ function Spinner(props: SpinnerProps) {
           ...startByStyles,
         },
         { transform: [{ rotate }] },
+        style,
       ]}
+      {...rest}
     />
   );
-}
+});
 
 export default memo(Spinner);
