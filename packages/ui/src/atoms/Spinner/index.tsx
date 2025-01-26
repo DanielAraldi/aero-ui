@@ -58,8 +58,8 @@ function Spinner(props: SpinnerProps) {
     <Animated.View
       accessible
       accessibilityRole='none'
-      accessibilityLabel='Loading...'
-      aria-label='Loading...'
+      accessibilityLabel='Loading'
+      aria-label='Loading'
       style={[
         {
           width: spinnerSizes[size],

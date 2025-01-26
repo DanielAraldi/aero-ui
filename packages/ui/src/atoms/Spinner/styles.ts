@@ -1,6 +1,7 @@
 import { ColorValue, StyleSheet, ViewStyle } from 'react-native';
-import { SpinnerStartByType, SpinnerVariantType } from '../../@types';
 import { borderRadius, borderWidths } from '@aero-ui/tokens';
+
+import { SpinnerStartByType, SpinnerVariantType } from '../../@types';
 
 interface MakeStyleProps {
   variant: SpinnerVariantType;
@@ -17,21 +18,21 @@ const immutableStyles: ViewStyle = {
 export const makeStyle = (props: MakeStyleProps) => {
   const { color, overlayColor, variant } = props;
 
-  const isDouble = variant === 'double';
-  const isHalf = variant === 'half';
+  const doubleColor = variant === 'double' ? color : overlayColor;
+  const halfColor = variant === 'half' ? color : overlayColor;
 
   return StyleSheet.create<Record<SpinnerStartByType, ViewStyle>>({
     bottom: {
-      borderTopColor: isDouble ? color : overlayColor,
+      borderTopColor: doubleColor,
       borderRightColor: overlayColor,
       borderBottomColor: color,
-      borderLeftColor: isHalf ? color : overlayColor,
+      borderLeftColor: halfColor,
       ...immutableStyles,
     },
 
     left: {
-      borderTopColor: isHalf ? color : overlayColor,
-      borderRightColor: isDouble ? color : overlayColor,
+      borderTopColor: halfColor,
+      borderRightColor: doubleColor,
       borderBottomColor: overlayColor,
       borderLeftColor: color,
       ...immutableStyles,
@@ -40,15 +41,15 @@ export const makeStyle = (props: MakeStyleProps) => {
     right: {
       borderTopColor: overlayColor,
       borderRightColor: color,
-      borderBottomColor: isHalf ? color : overlayColor,
-      borderLeftColor: isDouble ? color : overlayColor,
+      borderBottomColor: halfColor,
+      borderLeftColor: doubleColor,
       ...immutableStyles,
     },
 
     top: {
       borderTopColor: color,
-      borderRightColor: isHalf ? color : overlayColor,
-      borderBottomColor: isDouble ? color : overlayColor,
+      borderRightColor: halfColor,
+      borderBottomColor: doubleColor,
       borderLeftColor: overlayColor,
       ...immutableStyles,
     },
