@@ -12,6 +12,8 @@ export interface SpinnerProps {
    * spinner.
    *
    * @default 'unique'
+   *
+   * @since 1.1.0
    */
   variant?: SpinnerVariantType;
 
@@ -19,6 +21,8 @@ export interface SpinnerProps {
    * @description This property is used to determine the size of the spinner.
    *
    * @default 'normal'
+   *
+   * @since 1.1.0
    */
   size?: SpinnerSizeType;
 
@@ -27,6 +31,8 @@ export interface SpinnerProps {
    * spinner starts to rotate.
    *
    * @default 'left'
+   *
+   * @since 1.1.0
    */
   startBy?: SpinnerStartByType;
 
@@ -34,6 +40,8 @@ export interface SpinnerProps {
    * @description This property is used to determine the color of the spinner.
    *
    * @default 'black'
+   *
+   * @since 1.1.0
    */
   color?: ColorValue;
 
@@ -42,6 +50,8 @@ export interface SpinnerProps {
    * overlay.
    *
    * @default 'transparent'
+   *
+   * @since 1.1.0
    */
   overlayColor?: ColorValue;
 
@@ -50,6 +60,8 @@ export interface SpinnerProps {
    * rotation animation.
    *
    * @default 1000
+   *
+   * @since 1.1.0
    */
   duration?: number;
 
@@ -58,6 +70,8 @@ export interface SpinnerProps {
    * rotation animation.
    *
    * @default Easing.linear
+   *
+   * @since 1.1.0
    */
   easing?: EasingFunction;
 }
