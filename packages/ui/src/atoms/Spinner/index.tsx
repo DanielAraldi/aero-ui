@@ -1,52 +1,76 @@
-import React from 'react';
-import { StyleProp, View, ViewStyle } from 'react-native';
-import {
-  borderRadius,
-  BorderWidthsObjectType,
-  colors,
-  SpacingObjectType,
-} from '@aero-ui/tokens';
+import React, { memo, useEffect } from 'react';
+import { Easing, Animated } from 'react-native';
+import { colors, SpacingObjectType } from '@aero-ui/tokens';
 
-import { SpinnerColorType, SpinnerProps } from '../../@types';
+import { SpinnerSizeType, SpinnerProps } from '../../@types';
+import { makeStyle } from './styles';
 
-export function Spinner(props: SpinnerProps) {
+function Spinner(props: SpinnerProps) {
   const {
+    variant = 'unique',
     color = colors.black[100],
-    overlayColor = colors.black[50],
+    overlayColor = 'transparent',
     size = 'normal',
+    startBy = 'left',
+    duration = 1000,
+    easing = Easing.linear,
   } = props;
 
+  const rotation = new Animated.Value(0, { useNativeDriver: true });
+
+  function handleRotateAnimation(): Animated.CompositeAnimation {
+    return Animated.loop(
+      Animated.timing(rotation, {
+        toValue: 360,
+        useNativeDriver: true,
+        duration,
+        easing,
+      })
+    );
+  }
+
+  const rotate = rotation.interpolate({
+    inputRange: [0, 360],
+    outputRange: ['0deg', '360deg'],
+  });
+
+  const startByStyles = makeStyle({ variant, color, overlayColor })[startBy];
+
   const spinnerSizes: Record<
-    SpinnerColorType,
+    SpinnerSizeType,
     SpacingObjectType[keyof SpacingObjectType]
   > = {
-    large: 32,
-    normal: 24,
-    small: 16,
+    large: 40,
+    normal: 32,
+    small: 24,
   };
 
-  const spinnerBorderWidthsSizes: Record<
-    SpinnerColorType,
-    BorderWidthsObjectType[keyof BorderWidthsObjectType]
-  > = {
-    large: 8,
-    normal: 4,
-    small: 4,
-  };
+  useEffect(() => {
+    handleRotateAnimation().start();
 
-  const commonViewProps: StyleProp<ViewStyle> = {
-    width: spinnerSizes[size],
-    height: spinnerSizes[size],
-
-    backgroundColor: 'transparent',
-
-    borderWidth: spinnerBorderWidthsSizes[size],
-    borderRadius: borderRadius.full,
-  };
+    return () => {
+      handleRotateAnimation().stop();
+      rotation.stopAnimation();
+    };
+  }, [props]);
 
   return (
-    <View style={{ ...commonViewProps, borderColor: overlayColor }}>
-      <View style={{ ...commonViewProps, borderColor: color }} />
-    </View>
+    <Animated.View
+      accessible
+      accessibilityRole='none'
+      accessibilityLabel='Loading...'
+      aria-label='Loading...'
+      style={[
+        {
+          width: spinnerSizes[size],
+          height: spinnerSizes[size],
+
+          ...startByStyles,
+        },
+        { transform: [{ rotate }] },
+      ]}
+    />
   );
 }
+
+export default memo(Spinner);
