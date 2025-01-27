@@ -6,6 +6,7 @@ Fluidity and sophistication Aero UI components.
 
 - [Installation](#installation-️)
 - [Components](#components-️)
+  - [Spinner](#spinner-)
   - [Text](#text-)
 
 ## Installation ☁️
@@ -29,6 +30,36 @@ pnpm install @aero-ui/ui @aero-ui/tokens
 ```
 
 ## Components ⚛️
+
+### Spinner 🌀
+
+The `Spinner` component is a simple component that can be used during the app's loading. It is a simple loading component, totally different of the `ActivityIndicator`. We also extend all properties of the `View` component to it. Below we add some properties for it:
+
+| Property       | Description                                                                      | Default         |
+| -------------- | -------------------------------------------------------------------------------- | --------------- |
+| `variant`      | This property is used to determine the scroll variants of the spinner.           | `unique`        |
+| `size`         | This property is used to determine the size of the spinner.                      | `normal`        |
+| `startBy`      | This property is used to determine the local where the spinner starts to rotate. | `left`          |
+| `color`        | This property is used to determine the color of the spinner.                     | `black`         |
+| `overlayColor` | This property is used to control the color of the spinner overlay.               | `transparent`   |
+| `duration`     | This property is used to control the duration of the rotation animation.         | `1000`          |
+| `easing`       | This property is used to control the easing function of the rotation animation.  | `Easing.linear` |
+
+**Note**: All properties of the spinner are **optional**.
+
+```tsx
+import { Spinner } from '@aero-ui/ui';
+
+// ...
+
+export function MyComponent() {
+  // ...
+
+  if (isLoading) return <Spinner />;
+
+  return <View>{/* ... */}</View>;
+}
+```
 
 ### Text 🪶
 
