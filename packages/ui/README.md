@@ -8,6 +8,7 @@ Fluidity and sophistication Aero UI components.
 - [Components](#components-️)
   - [Spinner](#spinner-)
   - [Text](#text-)
+- [TypeScript Support](#typescript-support-)
 
 ## Installation ☁️
 
@@ -33,17 +34,17 @@ pnpm install @aero-ui/ui @aero-ui/tokens
 
 ### Spinner 🌀
 
-The `Spinner` component is a simple component that can be used during the app's loading. It is a simple loading component, totally different of the `ActivityIndicator`. We also extend all properties of the `View` component to it. Below we add some properties for it:
+The `Spinner` component is a simple component that can be used during the app's loading. It is a simple loading component, totally different of the `ActivityIndicator`. We also extend all properties of the `View` component to it. This component have accessibility attributes configured. Below we add some properties for it:
 
-| Property       | Description                                                                      | Default         |
-| -------------- | -------------------------------------------------------------------------------- | --------------- |
-| `variant`      | This property is used to determine the scroll variants of the spinner.           | `unique`        |
-| `size`         | This property is used to determine the size of the spinner.                      | `normal`        |
-| `startBy`      | This property is used to determine the local where the spinner starts to rotate. | `left`          |
-| `color`        | This property is used to determine the color of the spinner.                     | `black`         |
-| `overlayColor` | This property is used to control the color of the spinner overlay.               | `transparent`   |
-| `duration`     | This property is used to control the duration of the rotation animation.         | `1000`          |
-| `easing`       | This property is used to control the easing function of the rotation animation.  | `Easing.linear` |
+| Property       | Description                                | Default         |
+| -------------- | ------------------------------------------ | --------------- |
+| `variant`      | Scroll variants of the spinner.            | `unique`        |
+| `size`         | Spinner's size.                            | `normal`        |
+| `startBy`      | Local where the spinner starts to rotate.  | `left`          |
+| `color`        | Spinner's color.                           | `black`         |
+| `overlayColor` | Color of the spinner overlay.              | `transparent`   |
+| `duration`     | Duration of the rotation animation.        | `1000`          |
+| `easing`       | Easing function of the rotation animation. | `Easing.linear` |
 
 **Note**: All properties of the spinner are **optional**.
 
@@ -63,7 +64,7 @@ export function MyComponent() {
 
 ### Text 🪶
 
-Our `Text` component has the style based in the font of the [TailwindCSS](https://tailwindcss.com/), so we create a `Text` component that contains the different texts inside it. We also preserve all properties of the `Text` component original.
+Our `Text` component has the style based in the font of the [TailwindCSS](https://tailwindcss.com/), so we create a `Text` component that contains the different texts inside it. We also preserve all properties of the `Text` component original. This component have accessibility attributes configured.
 
 ```tsx
 import { Text } from '@aero-ui/ui';
@@ -86,3 +87,7 @@ export function MyComponent() {
   );
 }
 ```
+
+## TypeScript Support 🏗️
+
+Yes! Aero UI components **have support** for TypeScript, our components have interfaces for component props and internal properties it. We also create utility types for to be used for you, these types are specific properties types of the components.
