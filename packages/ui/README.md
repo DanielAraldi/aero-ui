@@ -8,7 +8,7 @@ Fluidity and sophistication Aero UI components.
 - [Components](#components-️)
   - [Spinner](#spinner-)
   - [Text](#text-)
-- [TypeScript Support](#typescript-support-)
+- [TypeScript Support](#typescript-support-️)
 
 ## Installation ☁️
 
