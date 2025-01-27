@@ -497,7 +497,7 @@ const styles = StyleSheet.create({
 
 ## TypeScript Support 👨‍🎨
 
-Yes! Aero UI **has support** for TypeScript, we divide the types of each token **two parts**:
+Yes! Aero UI **have support** for TypeScript, we divide the types of each token **two parts**:
 
 - Object: It's original object `typeof` of the token, it object typing.
 - Keys: It's original object `keyof typeof` of the token, it all keys of the object.
