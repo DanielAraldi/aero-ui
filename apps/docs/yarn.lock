@@ -18,20 +18,20 @@ __metadata:
   linkType: hard
 
 "@aero-ui/tokens@file:../../packages/tokens::locator=docs%40workspace%3A.":
-  version: 1.1.2
-  resolution: "@aero-ui/tokens@file:../../packages/tokens#../../packages/tokens::hash=d4e0dc&locator=docs%40workspace%3A."
-  checksum: 10c0/fe8727c727bafe96ac852910d0e5556fa1a0fabea1cbccc46a510bc4ef50e46c866af15690afe39547f4b787a79b4be517f814f5dea376e242eb90cc60b75bda
+  version: 1.2.0
+  resolution: "@aero-ui/tokens@file:../../packages/tokens#../../packages/tokens::hash=bacb40&locator=docs%40workspace%3A."
+  checksum: 10c0/c4534122e814435b72c42ac71f72889cebd6932220c89fed4d243e768a81b13c1fc4c2bab64bc6dcee1c632888c51ffeccc4cea0a8e19aa639cdc355b095c3ca
   languageName: node
   linkType: hard
 
 "@aero-ui/ui@file:../../packages/ui::locator=docs%40workspace%3A.":
-  version: 0.1.0
-  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=04456b&locator=docs%40workspace%3A."
+  version: 1.0.2
+  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=c7e60d&locator=docs%40workspace%3A."
   peerDependencies:
     "@aero-ui/tokens": "*"
     react: ^18.2.0
     react-native: ^0.73.1
-  checksum: 10c0/38ffa2561947b1cce0f2a06c66a1f08a993f1c317e091535baf338e11d5deadb3d2b3c11164d3960668c2b7a34ba9340913d5e329e7591c0fc5eed086f25d663
+  checksum: 10c0/7d29a8f0632614052bb38de068ea82fa559b3d2a67d6497da4701009d06ff9ba3137aa78099ac0265396442f949e391023dbf1c9e8541fc83896d01f2f6ab15a
   languageName: node
   linkType: hard
 
@@ -4272,15 +4272,15 @@ __metadata:
   linkType: hard
 
 "cross-spawn@npm:^6.0.0":
-  version: 6.0.5
-  resolution: "cross-spawn@npm:6.0.5"
+  version: 6.0.6
+  resolution: "cross-spawn@npm:6.0.6"
   dependencies:
     nice-try: "npm:^1.0.4"
     path-key: "npm:^2.0.1"
     semver: "npm:^5.5.0"
     shebang-command: "npm:^1.2.0"
     which: "npm:^1.2.9"
-  checksum: 10c0/e05544722e9d7189b4292c66e42b7abeb21db0d07c91b785f4ae5fefceb1f89e626da2703744657b287e86dcd4af57b54567cef75159957ff7a8a761d9055012
+  checksum: 10c0/bf61fb890e8635102ea9bce050515cf915ff6a50ccaa0b37a17dc82fded0fb3ed7af5478b9367b86baee19127ad86af4be51d209f64fd6638c0862dca185fe1d
   languageName: node
   linkType: hard
 
