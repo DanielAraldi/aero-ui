@@ -36,15 +36,16 @@ pnpm install @aero-ui/ui @aero-ui/tokens
 
 The `Spinner` component is a simple component that can be used during the app's loading. It is a simple loading component, totally different of the `ActivityIndicator`. We also extend all properties of the `View` component to it. This component have accessibility attributes configured. Below we add some properties for it:
 
-| Property       | Description                                | Default         |
-| -------------- | ------------------------------------------ | --------------- |
-| `variant`      | Scroll variants of the spinner.            | `unique`        |
-| `size`         | Spinner's size.                            | `normal`        |
-| `startBy`      | Local where the spinner starts to rotate.  | `left`          |
-| `color`        | Spinner's color.                           | `black`         |
-| `overlayColor` | Color of the spinner overlay.              | `transparent`   |
-| `duration`     | Duration of the rotation animation.        | `1000`          |
-| `easing`       | Easing function of the rotation animation. | `Easing.linear` |
+| Property          | Description                                                                              | Default         |
+| ----------------- | ---------------------------------------------------------------------------------------- | --------------- |
+| `variant`         | Scroll variants of the spinner.                                                          | `unique`        |
+| `size`            | Spinner's size.                                                                          | `normal`        |
+| `startBy`         | Local where the spinner starts to rotate.                                                | `left`          |
+| `color`           | Spinner's color.                                                                         | `black`         |
+| `overlayColor`    | Color of the spinner overlay.                                                            | `transparent`   |
+| `duration`        | Duration of the rotation animation.                                                      | `1000`          |
+| `useNativeDriver` | Determines if the spinner animation to be executed using native thread UI or JavaScript. | `true`          |
+| `easing`          | Easing function of the rotation animation.                                               | `Easing.linear` |
 
 **Note**: All properties of the spinner are **optional**.
 
