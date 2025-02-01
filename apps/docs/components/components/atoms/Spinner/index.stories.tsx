@@ -14,6 +14,7 @@ const meta: Meta<SpinnerProps> = {
     color: colors.black[100],
     overlayColor: 'transparent',
     duration: 1000,
+    useNativeDriver: true,
     easing: Easing.linear,
   },
   argTypes: {
@@ -50,6 +51,11 @@ const meta: Meta<SpinnerProps> = {
         type: 'number',
         min: 1000,
         max: 10_000,
+      },
+    },
+    useNativeDriver: {
+      control: {
+        type: 'boolean',
       },
     },
     easing: {
