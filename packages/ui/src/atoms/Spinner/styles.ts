@@ -23,35 +23,35 @@ export const makeStyle = (props: MakeStyleProps) => {
 
   return StyleSheet.create<Record<SpinnerStartByType, ViewStyle>>({
     bottom: {
+      ...immutableStyles,
       borderTopColor: doubleColor,
       borderRightColor: overlayColor,
       borderBottomColor: color,
       borderLeftColor: halfColor,
-      ...immutableStyles,
     },
 
     left: {
+      ...immutableStyles,
       borderTopColor: halfColor,
       borderRightColor: doubleColor,
       borderBottomColor: overlayColor,
       borderLeftColor: color,
-      ...immutableStyles,
     },
 
     right: {
+      ...immutableStyles,
       borderTopColor: overlayColor,
       borderRightColor: color,
       borderBottomColor: halfColor,
       borderLeftColor: doubleColor,
-      ...immutableStyles,
     },
 
     top: {
+      ...immutableStyles,
       borderTopColor: color,
       borderRightColor: halfColor,
       borderBottomColor: doubleColor,
       borderLeftColor: overlayColor,
-      ...immutableStyles,
     },
   });
 };
