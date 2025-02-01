@@ -20,6 +20,8 @@
 
 It evokes a sense of modern elegance and simplicity, ideal for a stylish and performant design system for [React Native](https://reactnative.dev/).
 
+See our Figma design [here](https://www.figma.com/design/jifijv3pYUDlI0rW4hmiP7/Aero-UI?node-id=1-9&t=ZHd3vqTd7UVavFiJ-1)! 🎨
+
 ## Libraries 📖
 
 Below is a list of our libraries available:
