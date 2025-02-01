@@ -1,5 +1,5 @@
 import { ColorValue, StyleSheet, ViewStyle } from 'react-native';
-import { borderRadius, borderWidths } from '@aero-ui/tokens';
+import { borderWidths } from '@aero-ui/tokens';
 
 import { SpinnerStartByType, SpinnerVariantType } from '../../@types';
 
@@ -12,7 +12,6 @@ interface MakeStyleProps {
 const immutableStyles: ViewStyle = {
   backgroundColor: 'transparent',
   borderWidth: borderWidths[4],
-  borderRadius: borderRadius.full,
 };
 
 export const makeStyle = (props: MakeStyleProps) => {

@@ -1,6 +1,6 @@
 import React, { ForwardedRef, forwardRef, memo, useEffect } from 'react';
-import { Easing, Animated, View } from 'react-native';
-import { colors, SpacingObjectType } from '@aero-ui/tokens';
+import { Easing, Animated, View, Platform } from 'react-native';
+import { borderRadius, colors, SpacingObjectType } from '@aero-ui/tokens';
 
 import { SpinnerSizeType, SpinnerProps } from '../../@types';
 import { makeStyle } from './styles';
@@ -48,6 +48,9 @@ const Spinner = forwardRef((props: SpinnerProps, ref: ForwardedRef<View>) => {
     small: 24,
   };
 
+  const spinnerBorderRadius =
+    Platform.OS === 'android' ? spinnerSizes[size] / 2 : borderRadius.full;
+
   useEffect(() => {
     handleRotateAnimation().start();
 
@@ -69,9 +72,10 @@ const Spinner = forwardRef((props: SpinnerProps, ref: ForwardedRef<View>) => {
           width: spinnerSizes[size],
           height: spinnerSizes[size],
 
-          ...startByStyles,
+          borderRadius: spinnerBorderRadius,
         },
         { transform: [{ rotate }] },
+        startByStyles,
         style,
       ]}
       {...rest}
