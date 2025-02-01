@@ -66,6 +66,16 @@ export interface SpinnerProps extends ViewProps {
   duration?: number;
 
   /**
+   * @description This property determines if the spinner animation to be
+   * executed using native thread UI or JavaScript.
+   *
+   * @default true
+   *
+   * @since 1.1.0
+   */
+  useNativeDriver?: boolean;
+
+  /**
    * @description This property is used to control the easing function of the
    * rotation animation.
    *

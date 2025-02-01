@@ -13,18 +13,19 @@ const Spinner = forwardRef((props: SpinnerProps, ref: ForwardedRef<View>) => {
     color = colors.black[100],
     overlayColor = 'transparent',
     duration = 1000,
+    useNativeDriver = true,
     easing = Easing.linear,
     style,
     ...rest
   } = props;
 
-  const rotation = new Animated.Value(0, { useNativeDriver: true });
+  const rotation = new Animated.Value(0, { useNativeDriver });
 
   function handleRotateAnimation(): Animated.CompositeAnimation {
     return Animated.loop(
       Animated.timing(rotation, {
         toValue: 360,
-        useNativeDriver: true,
+        useNativeDriver,
         duration,
         easing,
       })
