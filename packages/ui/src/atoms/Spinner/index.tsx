@@ -21,7 +21,7 @@ const Spinner = forwardRef((props: SpinnerProps, ref: ForwardedRef<View>) => {
 
   const rotation = new Animated.Value(0, { useNativeDriver });
 
-  function handleRotateAnimation(): Animated.CompositeAnimation {
+  function handleSpinAnimation(): Animated.CompositeAnimation {
     return Animated.loop(
       Animated.timing(rotation, {
         toValue: 360,
@@ -52,13 +52,11 @@ const Spinner = forwardRef((props: SpinnerProps, ref: ForwardedRef<View>) => {
     Platform.OS === 'android' ? spinnerSizes[size] / 2 : borderRadius.full;
 
   useEffect(() => {
-    handleRotateAnimation().start();
+    const spinAnimation = handleSpinAnimation();
+    spinAnimation.start();
 
-    return () => {
-      handleRotateAnimation().stop();
-      rotation.stopAnimation();
-    };
-  }, [props]);
+    return () => spinAnimation.stop();
+  }, [rotation, useNativeDriver, duration, easing]);
 
   return (
     <Animated.View
