@@ -13,6 +13,8 @@ export interface SpinnerProps extends ViewProps {
    *
    * @default 'unique'
    *
+   * @platform ios
+   *
    * @since 1.1.0
    */
   variant?: SpinnerVariantType;
@@ -31,6 +33,8 @@ export interface SpinnerProps extends ViewProps {
    * spinner starts to rotate.
    *
    * @default 'left'
+   *
+   * @platform ios
    *
    * @since 1.1.0
    */
@@ -51,6 +55,8 @@ export interface SpinnerProps extends ViewProps {
    *
    * @default 'transparent'
    *
+   * @platform ios
+   *
    * @since 1.1.0
    */
   overlayColor?: ColorValue;
@@ -60,6 +66,8 @@ export interface SpinnerProps extends ViewProps {
    * rotation animation.
    *
    * @default 1000
+   *
+   * @platform ios
    *
    * @since 1.1.0
    */
@@ -71,15 +79,41 @@ export interface SpinnerProps extends ViewProps {
    *
    * @default true
    *
+   * @platform ios
+   *
    * @since 1.1.0
    */
   useNativeDriver?: boolean;
+
+  /**
+   * @description Whether to show the indicator or hide it.
+   *
+   * @default true
+   *
+   * @platform android
+   *
+   * @since 1.1.0
+   */
+  animating?: boolean | undefined;
+
+  /**
+   * @description Whether the indicator should hide when not animating.
+   *
+   * @default true
+   *
+   * @platform android
+   *
+   * @since 1.1.0
+   */
+  hidesWhenStopped?: boolean | undefined;
 
   /**
    * @description This property is used to control the easing function of the
    * rotation animation.
    *
    * @default Easing.linear
+   *
+   * @platform ios
    *
    * @since 1.1.0
    */

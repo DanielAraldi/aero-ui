@@ -1,5 +1,5 @@
 import { ColorValue, StyleSheet, ViewStyle } from 'react-native';
-import { borderWidths } from '@aero-ui/tokens';
+import { borderRadius, borderWidths } from '@aero-ui/tokens';
 
 import { SpinnerStartByType, SpinnerVariantType } from '../../@types';
 
@@ -12,6 +12,7 @@ interface MakeStyleProps {
 const immutableStyles: ViewStyle = {
   backgroundColor: 'transparent',
   borderWidth: borderWidths[4],
+  borderRadius: borderRadius.full,
 };
 
 export const makeStyle = (props: MakeStyleProps) => {
@@ -23,6 +24,7 @@ export const makeStyle = (props: MakeStyleProps) => {
   return StyleSheet.create<Record<SpinnerStartByType, ViewStyle>>({
     bottom: {
       ...immutableStyles,
+
       borderTopColor: doubleColor,
       borderRightColor: overlayColor,
       borderBottomColor: color,
@@ -31,6 +33,7 @@ export const makeStyle = (props: MakeStyleProps) => {
 
     left: {
       ...immutableStyles,
+
       borderTopColor: halfColor,
       borderRightColor: doubleColor,
       borderBottomColor: overlayColor,
@@ -39,6 +42,7 @@ export const makeStyle = (props: MakeStyleProps) => {
 
     right: {
       ...immutableStyles,
+
       borderTopColor: overlayColor,
       borderRightColor: color,
       borderBottomColor: halfColor,
@@ -47,6 +51,7 @@ export const makeStyle = (props: MakeStyleProps) => {
 
     top: {
       ...immutableStyles,
+
       borderTopColor: color,
       borderRightColor: halfColor,
       borderBottomColor: doubleColor,
