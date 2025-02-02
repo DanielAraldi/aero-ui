@@ -36,6 +36,6 @@ export const spacings = {
   96: 384,
 } as const;
 
-export type SpacingObjectType = typeof spacings;
+export type SpacingsObjectType = typeof spacings;
 
-export type SpacingKeysType = keyof typeof spacings;
+export type SpacingsKeysType = keyof typeof spacings;

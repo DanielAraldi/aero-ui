@@ -1,7 +1,11 @@
 import { ScrollView, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
 import { Text } from '@aero-ui/ui';
-import { spacings, SpacingKeysType, SpacingObjectType } from '@aero-ui/tokens';
+import {
+  spacings,
+  SpacingsObjectType,
+  SpacingsKeysType,
+} from '@aero-ui/tokens';
 
 import { styles } from './styles';
 import { globalStyles } from '../../styles';
@@ -23,7 +27,7 @@ const meta: Meta = {
             <Text.Base style={globalStyles.text}>{spacing}px</Text.Base>
 
             <Text.Base style={globalStyles.text}>
-              {getKeyObjectByValue<SpacingObjectType, SpacingKeysType>(
+              {getKeyObjectByValue<SpacingsObjectType, SpacingsKeysType>(
                 spacings,
                 spacing
               )}

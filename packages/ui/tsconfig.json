@@ -3,6 +3,8 @@
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
     "strict": true
   }
 }
