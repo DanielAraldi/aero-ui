@@ -1,5 +1,11 @@
 # @aero-ui/ui
 
+## 1.1.4
+
+### Patch Changes
+
+- Remove `SpacingsObjectType` not found in the `@aero-ui/tokens`.
+
 ## 1.1.3
 
 ### Patch Changes
