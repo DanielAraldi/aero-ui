@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
   ViewProps,
 } from 'react-native';
-import { colors, type SpacingsObjectType, spacings } from '@aero-ui/tokens';
+import { colors, SpacingsObjectType, spacings } from '@aero-ui/tokens';
 
 import { SpinnerSizeType, SpinnerProps } from '../../@types';
 import { makeStyle } from './styles';
