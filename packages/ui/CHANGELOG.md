@@ -1,5 +1,11 @@
 # @aero-ui/ui
 
+## 1.1.5
+
+### Patch Changes
+
+- Fix type not found exported module.
+
 ## 1.1.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @aero-ui/tokens
 
+## 1.2.4
+
+### Patch Changes
+
+- Fix type not found exported module.
+
 ## 1.2.3
 
 ### Patch Changes
