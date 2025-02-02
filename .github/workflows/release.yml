@@ -21,11 +21,11 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Clear Packages
-        run: yarn clean
-
       - name: Install Dependencies
         run: yarn install
+
+      - name: Clear Packages
+        run: turbo run clean
 
       - name: Build Packages
         run: yarn build
