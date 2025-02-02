@@ -1,5 +1,11 @@
 # @aero-ui/ui
 
+## 1.1.0
+
+### Minor Changes
+
+- Add `Spinner` component.
+
 ## 1.0.2
 
 ### Patch Changes
