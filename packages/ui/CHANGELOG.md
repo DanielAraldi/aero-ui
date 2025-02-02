@@ -1,5 +1,11 @@
 # @aero-ui/ui
 
+## 1.1.2
+
+### Patch Changes
+
+- Fix incorrect import during TypeScript build.
+
 ## 1.1.1
 
 ### Patch Changes
