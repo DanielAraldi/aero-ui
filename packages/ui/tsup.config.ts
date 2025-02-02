@@ -2,7 +2,7 @@ import { defineConfig, Options } from 'tsup';
 
 export default defineConfig((options: Options) => ({
   entry: {
-    index: 'src/index.ts',
+    index: 'index.ts',
   },
   banner: {
     js: "'use client'",
@@ -11,5 +11,6 @@ export default defineConfig((options: Options) => ({
   format: ['cjs', 'esm'],
   external: ['react', 'react-native', '@aero-ui/tokens'],
   dts: true,
+  tsconfig: 'tsconfig.json',
   ...options,
 }));

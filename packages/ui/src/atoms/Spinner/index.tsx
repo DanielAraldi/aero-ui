@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
   ViewProps,
 } from 'react-native';
-import { colors, spacings } from '@aero-ui/tokens';
+import { colors, spacings, SpacingsObjectType } from '@aero-ui/tokens';
 
 import { SpinnerSizeType, SpinnerProps } from '../../@types';
 import { makeStyle } from './styles';
@@ -53,7 +53,7 @@ const Spinner = forwardRef(
 
     const spinnerSizes: Record<
       SpinnerSizeType,
-      (typeof spacings)[keyof typeof spacings]
+      SpacingsObjectType[keyof SpacingsObjectType]
     > = {
       large: spacings[10],
       normal: spacings[8],

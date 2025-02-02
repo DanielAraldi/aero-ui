@@ -2,7 +2,7 @@ import { defineConfig, Options } from 'tsup';
 
 export default defineConfig((options: Options) => ({
   entry: {
-    index: 'src/index.ts',
+    index: 'index.ts',
   },
   banner: {
     js: "'use client'",
@@ -10,5 +10,6 @@ export default defineConfig((options: Options) => ({
   clean: true,
   format: ['cjs', 'esm'],
   dts: true,
+  tsconfig: 'tsconfig.json',
   ...options,
 }));
