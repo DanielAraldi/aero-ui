@@ -36,16 +36,18 @@ pnpm install @aero-ui/ui @aero-ui/tokens
 
 The `Spinner` component is a simple component that can be used during the app's loading. It is a simple loading component, totally different of the `ActivityIndicator`. We also extend all properties of the `View` component to it. This component have accessibility attributes configured. Below we add some properties for it:
 
-| Property          | Description                                                                              | Default         |
-| ----------------- | ---------------------------------------------------------------------------------------- | --------------- |
-| `variant`         | Scroll variants of the spinner.                                                          | `unique`        |
-| `size`            | Spinner's size.                                                                          | `normal`        |
-| `startBy`         | Local where the spinner starts to rotate.                                                | `left`          |
-| `color`           | Spinner's color.                                                                         | `black`         |
-| `overlayColor`    | Color of the spinner overlay.                                                            | `transparent`   |
-| `duration`        | Duration of the rotation animation.                                                      | `1000`          |
-| `useNativeDriver` | Determines if the spinner animation to be executed using native thread UI or JavaScript. | `true`          |
-| `easing`          | Easing function of the rotation animation.                                               | `Easing.linear` |
+| Property           | Description                                                                              | Default         | Platform |
+| ------------------ | ---------------------------------------------------------------------------------------- | --------------- | -------- |
+| `variant`          | Scroll variants of the spinner.                                                          | `unique`        | iOS      |
+| `size`             | Spinner's size.                                                                          | `normal`        | Both     |
+| `startBy`          | Local where the spinner starts to rotate.                                                | `left`          | iOS      |
+| `color`            | Spinner's color.                                                                         | `black`         | Both     |
+| `overlayColor`     | Color of the spinner overlay.                                                            | `transparent`   | iOS      |
+| `duration`         | Duration of the rotation animation.                                                      | `1000`          | iOS      |
+| `useNativeDriver`  | Determines if the spinner animation to be executed using native thread UI or JavaScript. | `true`          | iOS      |
+| `animating`        | Show the indicator or hide it.                                                           | `true`          | Android  |
+| `hidesWhenStopped` | Whether the indicator should hide when not animating.                                    | `true`          | Android  |
+| `easing`           | Easing function of the rotation animation.                                               | `Easing.linear` | iOS      |
 
 **Note**: All properties of the spinner are **optional**.
 
@@ -77,13 +79,13 @@ export function MyComponent() {
 
   return (
     <View>
-      <Text.Lg>Foo Baa</Text.Lg>
+      <Text.Lg>Foo Bar</Text.Lg>
 
       <View>
-        <Text.Base>Foo Baa</Text.Base>
+        <Text.Base>Foo Bar</Text.Base>
       </View>
 
-      <Text.Sm>Foo Baa</Text.Sm>
+      <Text.Sm>Foo Bar</Text.Sm>
     </View>
   );
 }
