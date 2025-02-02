@@ -1,0 +1,21 @@
+# Node
+node_modules
+**/node_modules
+**/build
+**/dist
+
+# VSCode
+.vscode
+
+# Turbo
+.turbo
+apps/docs
+
+# GitHub
+.github
+
+# Husky
+.husky
+
+# Version
+.changeset
