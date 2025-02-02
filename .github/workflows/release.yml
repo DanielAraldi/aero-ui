@@ -25,7 +25,7 @@ jobs:
         run: yarn install
 
       - name: Clear Packages
-        run: turbo run clean
+        run: npx turbo run clean
 
       - name: Build Packages
         run: yarn build
