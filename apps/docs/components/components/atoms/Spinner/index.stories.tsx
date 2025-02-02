@@ -15,6 +15,8 @@ const meta: Meta<SpinnerProps> = {
     overlayColor: 'transparent',
     duration: 1000,
     useNativeDriver: true,
+    animating: true,
+    hidesWhenStopped: true,
     easing: Easing.linear,
   },
   argTypes: {
@@ -54,6 +56,16 @@ const meta: Meta<SpinnerProps> = {
       },
     },
     useNativeDriver: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    animating: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    hidesWhenStopped: {
       control: {
         type: 'boolean',
       },
