@@ -1,5 +1,11 @@
 # @aero-ui/ui
 
+## 1.1.3
+
+### Patch Changes
+
+- Fix the issue for the missing member export the fact of intermediary index file which TypeScript doesn't seem to be able to use when exporting types
+
 ## 1.1.2
 
 ### Patch Changes

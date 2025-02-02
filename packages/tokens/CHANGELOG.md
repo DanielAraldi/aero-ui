@@ -1,5 +1,11 @@
 # @aero-ui/tokens
 
+## 1.2.2
+
+### Patch Changes
+
+- Fix the issue for the missing member export the fact of intermediary index file which TypeScript doesn't seem to be able to use when exporting types
+
 ## 1.2.1
 
 ### Patch Changes
