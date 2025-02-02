@@ -1,5 +1,11 @@
 # @aero-ui/ui
 
+## 1.1.1
+
+### Patch Changes
+
+- Add correct import path of the `@aero-ui/tokens` in the `aero-ui/ui`
+
 ## 1.1.0
 
 ### Minor Changes
