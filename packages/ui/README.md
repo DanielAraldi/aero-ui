@@ -34,7 +34,7 @@ pnpm install @aero-ui/ui @aero-ui/tokens
 
 ### Spinner 🌀
 
-The `Spinner` component is a simple component that can be used during the app's loading. It is a simple loading component, totally different of the `ActivityIndicator`. We also extend all properties of the `View` component to it. This component have accessibility attributes configured. Below we add some properties for it:
+The `Spinner` component is a simple component that can be used during the app's loading. It is a simple loading component in iOS. Still, in Android, it is an `ActivityIndicator` because we use border specific border colors to create the `Spinner` component that on Android doesn't work correctly. We also extend all properties of the `View` component to it. This component have accessibility attributes configured. Below we add some properties for it:
 
 | Property           | Description                                                                              | Default         | Platform |
 | ------------------ | ---------------------------------------------------------------------------------------- | --------------- | -------- |
