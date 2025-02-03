@@ -19,19 +19,19 @@ __metadata:
 
 "@aero-ui/tokens@file:../../packages/tokens::locator=docs%40workspace%3A.":
   version: 1.2.4
-  resolution: "@aero-ui/tokens@file:../../packages/tokens#../../packages/tokens::hash=bfd3ed&locator=docs%40workspace%3A."
-  checksum: 10c0/5ba776b39b6f7d4bebe6e6e783b089114de0516a68e50efa511620c246f874d6982a3abb07b34e5a88c8812af93186f1635bea8d2c56b7162e804bae62ed2164
+  resolution: "@aero-ui/tokens@file:../../packages/tokens#../../packages/tokens::hash=bab688&locator=docs%40workspace%3A."
+  checksum: 10c0/3d5df93e1084fcca4e5fedb777c574b926e91df954fc489c0fce3944321493657a0ef0b112c68087bc0d8a9aab14c536ac29bfe7d3b4237092875bd6f95c4914
   languageName: node
   linkType: hard
 
 "@aero-ui/ui@file:../../packages/ui::locator=docs%40workspace%3A.":
   version: 1.1.5
-  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=2b15f8&locator=docs%40workspace%3A."
+  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=d6ea82&locator=docs%40workspace%3A."
   peerDependencies:
     "@aero-ui/tokens": "*"
     react: ^18.2.0
     react-native: ^0.73.1
-  checksum: 10c0/ba64a3d17197d7d1056801a939f49d83a2c9f4fbc8edf772d1af3e2eee101919e3ec3ebdc7437b41bbdc53465443256b48f6a43c81c6fd228f532ca168fbb04b
+  checksum: 10c0/4a61a3fb612d1c4adf8800d6fc0085d9b3272ca903ef19bc6412aa595a0f10ecd1686e146908b63d8d5251b3db705d5e531bcf4ab61e6633e92d462be8e349a5
   languageName: node
   linkType: hard
 
