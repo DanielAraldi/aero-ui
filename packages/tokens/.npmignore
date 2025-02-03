@@ -3,6 +3,7 @@
 
 # Source
 src
+index.ts
 
 # Docs
 CHANGELOG.md
