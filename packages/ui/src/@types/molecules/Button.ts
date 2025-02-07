@@ -1,4 +1,7 @@
-import { StyleProp, TouchableHighlightProps, ViewProps } from 'react-native';
+import { ReactElement } from 'react';
+import { TouchableHighlightProps } from 'react-native';
+
+import { SpinnerProps, TextProps } from '../atoms';
 
 export type ButtonVariantType =
   | 'primary'
@@ -8,7 +11,11 @@ export type ButtonVariantType =
   | 'warning'
   | 'neutral';
 
-export interface ButtonProps extends TouchableHighlightProps {
+export interface TextButtonProps extends TextProps {}
+
+export interface SpinnerButtonProps extends SpinnerProps {}
+
+export interface ButtonProps extends Omit<TouchableHighlightProps, 'children'> {
   /**
    * @description This property is used to display a title for the button.
    *
@@ -45,4 +52,46 @@ export interface ButtonProps extends TouchableHighlightProps {
    * @since 1.2.0
    */
   bordered?: boolean;
+
+  /**
+   * @description This property is used to determine if the button will fill to
+   * all your wrapper.
+   *
+   * @default true
+   *
+   * @since 1.2.0
+   */
+  hugWidth?: boolean;
+
+  /**
+   * @description This property determines if the button scale animation to be
+   * executed using native thread UI or JavaScript.
+   *
+   * @default true
+   *
+   * @platform ios
+   *
+   * @since 1.1.0
+   */
+  useNativeDriver: boolean;
+
+  /**
+   * @description This property is used to determine the `Text` component of the
+   * button.
+   *
+   * @default undefined
+   *
+   * @since 1.2.0
+   */
+  text?: ReactElement<TextButtonProps>;
+
+  /**
+   * @description This property is used to determine the `Spinner` component of
+   * the button.
+   *
+   * @default undefined
+   *
+   * @since 1.2.0
+   */
+  spinner?: ReactElement<SpinnerButtonProps>;
 }
