@@ -12,6 +12,10 @@ interface MakeStyleProps {
   bordered: boolean;
 }
 
+type MakeColorProps = Pick<MakeStyleProps, 'variant' | 'disabled' | 'loading'>;
+
+type MakeOpacityProps = Pick<MakeStyleProps, 'disabled' | 'pressed'>;
+
 const backgroundColors: Record<ButtonVariantType, ColorValue> = {
   primary: colors.blue[500],
   success: colors.green[500],
@@ -39,9 +43,7 @@ const disabledBorderColors: Record<ButtonVariantType, ColorValue> = {
   neutral: colors.neutral[50],
 };
 
-function getBackgroundColor(
-  props: Pick<MakeStyleProps, 'variant' | 'disabled' | 'loading'>
-): ColorValue {
+function getBackgroundColor(props: MakeColorProps): ColorValue {
   const { variant, disabled, loading } = props;
 
   if (loading) return backgroundColors[variant];
@@ -49,9 +51,7 @@ function getBackgroundColor(
   else return backgroundColors[variant];
 }
 
-function getBorderColor(
-  props: Pick<MakeStyleProps, 'variant' | 'disabled' | 'loading'>
-): ColorValue {
+function getBorderColor(props: MakeColorProps): ColorValue {
   const { variant, disabled, loading } = props;
 
   const borderColor = colors[variant === 'ghost' ? 'black' : 'white'][100];
@@ -61,9 +61,7 @@ function getBorderColor(
   else return borderColor;
 }
 
-function getWrapperOpacity(
-  props: Pick<MakeStyleProps, 'disabled' | 'pressed'>
-): number {
+function getWrapperOpacity(props: MakeOpacityProps): number {
   const { disabled, pressed } = props;
 
   if (disabled) return 0.75;
