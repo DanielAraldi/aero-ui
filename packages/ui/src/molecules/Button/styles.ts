@@ -1,5 +1,5 @@
 import { ColorValue, StyleSheet } from 'react-native';
-import { borderWidths, colors, spacings } from '@aero-ui/tokens';
+import { borderRadius, borderWidths, colors, spacings } from '@aero-ui/tokens';
 
 import { ButtonVariantType } from '../../@types';
 
@@ -21,15 +21,6 @@ const backgroundColors: Record<ButtonVariantType, ColorValue> = {
   neutral: colors.neutral[500],
 };
 
-const pressedBackgroundColors: Record<ButtonVariantType, ColorValue> = {
-  danger: colors.red[400],
-  ghost: 'transparent',
-  neutral: colors.neutral[400],
-  primary: colors.blue[400],
-  success: colors.green[400],
-  warning: colors.yellow[400],
-};
-
 const disabledBackgroundColors: Record<ButtonVariantType, ColorValue> = {
   danger: colors.red[300],
   ghost: 'transparent',
@@ -39,44 +30,35 @@ const disabledBackgroundColors: Record<ButtonVariantType, ColorValue> = {
   warning: colors.yellow[300],
 };
 
-const pressedBorderColors: Record<ButtonVariantType, ColorValue> = {
-  primary: colors.blue[100],
-  success: colors.green[100],
-  ghost: colors.white[85],
-  danger: colors.red[100],
-  warning: colors.yellow[100],
-  neutral: colors.neutral[100],
-};
-
 const disabledBorderColors: Record<ButtonVariantType, ColorValue> = {
   primary: colors.blue[50],
   success: colors.green[50],
-  ghost: colors.white[60],
+  ghost: colors.black[60],
   danger: colors.red[50],
   warning: colors.yellow[50],
   neutral: colors.neutral[50],
 };
 
 function getBackgroundColor(
-  props: Omit<MakeStyleProps, 'hugWidth' | 'bordered'>
+  props: Pick<MakeStyleProps, 'variant' | 'disabled' | 'loading'>
 ): ColorValue {
-  const { variant, disabled, pressed, loading } = props;
+  const { variant, disabled, loading } = props;
 
   if (loading) return backgroundColors[variant];
   else if (disabled) return disabledBackgroundColors[variant];
-  else if (pressed) return pressedBackgroundColors[variant];
   else return backgroundColors[variant];
 }
 
 function getBorderColor(
-  props: Omit<MakeStyleProps, 'hugWidth' | 'bordered'>
+  props: Pick<MakeStyleProps, 'variant' | 'disabled' | 'loading'>
 ): ColorValue {
-  const { variant, disabled, pressed, loading } = props;
+  const { variant, disabled, loading } = props;
 
-  if (loading) return colors.white[100];
+  const borderColor = colors[variant === 'ghost' ? 'black' : 'white'][100];
+
+  if (loading) return borderColor;
   else if (disabled) return disabledBorderColors[variant];
-  else if (pressed) return pressedBorderColors[variant];
-  else return colors.white[100];
+  else return borderColor;
 }
 
 function getWrapperOpacity(
@@ -84,8 +66,8 @@ function getWrapperOpacity(
 ): number {
   const { disabled, pressed } = props;
 
-  if (disabled) return 0.7;
-  else if (pressed) return 0.8;
+  if (disabled) return 0.75;
+  else if (pressed) return 0.85;
   else return 1;
 }
 
@@ -105,19 +87,17 @@ export const makeStyles = (props: MakeStyleProps) => {
       justifyContent: 'center',
       alignItems: 'center',
 
-      padding: spacings[2],
+      paddingVertical: spacings[2],
+      paddingHorizontal: spacings[hugWidth ? 2 : 4],
 
-      backgroundColor: getBackgroundColor({
-        variant,
-        disabled,
-        loading,
-        pressed,
-      }),
+      backgroundColor: getBackgroundColor({ variant, disabled, loading }),
 
       ...(bordered && {
         borderWidth: borderWidths.px,
-        borderColor: getBorderColor({ variant, disabled, loading, pressed }),
+        borderColor: getBorderColor({ variant, disabled, loading }),
       }),
+
+      borderRadius: borderRadius.full,
     },
 
     wrapper: {
@@ -125,7 +105,7 @@ export const makeStyles = (props: MakeStyleProps) => {
     },
 
     text: {
-      color: colors.white[100],
+      color: colors[variant === 'ghost' ? 'black' : 'white'][100],
     },
   });
 };

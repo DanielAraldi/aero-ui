@@ -7,27 +7,30 @@ import React, {
 } from 'react';
 import {
   Animated,
+  ColorValue,
   GestureResponderEvent,
   TouchableHighlight,
   View,
 } from 'react-native';
+import { colors } from '@aero-ui/tokens';
 
 import { Spinner, Text } from '../../atoms';
-import { ButtonProps } from '../../@types';
+import { ButtonProps, ButtonVariantType } from '../../@types';
 import { makeStyles } from './styles';
-import { colors } from '@aero-ui/tokens';
 
 const Button = forwardRef(
   (props: ButtonProps, ref: ForwardedRef<TouchableHighlight>) => {
     const {
       variant = 'primary',
       title = 'Title',
+      duration = 150,
       hugWidth = true,
       useNativeDriver = true,
       loading = false,
       bordered = false,
       disabled = false,
       activeOpacity = 1,
+      underlayColor,
       text,
       spinner,
       style,
@@ -38,30 +41,40 @@ const Button = forwardRef(
 
     const [isPressed, setIsPressed] = useState<boolean>(false);
 
-    const scale = new Animated.Value(1, { useNativeDriver });
-    const shouldEnableActions = disabled || loading;
+    const measurement = new Animated.Value(0, { useNativeDriver });
+    const spinnerColorKey = variant === 'ghost' ? 'black' : 'white';
+    const shouldDisableActions = disabled || loading;
 
     function handleScaleAnimation(): Animated.CompositeAnimation {
-      return Animated.timing(scale, {
-        toValue: isPressed ? 0.95 : 1,
-        duration: 250,
+      return Animated.timing(measurement, {
+        toValue: isPressed ? 1 : 0,
+        duration,
         useNativeDriver,
       });
     }
 
     function handlePressIn(event: GestureResponderEvent) {
-      if (shouldEnableActions) return;
+      if (shouldDisableActions) return;
 
       setIsPressed(true);
       onPressIn?.(event);
     }
 
     function handlePressOut(event: GestureResponderEvent) {
-      if (shouldEnableActions) return;
+      if (shouldDisableActions) return;
 
       setIsPressed(false);
       onPressOut?.(event);
     }
+
+    const underlayColors: Record<ButtonVariantType, ColorValue> = {
+      danger: colors.red[400],
+      ghost: 'transparent',
+      neutral: colors.neutral[400],
+      primary: colors.blue[400],
+      success: colors.green[400],
+      warning: colors.yellow[400],
+    };
 
     const styles = makeStyles({
       bordered,
@@ -72,13 +85,18 @@ const Button = forwardRef(
       pressed: isPressed,
     });
 
+    const scale = measurement.interpolate({
+      inputRange: [0, 1],
+      outputRange: [1, 0.98],
+    });
+
     useEffect(() => {
       const scaleAnimation = handleScaleAnimation();
 
-      if (loading) scaleAnimation.start();
+      if (!shouldDisableActions) scaleAnimation.start();
 
       return () => scaleAnimation.stop();
-    }, [loading, isPressed]);
+    }, [shouldDisableActions, isPressed]);
 
     return (
       <Animated.View style={[styles.container, { transform: [{ scale }] }]}>
@@ -87,13 +105,14 @@ const Button = forwardRef(
           accessible
           accessibilityRole='button'
           accessibilityState={{
-            disabled: shouldEnableActions,
+            disabled: shouldDisableActions,
             selected: isPressed,
           }}
-          aria-disabled={shouldEnableActions}
+          aria-disabled={shouldDisableActions}
           aria-selected={isPressed}
           activeOpacity={activeOpacity}
-          disabled={shouldEnableActions}
+          underlayColor={underlayColor || underlayColors[variant]}
+          disabled={shouldDisableActions}
           style={[styles.button, style]}
           onPressIn={handlePressIn}
           onPressOut={handlePressOut}
@@ -106,8 +125,8 @@ const Button = forwardRef(
                     variant='half'
                     size='small'
                     startBy='bottom'
-                    color={colors.white[100]}
-                    overlayColor={colors.white[25]}
+                    color={colors[spinnerColorKey][100]}
+                    overlayColor={colors[spinnerColorKey][25]}
                   />
                 )
               : text || <Text.Base style={styles.text}>{title}</Text.Base>}
