@@ -35,6 +35,16 @@ export interface ButtonProps extends Omit<TouchableHighlightProps, 'children'> {
   variant?: ButtonVariantType;
 
   /**
+   * @description This property is used to control the duration of the
+   * scale animation when button is pressed.
+   *
+   * @default 150
+   *
+   * @since 1.2.0
+   */
+  duration?: number;
+
+  /**
    * @description This property is used to determine if the button is loading.
    * When the button is loading it will be automatically disabled.
    *
