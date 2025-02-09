@@ -64,7 +64,9 @@ const Spinner = forwardRef(
       accessible: true,
       accessibilityRole: 'none',
       accessibilityLabel: 'Loading',
+      accessibilityState: { disabled: true },
       'aria-label': 'Loading',
+      'aria-disabled': true,
       style: isAndroid
         ? style
         : [
