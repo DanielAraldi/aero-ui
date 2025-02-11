@@ -101,7 +101,7 @@ export const makeStyles = (props: MakeStyleProps) => {
       alignItems: 'center',
 
       paddingVertical: spacings[2],
-      paddingHorizontal: spacings[hugWidth ? 2 : 4],
+      paddingHorizontal: spacings[hugWidth ? 2 : 5],
 
       backgroundColor: getBackgroundColor({ variant, disabled, loading }),
 
