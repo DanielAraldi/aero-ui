@@ -1,7 +1,4 @@
-import { ReactElement } from 'react';
 import { TouchableHighlightProps } from 'react-native';
-
-import { SpinnerProps, TextProps } from '../atoms';
 
 export type ButtonVariantType =
   | 'primary'
@@ -11,11 +8,7 @@ export type ButtonVariantType =
   | 'warning'
   | 'neutral';
 
-export interface TextButtonProps extends TextProps {}
-
-export interface SpinnerButtonProps extends SpinnerProps {}
-
-export interface ButtonProps extends Omit<TouchableHighlightProps, 'children'> {
+export interface ButtonProps extends TouchableHighlightProps {
   /**
    * @description This property is used to display a title for the button.
    *
@@ -83,25 +76,5 @@ export interface ButtonProps extends Omit<TouchableHighlightProps, 'children'> {
    *
    * @since 1.2.0
    */
-  useNativeDriver: boolean;
-
-  /**
-   * @description This property is used to determine the `Text` component of the
-   * button.
-   *
-   * @default undefined
-   *
-   * @since 1.2.0
-   */
-  text?: ReactElement<TextButtonProps>;
-
-  /**
-   * @description This property is used to determine the `Spinner` component of
-   * the button.
-   *
-   * @default undefined
-   *
-   * @since 1.2.0
-   */
-  spinner?: ReactElement<SpinnerButtonProps>;
+  useNativeDriver?: boolean;
 }
