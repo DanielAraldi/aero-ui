@@ -1,7 +1,10 @@
 import React, {
+  Children,
   ForwardedRef,
   forwardRef,
+  isValidElement,
   memo,
+  ReactNode,
   useEffect,
   useState,
 } from 'react';
@@ -18,8 +21,8 @@ import { Spinner, Text } from '../../atoms';
 import { ButtonProps, ButtonVariantType } from '../../@types';
 import { makeStyles } from './styles';
 
-const Button = forwardRef(
-  (props: ButtonProps, ref: ForwardedRef<TouchableHighlight>) => {
+const Button = Object.assign(
+  forwardRef((props: ButtonProps, ref: ForwardedRef<TouchableHighlight>) => {
     const {
       variant = 'primary',
       title = 'Title',
@@ -31,8 +34,7 @@ const Button = forwardRef(
       disabled = false,
       activeOpacity = 1,
       underlayColor,
-      text,
-      spinner,
+      children,
       style,
       onPressIn,
       onPressOut,
@@ -44,6 +46,8 @@ const Button = forwardRef(
     const measurement = new Animated.Value(0, { useNativeDriver });
     const spinnerColorKey = variant === 'ghost' ? 'black' : 'white';
     const shouldDisableActions = disabled || loading;
+    let customSpinner: ReactNode = null;
+    let customText: ReactNode = null;
 
     function handleScaleAnimation(): Animated.CompositeAnimation {
       return Animated.timing(measurement, {
@@ -90,6 +94,34 @@ const Button = forwardRef(
       outputRange: [1, 0.98],
     });
 
+    Children.forEach(children, child => {
+      if (isValidElement(child)) {
+        switch (child.type) {
+          case Button.Spinner: {
+            customSpinner = child;
+            break;
+          }
+          case Button.Text.Sm:
+          case Button.Text.Base:
+          case Button.Text.Lg:
+          case Button.Text.Xl:
+          case Button.Text.X2l:
+          case Button.Text.X3l:
+          case Button.Text.X4l:
+          case Button.Text.X5l:
+          case Button.Text.X6l:
+          case Button.Text.X7l:
+          case Button.Text.X8l:
+          case Button.Text.X9l: {
+            customText = child;
+            break;
+          }
+          default:
+            break;
+        }
+      }
+    });
+
     useEffect(() => {
       const scaleAnimation = handleScaleAnimation();
 
@@ -120,7 +152,7 @@ const Button = forwardRef(
         >
           <View style={styles.wrapper}>
             {loading
-              ? spinner || (
+              ? customSpinner || (
                   <Spinner
                     variant='half'
                     size='small'
@@ -129,11 +161,17 @@ const Button = forwardRef(
                     overlayColor={colors[spinnerColorKey][25]}
                   />
                 )
-              : text || <Text.Base style={styles.text}>{title}</Text.Base>}
+              : customText || (
+                  <Text.Base style={styles.text}>{title}</Text.Base>
+                )}
           </View>
         </TouchableHighlight>
       </Animated.View>
     );
+  }),
+  {
+    Spinner,
+    Text,
   }
 );
 
