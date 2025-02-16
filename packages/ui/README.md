@@ -34,7 +34,7 @@ pnpm install @aero-ui/ui @aero-ui/tokens
 
 ### Button 🔘
 
-The `Button` component is a `TouchableHighlight` component, but it also includes scale animations on the touch that you can control. The `Button` component have variants and totally customizable. By default it uses `Text` component and `Spinner` (when it's in loading state) component inside it, but it also accepts the `Text` and `Spinner` components customized. We add a `title` property to be used when you don't want to use Text component. A important detail about the `activeOpacity` property it's `1` this component. Below we add some properties for it:
+The `Button` component is a `TouchableHighlight` component, but it also includes scale animations on the touch that you can control. The `Button` component have variants and totally customizable. By default it uses `Text` component and `Spinner` (when it's in loading state) component inside it, but it also accepts the `Text` and `Spinner` components customized. We add a `title` property to be used when you don't want to use Text component. A important detail about the `activeOpacity` property it's `1` this component. This component have accessibility attributes configured. Below we add some properties for it:
 
 | Property          | Description                                                                              | Default   | Platform |
 | ----------------- | ---------------------------------------------------------------------------------------- | --------- | -------- |
@@ -104,7 +104,7 @@ export function MyComponent() {
 
 ### Text 🪶
 
-Our `Text` component has the style based in the font of the [TailwindCSS](https://tailwindcss.com/), so we create a `Text` component that contains the different texts inside it. We also preserve all properties of the `Text` component original. This component have accessibility attributes configured. Below we add unique Text property:
+Our `Text` component has the style based in the font of the [TailwindCSS](https://tailwindcss.com/), so we create a `Text` component that contains the different texts. We also preserve all properties of the `Text` component original. This component have accessibility attributes configured. Below we add unique Text property:
 
 | Property  | Description                  | Default | Platform |
 | --------- | ---------------------------- | ------- | -------- |
@@ -122,13 +122,13 @@ export function MyComponent() {
 
   return (
     <View>
-      <Text.Lg>Foo Bar</Text.Lg>
+      <Text variant='3xl'>Foo Bar</Text>
 
       <View>
-        <Text.Base>Foo Bar</Text.Base>
+        <Text>Foo Bar</Text>
       </View>
 
-      <Text.Sm>Foo Bar</Text.Sm>
+      <Text variant='xs'>Foo Bar</Text>
     </View>
   );
 }
