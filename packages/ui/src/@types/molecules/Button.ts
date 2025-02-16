@@ -28,6 +28,15 @@ export interface ButtonProps extends TouchableHighlightProps {
   variant?: ButtonVariantType;
 
   /**
+   * @description This property is used to control the size of the button.
+   *
+   * @default 0.98
+   *
+   * @since 1.2.0
+   */
+  scale?: number;
+
+  /**
    * @description This property is used to control the duration of the
    * scale animation when button is pressed.
    *
@@ -48,7 +57,7 @@ export interface ButtonProps extends TouchableHighlightProps {
   loading?: boolean;
 
   /**
-   * @description This property is used to determine if the button has a border.
+   * @description This property is used to determine if the button has border.
    *
    * @default false
    *

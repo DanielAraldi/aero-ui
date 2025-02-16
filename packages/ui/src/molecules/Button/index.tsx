@@ -28,6 +28,7 @@ const Button = forwardRef(
     const {
       variant = 'primary',
       title = 'Title',
+      scale = 0.98,
       duration = 150,
       hugWidth = true,
       useNativeDriver = true,
@@ -91,9 +92,9 @@ const Button = forwardRef(
       pressed: isPressed,
     });
 
-    const scale = measurement.interpolate({
+    const size = measurement.interpolate({
       inputRange: [0, 1],
-      outputRange: [1, 0.98],
+      outputRange: [1, scale],
     });
 
     Children.forEach(children, child => {
@@ -124,7 +125,9 @@ const Button = forwardRef(
     }, [shouldDisableActions, isPressed]);
 
     return (
-      <Animated.View style={[styles.container, { transform: [{ scale }] }]}>
+      <Animated.View
+        style={[styles.container, { transform: [{ scale: size }] }]}
+      >
         <TouchableHighlight
           ref={ref}
           accessible
