@@ -4,11 +4,15 @@ import React, {
   forwardRef,
   isValidElement,
   memo,
+  NamedExoticComponent,
   ReactNode,
+  RefAttributes,
   useEffect,
   useState,
 } from 'react';
 import {
+  Text as RNText,
+  ActivityIndicator,
   Animated,
   ColorValue,
   GestureResponderEvent,
@@ -21,7 +25,14 @@ import { Spinner, Text } from '../../atoms';
 import { ButtonProps, ButtonVariantType } from '../../@types';
 import { makeStyles } from './styles';
 
-const Button = Object.assign(
+type CompoundButton = NamedExoticComponent<
+  ButtonProps & RefAttributes<TouchableHighlight>
+> & {
+  Spinner: typeof Spinner;
+  Text: typeof Text;
+};
+
+const Button: CompoundButton = Object.assign(
   forwardRef((props: ButtonProps, ref: ForwardedRef<TouchableHighlight>) => {
     const {
       variant = 'primary',
@@ -97,22 +108,13 @@ const Button = Object.assign(
     Children.forEach(children, child => {
       if (isValidElement(child)) {
         switch (child.type) {
+          case ActivityIndicator:
           case Button.Spinner: {
             customSpinner = child;
             break;
           }
-          case Button.Text.Sm:
-          case Button.Text.Base:
-          case Button.Text.Lg:
-          case Button.Text.Xl:
-          case Button.Text.X2l:
-          case Button.Text.X3l:
-          case Button.Text.X4l:
-          case Button.Text.X5l:
-          case Button.Text.X6l:
-          case Button.Text.X7l:
-          case Button.Text.X8l:
-          case Button.Text.X9l: {
+          case RNText:
+          case Button.Text: {
             customText = child;
             break;
           }
@@ -161,9 +163,7 @@ const Button = Object.assign(
                     overlayColor={colors[spinnerColorKey][25]}
                   />
                 )
-              : customText || (
-                  <Text.Base style={styles.text}>{title}</Text.Base>
-                )}
+              : customText || <Text style={styles.text}>{title}</Text>}
           </View>
         </TouchableHighlight>
       </Animated.View>
@@ -175,4 +175,4 @@ const Button = Object.assign(
   }
 );
 
-export default memo(Button);
+export default memo(Button) as unknown as CompoundButton;
