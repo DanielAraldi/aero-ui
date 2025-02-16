@@ -16,13 +16,11 @@ const meta: Meta = {
     >
       {Object.entries(letterSpacings).map(([key, letterSpacing]) => (
         <View key={key} style={styles.content}>
-          <Text.Base style={[globalStyles.text, { letterSpacing }]}>
-            {key}
-          </Text.Base>
+          <Text style={[globalStyles.text, { letterSpacing }]}>{key}</Text>
 
-          <Text.Base style={[globalStyles.text, { letterSpacing }]}>
+          <Text style={[globalStyles.text, { letterSpacing }]}>
             {letterSpacing}px
-          </Text.Base>
+          </Text>
         </View>
       ))}
     </ScrollView>

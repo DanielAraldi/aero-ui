@@ -1,6 +1,7 @@
 import { View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { Button as AeroButton, ButtonProps } from '@aero-ui/ui';
+import { Button, ButtonProps, Spinner, Text } from '@aero-ui/ui';
+import { colors } from '@aero-ui/tokens';
 
 import { styles } from './styles';
 
@@ -16,8 +17,6 @@ const meta: Meta<ButtonProps> = {
     hugWidth: true,
     useNativeDriver: true,
     activeOpacity: undefined,
-    text: undefined,
-    spinner: undefined,
   },
   argTypes: {
     title: {
@@ -70,18 +69,11 @@ const meta: Meta<ButtonProps> = {
         max: 1,
       },
     },
-    text: {
-      type: 'function',
-      control: null,
-    },
-    spinner: {
-      type: 'function',
-      control: null,
-    },
   },
-  component: props => (
+  component: props => <Button {...props} />,
+  decorators: Component => (
     <View style={styles.container}>
-      <AeroButton {...props} />
+      <Component />
     </View>
   ),
 };
@@ -118,4 +110,24 @@ export const Warning: StoryObj<ButtonProps> = {
   args: {
     variant: 'warning',
   },
+};
+
+export const CustomText: StoryObj<ButtonProps> = {
+  render: props => (
+    <Button {...props}>
+      <Text style={{ color: colors.blue[100] }}>Aero UI</Text>
+    </Button>
+  ),
+};
+
+export const CustomSpinner: StoryObj<ButtonProps> = {
+  render: props => (
+    <Button {...props} loading>
+      <Spinner
+        variant='unique'
+        color={colors.blue[100]}
+        overlayColor={colors.white[25]}
+      />
+    </Button>
+  ),
 };

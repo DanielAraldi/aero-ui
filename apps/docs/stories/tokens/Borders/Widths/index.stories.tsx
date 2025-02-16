@@ -21,14 +21,14 @@ const meta: Meta = {
     >
       {getValuesSortedOfObject<number>(borderWidths).map(borderWidth => (
         <View key={borderWidth} style={[styles.content, { borderWidth }]}>
-          <Text.Base style={globalStyles.text}>
+          <Text style={globalStyles.text}>
             {getKeyObjectByValue<BorderWidthsObjectType, BorderWidthsKeysType>(
               borderWidths,
               borderWidth
             )}
-          </Text.Base>
+          </Text>
 
-          <Text.Base style={globalStyles.text}>{borderWidth}px</Text.Base>
+          <Text style={globalStyles.text}>{borderWidth}px</Text>
         </View>
       ))}
     </ScrollView>

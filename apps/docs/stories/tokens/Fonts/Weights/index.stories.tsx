@@ -16,13 +16,9 @@ const meta: Meta = {
     >
       {Object.entries(fontWeights).map(([key, fontWeight]) => (
         <View key={key} style={styles.content}>
-          <Text.Base style={[globalStyles.text, { fontWeight }]}>
-            {key}
-          </Text.Base>
+          <Text style={[globalStyles.text, { fontWeight }]}>{key}</Text>
 
-          <Text.Base style={[globalStyles.text, { fontWeight }]}>
-            {fontWeight}
-          </Text.Base>
+          <Text style={[globalStyles.text, { fontWeight }]}>{fontWeight}</Text>
         </View>
       ))}
     </ScrollView>

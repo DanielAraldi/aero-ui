@@ -6,6 +6,32 @@ import { globalStyles } from '../../../styles';
 
 const meta: Meta<TextProps> = {
   title: 'Components/Atoms/Text',
+  args: {
+    variant: 'base',
+  },
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: [
+        'xs',
+        'sm',
+        'base',
+        'lg',
+        'xl',
+        '2xl',
+        '3xl',
+        '4xl',
+        '5xl',
+        '6xl',
+        '7xl',
+        '8xl',
+        '9xl',
+      ],
+    },
+  },
+  component: props => <Text {...props}>Aero UI</Text>,
   decorators: Component => (
     <View style={globalStyles.center}>
       <Component />
@@ -15,62 +41,84 @@ const meta: Meta<TextProps> = {
 
 export default meta;
 
+export const Base: StoryObj<TextProps> = {};
+
 export const Xs: StoryObj<TextProps> = {
-  render: () => <Text.Xs>Aero UI</Text.Xs>,
+  args: {
+    variant: 'xs',
+  },
 };
 
 export const Sm: StoryObj<TextProps> = {
-  render: () => <Text.Sm>Aero UI</Text.Sm>,
-};
-
-export const Base: StoryObj<TextProps> = {
-  render: () => <Text.Base>Aero UI</Text.Base>,
+  args: {
+    variant: 'sm',
+  },
 };
 
 export const Lg: StoryObj<TextProps> = {
-  render: () => <Text.Lg>Aero UI</Text.Lg>,
+  args: {
+    variant: 'lg',
+  },
 };
 
 export const Xl: StoryObj<TextProps> = {
-  render: () => <Text.Xl>Aero UI</Text.Xl>,
+  args: {
+    variant: 'xl',
+  },
 };
 
 export const X2l: StoryObj<TextProps> = {
-  render: () => <Text.X2l>Aero UI</Text.X2l>,
-  storyName: 'X2l',
+  args: {
+    variant: '2xl',
+  },
+  storyName: '2Xl',
 };
 
 export const X3l: StoryObj<TextProps> = {
-  render: () => <Text.X3l>Aero UI</Text.X3l>,
-  storyName: 'X3l',
+  args: {
+    variant: '3xl',
+  },
+  storyName: '3Xl',
 };
 
 export const X4l: StoryObj<TextProps> = {
-  render: () => <Text.X4l>Aero UI</Text.X4l>,
-  storyName: 'X4l',
+  args: {
+    variant: '4xl',
+  },
+  storyName: '4Xl',
 };
 
 export const X5l: StoryObj<TextProps> = {
-  render: () => <Text.X5l>Aero UI</Text.X5l>,
-  storyName: 'X5l',
+  args: {
+    variant: '5xl',
+  },
+  storyName: '5Xl',
 };
 
 export const X6l: StoryObj<TextProps> = {
-  render: () => <Text.X6l>Aero UI</Text.X6l>,
-  storyName: 'X6l',
+  args: {
+    variant: '6xl',
+  },
+  storyName: '6Xl',
 };
 
 export const X7l: StoryObj<TextProps> = {
-  render: () => <Text.X7l>Aero UI</Text.X7l>,
+  args: {
+    variant: '7xl',
+  },
   storyName: 'X7l',
 };
 
 export const X8l: StoryObj<TextProps> = {
-  render: () => <Text.X8l>Aero UI</Text.X8l>,
-  storyName: 'X8l',
+  args: {
+    variant: '8xl',
+  },
+  storyName: '8Xl',
 };
 
 export const X9l: StoryObj<TextProps> = {
-  render: () => <Text.X9l>Aero UI</Text.X9l>,
-  storyName: 'X9l',
+  args: {
+    variant: '9xl',
+  },
+  storyName: '9Xl',
 };

@@ -16,9 +16,9 @@ const meta: Meta = {
     >
       {Object.entries(zIndexes).map(([key, zIndex]) => (
         <View key={key} style={styles.content}>
-          <Text.Base style={globalStyles.text}>
+          <Text style={globalStyles.text}>
             {key} - {zIndex}
-          </Text.Base>
+          </Text>
         </View>
       ))}
     </ScrollView>

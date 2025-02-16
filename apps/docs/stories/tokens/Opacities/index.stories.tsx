@@ -15,9 +15,9 @@ const meta: Meta = {
     >
       {Object.entries(opacities).map(([key, opacity]) => (
         <View key={key} style={[styles.content, { opacity }]}>
-          <Text.Base style={globalStyles.text}>
+          <Text style={globalStyles.text}>
             {key} - {(opacity * 100).toFixed(2)}%
-          </Text.Base>
+          </Text>
         </View>
       ))}
     </ScrollView>

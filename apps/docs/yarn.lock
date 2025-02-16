@@ -19,19 +19,19 @@ __metadata:
 
 "@aero-ui/tokens@file:../../packages/tokens::locator=docs%40workspace%3A.":
   version: 1.2.4
-  resolution: "@aero-ui/tokens@file:../../packages/tokens#../../packages/tokens::hash=bab688&locator=docs%40workspace%3A."
-  checksum: 10c0/3d5df93e1084fcca4e5fedb777c574b926e91df954fc489c0fce3944321493657a0ef0b112c68087bc0d8a9aab14c536ac29bfe7d3b4237092875bd6f95c4914
+  resolution: "@aero-ui/tokens@file:../../packages/tokens#../../packages/tokens::hash=0c9834&locator=docs%40workspace%3A."
+  checksum: 10c0/ded3857fb9e110f0b8ad1189c882f5a93663e17de24ba5fa30a473e01cbeb356cfe3db580bde133bcbcdb50da1345d912528b35de73810809e043654123db23c
   languageName: node
   linkType: hard
 
 "@aero-ui/ui@file:../../packages/ui::locator=docs%40workspace%3A.":
   version: 1.1.5
-  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=026247&locator=docs%40workspace%3A."
+  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=13a0f5&locator=docs%40workspace%3A."
   peerDependencies:
     "@aero-ui/tokens": "*"
     react: ^18.2.0
     react-native: ^0.73.1
-  checksum: 10c0/d9dd11c7fc731a99b6a1d82a4f8b099aa4f4d8824556e6c1cc7a62badf21253bf6b3fb15631feb1ed8ba7b4f7eeeca46ca40167931a2cf3e14deb4ae29baf904
+  checksum: 10c0/d7691087f7947182019dffe8fa7d77bc11319b201d82d304304512bc9ffeaf3f3cd55305e8fbbdac12cde0d67c7f13982b513f8240da29c5ff77d2782d6a5378
   languageName: node
   linkType: hard
 
@@ -4632,7 +4632,7 @@ __metadata:
     react-native-safe-area-context: "npm:4.10.5"
     react-native-svg: "npm:15.2.0"
     react-native-web: "npm:^0.19.10"
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
 
@@ -10363,23 +10363,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.0":
-  version: 5.6.2
-  resolution: "typescript@npm:5.6.2"
+"typescript@npm:^5.3.3":
+  version: 5.7.3
+  resolution: "typescript@npm:5.7.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/3ed8297a8c7c56b7fec282532503d1ac795239d06e7c4966b42d4330c6cf433a170b53bcf93a130a7f14ccc5235de5560df4f1045eb7f3550b46ebed16d3c5e5
+  checksum: 10c0/b7580d716cf1824736cc6e628ab4cd8b51877408ba2be0869d2866da35ef8366dd6ae9eb9d0851470a39be17cbd61df1126f9e211d8799d764ea7431d5435afa
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.3.0#optional!builtin<compat/typescript>":
-  version: 5.6.2
-  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"
+"typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
+  version: 5.7.3
+  resolution: "typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=8c6c40"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/94eb47e130d3edd964b76da85975601dcb3604b0c848a36f63ac448d0104e93819d94c8bdf6b07c00120f2ce9c05256b8b6092d23cf5cf1c6fa911159e4d572f
+  checksum: 10c0/3b56d6afa03d9f6172d0b9cdb10e6b1efc9abc1608efd7a3d2f38773d5d8cfb9bbc68dfb72f0a7de5e8db04fc847f4e4baeddcd5ad9c9feda072234f0d788896
   languageName: node
   linkType: hard
 

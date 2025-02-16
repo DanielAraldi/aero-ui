@@ -16,10 +16,10 @@ const meta: Meta = {
     >
       {Object.entries(borderRadius).map(([key, borderRadius]) => (
         <View key={key} style={styles.content}>
-          <Text.Base style={globalStyles.text}>{key}</Text.Base>
+          <Text style={globalStyles.text}>{key}</Text>
 
           <View style={[styles.rectangle, { borderRadius }]}>
-            <Text.Base style={globalStyles.text}>{borderRadius}px</Text.Base>
+            <Text style={globalStyles.text}>{borderRadius}px</Text>
           </View>
         </View>
       ))}

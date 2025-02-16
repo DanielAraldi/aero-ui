@@ -24,14 +24,14 @@ const meta: Meta = {
           <View style={[styles.progress, { width: spacing }]} />
 
           <View style={styles.textContainer}>
-            <Text.Base style={globalStyles.text}>{spacing}px</Text.Base>
+            <Text style={globalStyles.text}>{spacing}px</Text>
 
-            <Text.Base style={globalStyles.text}>
+            <Text style={globalStyles.text}>
               {getKeyObjectByValue<SpacingsObjectType, SpacingsKeysType>(
                 spacings,
                 spacing
               )}
-            </Text.Base>
+            </Text>
           </View>
         </View>
       ))}

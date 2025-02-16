@@ -27,7 +27,7 @@ const meta: Meta = {
                 key={color}
                 style={[styles.ghostContent, { backgroundColor: color }]}
               >
-                <Text.Base
+                <Text
                   style={[
                     styles.text,
                     {
@@ -36,7 +36,7 @@ const meta: Meta = {
                   ]}
                 >
                   {key}/{keyColor} - {color}
-                </Text.Base>
+                </Text>
               </View>
             )
           )}

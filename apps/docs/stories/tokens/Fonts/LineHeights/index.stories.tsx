@@ -16,13 +16,11 @@ const meta: Meta = {
     >
       {Object.entries(lineHeights).map(([key, lineHeight]) => (
         <View key={key} style={styles.content}>
-          <Text.Base style={[globalStyles.text, { lineHeight }]}>
-            {key}
-          </Text.Base>
+          <Text style={[globalStyles.text, { lineHeight }]}>{key}</Text>
 
-          <Text.Base style={[globalStyles.text, { lineHeight }]}>
+          <Text style={[globalStyles.text, { lineHeight }]}>
             {lineHeight}px
-          </Text.Base>
+          </Text>
         </View>
       ))}
     </ScrollView>

@@ -1,9 +1,9 @@
 import { Easing, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { Spinner as AeroSpinner, SpinnerProps } from '@aero-ui/ui';
+import { Spinner, SpinnerProps } from '@aero-ui/ui';
+import { colors } from '@aero-ui/tokens';
 
 import { globalStyles } from '../../../styles';
-import { colors } from '@aero-ui/tokens';
 
 const meta: Meta<SpinnerProps> = {
   title: 'Components/Atoms/Spinner',
@@ -75,9 +75,10 @@ const meta: Meta<SpinnerProps> = {
       control: null,
     },
   },
-  component: props => (
+  component: props => <Spinner {...props} />,
+  decorators: Component => (
     <View style={globalStyles.center}>
-      <AeroSpinner {...props} />
+      <Component />
     </View>
   ),
 };
