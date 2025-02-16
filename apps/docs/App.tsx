@@ -8,7 +8,7 @@ LogBox.ignoreAllLogs();
 function App() {
   return (
     <View style={styles.container}>
-      <Text.Base>Open up App.tsx to start working on your app!</Text.Base>
+      <Text>Open up App.tsx to start working on your app!</Text>
     </View>
   );
 }
