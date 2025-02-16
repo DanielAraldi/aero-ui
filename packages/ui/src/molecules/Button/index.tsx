@@ -4,9 +4,7 @@ import React, {
   forwardRef,
   isValidElement,
   memo,
-  NamedExoticComponent,
   ReactNode,
-  RefAttributes,
   useEffect,
   useState,
 } from 'react';
@@ -25,15 +23,8 @@ import { Spinner, Text } from '../../atoms';
 import { ButtonProps, ButtonVariantType } from '../../@types';
 import { makeStyles } from './styles';
 
-type CompoundButton = NamedExoticComponent<
-  ButtonProps & RefAttributes<TouchableHighlight>
-> & {
-  Spinner: typeof Spinner;
-  Text: typeof Text;
-};
-
-const Button: CompoundButton = Object.assign(
-  forwardRef((props: ButtonProps, ref: ForwardedRef<TouchableHighlight>) => {
+const Button = forwardRef(
+  (props: ButtonProps, ref: ForwardedRef<TouchableHighlight>) => {
     const {
       variant = 'primary',
       title = 'Title',
@@ -109,12 +100,12 @@ const Button: CompoundButton = Object.assign(
       if (isValidElement(child)) {
         switch (child.type) {
           case ActivityIndicator:
-          case Button.Spinner: {
+          case Spinner: {
             customSpinner = child;
             break;
           }
           case RNText:
-          case Button.Text: {
+          case Text: {
             customText = child;
             break;
           }
@@ -168,11 +159,7 @@ const Button: CompoundButton = Object.assign(
         </TouchableHighlight>
       </Animated.View>
     );
-  }),
-  {
-    Spinner,
-    Text,
   }
 );
 
-export default memo(Button) as unknown as CompoundButton;
+export default memo(Button);
