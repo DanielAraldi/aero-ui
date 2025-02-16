@@ -1,7 +1,7 @@
-import { TextProps as ReactNativeTextProps } from 'react-native';
+import { TextProps as RNTextProps } from 'react-native';
 import { FontSizesKeysType } from '@aero-ui/tokens';
 
-export interface TextProps extends ReactNativeTextProps {
+export interface TextProps extends RNTextProps {
   /**
    * @description This property is used to determine the variants of the text.
    *
