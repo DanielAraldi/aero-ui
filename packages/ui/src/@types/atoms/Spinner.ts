@@ -6,7 +6,7 @@ export type SpinnerSizeType = 'small' | 'normal' | 'large';
 
 export type SpinnerStartByType = 'bottom' | 'left' | 'right' | 'top';
 
-export interface SpinnerProps extends ViewProps {
+export interface SpinnerProps extends Omit<ViewProps, 'children'> {
   /**
    * @description This property is used to determine the scroll variants of the
    * spinner.
