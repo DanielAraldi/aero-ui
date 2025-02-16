@@ -39,5 +39,9 @@
     "registry": "https://registry.npmjs.org",
     "tag": "latest"
   },
+  "devDependencies": {
+    "tsup": "^8.3.6",
+    "typescript": "^5.3.3"
+  },
   "packageManager": "yarn@1.22.22"
 }
