@@ -1,5 +1,11 @@
 # @aero-ui/tokens
 
+## 1.2.5
+
+### Patch Changes
+
+- Add `tsup` and `typescript` as `devDependencies` in the `tokens`.
+
 ## 1.2.4
 
 ### Patch Changes
