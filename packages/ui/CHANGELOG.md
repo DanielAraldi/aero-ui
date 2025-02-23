@@ -1,5 +1,13 @@
 # @aero-ui/ui
 
+## 1.2.0
+
+### Minor Changes
+
+- Add `Button` component.
+- Swap composition pattern by `variant` property in the `Text` component.
+- Improve accessibility in the `Spinner` component.
+
 ## 1.1.5
 
 ### Patch Changes
