@@ -10,6 +10,7 @@ const meta: Meta<ButtonProps> = {
   args: {
     title: 'Aero UI',
     variant: 'primary',
+    scale: 0.98,
     duration: 150,
     loading: false,
     bordered: true,
@@ -29,6 +30,13 @@ const meta: Meta<ButtonProps> = {
         type: 'select',
       },
       options: ['primary', 'success', 'neutral', 'ghost', 'danger', 'warning'],
+    },
+    scale: {
+      control: {
+        type: 'number',
+        min: 0,
+        max: 1,
+      },
     },
     duration: {
       control: {
