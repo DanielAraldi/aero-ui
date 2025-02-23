@@ -60,14 +60,14 @@ const Button = forwardRef(
       });
     }
 
-    function handlePressIn(event: GestureResponderEvent) {
+    function handlePressIn(event: GestureResponderEvent): void {
       if (shouldDisableActions) return;
 
       setIsPressed(true);
       onPressIn?.(event);
     }
 
-    function handlePressOut(event: GestureResponderEvent) {
+    function handlePressOut(event: GestureResponderEvent): void {
       if (shouldDisableActions) return;
 
       setIsPressed(false);

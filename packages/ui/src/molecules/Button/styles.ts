@@ -87,9 +87,11 @@ function getWrapperOpacity(props: MakeOpacityProps): number {
 export const makeStyles = (props: MakeStyleProps) => {
   const { variant, hugWidth, bordered, disabled, loading, pressed } = props;
 
+  const shouldHug = hugWidth || loading;
+
   return StyleSheet.create({
     container: {
-      width: hugWidth ? '100%' : 'auto',
+      width: shouldHug ? '100%' : 'auto',
       height: spacings[16],
     },
 
@@ -101,7 +103,7 @@ export const makeStyles = (props: MakeStyleProps) => {
       alignItems: 'center',
 
       paddingVertical: spacings[2],
-      paddingHorizontal: spacings[hugWidth ? 2 : 5],
+      paddingHorizontal: spacings[shouldHug ? 2 : 5],
 
       backgroundColor: getBackgroundColor({ variant, disabled, loading }),
 
