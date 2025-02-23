@@ -13,7 +13,7 @@ const meta: Meta<ButtonProps> = {
     scale: 0.98,
     duration: 150,
     loading: false,
-    bordered: true,
+    bordered: false,
     disabled: false,
     hugWidth: true,
     useNativeDriver: true,
