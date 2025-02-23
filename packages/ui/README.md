@@ -6,6 +6,7 @@ Fluidity and sophistication Aero UI components.
 
 - [Installation](#installation-️)
 - [Components](#components-️)
+  - [Button](#button-)
   - [Spinner](#spinner-)
   - [Text](#text-)
 - [TypeScript Support](#typescript-support-️)
