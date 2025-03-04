@@ -7,3 +7,10 @@ index.ts
 
 # Docs
 CHANGELOG.md
+
+# Jest
+.jest
+jest.config.ts
+jest.setup.js
+babel.config.js
+tests

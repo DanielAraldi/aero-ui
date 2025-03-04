@@ -20,7 +20,8 @@
     "changeset:publish": "changeset publish",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "turbo run test"
   },
   "author": "Daniel Sansão Araldi <danielsaraldi@gmail.com> (https://github.com/DanielAraldi)",
   "license": "MIT",

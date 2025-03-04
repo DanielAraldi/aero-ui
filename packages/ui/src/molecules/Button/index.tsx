@@ -126,6 +126,7 @@ const Button = forwardRef(
 
     return (
       <Animated.View
+        testID='button'
         style={[styles.container, { transform: [{ scale: size }] }]}
       >
         <TouchableHighlight

@@ -10,4 +10,5 @@ COPY yarn.lock .
 COPY ./packages ./packages
 
 RUN yarn
+RUN yarn test
 RUN yarn build

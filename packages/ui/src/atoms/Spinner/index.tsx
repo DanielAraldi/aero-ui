@@ -92,6 +92,7 @@ const Spinner = forwardRef(
     return isAndroid ? (
       <ActivityIndicator
         ref={ref}
+        testID='spinner'
         color={color}
         size={spinnerSizes[size]}
         animating={animating}
@@ -100,7 +101,12 @@ const Spinner = forwardRef(
         {...rest}
       />
     ) : (
-      <Animated.View ref={ref} {...commonViewProps} {...rest} />
+      <Animated.View
+        ref={ref}
+        testID='spinner'
+        {...commonViewProps}
+        {...rest}
+      />
     );
   }
 );

@@ -12,6 +12,7 @@ const Text = forwardRef((props: TextProps, ref: ForwardedRef<RNText>) => {
   return (
     <RNText
       ref={ref}
+      testID='text'
       accessible
       accessibilityRole='text'
       style={[text, style]}
