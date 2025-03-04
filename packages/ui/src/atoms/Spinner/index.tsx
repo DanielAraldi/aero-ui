@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, memo, useEffect } from 'react';
+import { ForwardedRef, forwardRef, memo, useEffect } from 'react';
 import {
   Easing,
   Animated,
