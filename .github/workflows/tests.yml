@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - '*'
+      - '*/*'
+      - '**'
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Build Packages
+        run: yarn build
+
+      - name: Test Packages
+        run: yarn test
