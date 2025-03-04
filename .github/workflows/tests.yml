@@ -29,5 +29,11 @@ jobs:
       - name: Build Packages
         run: yarn build
 
+      - name: Install React and React Native Dependencies as devDependencies
+        run: |
+          cd ./packages/ui
+          yarn add react@18.2.0 react-native@0.73.1 -D
+          cd ../..
+
       - name: Test Packages
         run: yarn test

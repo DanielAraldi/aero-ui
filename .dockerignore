@@ -8,6 +8,7 @@ node_modules
 .vscode
 
 # Turbo
+**/.turbo
 .turbo
 apps/docs
 
@@ -19,3 +20,6 @@ apps/docs
 
 # Version
 .changeset
+
+# Jest
+**/.jest
