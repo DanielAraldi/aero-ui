@@ -1,1 +1,1 @@
-yarn run build:docker
+yarn run docker
