@@ -29,7 +29,16 @@ const meta: Meta<ButtonProps> = {
       control: {
         type: 'select',
       },
-      options: ['primary', 'success', 'neutral', 'ghost', 'danger', 'warning'],
+      options: [
+        'primary',
+        'secondary',
+        'tertiary',
+        'success',
+        'neutral',
+        'ghost',
+        'danger',
+        'warning',
+      ],
     },
     scale: {
       control: {
@@ -89,6 +98,18 @@ const meta: Meta<ButtonProps> = {
 export default meta;
 
 export const Primary: StoryObj<ButtonProps> = {};
+
+export const Secondary: StoryObj<ButtonProps> = {
+  args: {
+    variant: 'secondary',
+  },
+};
+
+export const Tertiary: StoryObj<ButtonProps> = {
+  args: {
+    variant: 'tertiary',
+  },
+};
 
 export const Success: StoryObj<ButtonProps> = {
   args: {
