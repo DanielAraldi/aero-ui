@@ -75,10 +75,12 @@ const Button = forwardRef(
     }
 
     const underlayColors: Record<ButtonVariantType, ColorValue> = {
+      primary: colors.blue[400],
+      secondary: colors.white[85],
+      tertiary: colors.stone[800],
       danger: colors.red[400],
       ghost: 'transparent',
       neutral: colors.neutral[400],
-      primary: colors.blue[400],
       success: colors.green[400],
       warning: colors.yellow[400],
     };

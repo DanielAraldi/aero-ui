@@ -2,6 +2,8 @@ import { TouchableHighlightProps } from 'react-native';
 
 export type ButtonVariantType =
   | 'primary'
+  | 'secondary'
+  | 'tertiary'
   | 'success'
   | 'ghost'
   | 'danger'
