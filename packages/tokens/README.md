@@ -9,12 +9,18 @@ Sample, elegant and beautiful UI tokens of the Aero UI library based in the [Tai
   - [Colors 🎨](#colors-)
     - [White ⚪️](#white-️)
     - [Black ⚫️](#black-️)
-    - [Gray 🔘](#gray-)
-    - [Neutral 🔘](#neutral-)
     - [Red 🔴](#red-)
     - [Yellow 🟡](#yellow-)
     - [Green 🟢](#green-)
+    - [Teal 🟢](#teal-)
+    - [Sky 🔵](#sky-)
     - [Blue 🔵](#blue-)
+    - [Purple 🟣](#purple-)
+    - [Pink 🩷](#pink-)
+    - [Slate 🔘](#slate-)
+    - [Gray 🔘](#gray-)
+    - [Neutral 🔘](#neutral-)
+    - [Stone 🔘](#stone-)
   - [Opacities 🔍](#opacities-)
   - [Spacings 📐](#spacings-)
   - [Z Indexes 📚](#z-indexes-)
@@ -100,38 +106,6 @@ const styles = StyleSheet.create({
 | `85`  | <span style="opacity: 0.85;">![#000000d9](https://placehold.co/16x16/000000/000000.png)</span> `#000000d9` |
 | `100` | ![#000000](https://placehold.co/16x16/000000/000000.png) `#000000`                                         |
 
-#### Gray 🔘
-
-| Key   | Color                                                              |
-| ----- | ------------------------------------------------------------------ |
-| `50`  | ![#f9fafb](https://placehold.co/16x16/f9fafb/f9fafb.png) `#f9fafb` |
-| `100` | ![#f3f4f6](https://placehold.co/16x16/f3f4f6/f3f4f6.png) `#f3f4f6` |
-| `200` | ![#e5e7eb](https://placehold.co/16x16/e5e7eb/e5e7eb.png) `#e5e7eb` |
-| `300` | ![#d1d5db](https://placehold.co/16x16/d1d5db/d1d5db.png) `#d1d5db` |
-| `400` | ![#9ca3af](https://placehold.co/16x16/9ca3af/9ca3af.png) `#9ca3af` |
-| `500` | ![#6b7280](https://placehold.co/16x16/6b7280/6b7280.png) `#6b7280` |
-| `600` | ![#4b5563](https://placehold.co/16x16/4b5563/4b5563.png) `#4b5563` |
-| `700` | ![#374151](https://placehold.co/16x16/374151/374151.png) `#374151` |
-| `800` | ![#1f2937](https://placehold.co/16x16/1f2937/1f2937.png) `#1f2937` |
-| `900` | ![#111827](https://placehold.co/16x16/111827/111827.png) `#111827` |
-| `950` | ![#030712](https://placehold.co/16x16/030712/030712.png) `#030712` |
-
-#### Neutral 🔘
-
-| Key   | Color                                                              |
-| ----- | ------------------------------------------------------------------ |
-| `50`  | ![#fafafa](https://placehold.co/16x16/fafafa/fafafa.png) `#fafafa` |
-| `100` | ![#f5f5f5](https://placehold.co/16x16/f5f5f5/f5f5f5.png) `#f5f5f5` |
-| `200` | ![#e5e5e5](https://placehold.co/16x16/e5e5e5/e5e5e5.png) `#e5e5e5` |
-| `300` | ![#d4d4d4](https://placehold.co/16x16/d4d4d4/d4d4d4.png) `#d4d4d4` |
-| `400` | ![#a3a3a3](https://placehold.co/16x16/a3a3a3/a3a3a3.png) `#a3a3a3` |
-| `500` | ![#737373](https://placehold.co/16x16/737373/737373.png) `#737373` |
-| `600` | ![#525252](https://placehold.co/16x16/525252/525252.png) `#525252` |
-| `700` | ![#404040](https://placehold.co/16x16/404040/404040.png) `#404040` |
-| `800` | ![#262626](https://placehold.co/16x16/262626/262626.png) `#262626` |
-| `900` | ![#171717](https://placehold.co/16x16/171717/171717.png) `#171717` |
-| `950` | ![#0a0a0a](https://placehold.co/16x16/0a0a0a/0a0a0a.png) `#0a0a0a` |
-
 #### Red 🔴
 
 | Key   | Color                                                              |
@@ -180,6 +154,38 @@ const styles = StyleSheet.create({
 | `900` | ![#14532d](https://placehold.co/16x16/14532d/14532d.png) `#14532d` |
 | `950` | ![#052e16](https://placehold.co/16x16/052e16/052e16.png) `#052e16` |
 
+#### Teal 🟢
+
+| Key   | Color                                                              |
+| ----- | ------------------------------------------------------------------ |
+| `50`  | ![#f0fdfa](https://placehold.co/16x16/f0fdfa/f0fdfa.png) `#f0fdfa` |
+| `100` | ![#ccfbf1](https://placehold.co/16x16/ccfbf1/ccfbf1.png) `#ccfbf1` |
+| `200` | ![#99f6e4](https://placehold.co/16x16/99f6e4/99f6e4.png) `#99f6e4` |
+| `300` | ![#5eead4](https://placehold.co/16x16/5eead4/5eead4.png) `#5eead4` |
+| `400` | ![#2dd4bf](https://placehold.co/16x16/2dd4bf/2dd4bf.png) `#2dd4bf` |
+| `500` | ![#14b8a6](https://placehold.co/16x16/14b8a6/14b8a6.png) `#14b8a6` |
+| `600` | ![#0d9488](https://placehold.co/16x16/0d9488/0d9488.png) `#0d9488` |
+| `700` | ![#0f766e](https://placehold.co/16x16/0f766e/0f766e.png) `#0f766e` |
+| `800` | ![#115e59](https://placehold.co/16x16/115e59/115e59.png) `#115e59` |
+| `900` | ![#134e4a](https://placehold.co/16x16/134e4a/134e4a.png) `#134e4a` |
+| `950` | ![#042f2e](https://placehold.co/16x16/042f2e/042f2e.png) `#042f2e` |
+
+#### Sky 🔵
+
+| Key   | Color                                                              |
+| ----- | ------------------------------------------------------------------ |
+| `50`  | ![#f0f9ff](https://placehold.co/16x16/f0f9ff/f0f9ff.png) `#f0f9ff` |
+| `100` | ![#e0f2fe](https://placehold.co/16x16/e0f2fe/e0f2fe.png) `#e0f2fe` |
+| `200` | ![#bae6fd](https://placehold.co/16x16/bae6fd/bae6fd.png) `#bae6fd` |
+| `300` | ![#7dd3fc](https://placehold.co/16x16/7dd3fc/7dd3fc.png) `#7dd3fc` |
+| `400` | ![#38bdf8](https://placehold.co/16x16/38bdf8/38bdf8.png) `#38bdf8` |
+| `500` | ![#0ea5e9](https://placehold.co/16x16/0ea5e9/0ea5e9.png) `#0ea5e9` |
+| `600` | ![#0284c7](https://placehold.co/16x16/0284c7/0284c7.png) `#0284c7` |
+| `700` | ![#0369a1](https://placehold.co/16x16/0369a1/0369a1.png) `#0369a1` |
+| `800` | ![#075985](https://placehold.co/16x16/075985/075985.png) `#075985` |
+| `900` | ![#0c4a6e](https://placehold.co/16x16/0c4a6e/0c4a6e.png) `#0c4a6e` |
+| `950` | ![#082f49](https://placehold.co/16x16/082f49/082f49.png) `#082f49` |
+
 #### Blue 🔵
 
 | Key   | Color                                                              |
@@ -195,6 +201,102 @@ const styles = StyleSheet.create({
 | `800` | ![#1e40af](https://placehold.co/16x16/1e40af/1e40af.png) `#1e40af` |
 | `900` | ![#1e3a8a](https://placehold.co/16x16/1e3a8a/1e3a8a.png) `#1e3a8a` |
 | `950` | ![#172554](https://placehold.co/16x16/172554/172554.png) `#172554` |
+
+#### Purple 🟣
+
+| Key   | Color                                                              |
+| ----- | ------------------------------------------------------------------ |
+| `50`  | ![#faf5ff](https://placehold.co/16x16/faf5ff/faf5ff.png) `#faf5ff` |
+| `100` | ![#f3e8ff](https://placehold.co/16x16/f3e8ff/f3e8ff.png) `#f3e8ff` |
+| `200` | ![#e9d5ff](https://placehold.co/16x16/e9d5ff/e9d5ff.png) `#e9d5ff` |
+| `300` | ![#d8b4fe](https://placehold.co/16x16/d8b4fe/d8b4fe.png) `#d8b4fe` |
+| `400` | ![#c084fc](https://placehold.co/16x16/c084fc/c084fc.png) `#c084fc` |
+| `500` | ![#a855f7](https://placehold.co/16x16/a855f7/a855f7.png) `#a855f7` |
+| `600` | ![#9333ea](https://placehold.co/16x16/9333ea/9333ea.png) `#9333ea` |
+| `700` | ![#7e22ce](https://placehold.co/16x16/7e22ce/7e22ce.png) `#7e22ce` |
+| `800` | ![#6b21a8](https://placehold.co/16x16/6b21a8/6b21a8.png) `#6b21a8` |
+| `900` | ![#581c87](https://placehold.co/16x16/581c87/581c87.png) `#581c87` |
+| `950` | ![#3b0764](https://placehold.co/16x16/3b0764/3b0764.png) `#3b0764` |
+
+#### Pink 🩷
+
+| Key   | Color                                                              |
+| ----- | ------------------------------------------------------------------ |
+| `50`  | ![#fdf2f8](https://placehold.co/16x16/fdf2f8/fdf2f8.png) `#fdf2f8` |
+| `100` | ![#fce7f3](https://placehold.co/16x16/fce7f3/fce7f3.png) `#fce7f3` |
+| `200` | ![#fbcfe8](https://placehold.co/16x16/fbcfe8/fbcfe8.png) `#fbcfe8` |
+| `300` | ![#f9a8d4](https://placehold.co/16x16/f9a8d4/f9a8d4.png) `#f9a8d4` |
+| `400` | ![#f472b6](https://placehold.co/16x16/f472b6/f472b6.png) `#f472b6` |
+| `500` | ![#ec4899](https://placehold.co/16x16/ec4899/ec4899.png) `#ec4899` |
+| `600` | ![#db2777](https://placehold.co/16x16/db2777/db2777.png) `#db2777` |
+| `700` | ![#be185d](https://placehold.co/16x16/be185d/be185d.png) `#be185d` |
+| `800` | ![#9d174d](https://placehold.co/16x16/9d174d/9d174d.png) `#9d174d` |
+| `900` | ![#881337](https://placehold.co/16x16/881337/881337.png) `#881337` |
+| `950` | ![#500724](https://placehold.co/16x16/500724/500724.png) `#500724` |
+
+#### Slate 🔘
+
+| Key   | Color                                                              |
+| ----- | ------------------------------------------------------------------ |
+| `50`  | ![#f8fafc](https://placehold.co/16x16/f8fafc/f8fafc.png) `#f8fafc` |
+| `100` | ![#f1f5f9](https://placehold.co/16x16/f1f5f9/f1f5f9.png) `#f1f5f9` |
+| `200` | ![#e2e8f0](https://placehold.co/16x16/e2e8f0/e2e8f0.png) `#e2e8f0` |
+| `300` | ![#cbd5e1](https://placehold.co/16x16/cbd5e1/cbd5e1.png) `#cbd5e1` |
+| `400` | ![#94a3b8](https://placehold.co/16x16/94a3b8/94a3b8.png) `#94a3b8` |
+| `500` | ![#64748b](https://placehold.co/16x16/64748b/64748b.png) `#64748b` |
+| `600` | ![#475569](https://placehold.co/16x16/475569/475569.png) `#475569` |
+| `700` | ![#334155](https://placehold.co/16x16/334155/334155.png) `#334155` |
+| `800` | ![#1e293b](https://placehold.co/16x16/1e293b/1e293b.png) `#1e293b` |
+| `900` | ![#0f172a](https://placehold.co/16x16/0f172a/0f172a.png) `#0f172a` |
+| `950` | ![#020617](https://placehold.co/16x16/020617/020617.png) `#020617` |
+
+#### Gray 🔘
+
+| Key   | Color                                                              |
+| ----- | ------------------------------------------------------------------ |
+| `50`  | ![#f9fafb](https://placehold.co/16x16/f9fafb/f9fafb.png) `#f9fafb` |
+| `100` | ![#f3f4f6](https://placehold.co/16x16/f3f4f6/f3f4f6.png) `#f3f4f6` |
+| `200` | ![#e5e7eb](https://placehold.co/16x16/e5e7eb/e5e7eb.png) `#e5e7eb` |
+| `300` | ![#d1d5db](https://placehold.co/16x16/d1d5db/d1d5db.png) `#d1d5db` |
+| `400` | ![#9ca3af](https://placehold.co/16x16/9ca3af/9ca3af.png) `#9ca3af` |
+| `500` | ![#6b7280](https://placehold.co/16x16/6b7280/6b7280.png) `#6b7280` |
+| `600` | ![#4b5563](https://placehold.co/16x16/4b5563/4b5563.png) `#4b5563` |
+| `700` | ![#374151](https://placehold.co/16x16/374151/374151.png) `#374151` |
+| `800` | ![#1f2937](https://placehold.co/16x16/1f2937/1f2937.png) `#1f2937` |
+| `900` | ![#111827](https://placehold.co/16x16/111827/111827.png) `#111827` |
+| `950` | ![#030712](https://placehold.co/16x16/030712/030712.png) `#030712` |
+
+#### Neutral 🔘
+
+| Key   | Color                                                              |
+| ----- | ------------------------------------------------------------------ |
+| `50`  | ![#fafafa](https://placehold.co/16x16/fafafa/fafafa.png) `#fafafa` |
+| `100` | ![#f5f5f5](https://placehold.co/16x16/f5f5f5/f5f5f5.png) `#f5f5f5` |
+| `200` | ![#e5e5e5](https://placehold.co/16x16/e5e5e5/e5e5e5.png) `#e5e5e5` |
+| `300` | ![#d4d4d4](https://placehold.co/16x16/d4d4d4/d4d4d4.png) `#d4d4d4` |
+| `400` | ![#a3a3a3](https://placehold.co/16x16/a3a3a3/a3a3a3.png) `#a3a3a3` |
+| `500` | ![#737373](https://placehold.co/16x16/737373/737373.png) `#737373` |
+| `600` | ![#525252](https://placehold.co/16x16/525252/525252.png) `#525252` |
+| `700` | ![#404040](https://placehold.co/16x16/404040/404040.png) `#404040` |
+| `800` | ![#262626](https://placehold.co/16x16/262626/262626.png) `#262626` |
+| `900` | ![#171717](https://placehold.co/16x16/171717/171717.png) `#171717` |
+| `950` | ![#0a0a0a](https://placehold.co/16x16/0a0a0a/0a0a0a.png) `#0a0a0a` |
+
+#### Stone 🔘
+
+| Key   | Color                                                              |
+| ----- | ------------------------------------------------------------------ |
+| `50`  | ![#fafaf9](https://placehold.co/16x16/fafaf9/fafaf9.png) `#fafaf9` |
+| `100` | ![#f5f5f4](https://placehold.co/16x16/f5f5f4/f5f5f4.png) `#f5f5f4` |
+| `200` | ![#e7e5e4](https://placehold.co/16x16/e7e5e4/e7e5e4.png) `#e7e5e4` |
+| `300` | ![#d6d3d1](https://placehold.co/16x16/d6d3d1/d6d3d1.png) `#d6d3d1` |
+| `400` | ![#a8a29e](https://placehold.co/16x16/a8a29e/a8a29e.png) `#a8a29e` |
+| `500` | ![#78716c](https://placehold.co/16x16/78716c/78716c.png) `#78716c` |
+| `600` | ![#57534e](https://placehold.co/16x16/57534e/57534e.png) `#57534e` |
+| `700` | ![#44403c](https://placehold.co/16x16/44403c/44403c.png) `#44403c` |
+| `800` | ![#292524](https://placehold.co/16x16/292524/292524.png) `#292524` |
+| `900` | ![#1c1917](https://placehold.co/16x16/1c1917/1c1917.png) `#1c1917` |
+| `950` | ![#0c0a09](https://placehold.co/16x16/0c0a09/0c0a09.png) `#0c0a09` |
 
 ---
 
