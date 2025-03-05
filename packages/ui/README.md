@@ -48,6 +48,8 @@ The `Button` component is a `TouchableHighlight` component, but it also includes
 | `hugWidth`        | Fill or not all wrapper of the button.                                                  | `true`    | Both     |
 | `useNativeDriver` | Determines if the button animation to be executed using native thread UI or JavaScript. | `true`    | Both     |
 
+**Note**: All properties of the button are **optional**.
+
 ```tsx
 import { Button, Text } from '@aero-ui/ui';
 
@@ -67,8 +69,6 @@ export function MyComponent() {
   );
 }
 ```
-
-**Note**: All properties of the button are **optional**.
 
 ### Spinner 🌀
 
