@@ -1,3 +1,4 @@
+import { spacings } from '@aero-ui/tokens';
 import { render, screen } from '@testing-library/react-native';
 
 import { Spinner } from '../../../';
@@ -17,6 +18,16 @@ describe('<Spinner />', () => {
     it('Should take a snapshot of the Spinner component', () => {
       const component = render(<Spinner useNativeDriver={false} />);
       expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('iOS', () => {
+    it('Should render Spinner component with normal size', () => {
+      render(<Spinner size='normal' useNativeDriver={false} />);
+      expect(screen.getByTestId('spinner')).toHaveStyle({
+        width: spacings[8],
+        height: spacings[8],
+      });
     });
   });
 });
