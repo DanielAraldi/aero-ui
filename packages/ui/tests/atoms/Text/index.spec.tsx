@@ -38,4 +38,14 @@ describe('<Text />', () => {
       letterSpacing: letterSpacings.normal,
     });
   });
+
+  it('Should render Text component with base font configuration for text', () => {
+    render(<Text variant='base'>base</Text>);
+    expect(screen.getByTestId('text')).toHaveStyle({
+      fontSize: fontSizes.base,
+      fontWeight: fontWeights.regular,
+      lineHeight: lineHeights.base,
+      letterSpacing: letterSpacings.normal,
+    });
+  });
 });
