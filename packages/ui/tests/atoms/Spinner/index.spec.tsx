@@ -37,5 +37,13 @@ describe('<Spinner />', () => {
         height: spacings[6],
       });
     });
+
+    it('Should render Spinner component with large size', () => {
+      render(<Spinner size='large' useNativeDriver={false} />);
+      expect(screen.getByTestId('spinner')).toHaveStyle({
+        width: spacings[10],
+        height: spacings[10],
+      });
+    });
   });
 });
