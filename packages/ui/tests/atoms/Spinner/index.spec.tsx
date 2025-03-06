@@ -13,5 +13,10 @@ describe('<Spinner />', () => {
       render(<Spinner useNativeDriver={false} />);
       expect(screen.getByTestId('spinner')).toHaveAccessibleName('Loading');
     });
+
+    it('Should take a snapshot of the Spinner component', () => {
+      const component = render(<Spinner useNativeDriver={false} />);
+      expect(component).toMatchSnapshot();
+    });
   });
 });

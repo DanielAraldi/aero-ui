@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Spinner /> Both (iOS and Android) Should take a snapshot of the Spinner component 1`] = `
+<View
+  accessibilityLabel="Loading"
+  accessibilityRole="none"
+  accessibilityState={
+    {
+      "disabled": true,
+    }
+  }
+  accessible={true}
+  aria-disabled={true}
+  aria-label="Loading"
+  collapsable={false}
+  style={
+    {
+      "backgroundColor": "transparent",
+      "borderBottomColor": "transparent",
+      "borderLeftColor": "#000000",
+      "borderRadius": 9999,
+      "borderRightColor": "transparent",
+      "borderTopColor": "transparent",
+      "borderWidth": 4,
+      "height": 32,
+      "transform": [
+        {
+          "rotate": "0deg",
+        },
+      ],
+      "width": 32,
+    }
+  }
+  testID="spinner"
+/>
+`;
