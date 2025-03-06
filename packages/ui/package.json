@@ -32,6 +32,7 @@
     "clean": "rm -rf dist",
     "test": "jest --passWithNoTests",
     "test:clear": "jest --clearCache",
+    "test:snapshot": "jest --passWithNoTests -u",
     "test:watch": "jest --passWithNoTests --watch"
   },
   "peerDependencies": {
