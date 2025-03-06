@@ -1,12 +1,44 @@
+import { ReactElement } from 'react';
+import { StyleProp, TextStyle } from 'react-native';
 import { render, screen } from '@testing-library/react-native';
 import {
   fontSizes,
+  FontSizesKeysType,
   fontWeights,
   letterSpacings,
   lineHeights,
 } from '@aero-ui/tokens';
 
-import { Text } from '../../../';
+import { Text, TextProps } from '../../../';
+
+type SutTypes = {
+  TextComponent: ReactElement<TextProps>;
+  textStyle: StyleProp<TextStyle>;
+};
+
+function getTextComponentByVariant(
+  variant: FontSizesKeysType
+): ReactElement<TextProps> {
+  return <Text variant={variant}>{variant}</Text>;
+}
+
+function getTextStyleByVariant(
+  variant: FontSizesKeysType
+): StyleProp<TextStyle> {
+  return {
+    fontSize: fontSizes[variant],
+    fontWeight: fontWeights.regular,
+    lineHeight: lineHeights[variant],
+    letterSpacing: letterSpacings.normal,
+  };
+}
+
+function makeSut(variant: FontSizesKeysType): SutTypes {
+  const TextComponent = getTextComponentByVariant(variant);
+  const textStyle = getTextStyleByVariant(variant);
+
+  return { TextComponent, textStyle };
+}
 
 describe('<Text />', () => {
   it('Should render Text component', () => {
@@ -20,132 +52,93 @@ describe('<Text />', () => {
   });
 
   it('Should render Text component with xs font configuration for text', () => {
-    render(<Text variant='xs'>xs</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes.xs,
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights.xs,
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('xs');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with sm font configuration for text', () => {
-    render(<Text variant='sm'>sm</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes.sm,
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights.sm,
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('sm');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with base font configuration for text', () => {
-    render(<Text variant='base'>base</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes.base,
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights.base,
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('base');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with lg font configuration for text', () => {
-    render(<Text variant='lg'>lg</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes.lg,
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights.lg,
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('lg');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with xl font configuration for text', () => {
-    render(<Text variant='xl'>xl</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes.xl,
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights.xl,
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('xl');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with 2xl font configuration for text', () => {
-    render(<Text variant='2xl'>2xl</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes['2xl'],
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights['2xl'],
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('2xl');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with 3xl font configuration for text', () => {
-    render(<Text variant='3xl'>3xl</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes['3xl'],
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights['3xl'],
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('3xl');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with 4xl font configuration for text', () => {
-    render(<Text variant='4xl'>4xl</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes['4xl'],
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights['4xl'],
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('4xl');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with 5xl font configuration for text', () => {
-    render(<Text variant='5xl'>5xl</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes['5xl'],
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights['5xl'],
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('5xl');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with 6xl font configuration for text', () => {
-    render(<Text variant='6xl'>6xl</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes['6xl'],
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights['6xl'],
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('6xl');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with 7xl font configuration for text', () => {
-    render(<Text variant='7xl'>7xl</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes['7xl'],
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights['7xl'],
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('7xl');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with 8xl font configuration for text', () => {
-    render(<Text variant='8xl'>8xl</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes['8xl'],
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights['8xl'],
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('8xl');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 
   it('Should render Text component with 9xl font configuration for text', () => {
-    render(<Text variant='9xl'>9xl</Text>);
-    expect(screen.getByTestId('text')).toHaveStyle({
-      fontSize: fontSizes['9xl'],
-      fontWeight: fontWeights.regular,
-      lineHeight: lineHeights['9xl'],
-      letterSpacing: letterSpacings.normal,
-    });
+    const { TextComponent, textStyle } = makeSut('9xl');
+
+    render(TextComponent);
+    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
 });
