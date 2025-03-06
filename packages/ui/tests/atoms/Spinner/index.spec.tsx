@@ -87,5 +87,13 @@ describe('<Spinner />', () => {
       render(<Spinner size='normal' useNativeDriver={false} />);
       expect(screen.getByTestId('spinner')).toHaveProp('size', spacings[8]);
     });
+
+    it('Should render Spinner component with small size', () => {
+      const { mockPlatform } = makeSut();
+      mockPlatform('android');
+
+      render(<Spinner size='small' useNativeDriver={false} />);
+      expect(screen.getByTestId('spinner')).toHaveProp('size', spacings[6]);
+    });
   });
 });
