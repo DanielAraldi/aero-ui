@@ -1,7 +1,22 @@
+import { Platform } from 'react-native';
 import { spacings } from '@aero-ui/tokens';
 import { render, screen } from '@testing-library/react-native';
 
 import { Spinner } from '../../../';
+
+type SutTypes = {
+  mockPlatform(OS: typeof Platform.OS): void;
+};
+
+function mockPlatform(OS: typeof Platform.OS): void {
+  Platform.OS = OS;
+}
+
+function makeSut(): SutTypes {
+  return {
+    mockPlatform,
+  };
+}
 
 describe('<Spinner />', () => {
   describe('Both (iOS and Android)', () => {
@@ -22,7 +37,14 @@ describe('<Spinner />', () => {
   });
 
   describe('iOS', () => {
+    beforeEach(() => {
+      mockPlatform(Platform.OS);
+    });
+
     it('Should render Spinner component with normal size', () => {
+      const { mockPlatform } = makeSut();
+      mockPlatform('ios');
+
       render(<Spinner size='normal' useNativeDriver={false} />);
       expect(screen.getByTestId('spinner')).toHaveStyle({
         width: spacings[8],
@@ -31,6 +53,9 @@ describe('<Spinner />', () => {
     });
 
     it('Should render Spinner component with small size', () => {
+      const { mockPlatform } = makeSut();
+      mockPlatform('ios');
+
       render(<Spinner size='small' useNativeDriver={false} />);
       expect(screen.getByTestId('spinner')).toHaveStyle({
         width: spacings[6],
@@ -39,11 +64,28 @@ describe('<Spinner />', () => {
     });
 
     it('Should render Spinner component with large size', () => {
+      const { mockPlatform } = makeSut();
+      mockPlatform('ios');
+
       render(<Spinner size='large' useNativeDriver={false} />);
       expect(screen.getByTestId('spinner')).toHaveStyle({
         width: spacings[10],
         height: spacings[10],
       });
+    });
+  });
+
+  describe('Android', () => {
+    beforeEach(() => {
+      mockPlatform(Platform.OS);
+    });
+
+    it('Should render Spinner component with normal size', () => {
+      const { mockPlatform } = makeSut();
+      mockPlatform('android');
+
+      render(<Spinner size='normal' useNativeDriver={false} />);
+      expect(screen.getByTestId('spinner')).toHaveProp('size', spacings[8]);
     });
   });
 });
