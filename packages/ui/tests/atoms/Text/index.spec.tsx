@@ -88,4 +88,14 @@ describe('<Text />', () => {
       letterSpacing: letterSpacings.normal,
     });
   });
+
+  it('Should render Text component with 4xl font configuration for text', () => {
+    render(<Text variant='4xl'>4xl</Text>);
+    expect(screen.getByTestId('text')).toHaveStyle({
+      fontSize: fontSizes['4xl'],
+      fontWeight: fontWeights.regular,
+      lineHeight: lineHeights['4xl'],
+      letterSpacing: letterSpacings.normal,
+    });
+  });
 });
