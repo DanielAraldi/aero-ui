@@ -48,4 +48,14 @@ describe('<Text />', () => {
       letterSpacing: letterSpacings.normal,
     });
   });
+
+  it('Should render Text component with lg font configuration for text', () => {
+    render(<Text variant='lg'>lg</Text>);
+    expect(screen.getByTestId('text')).toHaveStyle({
+      fontSize: fontSizes.lg,
+      fontWeight: fontWeights.regular,
+      lineHeight: lineHeights.lg,
+      letterSpacing: letterSpacings.normal,
+    });
+  });
 });
