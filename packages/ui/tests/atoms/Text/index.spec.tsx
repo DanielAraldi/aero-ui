@@ -28,4 +28,14 @@ describe('<Text />', () => {
       letterSpacing: letterSpacings.normal,
     });
   });
+
+  it('Should render Text component with sm font configuration for text', () => {
+    render(<Text variant='sm'>sm</Text>);
+    expect(screen.getByTestId('text')).toHaveStyle({
+      fontSize: fontSizes.sm,
+      fontWeight: fontWeights.regular,
+      lineHeight: lineHeights.sm,
+      letterSpacing: letterSpacings.normal,
+    });
+  });
 });
