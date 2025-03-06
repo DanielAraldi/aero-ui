@@ -138,4 +138,14 @@ describe('<Text />', () => {
       letterSpacing: letterSpacings.normal,
     });
   });
+
+  it('Should render Text component with 9xl font configuration for text', () => {
+    render(<Text variant='9xl'>9xl</Text>);
+    expect(screen.getByTestId('text')).toHaveStyle({
+      fontSize: fontSizes['9xl'],
+      fontWeight: fontWeights.regular,
+      lineHeight: lineHeights['9xl'],
+      letterSpacing: letterSpacings.normal,
+    });
+  });
 });
