@@ -58,4 +58,14 @@ describe('<Text />', () => {
       letterSpacing: letterSpacings.normal,
     });
   });
+
+  it('Should render Text component with xl font configuration for text', () => {
+    render(<Text variant='xl'>xl</Text>);
+    expect(screen.getByTestId('text')).toHaveStyle({
+      fontSize: fontSizes.xl,
+      fontWeight: fontWeights.regular,
+      lineHeight: lineHeights.xl,
+      letterSpacing: letterSpacings.normal,
+    });
+  });
 });
