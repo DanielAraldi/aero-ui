@@ -3,13 +3,12 @@ import { StyleProp, TextStyle } from 'react-native';
 import { render, screen } from '@testing-library/react-native';
 import {
   fontSizes,
-  FontSizesKeysType,
   fontWeights,
   letterSpacings,
   lineHeights,
 } from '@aero-ui/tokens';
 
-import { Text, TextProps } from '../../../';
+import { Text, TextProps, TextVariantType } from '../../../';
 
 type SutTypes = {
   TextComponent: ReactElement<TextProps>;
@@ -17,14 +16,12 @@ type SutTypes = {
 };
 
 function getTextComponentByVariant(
-  variant: FontSizesKeysType
+  variant: TextVariantType
 ): ReactElement<TextProps> {
   return <Text variant={variant}>{variant}</Text>;
 }
 
-function getTextStyleByVariant(
-  variant: FontSizesKeysType
-): StyleProp<TextStyle> {
+function getTextStyleByVariant(variant: TextVariantType): StyleProp<TextStyle> {
   return {
     fontSize: fontSizes[variant],
     fontWeight: fontWeights.regular,
@@ -33,7 +30,7 @@ function getTextStyleByVariant(
   };
 }
 
-function makeSut(variant: FontSizesKeysType): SutTypes {
+function makeSut(variant: TextVariantType): SutTypes {
   const TextComponent = getTextComponentByVariant(variant);
   const textStyle = getTextStyleByVariant(variant);
 

@@ -4,10 +4,11 @@ import {
   fontWeights,
   letterSpacings,
   lineHeights,
-  FontSizesKeysType,
 } from '@aero-ui/tokens';
 
-export const makeStyle = (size: FontSizesKeysType) =>
+import { TextVariantType } from '../../@types';
+
+export const makeStyle = (size: TextVariantType) =>
   StyleSheet.create({
     text: {
       fontSize: fontSizes[size],
