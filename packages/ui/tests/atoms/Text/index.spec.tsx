@@ -118,4 +118,14 @@ describe('<Text />', () => {
       letterSpacing: letterSpacings.normal,
     });
   });
+
+  it('Should render Text component with 7xl font configuration for text', () => {
+    render(<Text variant='7xl'>7xl</Text>);
+    expect(screen.getByTestId('text')).toHaveStyle({
+      fontSize: fontSizes['7xl'],
+      fontWeight: fontWeights.regular,
+      lineHeight: lineHeights['7xl'],
+      letterSpacing: letterSpacings.normal,
+    });
+  });
 });
