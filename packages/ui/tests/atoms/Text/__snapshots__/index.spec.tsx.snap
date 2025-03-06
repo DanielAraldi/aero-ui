@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text /> Should take a snapshot of the Text component 1`] = `
+<Text
+  accessibilityRole="text"
+  accessible={true}
+  style={
+    [
+      {
+        "fontSize": 16,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 24,
+      },
+      undefined,
+    ]
+  }
+  testID="text"
+>
+  Aero UI
+</Text>
+`;

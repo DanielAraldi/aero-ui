@@ -138,4 +138,9 @@ describe('<Text />', () => {
     render(TextComponent);
     expect(screen.getByTestId('text')).toHaveStyle(textStyle);
   });
+
+  it('Should take a snapshot of the Text component', () => {
+    const component = render(<Text>Aero UI</Text>);
+    expect(component).toMatchSnapshot();
+  });
 });
