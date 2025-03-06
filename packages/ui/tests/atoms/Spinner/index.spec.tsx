@@ -3,20 +3,7 @@ import { spacings } from '@aero-ui/tokens';
 import { render, screen } from '@testing-library/react-native';
 
 import { Spinner } from '../../../';
-
-type SutTypes = {
-  mockPlatform(OS: typeof Platform.OS): void;
-};
-
-function mockPlatform(OS: typeof Platform.OS): void {
-  Platform.OS = OS;
-}
-
-function makeSut(): SutTypes {
-  return {
-    mockPlatform,
-  };
-}
+import { mockPlatform } from '../../mocks';
 
 describe('<Spinner />', () => {
   describe('Both (iOS and Android)', () => {
@@ -42,7 +29,6 @@ describe('<Spinner />', () => {
     });
 
     it('Should render Spinner component with normal size', () => {
-      const { mockPlatform } = makeSut();
       mockPlatform('ios');
 
       render(<Spinner size='normal' useNativeDriver={false} />);
@@ -53,7 +39,6 @@ describe('<Spinner />', () => {
     });
 
     it('Should render Spinner component with small size', () => {
-      const { mockPlatform } = makeSut();
       mockPlatform('ios');
 
       render(<Spinner size='small' useNativeDriver={false} />);
@@ -64,7 +49,6 @@ describe('<Spinner />', () => {
     });
 
     it('Should render Spinner component with large size', () => {
-      const { mockPlatform } = makeSut();
       mockPlatform('ios');
 
       render(<Spinner size='large' useNativeDriver={false} />);
@@ -81,7 +65,6 @@ describe('<Spinner />', () => {
     });
 
     it('Should render Spinner component with normal size', () => {
-      const { mockPlatform } = makeSut();
       mockPlatform('android');
 
       render(<Spinner size='normal' useNativeDriver={false} />);
@@ -89,7 +72,6 @@ describe('<Spinner />', () => {
     });
 
     it('Should render Spinner component with small size', () => {
-      const { mockPlatform } = makeSut();
       mockPlatform('android');
 
       render(<Spinner size='small' useNativeDriver={false} />);
@@ -97,7 +79,6 @@ describe('<Spinner />', () => {
     });
 
     it('Should render Spinner component with large size', () => {
-      const { mockPlatform } = makeSut();
       mockPlatform('android');
 
       render(<Spinner size='large' useNativeDriver={false} />);
