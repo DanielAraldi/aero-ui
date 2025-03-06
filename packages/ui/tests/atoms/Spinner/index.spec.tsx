@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import { spacings } from '@aero-ui/tokens';
+import { colors, spacings } from '@aero-ui/tokens';
 import { render, screen } from '@testing-library/react-native';
 
 import { Spinner } from '../../../';
@@ -83,6 +83,16 @@ describe('<Spinner />', () => {
 
       render(<Spinner size='large' useNativeDriver={false} />);
       expect(screen.getByTestId('spinner')).toHaveProp('size', spacings[10]);
+    });
+
+    it('Should render Spinner component with color provided', () => {
+      mockPlatform('android');
+
+      render(<Spinner color={colors.blue[400]} useNativeDriver={false} />);
+      expect(screen.getByTestId('spinner')).toHaveProp(
+        'color',
+        colors.blue[400]
+      );
     });
   });
 });
