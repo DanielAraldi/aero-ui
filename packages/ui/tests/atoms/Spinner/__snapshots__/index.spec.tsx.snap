@@ -1,6 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Spinner /> Both (iOS and Android) Should take a snapshot of the Spinner component 1`] = `
+exports[`<Spinner /> Android Should take a snapshot of the Spinner component 1`] = `
+<ActivityIndicator
+  accessibilityLabel="Loading"
+  accessibilityRole="none"
+  accessibilityState={
+    {
+      "disabled": true,
+    }
+  }
+  accessible={true}
+  animating={true}
+  aria-disabled={true}
+  aria-label="Loading"
+  color="#000000"
+  hidesWhenStopped={true}
+  size={32}
+  testID="spinner"
+/>
+`;
+
+exports[`<Spinner /> iOS Should take a snapshot of the Spinner component 1`] = `
 <View
   accessibilityLabel="Loading"
   accessibilityRole="none"

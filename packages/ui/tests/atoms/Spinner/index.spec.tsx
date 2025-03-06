@@ -16,11 +16,6 @@ describe('<Spinner />', () => {
       render(<Spinner useNativeDriver={false} />);
       expect(screen.getByTestId('spinner')).toHaveAccessibleName('Loading');
     });
-
-    it('Should take a snapshot of the Spinner component', () => {
-      const component = render(<Spinner useNativeDriver={false} />);
-      expect(component).toMatchSnapshot();
-    });
   });
 
   describe('iOS', () => {
@@ -56,6 +51,13 @@ describe('<Spinner />', () => {
         width: spacings[10],
         height: spacings[10],
       });
+    });
+
+    it('Should take a snapshot of the Spinner component', () => {
+      mockPlatform('ios');
+
+      const component = render(<Spinner useNativeDriver={false} />);
+      expect(component).toMatchSnapshot();
     });
   });
 
@@ -93,6 +95,13 @@ describe('<Spinner />', () => {
         'color',
         colors.blue[400]
       );
+    });
+
+    it('Should take a snapshot of the Spinner component', () => {
+      mockPlatform('android');
+
+      const component = render(<Spinner useNativeDriver={false} />);
+      expect(component).toMatchSnapshot();
     });
   });
 });
