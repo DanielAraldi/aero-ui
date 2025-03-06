@@ -68,4 +68,14 @@ describe('<Text />', () => {
       letterSpacing: letterSpacings.normal,
     });
   });
+
+  it('Should render Text component with 2xl font configuration for text', () => {
+    render(<Text variant='2xl'>2xl</Text>);
+    expect(screen.getByTestId('text')).toHaveStyle({
+      fontSize: fontSizes['2xl'],
+      fontWeight: fontWeights.regular,
+      lineHeight: lineHeights['2xl'],
+      letterSpacing: letterSpacings.normal,
+    });
+  });
 });
