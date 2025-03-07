@@ -37,21 +37,23 @@ function makeSut(): SutTypes {
 }
 
 describe('<Spinner />', () => {
-  describe('Both (iOS and Android)', () => {
+  describe('iOS', () => {
+    beforeEach(() => {
+      mockPlatform(Platform.OS);
+    });
+
     it('Should render Spinner component', () => {
+      mockPlatform('ios');
+
       render(<Spinner useNativeDriver={false} />);
       expect(screen.getByTestId('spinner')).toBeOnTheScreen();
     });
 
     it("Should render Spinner component with accessibility label as 'Loading' text", () => {
+      mockPlatform('ios');
+
       render(<Spinner useNativeDriver={false} />);
       expect(screen.getByTestId('spinner')).toHaveAccessibleName('Loading');
-    });
-  });
-
-  describe('iOS', () => {
-    beforeEach(() => {
-      mockPlatform(Platform.OS);
     });
 
     it('Should render Spinner component with normal size', () => {
@@ -98,6 +100,20 @@ describe('<Spinner />', () => {
   describe('Android', () => {
     beforeEach(() => {
       mockPlatform(Platform.OS);
+    });
+
+    it('Should render Spinner component', () => {
+      mockPlatform('android');
+
+      render(<Spinner useNativeDriver={false} />);
+      expect(screen.getByTestId('spinner')).toBeOnTheScreen();
+    });
+
+    it("Should render Spinner component with accessibility label as 'Loading' text", () => {
+      mockPlatform('android');
+
+      render(<Spinner useNativeDriver={false} />);
+      expect(screen.getByTestId('spinner')).toHaveAccessibleName('Loading');
     });
 
     it('Should render Spinner component with normal size', () => {
