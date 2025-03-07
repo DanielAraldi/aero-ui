@@ -42,11 +42,21 @@ describe('<Spinner />', () => {
       mockPlatform(Platform.OS);
     });
 
-    it('Should render Spinner component', () => {
+    it('Should render Spinner component with default properties', () => {
       mockPlatform('ios');
 
+      const { spinnerSizeIOSStub } = makeSut();
+
       render(<Spinner useNativeDriver={false} />);
-      expect(screen.getByTestId('spinner')).toBeOnTheScreen();
+      const component = screen.getByTestId('spinner');
+      expect(component).toHaveStyle(spinnerSizeIOSStub('normal'));
+      expect(component).toHaveStyle({
+        borderTopColor: 'transparent',
+        borderRightColor: 'transparent',
+        borderBottomColor: 'transparent',
+        borderLeftColor: colors.black[100],
+      });
+      expect(component).toBeOnTheScreen();
     });
 
     it("Should render Spinner component with accessibility label as 'Loading' text", () => {
