@@ -112,10 +112,15 @@ describe('<Spinner />', () => {
       mockPlatform(Platform.OS);
     });
 
-    it('Should render Spinner component', () => {
+    it('Should render Spinner component with default properties', () => {
       mockPlatform('android');
 
       render(<Spinner useNativeDriver={false} />);
+      expect(screen.getByTestId('spinner')).toHaveProp(
+        'color',
+        colors.black[100]
+      );
+      expect(screen.getByTestId('spinner')).toHaveProp('size', spacings[8]);
       expect(screen.getByTestId('spinner')).toBeOnTheScreen();
     });
 
