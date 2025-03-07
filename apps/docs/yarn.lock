@@ -26,12 +26,12 @@ __metadata:
 
 "@aero-ui/ui@file:../../packages/ui::locator=docs%40workspace%3A.":
   version: 1.2.0
-  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=6fbf98&locator=docs%40workspace%3A."
+  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=8de749&locator=docs%40workspace%3A."
   peerDependencies:
     "@aero-ui/tokens": "*"
     react: ^18.2.0
     react-native: ^0.74.5
-  checksum: 10c0/ab7af00538b26de2a1e1e1bd28bdebc287866cf5c92aadaa22f01ec00977da91205a8c9b0876cbd330c8957442383ba195aaaaffa9c6fb45ec40e4ec809377fd
+  checksum: 10c0/d2f4a89dace12851925d1c0b45b0de5ddcee08a1867ad71ae377fe1509c6d147ff2914cad728b9e3dbdd9e7c5e284ea1f2f13557b150161103beb8afc2e9e18b
   languageName: node
   linkType: hard
 

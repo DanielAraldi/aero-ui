@@ -47,7 +47,8 @@ const Button = forwardRef(
     const [isPressed, setIsPressed] = useState<boolean>(false);
 
     const measurement = new Animated.Value(0, { useNativeDriver });
-    const spinnerColorKey = variant === 'ghost' ? 'black' : 'white';
+    const spinnerColorKey =
+      variant === 'ghost' || variant === 'secondary' ? 'black' : 'white';
     const shouldDisableActions = disabled || loading;
     let customSpinner: ReactNode = null;
     let customText: ReactNode = null;

@@ -76,7 +76,8 @@ function getBackgroundColor(props: MakeBackgroundColorProps): ColorValue {
 function getBorderColor(props: MakeBorderColorProps): ColorValue {
   const { variant, disabled, loading, pressed } = props;
 
-  const borderColor = colors[variant === 'ghost' ? 'black' : 'white'][100];
+  const isDark = variant === 'ghost' || variant === 'secondary';
+  const borderColor = colors[isDark ? 'black' : 'white'][100];
 
   if (loading) return borderColor;
   else if (disabled) return disabledBorderColors[variant];
@@ -95,6 +96,7 @@ function getWrapperOpacity(props: MakeOpacityProps): number {
 export const makeStyles = (props: MakeStyleProps) => {
   const { variant, hugWidth, bordered, disabled, loading, pressed } = props;
 
+  const isDark = variant === 'ghost' || variant === 'secondary';
   const shouldHug = hugWidth || loading;
 
   return StyleSheet.create({
@@ -128,7 +130,7 @@ export const makeStyles = (props: MakeStyleProps) => {
     },
 
     text: {
-      color: colors[variant === 'ghost' ? 'black' : 'white'][100],
+      color: colors[isDark ? 'black' : 'white'][100],
     },
   });
 };
