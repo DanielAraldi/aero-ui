@@ -38,9 +38,13 @@ function makeSut(): SutTypes {
 }
 
 describe('<Text />', () => {
-  it('Should render Text component', () => {
+  it('Should render Text component with default properties', () => {
+    const { textStyleStub } = makeSut();
+
     render(<Text />);
-    expect(screen.getByTestId('text')).toBeOnTheScreen();
+    const component = screen.getByTestId('text');
+    expect(component).toHaveStyle(textStyleStub('base'));
+    expect(component).toBeOnTheScreen();
   });
 
   it("Should render Text component with 'Aero UI' text", () => {
