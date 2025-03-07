@@ -1,8 +1,13 @@
-import { Platform } from 'react-native';
+import { ColorValue, Platform } from 'react-native';
 import { colors, spacings, SpacingsObjectType } from '@aero-ui/tokens';
 import { render, screen } from '@testing-library/react-native';
 
-import { Spinner, SpinnerSizeType } from '../../../';
+import {
+  Spinner,
+  SpinnerSizeType,
+  SpinnerStartByType,
+  SpinnerVariantType,
+} from '../../../';
 import { mockPlatform } from '../../mocks';
 
 interface SpinnerSizeIOSProps {
@@ -10,8 +15,25 @@ interface SpinnerSizeIOSProps {
   height: number;
 }
 
+interface SpinnerStartByStylesProps {
+  borderTopColor: ColorValue;
+  borderRightColor: ColorValue;
+  borderBottomColor: ColorValue;
+  borderLeftColor: ColorValue;
+}
+
+interface SpinnerStartByStylesStubProps {
+  variant: SpinnerVariantType;
+  startBy: SpinnerStartByType;
+  color: ColorValue;
+  overlayColor: ColorValue;
+}
+
 type SutTypes = {
   spinnerSizeIOSStub(size: SpinnerSizeType): SpinnerSizeIOSProps;
+  spinnerStartByStylesStub(
+    props: SpinnerStartByStylesStubProps
+  ): SpinnerStartByStylesProps;
 };
 
 function getSpinnerSizeIOSStub(size: SpinnerSizeType): SpinnerSizeIOSProps {
@@ -30,9 +52,51 @@ function getSpinnerSizeIOSStub(size: SpinnerSizeType): SpinnerSizeIOSProps {
   };
 }
 
+function getSpinnerStartByStylesStub(
+  props: SpinnerStartByStylesStubProps
+): SpinnerStartByStylesProps {
+  const { color, overlayColor, variant, startBy } = props;
+
+  const doubleColor = variant === 'double' ? color : overlayColor;
+  const halfColor = variant === 'half' ? color : overlayColor;
+
+  const startByStyles: Record<SpinnerStartByType, SpinnerStartByStylesProps> = {
+    bottom: {
+      borderTopColor: doubleColor,
+      borderRightColor: overlayColor,
+      borderBottomColor: color,
+      borderLeftColor: halfColor,
+    },
+
+    left: {
+      borderTopColor: halfColor,
+      borderRightColor: doubleColor,
+      borderBottomColor: overlayColor,
+      borderLeftColor: color,
+    },
+
+    right: {
+      borderTopColor: overlayColor,
+      borderRightColor: color,
+      borderBottomColor: halfColor,
+      borderLeftColor: doubleColor,
+    },
+
+    top: {
+      borderTopColor: color,
+      borderRightColor: halfColor,
+      borderBottomColor: doubleColor,
+      borderLeftColor: overlayColor,
+    },
+  };
+
+  return startByStyles[startBy];
+}
+
 function makeSut(): SutTypes {
   return {
     spinnerSizeIOSStub: getSpinnerSizeIOSStub,
+    spinnerStartByStylesStub: getSpinnerStartByStylesStub,
   };
 }
 
@@ -45,17 +109,18 @@ describe('<Spinner />', () => {
     it('Should render Spinner component with default properties', () => {
       mockPlatform('ios');
 
-      const { spinnerSizeIOSStub } = makeSut();
+      const { spinnerSizeIOSStub, spinnerStartByStylesStub } = makeSut();
 
       render(<Spinner useNativeDriver={false} />);
       const component = screen.getByTestId('spinner');
-      expect(component).toHaveStyle(spinnerSizeIOSStub('normal'));
-      expect(component).toHaveStyle({
-        borderTopColor: 'transparent',
-        borderRightColor: 'transparent',
-        borderBottomColor: 'transparent',
-        borderLeftColor: colors.black[100],
+      const startByStyles = spinnerStartByStylesStub({
+        variant: 'unique',
+        startBy: 'left',
+        color: colors.black[100],
+        overlayColor: 'transparent',
       });
+      expect(component).toHaveStyle(spinnerSizeIOSStub('normal'));
+      expect(component).toHaveStyle(startByStyles);
       expect(component).toBeOnTheScreen();
     });
 
