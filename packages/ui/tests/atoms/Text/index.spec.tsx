@@ -11,17 +11,17 @@ import {
 import { Text, TextProps, TextVariantType } from '../../../';
 
 type SutTypes = {
-  TextComponent: ReactElement<TextProps>;
-  textStyle: StyleProp<TextStyle>;
+  textComponentStub(variant: TextVariantType): ReactElement<TextProps>;
+  textStyleStub(variant: TextVariantType): StyleProp<TextStyle>;
 };
 
-function getTextComponentByVariant(
+function getTextComponentStub(
   variant: TextVariantType
 ): ReactElement<TextProps> {
   return <Text variant={variant}>{variant}</Text>;
 }
 
-function getTextStyleByVariant(variant: TextVariantType): StyleProp<TextStyle> {
+function getTextStyleStub(variant: TextVariantType): StyleProp<TextStyle> {
   return {
     fontSize: fontSizes[variant],
     fontWeight: fontWeights.regular,
@@ -30,11 +30,11 @@ function getTextStyleByVariant(variant: TextVariantType): StyleProp<TextStyle> {
   };
 }
 
-function makeSut(variant: TextVariantType): SutTypes {
-  const TextComponent = getTextComponentByVariant(variant);
-  const textStyle = getTextStyleByVariant(variant);
-
-  return { TextComponent, textStyle };
+function makeSut(): SutTypes {
+  return {
+    textComponentStub: getTextComponentStub,
+    textStyleStub: getTextStyleStub,
+  };
 }
 
 describe('<Text />', () => {
@@ -49,94 +49,94 @@ describe('<Text />', () => {
   });
 
   it('Should render Text component with xs font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('xs');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('xs'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('xs'));
   });
 
   it('Should render Text component with sm font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('sm');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('sm'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('sm'));
   });
 
   it('Should render Text component with base font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('base');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('base'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('base'));
   });
 
   it('Should render Text component with lg font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('lg');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('lg'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('lg'));
   });
 
   it('Should render Text component with xl font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('xl');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('xl'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('xl'));
   });
 
   it('Should render Text component with 2xl font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('2xl');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('2xl'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('2xl'));
   });
 
   it('Should render Text component with 3xl font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('3xl');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('3xl'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('3xl'));
   });
 
   it('Should render Text component with 4xl font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('4xl');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('4xl'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('4xl'));
   });
 
   it('Should render Text component with 5xl font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('5xl');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('5xl'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('5xl'));
   });
 
   it('Should render Text component with 6xl font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('6xl');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('6xl'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('6xl'));
   });
 
   it('Should render Text component with 7xl font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('7xl');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('7xl'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('7xl'));
   });
 
   it('Should render Text component with 8xl font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('8xl');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('8xl'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('8xl'));
   });
 
   it('Should render Text component with 9xl font configuration for text', () => {
-    const { TextComponent, textStyle } = makeSut('9xl');
+    const { textComponentStub, textStyleStub } = makeSut();
 
-    render(TextComponent);
-    expect(screen.getByTestId('text')).toHaveStyle(textStyle);
+    render(textComponentStub('9xl'));
+    expect(screen.getByTestId('text')).toHaveStyle(textStyleStub('9xl'));
   });
 
   it('Should take a snapshot of the Text component', () => {
