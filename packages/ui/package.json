@@ -43,6 +43,7 @@
   "devDependencies": {
     "@aero-ui/typescript-config": "*",
     "@babel/preset-flow": "^7.25.9",
+    "@faker-js/faker": "^9.6.0",
     "@testing-library/react-native": "^13.1.0",
     "@types/jest": "^29.5.14",
     "@types/react": "^18.2.79",
