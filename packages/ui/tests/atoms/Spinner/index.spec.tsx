@@ -1,6 +1,7 @@
 import { ColorValue, Platform } from 'react-native';
 import { colors, spacings, SpacingsObjectType } from '@aero-ui/tokens';
 import { render, screen } from '@testing-library/react-native';
+import { faker } from '@faker-js/faker';
 
 import {
   Spinner,
@@ -112,6 +113,7 @@ describe('<Spinner />', () => {
       const { spinnerSizeIOSStub, spinnerStartByStylesStub } = makeSut();
 
       render(<Spinner useNativeDriver={false} />);
+
       const component = screen.getByTestId('spinner');
       const startByStyles = spinnerStartByStylesStub({
         variant: 'unique',
@@ -119,6 +121,7 @@ describe('<Spinner />', () => {
         color: colors.black[100],
         overlayColor: 'transparent',
       });
+
       expect(component).toHaveStyle(spinnerSizeIOSStub('normal'));
       expect(component).toHaveStyle(startByStyles);
       expect(component).toBeOnTheScreen();
@@ -164,18 +167,115 @@ describe('<Spinner />', () => {
       );
     });
 
-    it('Should render Spinner component with unique variant', () => {
+    it('Should render Spinner component with unique variant, left startBy and colors provided', () => {
       mockPlatform('ios');
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      render(<Spinner variant='unique' useNativeDriver={false} />);
+      const color = faker.color.rgb();
+      const overlayColor = faker.color.rgb();
+
+      render(
+        <Spinner
+          variant='unique'
+          startBy='left'
+          color={color}
+          overlayColor={overlayColor}
+          useNativeDriver={false}
+        />
+      );
+
       const startByStyles = spinnerStartByStylesStub({
         variant: 'unique',
         startBy: 'left',
-        color: colors.black[100],
-        overlayColor: 'transparent',
+        color,
+        overlayColor,
       });
+
+      expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
+    });
+
+    it('Should render Spinner component with unique variant, right startBy and colors provided', () => {
+      mockPlatform('ios');
+
+      const { spinnerStartByStylesStub } = makeSut();
+
+      const color = faker.color.rgb();
+      const overlayColor = faker.color.rgb();
+
+      render(
+        <Spinner
+          variant='unique'
+          startBy='right'
+          color={color}
+          overlayColor={overlayColor}
+          useNativeDriver={false}
+        />
+      );
+
+      const startByStyles = spinnerStartByStylesStub({
+        variant: 'unique',
+        startBy: 'right',
+        color,
+        overlayColor,
+      });
+
+      expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
+    });
+
+    it('Should render Spinner component with unique variant, top startBy and colors provided', () => {
+      mockPlatform('ios');
+
+      const { spinnerStartByStylesStub } = makeSut();
+
+      const color = faker.color.rgb();
+      const overlayColor = faker.color.rgb();
+
+      render(
+        <Spinner
+          variant='unique'
+          startBy='top'
+          color={color}
+          overlayColor={overlayColor}
+          useNativeDriver={false}
+        />
+      );
+
+      const startByStyles = spinnerStartByStylesStub({
+        variant: 'unique',
+        startBy: 'top',
+        color,
+        overlayColor,
+      });
+
+      expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
+    });
+
+    it('Should render Spinner component with unique variant, bottom startBy and colors provided', () => {
+      mockPlatform('ios');
+
+      const { spinnerStartByStylesStub } = makeSut();
+
+      const color = faker.color.rgb();
+      const overlayColor = faker.color.rgb();
+
+      render(
+        <Spinner
+          variant='unique'
+          startBy='bottom'
+          color={color}
+          overlayColor={overlayColor}
+          useNativeDriver={false}
+        />
+      );
+
+      const startByStyles = spinnerStartByStylesStub({
+        variant: 'unique',
+        startBy: 'bottom',
+        color,
+        overlayColor,
+      });
+
       expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
     });
 
@@ -185,12 +285,14 @@ describe('<Spinner />', () => {
       const { spinnerStartByStylesStub } = makeSut();
 
       render(<Spinner variant='double' useNativeDriver={false} />);
+
       const startByStyles = spinnerStartByStylesStub({
         variant: 'double',
         startBy: 'left',
         color: colors.black[100],
         overlayColor: 'transparent',
       });
+
       expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
     });
 
@@ -200,72 +302,14 @@ describe('<Spinner />', () => {
       const { spinnerStartByStylesStub } = makeSut();
 
       render(<Spinner variant='half' useNativeDriver={false} />);
+
       const startByStyles = spinnerStartByStylesStub({
         variant: 'half',
         startBy: 'left',
         color: colors.black[100],
         overlayColor: 'transparent',
       });
-      expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
-    });
 
-    it('Should render Spinner component with left startBy', () => {
-      mockPlatform('ios');
-
-      const { spinnerStartByStylesStub } = makeSut();
-
-      render(<Spinner startBy='left' useNativeDriver={false} />);
-      const startByStyles = spinnerStartByStylesStub({
-        variant: 'unique',
-        startBy: 'left',
-        color: colors.black[100],
-        overlayColor: 'transparent',
-      });
-      expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
-    });
-
-    it('Should render Spinner component with right startBy', () => {
-      mockPlatform('ios');
-
-      const { spinnerStartByStylesStub } = makeSut();
-
-      render(<Spinner startBy='right' useNativeDriver={false} />);
-      const startByStyles = spinnerStartByStylesStub({
-        variant: 'unique',
-        startBy: 'right',
-        color: colors.black[100],
-        overlayColor: 'transparent',
-      });
-      expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
-    });
-
-    it('Should render Spinner component with top startBy', () => {
-      mockPlatform('ios');
-
-      const { spinnerStartByStylesStub } = makeSut();
-
-      render(<Spinner startBy='top' useNativeDriver={false} />);
-      const startByStyles = spinnerStartByStylesStub({
-        variant: 'unique',
-        startBy: 'top',
-        color: colors.black[100],
-        overlayColor: 'transparent',
-      });
-      expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
-    });
-
-    it('Should render Spinner component with bottom startBy', () => {
-      mockPlatform('ios');
-
-      const { spinnerStartByStylesStub } = makeSut();
-
-      render(<Spinner startBy='bottom' useNativeDriver={false} />);
-      const startByStyles = spinnerStartByStylesStub({
-        variant: 'unique',
-        startBy: 'bottom',
-        color: colors.black[100],
-        overlayColor: 'transparent',
-      });
       expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
     });
 
