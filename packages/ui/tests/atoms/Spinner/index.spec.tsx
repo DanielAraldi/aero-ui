@@ -1,9 +1,40 @@
 import { Platform } from 'react-native';
-import { colors, spacings } from '@aero-ui/tokens';
+import { colors, spacings, SpacingsObjectType } from '@aero-ui/tokens';
 import { render, screen } from '@testing-library/react-native';
 
-import { Spinner } from '../../../';
+import { Spinner, SpinnerSizeType } from '../../../';
 import { mockPlatform } from '../../mocks';
+
+interface SpinnerSizeIOSProps {
+  width: number;
+  height: number;
+}
+
+type SutTypes = {
+  spinnerSizeIOSStub(size: SpinnerSizeType): SpinnerSizeIOSProps;
+};
+
+function getSpinnerSizeIOSStub(size: SpinnerSizeType): SpinnerSizeIOSProps {
+  const sizes: Record<
+    SpinnerSizeType,
+    SpacingsObjectType[keyof SpacingsObjectType]
+  > = {
+    large: spacings[10],
+    normal: spacings[8],
+    small: spacings[6],
+  };
+
+  return {
+    width: sizes[size],
+    height: sizes[size],
+  };
+}
+
+function makeSut(): SutTypes {
+  return {
+    spinnerSizeIOSStub: getSpinnerSizeIOSStub,
+  };
+}
 
 describe('<Spinner />', () => {
   describe('Both (iOS and Android)', () => {
@@ -26,31 +57,34 @@ describe('<Spinner />', () => {
     it('Should render Spinner component with normal size', () => {
       mockPlatform('ios');
 
+      const { spinnerSizeIOSStub } = makeSut();
+
       render(<Spinner size='normal' useNativeDriver={false} />);
-      expect(screen.getByTestId('spinner')).toHaveStyle({
-        width: spacings[8],
-        height: spacings[8],
-      });
+      expect(screen.getByTestId('spinner')).toHaveStyle(
+        spinnerSizeIOSStub('normal')
+      );
     });
 
     it('Should render Spinner component with small size', () => {
       mockPlatform('ios');
 
+      const { spinnerSizeIOSStub } = makeSut();
+
       render(<Spinner size='small' useNativeDriver={false} />);
-      expect(screen.getByTestId('spinner')).toHaveStyle({
-        width: spacings[6],
-        height: spacings[6],
-      });
+      expect(screen.getByTestId('spinner')).toHaveStyle(
+        spinnerSizeIOSStub('small')
+      );
     });
 
     it('Should render Spinner component with large size', () => {
       mockPlatform('ios');
 
+      const { spinnerSizeIOSStub } = makeSut();
+
       render(<Spinner size='large' useNativeDriver={false} />);
-      expect(screen.getByTestId('spinner')).toHaveStyle({
-        width: spacings[10],
-        height: spacings[10],
-      });
+      expect(screen.getByTestId('spinner')).toHaveStyle(
+        spinnerSizeIOSStub('large')
+      );
     });
 
     it('Should take a snapshot of the Spinner component', () => {
