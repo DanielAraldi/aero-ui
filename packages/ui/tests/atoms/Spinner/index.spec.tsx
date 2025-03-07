@@ -164,6 +164,21 @@ describe('<Spinner />', () => {
       );
     });
 
+    it('Should render Spinner component with unique variant', () => {
+      mockPlatform('ios');
+
+      const { spinnerStartByStylesStub } = makeSut();
+
+      render(<Spinner variant='unique' useNativeDriver={false} />);
+      const startByStyles = spinnerStartByStylesStub({
+        variant: 'unique',
+        startBy: 'left',
+        color: colors.black[100],
+        overlayColor: 'transparent',
+      });
+      expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
+    });
+
     it('Should take a snapshot of the Spinner component', () => {
       mockPlatform('ios');
 
