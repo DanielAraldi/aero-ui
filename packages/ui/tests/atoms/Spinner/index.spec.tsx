@@ -279,18 +279,29 @@ describe('<Spinner />', () => {
       expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
     });
 
-    it('Should render Spinner component with double variant', () => {
+    it('Should render Spinner component with double variant, left startBy and colors provided', () => {
       mockPlatform('ios');
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      render(<Spinner variant='double' useNativeDriver={false} />);
+      const color = faker.color.rgb();
+      const overlayColor = faker.color.rgb();
+
+      render(
+        <Spinner
+          variant='double'
+          startBy='left'
+          color={color}
+          overlayColor={overlayColor}
+          useNativeDriver={false}
+        />
+      );
 
       const startByStyles = spinnerStartByStylesStub({
         variant: 'double',
         startBy: 'left',
-        color: colors.black[100],
-        overlayColor: 'transparent',
+        color,
+        overlayColor,
       });
 
       expect(screen.getByTestId('spinner')).toHaveStyle(startByStyles);
