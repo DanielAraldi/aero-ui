@@ -134,6 +134,7 @@ const Button = forwardRef(
       >
         <TouchableHighlight
           ref={ref}
+          testID='touchable'
           accessible
           accessibilityRole='button'
           accessibilityState={{
@@ -154,6 +155,7 @@ const Button = forwardRef(
             {loading
               ? customSpinner || (
                   <Spinner
+                    testID='spinner'
                     variant='half'
                     size='small'
                     startBy='bottom'
@@ -161,7 +163,11 @@ const Button = forwardRef(
                     overlayColor={colors[spinnerColorKey][25]}
                   />
                 )
-              : customText || <Text style={styles.text}>{title}</Text>}
+              : customText || (
+                  <Text testID='text' style={styles.text}>
+                    {title}
+                  </Text>
+                )}
           </View>
         </TouchableHighlight>
       </Animated.View>
