@@ -10,7 +10,7 @@ const meta: Meta<ButtonProps> = {
   args: {
     title: 'Aero UI',
     variant: 'primary',
-    scale: 0.98,
+    toScale: 0.98,
     duration: 150,
     loading: false,
     bordered: false,
@@ -40,7 +40,7 @@ const meta: Meta<ButtonProps> = {
         'warning',
       ],
     },
-    scale: {
+    toScale: {
       control: {
         type: 'number',
         min: 0,

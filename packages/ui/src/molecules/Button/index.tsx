@@ -28,7 +28,7 @@ const Button = forwardRef(
     const {
       variant = 'primary',
       title = 'Title',
-      scale = 0.98,
+      toScale = 0.98,
       duration = 150,
       hugWidth = true,
       useNativeDriver = true,
@@ -97,7 +97,7 @@ const Button = forwardRef(
 
     const size = measurement.interpolate({
       inputRange: [0, 1],
-      outputRange: [1, scale],
+      outputRange: [1, toScale],
     });
 
     Children.forEach(children, child => {

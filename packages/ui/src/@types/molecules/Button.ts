@@ -30,13 +30,14 @@ export interface ButtonProps extends TouchableHighlightProps {
   variant?: ButtonVariantType;
 
   /**
-   * @description This property is used to control the size of the button.
+   * @description This property is used to control the size of the button when
+   * it's pressed.
    *
    * @default 0.98
    *
    * @since 1.2.0
    */
-  scale?: number;
+  toScale?: number;
 
   /**
    * @description This property is used to control the duration of the

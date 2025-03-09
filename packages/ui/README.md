@@ -41,7 +41,7 @@ The `Button` component is a `TouchableHighlight` component, but it also includes
 | ----------------- | --------------------------------------------------------------------------------------- | --------- | -------- |
 | `title`           | Set the title of the button.                                                            | `Title`   | Both     |
 | `variant`         | Scroll variants of the button.                                                          | `primary` | Both     |
-| `scale`           | Button's scale.                                                                         | `0.98`    | Both     |
+| `toScale`         | Button's scale when it's pressed.                                                       | `0.98`    | Both     |
 | `duration`        | Duration of the scale animation on the touch.                                           | `150`     | Both     |
 | `loading`         | Button's loading.                                                                       | `false`   | Both     |
 | `bordered`        | Determine if the button has border.                                                     | `false`   | Both     |
