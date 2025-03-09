@@ -39,5 +39,10 @@ describe('<Button />', () => {
       expect(text).toBeOnTheScreen();
       expect(spinner).toBeNull();
     });
+
+    it('Should take a snapshot of the Button component', () => {
+      const component = render(<Button useNativeDriver={false} />);
+      expect(component).toMatchSnapshot();
+    });
   });
 });

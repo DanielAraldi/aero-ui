@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> Both Should take a snapshot of the Button component 1`] = `
+<View
+  collapsable={false}
+  style={
+    {
+      "height": 64,
+      "transform": [
+        {
+          "scale": 1,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+  testID="button"
+>
+  <View
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "disabled": false,
+        "selected": false,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "backgroundColor": "#3B82F6",
+          "borderRadius": 9999,
+          "height": "100%",
+          "justifyContent": "center",
+          "paddingHorizontal": 8,
+          "paddingVertical": 8,
+          "width": "auto",
+        },
+        undefined,
+      ]
+    }
+    testID="touchable"
+  >
+    <View
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        accessibilityRole="text"
+        accessible={true}
+        style={
+          [
+            {
+              "fontSize": 16,
+              "fontWeight": "400",
+              "letterSpacing": 0,
+              "lineHeight": 24,
+            },
+            {
+              "color": "#FFFFFF",
+            },
+          ]
+        }
+        testID="text"
+      >
+        Title
+      </Text>
+    </View>
+  </View>
+</View>
+`;
