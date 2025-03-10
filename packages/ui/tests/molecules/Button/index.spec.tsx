@@ -207,6 +207,28 @@ describe('<Button />', () => {
       });
     });
 
+    test("Should render Button component with neutral variant and change your color when it's pressed", async () => {
+      render(<Button variant='neutral' bordered useNativeDriver={false} />);
+
+      const touchable = screen.getByTestId('touchable');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.white[100],
+      });
+
+      fireEvent(touchable, 'pressIn');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.neutral[100],
+      });
+
+      fireEvent(touchable, 'pressOut');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.white[100],
+      });
+    });
+
     it('Should take a snapshot of the Button component', () => {
       const component = render(<Button useNativeDriver={false} />);
       expect(component).toMatchSnapshot();
