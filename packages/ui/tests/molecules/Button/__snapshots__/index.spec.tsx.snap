@@ -14,7 +14,7 @@ exports[`<Button /> Android Should take a snapshot of the Button component when 
       "width": "100%",
     }
   }
-  testID="button"
+  testID="wrapper"
 >
   <View
     accessibilityRole="button"
@@ -101,7 +101,7 @@ exports[`<Button /> Both (iOS and Android) Should take a snapshot of the Button 
       "width": "100%",
     }
   }
-  testID="button"
+  testID="wrapper"
 >
   <View
     accessibilityRole="button"
@@ -191,7 +191,7 @@ exports[`<Button /> iOS Should take a snapshot of the Button component when it's
       "width": "100%",
     }
   }
-  testID="button"
+  testID="wrapper"
 >
   <View
     accessibilityRole="button"

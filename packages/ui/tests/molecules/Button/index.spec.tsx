@@ -2,20 +2,24 @@ import { Platform } from 'react-native';
 import { borderWidths, colors, spacings } from '@aero-ui/tokens';
 import { render, screen, fireEvent } from '@testing-library/react-native';
 
-import { Button } from '../../../';
+import { Button, ButtonProps } from '../../../';
 import { mockPlatform } from '../../mocks';
+
+const defaultProps: ButtonProps = {
+  useNativeDriver: false,
+};
 
 describe('<Button />', () => {
   describe('Both (iOS and Android)', () => {
     test('Should render Button component with default properties', () => {
-      render(<Button useNativeDriver={false} />);
+      render(<Button {...defaultProps} />);
 
-      const button = screen.getByTestId('button');
+      const wrapper = screen.getByTestId('wrapper');
       const touchable = screen.getByTestId('touchable');
       const text = screen.getByTestId('text');
       const spinner = screen.queryByTestId('spinner');
 
-      expect(button).toHaveStyle({
+      expect(wrapper).toHaveStyle({
         width: '100%',
         transform: [{ scale: 1 }],
       });
@@ -36,14 +40,14 @@ describe('<Button />', () => {
         color: colors.white[100],
       });
 
-      expect(button).toBeOnTheScreen();
+      expect(wrapper).toBeOnTheScreen();
       expect(touchable).toBeOnTheScreen();
       expect(text).toBeOnTheScreen();
       expect(spinner).toBeNull();
     });
 
     test('Should change title of Button component when title is changed', () => {
-      render(<Button title='Aero UI' useNativeDriver={false} />);
+      render(<Button title='Aero UI' {...defaultProps} />);
 
       const text = screen.getByTestId('text');
 
@@ -51,7 +55,7 @@ describe('<Button />', () => {
     });
 
     test("Should render Button component with primary variant and change your color when it's pressed", async () => {
-      render(<Button variant='primary' bordered useNativeDriver={false} />);
+      render(<Button variant='primary' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -73,7 +77,7 @@ describe('<Button />', () => {
     });
 
     test("Should render Button component with secondary variant and change your color when it's pressed", async () => {
-      render(<Button variant='secondary' bordered useNativeDriver={false} />);
+      render(<Button variant='secondary' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -95,7 +99,7 @@ describe('<Button />', () => {
     });
 
     test("Should render Button component with tertiary variant and change your color when it's pressed", async () => {
-      render(<Button variant='tertiary' bordered useNativeDriver={false} />);
+      render(<Button variant='tertiary' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -117,7 +121,7 @@ describe('<Button />', () => {
     });
 
     test("Should render Button component with success variant and change your color when it's pressed", async () => {
-      render(<Button variant='success' bordered useNativeDriver={false} />);
+      render(<Button variant='success' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -139,7 +143,7 @@ describe('<Button />', () => {
     });
 
     test("Should render Button component with ghost variant and change your color when it's pressed", async () => {
-      render(<Button variant='ghost' bordered useNativeDriver={false} />);
+      render(<Button variant='ghost' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -161,7 +165,7 @@ describe('<Button />', () => {
     });
 
     test("Should render Button component with danger variant and change your color when it's pressed", async () => {
-      render(<Button variant='danger' bordered useNativeDriver={false} />);
+      render(<Button variant='danger' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -183,7 +187,7 @@ describe('<Button />', () => {
     });
 
     test("Should render Button component with warning variant and change your color when it's pressed", async () => {
-      render(<Button variant='warning' bordered useNativeDriver={false} />);
+      render(<Button variant='warning' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -205,7 +209,7 @@ describe('<Button />', () => {
     });
 
     test("Should render Button component with neutral variant and change your color when it's pressed", async () => {
-      render(<Button variant='neutral' bordered useNativeDriver={false} />);
+      render(<Button variant='neutral' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -227,9 +231,7 @@ describe('<Button />', () => {
     });
 
     test('Should render Button component with primary variant disabled', async () => {
-      render(
-        <Button variant='primary' disabled bordered useNativeDriver={false} />
-      );
+      render(<Button variant='primary' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -242,7 +244,7 @@ describe('<Button />', () => {
 
     test('Should render Button component with secondary variant disabled', async () => {
       render(
-        <Button variant='secondary' disabled bordered useNativeDriver={false} />
+        <Button variant='secondary' disabled bordered {...defaultProps} />
       );
 
       const touchable = screen.getByTestId('touchable');
@@ -255,9 +257,7 @@ describe('<Button />', () => {
     });
 
     test('Should render Button component with tertiary variant disabled', async () => {
-      render(
-        <Button variant='tertiary' disabled bordered useNativeDriver={false} />
-      );
+      render(<Button variant='tertiary' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -269,9 +269,7 @@ describe('<Button />', () => {
     });
 
     test('Should render Button component with success variant disabled', async () => {
-      render(
-        <Button variant='success' disabled bordered useNativeDriver={false} />
-      );
+      render(<Button variant='success' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -283,9 +281,7 @@ describe('<Button />', () => {
     });
 
     test('Should render Button component with ghost variant disabled', async () => {
-      render(
-        <Button variant='ghost' disabled bordered useNativeDriver={false} />
-      );
+      render(<Button variant='ghost' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -297,9 +293,7 @@ describe('<Button />', () => {
     });
 
     test('Should render Button component with danger variant disabled', async () => {
-      render(
-        <Button variant='danger' disabled bordered useNativeDriver={false} />
-      );
+      render(<Button variant='danger' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -311,9 +305,7 @@ describe('<Button />', () => {
     });
 
     test('Should render Button component with warning variant disabled', async () => {
-      render(
-        <Button variant='warning' disabled bordered useNativeDriver={false} />
-      );
+      render(<Button variant='warning' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -325,9 +317,7 @@ describe('<Button />', () => {
     });
 
     test('Should render Button component with neutral variant disabled', async () => {
-      render(
-        <Button variant='neutral' disabled bordered useNativeDriver={false} />
-      );
+      render(<Button variant='neutral' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -339,12 +329,12 @@ describe('<Button />', () => {
     });
 
     test('Should render Button component with hugWidth as true', async () => {
-      render(<Button hugWidth useNativeDriver={false} />);
+      render(<Button hugWidth {...defaultProps} />);
 
-      const button = screen.getByTestId('button');
+      const wrapper = screen.getByTestId('wrapper');
       const touchable = screen.getByTestId('touchable');
 
-      expect(button).toHaveStyle({
+      expect(wrapper).toHaveStyle({
         width: '100%',
       });
       expect(touchable).toHaveStyle({
@@ -353,12 +343,12 @@ describe('<Button />', () => {
     });
 
     test('Should render Button component with hugWidth as false', async () => {
-      render(<Button hugWidth={false} useNativeDriver={false} />);
+      render(<Button hugWidth={false} {...defaultProps} />);
 
-      const button = screen.getByTestId('button');
+      const wrapper = screen.getByTestId('wrapper');
       const touchable = screen.getByTestId('touchable');
 
-      expect(button).toHaveStyle({
+      expect(wrapper).toHaveStyle({
         width: 'auto',
       });
       expect(touchable).toHaveStyle({
@@ -367,7 +357,7 @@ describe('<Button />', () => {
     });
 
     test('Should render Button component with border when bordered is true', async () => {
-      render(<Button bordered useNativeDriver={false} />);
+      render(<Button bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -378,7 +368,7 @@ describe('<Button />', () => {
     });
 
     test('Should render Button component without border when bordered is false', async () => {
-      render(<Button bordered={false} useNativeDriver={false} />);
+      render(<Button bordered={false} {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -391,7 +381,7 @@ describe('<Button />', () => {
     test('Should call onPressIn when the Button component is pressed', async () => {
       const onPressIn = jest.fn(() => {});
 
-      render(<Button onPressIn={onPressIn} useNativeDriver={false} />);
+      render(<Button onPressIn={onPressIn} {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -403,7 +393,7 @@ describe('<Button />', () => {
     test('Should call onPressOut when the Button component is pressed', async () => {
       const onPressOut = jest.fn(() => {});
 
-      render(<Button onPressOut={onPressOut} useNativeDriver={false} />);
+      render(<Button onPressOut={onPressOut} {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
 
@@ -413,7 +403,7 @@ describe('<Button />', () => {
     });
 
     it('Should take a snapshot of the Button component', () => {
-      const component = render(<Button useNativeDriver={false} />);
+      const component = render(<Button {...defaultProps} />);
       expect(component).toMatchSnapshot();
     });
   });
@@ -426,7 +416,7 @@ describe('<Button />', () => {
     it("Should render Button component with Spinner when it's loading", () => {
       mockPlatform('ios');
 
-      render(<Button loading useNativeDriver={false} />);
+      render(<Button loading {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
       const spinner = screen.getByTestId('spinner');
@@ -448,7 +438,7 @@ describe('<Button />', () => {
     it("Should take a snapshot of the Button component when it's loading", () => {
       mockPlatform('ios');
 
-      const component = render(<Button loading useNativeDriver={false} />);
+      const component = render(<Button loading {...defaultProps} />);
       expect(component).toMatchSnapshot();
     });
   });
@@ -461,7 +451,7 @@ describe('<Button />', () => {
     it("Should render Button component with Spinner when it's loading", () => {
       mockPlatform('android');
 
-      render(<Button loading useNativeDriver={false} />);
+      render(<Button loading {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
       const spinner = screen.getByTestId('spinner');
@@ -477,7 +467,7 @@ describe('<Button />', () => {
     it("Should take a snapshot of the Button component when it's loading", () => {
       mockPlatform('android');
 
-      const component = render(<Button loading useNativeDriver={false} />);
+      const component = render(<Button loading {...defaultProps} />);
       expect(component).toMatchSnapshot();
     });
   });
