@@ -243,6 +243,20 @@ describe('<Button />', () => {
       });
     });
 
+    test('Should render Button component with secondary variant disabled', async () => {
+      render(
+        <Button variant='secondary' disabled bordered useNativeDriver={false} />
+      );
+
+      const touchable = screen.getByTestId('touchable');
+
+      expect(touchable).toBeDisabled();
+      expect(touchable).toHaveStyle({
+        backgroundColor: colors.white[85],
+        borderColor: colors.black[50],
+      });
+    });
+
     test('Should render Button component with hugWidth as true', async () => {
       render(<Button hugWidth useNativeDriver={false} />);
 
