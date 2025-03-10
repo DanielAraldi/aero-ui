@@ -239,6 +239,16 @@ describe('<Button />', () => {
       });
     });
 
+    test('Should render Button component with hugWidth as false', async () => {
+      render(<Button hugWidth={false} useNativeDriver={false} />);
+
+      const button = screen.getByTestId('button');
+
+      expect(button).toHaveStyle({
+        width: 'auto',
+      });
+    });
+
     it('Should take a snapshot of the Button component', () => {
       const component = render(<Button useNativeDriver={false} />);
       expect(component).toMatchSnapshot();
