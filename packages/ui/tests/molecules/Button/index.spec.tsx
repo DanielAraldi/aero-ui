@@ -388,6 +388,18 @@ describe('<Button />', () => {
       });
     });
 
+    test('Should call onPressIn when the Button component is pressed', async () => {
+      const onPressIn = jest.fn(() => {});
+
+      render(<Button onPressIn={onPressIn} useNativeDriver={false} />);
+
+      const touchable = screen.getByTestId('touchable');
+
+      fireEvent(touchable, 'pressIn');
+
+      expect(onPressIn).toHaveBeenCalledTimes(1);
+    });
+
     it('Should take a snapshot of the Button component', () => {
       const component = render(<Button useNativeDriver={false} />);
       expect(component).toMatchSnapshot();
