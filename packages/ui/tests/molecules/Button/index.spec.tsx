@@ -313,6 +313,20 @@ describe('<Button />', () => {
       });
     });
 
+    test('Should render Button component with warning variant disabled', async () => {
+      render(
+        <Button variant='warning' disabled bordered useNativeDriver={false} />
+      );
+
+      const touchable = screen.getByTestId('touchable');
+
+      expect(touchable).toBeDisabled();
+      expect(touchable).toHaveStyle({
+        backgroundColor: colors.yellow[300],
+        borderColor: colors.yellow[50],
+      });
+    });
+
     test('Should render Button component with hugWidth as true', async () => {
       render(<Button hugWidth useNativeDriver={false} />);
 
