@@ -2,7 +2,7 @@ import { Platform } from 'react-native';
 import { borderWidths, colors, spacings } from '@aero-ui/tokens';
 import { render, screen, fireEvent } from '@testing-library/react-native';
 
-import { Button, ButtonProps } from '../../../';
+import { Button, ButtonProps, Text } from '../../../';
 import { mockPlatform } from '../../mocks';
 
 const defaultProps: ButtonProps = {
@@ -400,6 +400,21 @@ describe('<Button />', () => {
       fireEvent(touchable, 'pressOut');
 
       expect(onPressOut).toHaveBeenCalledTimes(1);
+    });
+
+    it('Should render Button component with custom Text component', () => {
+      render(
+        <Button {...defaultProps}>
+          <Text testID='custom-text'>Aero UI</Text>
+        </Button>
+      );
+
+      const wrapper = screen.getByTestId('wrapper');
+      const customText = screen.getByTestId('custom-text');
+
+      expect(customText).toHaveProp('children', 'Aero UI');
+      expect(customText).toBeOnTheScreen();
+      expect(wrapper).toBeOnTheScreen();
     });
 
     it('Should take a snapshot of the Button component', () => {
