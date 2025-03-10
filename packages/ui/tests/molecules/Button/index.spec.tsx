@@ -449,6 +449,24 @@ describe('<Button />', () => {
       expect(wrapper).toBeOnTheScreen();
     });
 
+    it('Should render Button component with the Spinner as priority component when loading is true', () => {
+      render(
+        <Button loading {...defaultProps}>
+          <Text testID='custom-text'>Aero UI</Text>
+
+          <Spinner testID='custom-spinner' useNativeDriver={false} />
+        </Button>
+      );
+
+      const wrapper = screen.getByTestId('wrapper');
+      const customText = screen.queryByTestId('custom-text');
+      const customSpinner = screen.getByTestId('custom-spinner');
+
+      expect(customText).not.toBeOnTheScreen();
+      expect(customSpinner).toBeOnTheScreen();
+      expect(wrapper).toBeOnTheScreen();
+    });
+
     it('Should take a snapshot of the Button component', () => {
       const component = render(<Button {...defaultProps} />);
       expect(component).toMatchSnapshot();
