@@ -1,5 +1,12 @@
 # @aero-ui/tokens
 
+## 1.3.0
+
+### Minor Changes
+
+- Updated `node` engine to >= 20.
+- Added new colors (Teal, Sky, Purple, Pink, Slate, Stone) for tokens.
+
 ## 1.2.5
 
 ### Patch Changes
