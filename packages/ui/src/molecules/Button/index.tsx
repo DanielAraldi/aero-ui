@@ -161,6 +161,7 @@ const Button = forwardRef(
                     startBy='bottom'
                     color={colors[spinnerColorKey][100]}
                     overlayColor={colors[spinnerColorKey][25]}
+                    useNativeDriver={useNativeDriver}
                   />
                 )
               : customText || (
