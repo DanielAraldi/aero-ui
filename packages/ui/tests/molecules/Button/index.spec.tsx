@@ -141,6 +141,28 @@ describe('<Button />', () => {
       });
     });
 
+    test("Should render Button component with ghost variant and change your color when it's pressed", async () => {
+      render(<Button variant='ghost' bordered useNativeDriver={false} />);
+
+      const touchable = screen.getByTestId('touchable');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.black[100],
+      });
+
+      fireEvent(touchable, 'pressIn');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.black[85],
+      });
+
+      fireEvent(touchable, 'pressOut');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.black[100],
+      });
+    });
+
     it('Should take a snapshot of the Button component', () => {
       const component = render(<Button useNativeDriver={false} />);
       expect(component).toMatchSnapshot();
