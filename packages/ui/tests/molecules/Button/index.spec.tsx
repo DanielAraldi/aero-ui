@@ -2,7 +2,7 @@ import { Platform } from 'react-native';
 import { borderWidths, colors, spacings } from '@aero-ui/tokens';
 import { render, screen, fireEvent } from '@testing-library/react-native';
 
-import { Button, ButtonProps, Text } from '../../../';
+import { Button, ButtonProps, Spinner, Text } from '../../../';
 import { mockPlatform } from '../../mocks';
 
 const defaultProps: ButtonProps = {
@@ -414,6 +414,20 @@ describe('<Button />', () => {
 
       expect(customText).toHaveProp('children', 'Aero UI');
       expect(customText).toBeOnTheScreen();
+      expect(wrapper).toBeOnTheScreen();
+    });
+
+    it('Should render Button component with custom Spinner component', () => {
+      render(
+        <Button loading {...defaultProps}>
+          <Spinner testID='custom-spinner' useNativeDriver={false} />
+        </Button>
+      );
+
+      const wrapper = screen.getByTestId('wrapper');
+      const customSpinner = screen.getByTestId('custom-spinner');
+
+      expect(customSpinner).toBeOnTheScreen();
       expect(wrapper).toBeOnTheScreen();
     });
 
