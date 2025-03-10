@@ -402,7 +402,7 @@ describe('<Button />', () => {
       expect(onPressOut).toHaveBeenCalledTimes(1);
     });
 
-    it('Should render Button component with custom Text component', () => {
+    it('Should render Button component with customized Text component', () => {
       render(
         <Button {...defaultProps}>
           <Text testID='custom-text'>Aero UI</Text>
@@ -417,7 +417,7 @@ describe('<Button />', () => {
       expect(wrapper).toBeOnTheScreen();
     });
 
-    it('Should render Button component with custom Spinner component', () => {
+    it('Should render Button component with customized Spinner component', () => {
       render(
         <Button loading {...defaultProps}>
           <Spinner testID='custom-spinner' useNativeDriver={false} />
@@ -428,6 +428,24 @@ describe('<Button />', () => {
       const customSpinner = screen.getByTestId('custom-spinner');
 
       expect(customSpinner).toBeOnTheScreen();
+      expect(wrapper).toBeOnTheScreen();
+    });
+
+    it('Should render Button component with the Text as priority component', () => {
+      render(
+        <Button {...defaultProps}>
+          <Text testID='custom-text'>Aero UI</Text>
+
+          <Spinner testID='custom-spinner' useNativeDriver={false} />
+        </Button>
+      );
+
+      const wrapper = screen.getByTestId('wrapper');
+      const customText = screen.getByTestId('custom-text');
+      const customSpinner = screen.queryByTestId('custom-spinner');
+
+      expect(customText).toBeOnTheScreen();
+      expect(customSpinner).not.toBeOnTheScreen();
       expect(wrapper).toBeOnTheScreen();
     });
 
