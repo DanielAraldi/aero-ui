@@ -400,6 +400,18 @@ describe('<Button />', () => {
       expect(onPressIn).toHaveBeenCalledTimes(1);
     });
 
+    test('Should call onPressOut when the Button component is pressed', async () => {
+      const onPressOut = jest.fn(() => {});
+
+      render(<Button onPressOut={onPressOut} useNativeDriver={false} />);
+
+      const touchable = screen.getByTestId('touchable');
+
+      fireEvent(touchable, 'pressOut');
+
+      expect(onPressOut).toHaveBeenCalledTimes(1);
+    });
+
     it('Should take a snapshot of the Button component', () => {
       const component = render(<Button useNativeDriver={false} />);
       expect(component).toMatchSnapshot();
