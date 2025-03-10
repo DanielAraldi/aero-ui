@@ -1,4 +1,4 @@
-import { colors } from '@aero-ui/tokens';
+import { borderWidths, colors } from '@aero-ui/tokens';
 import {
   render,
   screen,
@@ -246,6 +246,27 @@ describe('<Button />', () => {
 
       expect(button).toHaveStyle({
         width: 'auto',
+      });
+    });
+
+    test('Should render Button component with border when bordered is true', async () => {
+      render(<Button bordered useNativeDriver={false} />);
+
+      const touchable = screen.getByTestId('touchable');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.white[100],
+      });
+    });
+
+    test('Should render Button component with border when bordered is true', async () => {
+      render(<Button bordered useNativeDriver={false} />);
+
+      const touchable = screen.getByTestId('touchable');
+
+      expect(touchable).toHaveStyle({
+        borderWidth: borderWidths.px,
+        borderColor: colors.white[100],
       });
     });
 
