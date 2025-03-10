@@ -40,6 +40,14 @@ describe('<Button />', () => {
       expect(spinner).toBeNull();
     });
 
+    test('Should change title of Button component when title is changed', () => {
+      render(<Button title='Aero UI' useNativeDriver={false} />);
+
+      const text = screen.getByTestId('text');
+
+      expect(text).toHaveProp('children', 'Aero UI');
+    });
+
     it('Should take a snapshot of the Button component', () => {
       const component = render(<Button useNativeDriver={false} />);
       expect(component).toMatchSnapshot();
