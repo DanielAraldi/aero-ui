@@ -1,12 +1,9 @@
+import { Platform } from 'react-native';
 import { borderWidths, colors, spacings } from '@aero-ui/tokens';
-import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-} from '@testing-library/react-native';
+import { render, screen, fireEvent } from '@testing-library/react-native';
 
 import { Button } from '../../../';
+import { mockPlatform } from '../../mocks';
 
 describe('<Button />', () => {
   describe('Both (iOS and Android)', () => {
@@ -398,7 +395,13 @@ describe('<Button />', () => {
   });
 
   describe('iOS', () => {
+    beforeEach(() => {
+      mockPlatform(Platform.OS);
+    });
+
     it("Should render Button component with Spinner when it's loading", () => {
+      mockPlatform('ios');
+
       render(<Button loading useNativeDriver={false} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -419,8 +422,32 @@ describe('<Button />', () => {
     });
 
     it("Should take a snapshot of the Button component when it's loading", () => {
+      mockPlatform('ios');
+
       const component = render(<Button loading useNativeDriver={false} />);
       expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('Android', () => {
+    beforeEach(() => {
+      mockPlatform(Platform.OS);
+    });
+
+    it("Should render Button component with Spinner when it's loading", () => {
+      mockPlatform('android');
+
+      render(<Button loading useNativeDriver={false} />);
+
+      const touchable = screen.getByTestId('touchable');
+      const spinner = screen.getByTestId('spinner');
+      const text = screen.queryByTestId('text');
+
+      expect(touchable).toBeDisabled();
+      expect(spinner).toHaveProp('size', spacings[6]);
+      expect(spinner).toHaveProp('color', colors.white[100]);
+      expect(spinner).toBeOnTheScreen();
+      expect(text).not.toBeOnTheScreen();
     });
   });
 });
