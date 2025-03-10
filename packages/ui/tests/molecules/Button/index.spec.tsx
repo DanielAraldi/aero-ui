@@ -270,6 +270,17 @@ describe('<Button />', () => {
       });
     });
 
+    test('Should render Button component without border when bordered is false', async () => {
+      render(<Button bordered={false} useNativeDriver={false} />);
+
+      const touchable = screen.getByTestId('touchable');
+
+      expect(touchable).toHaveStyle({
+        borderWidth: undefined,
+        borderColor: undefined,
+      });
+    });
+
     it('Should take a snapshot of the Button component', () => {
       const component = render(<Button useNativeDriver={false} />);
       expect(component).toMatchSnapshot();
