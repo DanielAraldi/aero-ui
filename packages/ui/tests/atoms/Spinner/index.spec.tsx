@@ -1,6 +1,6 @@
 import { ColorValue, Platform } from 'react-native';
 import { colors, spacings, SpacingsObjectType } from '@aero-ui/tokens';
-import { render, screen } from '@testing-library/react-native';
+import { render, screen, waitFor } from '@testing-library/react-native';
 import { faker } from '@faker-js/faker';
 
 import {
@@ -132,6 +132,23 @@ describe('<Spinner />', () => {
 
       render(<Spinner useNativeDriver={false} />);
       expect(screen.getByTestId('spinner')).toHaveAccessibleName('Loading');
+    });
+
+    it('Should render Spinner component with rotation animation', async () => {
+      mockPlatform('ios');
+
+      render(<Spinner useNativeDriver={false} />);
+
+      const component = screen.getByTestId('spinner');
+      expect(component).toHaveStyle({
+        transform: [{ rotate: '0deg' }],
+      });
+
+      await waitFor(() => {
+        expect(component).not.toHaveStyle({
+          transform: [{ rotate: '0deg' }],
+        });
+      });
     });
 
     it('Should render Spinner component with normal size', () => {
