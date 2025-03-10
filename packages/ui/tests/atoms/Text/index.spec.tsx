@@ -7,6 +7,7 @@ import {
   letterSpacings,
   lineHeights,
 } from '@aero-ui/tokens';
+import { faker } from '@faker-js/faker';
 
 import { Text, TextProps, TextVariantType } from '../../../';
 
@@ -47,9 +48,11 @@ describe('<Text />', () => {
     expect(component).toBeOnTheScreen();
   });
 
-  it("Should render Text component with 'Aero UI' text", () => {
-    render(<Text>Aero UI</Text>);
-    expect(screen.getByText('Aero UI')).toBeOnTheScreen();
+  it('Should render Text component with a text', () => {
+    const words = faker.word.words({ count: { min: 1, max: 5 } });
+
+    render(<Text>{words}</Text>);
+    expect(screen.getByText(words)).toBeOnTheScreen();
   });
 
   it('Should render Text component with xs font configuration for text', () => {

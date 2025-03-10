@@ -1,6 +1,7 @@
 import { Platform } from 'react-native';
 import { borderWidths, colors, spacings } from '@aero-ui/tokens';
 import { render, screen, fireEvent } from '@testing-library/react-native';
+import { faker } from '@faker-js/faker';
 
 import { Button, ButtonProps, Spinner, Text } from '../../../';
 import { mockPlatform } from '../../mocks';
@@ -47,11 +48,13 @@ describe('<Button />', () => {
     });
 
     test('Should change title of Button component when title is changed', () => {
-      render(<Button title='Aero UI' {...defaultProps} />);
+      const words = faker.word.words({ count: { min: 1, max: 5 } });
+
+      render(<Button title={words} {...defaultProps} />);
 
       const text = screen.getByTestId('text');
 
-      expect(text).toHaveProp('children', 'Aero UI');
+      expect(text).toHaveProp('children', words);
     });
 
     test("Should render Button component with primary variant and change your color when it's pressed", async () => {
@@ -337,6 +340,7 @@ describe('<Button />', () => {
       expect(wrapper).toHaveStyle({
         width: '100%',
       });
+
       expect(touchable).toHaveStyle({
         paddingHorizontal: spacings[2],
       });
@@ -351,6 +355,7 @@ describe('<Button />', () => {
       expect(wrapper).toHaveStyle({
         width: 'auto',
       });
+
       expect(touchable).toHaveStyle({
         paddingHorizontal: spacings[5],
       });
@@ -403,16 +408,18 @@ describe('<Button />', () => {
     });
 
     it('Should render Button component with customized Text component', () => {
+      const words = faker.word.words({ count: { min: 1, max: 5 } });
+
       render(
         <Button {...defaultProps}>
-          <Text testID='custom-text'>Aero UI</Text>
+          <Text testID='custom-text'>{words}</Text>
         </Button>
       );
 
       const wrapper = screen.getByTestId('wrapper');
       const customText = screen.getByTestId('custom-text');
 
-      expect(customText).toHaveProp('children', 'Aero UI');
+      expect(customText).toHaveProp('children', words);
       expect(customText).toBeOnTheScreen();
       expect(wrapper).toBeOnTheScreen();
     });
@@ -432,9 +439,11 @@ describe('<Button />', () => {
     });
 
     it('Should render Button component with the Text as priority component', () => {
+      const words = faker.word.words({ count: { min: 1, max: 5 } });
+
       render(
         <Button {...defaultProps}>
-          <Text testID='custom-text'>Aero UI</Text>
+          <Text testID='custom-text'>{words}</Text>
 
           <Spinner testID='custom-spinner' useNativeDriver={false} />
         </Button>
@@ -450,9 +459,11 @@ describe('<Button />', () => {
     });
 
     it('Should render Button component with the Spinner as priority component when loading is true', () => {
+      const words = faker.word.words({ count: { min: 1, max: 5 } });
+
       render(
         <Button loading {...defaultProps}>
-          <Text testID='custom-text'>Aero UI</Text>
+          <Text testID='custom-text'>{words}</Text>
 
           <Spinner testID='custom-spinner' useNativeDriver={false} />
         </Button>
