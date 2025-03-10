@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> Both Should take a snapshot of the Button component 1`] = `
+exports[`<Button /> Both (iOS and Android) Should take a snapshot of the Button component 1`] = `
 <View
   collapsable={false}
   style={

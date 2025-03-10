@@ -9,7 +9,7 @@ import {
 import { Button } from '../../../';
 
 describe('<Button />', () => {
-  describe('Both', () => {
+  describe('Both (iOS and Android)', () => {
     test('Should render Button component with default properties', () => {
       render(<Button useNativeDriver={false} />);
 
@@ -394,6 +394,28 @@ describe('<Button />', () => {
     it('Should take a snapshot of the Button component', () => {
       const component = render(<Button useNativeDriver={false} />);
       expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('iOS', () => {
+    it("Should render Button component with Spinner when it's loading", () => {
+      render(<Button loading useNativeDriver={false} />);
+
+      const touchable = screen.getByTestId('touchable');
+      const spinner = screen.getByTestId('spinner');
+      const text = screen.queryByTestId('text');
+
+      expect(touchable).toBeDisabled();
+      expect(spinner).toHaveStyle({
+        width: spacings[6],
+        height: spacings[6],
+        borderTopColor: colors.white[25],
+        borderRightColor: colors.white[25],
+        borderBottomColor: colors.white[100],
+        borderLeftColor: colors.white[100],
+      });
+      expect(spinner).toBeOnTheScreen();
+      expect(text).not.toBeOnTheScreen();
     });
   });
 });
