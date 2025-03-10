@@ -1,5 +1,18 @@
 # @aero-ui/ui
 
+## 1.3.0
+
+### Minor Changes
+
+- Updated `node` engine to >= `20`.
+- Upgraded `react-native` version to `0.74.5`.
+- Add unit tests for testing all components.
+- Add `testID` property as default in the all components to be used in tests.
+- Add `secondary` and `tertiary` new variants to the `Button` component.
+- Add `TextVariantType` type to the `Button` component types.
+- Swap `scale` property name by `toScale` name in the `Button` component.
+- Fix `useNativeDriver` to the `Spinner` to be provided for `Button` component as default.
+
 ## 1.2.0
 
 ### Minor Changes
