@@ -285,6 +285,20 @@ describe('<Button />', () => {
       });
     });
 
+    test('Should render Button component with ghost variant disabled', async () => {
+      render(
+        <Button variant='ghost' disabled bordered useNativeDriver={false} />
+      );
+
+      const touchable = screen.getByTestId('touchable');
+
+      expect(touchable).toBeDisabled();
+      expect(touchable).toHaveStyle({
+        backgroundColor: 'transparent',
+        borderColor: colors.black[50],
+      });
+    });
+
     test('Should render Button component with hugWidth as true', async () => {
       render(<Button hugWidth useNativeDriver={false} />);
 
