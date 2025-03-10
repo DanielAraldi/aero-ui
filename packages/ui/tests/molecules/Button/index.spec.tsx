@@ -1,5 +1,10 @@
 import { colors } from '@aero-ui/tokens';
-import { render, screen } from '@testing-library/react-native';
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+} from '@testing-library/react-native';
 
 import { Button } from '../../../';
 
@@ -46,6 +51,28 @@ describe('<Button />', () => {
       const text = screen.getByTestId('text');
 
       expect(text).toHaveProp('children', 'Aero UI');
+    });
+
+    test("Should render Button component with primary variant and change your color when it's pressed", async () => {
+      render(<Button variant='primary' bordered useNativeDriver={false} />);
+
+      const touchable = screen.getByTestId('touchable');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.white[100],
+      });
+
+      fireEvent(touchable, 'pressIn');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.blue[100],
+      });
+
+      fireEvent(touchable, 'pressOut');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.white[100],
+      });
     });
 
     it('Should take a snapshot of the Button component', () => {
