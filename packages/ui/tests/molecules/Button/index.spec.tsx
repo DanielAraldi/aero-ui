@@ -185,6 +185,28 @@ describe('<Button />', () => {
       });
     });
 
+    test("Should render Button component with warning variant and change your color when it's pressed", async () => {
+      render(<Button variant='warning' bordered useNativeDriver={false} />);
+
+      const touchable = screen.getByTestId('touchable');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.white[100],
+      });
+
+      fireEvent(touchable, 'pressIn');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.yellow[100],
+      });
+
+      fireEvent(touchable, 'pressOut');
+
+      expect(touchable).toHaveStyle({
+        borderColor: colors.white[100],
+      });
+    });
+
     it('Should take a snapshot of the Button component', () => {
       const component = render(<Button useNativeDriver={false} />);
       expect(component).toMatchSnapshot();
