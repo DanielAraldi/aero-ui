@@ -1,5 +1,92 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Button /> Android Should take a snapshot of the Button component when it's loading 1`] = `
+<View
+  collapsable={false}
+  style={
+    {
+      "height": 64,
+      "transform": [
+        {
+          "scale": 1,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+  testID="button"
+>
+  <View
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "disabled": true,
+        "selected": false,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "backgroundColor": "#3B82F6",
+          "borderRadius": 9999,
+          "height": "100%",
+          "justifyContent": "center",
+          "paddingHorizontal": 8,
+          "paddingVertical": 8,
+          "width": "auto",
+        },
+        undefined,
+      ]
+    }
+    testID="touchable"
+  >
+    <View
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+    >
+      <ActivityIndicator
+        accessibilityLabel="Loading"
+        accessibilityRole="none"
+        accessibilityState={
+          {
+            "disabled": true,
+          }
+        }
+        accessible={true}
+        animating={true}
+        aria-disabled={true}
+        aria-label="Loading"
+        color="#FFFFFF"
+        hidesWhenStopped={true}
+        size={24}
+        testID="spinner"
+      />
+    </View>
+  </View>
+</View>
+`;
+
 exports[`<Button /> Both (iOS and Android) Should take a snapshot of the Button component 1`] = `
 <View
   collapsable={false}

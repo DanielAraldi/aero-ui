@@ -449,5 +449,12 @@ describe('<Button />', () => {
       expect(spinner).toBeOnTheScreen();
       expect(text).not.toBeOnTheScreen();
     });
+
+    it("Should take a snapshot of the Button component when it's loading", () => {
+      mockPlatform('android');
+
+      const component = render(<Button loading useNativeDriver={false} />);
+      expect(component).toMatchSnapshot();
+    });
   });
 });
