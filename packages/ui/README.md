@@ -40,7 +40,7 @@ The `Button` component is a `Pressable` component, but it also includes scale an
 | Property          | Description                                                                             | Default     | Platform |
 | ----------------- | --------------------------------------------------------------------------------------- | ----------- | -------- |
 | `variant`         | Scroll variants of the button.                                                          | `primary`   | Both     |
-| `toScale`         | Button's scale when it's pressed.                                                       | `0.98`      | Both     |
+| `toScale`         | Button's scale when it's pressed.                                                       | `0.99`      | Both     |
 | `duration`        | Duration of the scale animation on the touch.                                           | `150`       | Both     |
 | `disabled`        | Whether the press behavior is disabled.                                                 | `false`     | Both     |
 | `loading`         | Button's loading.                                                                       | `false`     | Both     |
