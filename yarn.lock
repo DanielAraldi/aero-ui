@@ -8,10 +8,10 @@
   integrity sha512-BTDjjsV/zSPy5fqItwm+KWUfh9CSe9tTtR6rCB72ddtkAxdcHbi4Ir4r/L1Et4lyxmL+i7Rb3m9sjLLi9tYrzA==
 
 "@aero-ui/tokens@file:packages/tokens":
-  version "1.2.5"
+  version "1.3.0"
 
 "@aero-ui/ui@file:packages/ui":
-  version "1.2.0"
+  version "1.3.0"
 
 "@ampproject/remapping@^2.2.0":
   version "2.3.0"
