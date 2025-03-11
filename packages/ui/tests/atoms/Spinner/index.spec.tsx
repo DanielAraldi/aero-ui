@@ -108,12 +108,13 @@ const defaultProps: SpinnerProps = {
 };
 
 describe('<Spinner />', () => {
-  afterEach(() => {
-    animatedSpy('loop');
-  });
-
   describe('iOS', () => {
+    afterEach(() => {
+      animatedSpy('loop');
+    });
+
     it('Should render Spinner component with default properties', () => {
+      animatedSpy('loop');
       mockPlatform('ios');
 
       const { spinnerSizeIOSStub, spinnerStartByStylesStub } = makeSut();
