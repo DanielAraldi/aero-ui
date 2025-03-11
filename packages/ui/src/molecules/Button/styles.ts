@@ -12,12 +12,7 @@ interface MakeStyleProps {
   bordered: boolean;
 }
 
-type MakeBackgroundColorProps = Pick<
-  MakeStyleProps,
-  'variant' | 'disabled' | 'loading'
->;
-
-type MakeBorderColorProps = Omit<MakeStyleProps, 'hugWidth' | 'bordered'>;
+type MakeColorProps = Omit<MakeStyleProps, 'hugWidth' | 'bordered'>;
 
 type MakeOpacityProps = Pick<MakeStyleProps, 'disabled' | 'pressed'>;
 
@@ -30,6 +25,17 @@ const backgroundColors: Record<ButtonVariantType, ColorValue> = {
   danger: colors.red[500],
   warning: colors.yellow[500],
   neutral: colors.neutral[500],
+};
+
+const pressedBackgroundColors: Record<ButtonVariantType, ColorValue> = {
+  primary: colors.blue[400],
+  secondary: colors.white[85],
+  tertiary: colors.stone[800],
+  danger: colors.red[400],
+  ghost: 'transparent',
+  neutral: colors.neutral[400],
+  success: colors.green[400],
+  warning: colors.yellow[400],
 };
 
 const disabledBackgroundColors: Record<ButtonVariantType, ColorValue> = {
@@ -65,15 +71,16 @@ const disabledBorderColors: Record<ButtonVariantType, ColorValue> = {
   neutral: colors.neutral[50],
 };
 
-function getBackgroundColor(props: MakeBackgroundColorProps): ColorValue {
-  const { variant, disabled, loading } = props;
+function getBackgroundColor(props: MakeColorProps): ColorValue {
+  const { variant, disabled, loading, pressed } = props;
 
   if (loading) return backgroundColors[variant];
   else if (disabled) return disabledBackgroundColors[variant];
+  else if (pressed) return pressedBackgroundColors[variant];
   else return backgroundColors[variant];
 }
 
-function getBorderColor(props: MakeBorderColorProps): ColorValue {
+function getBorderColor(props: MakeColorProps): ColorValue {
   const { variant, disabled, loading, pressed } = props;
 
   const isDark = variant === 'ghost' || variant === 'secondary';
@@ -115,7 +122,12 @@ export const makeStyles = (props: MakeStyleProps) => {
       paddingVertical: spacings[2],
       paddingHorizontal: spacings[shouldHug ? 2 : 5],
 
-      backgroundColor: getBackgroundColor({ variant, disabled, loading }),
+      backgroundColor: getBackgroundColor({
+        variant,
+        disabled,
+        loading,
+        pressed,
+      }),
 
       ...(bordered && {
         borderWidth: borderWidths.px,

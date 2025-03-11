@@ -1,4 +1,5 @@
-import { TouchableHighlightProps } from 'react-native';
+import { ReactNode } from 'react';
+import { PressableProps, StyleProp, ViewStyle } from 'react-native';
 
 export type ButtonVariantType =
   | 'primary'
@@ -10,16 +11,7 @@ export type ButtonVariantType =
   | 'warning'
   | 'neutral';
 
-export interface ButtonProps extends TouchableHighlightProps {
-  /**
-   * @description This property is used to display a title for the button.
-   *
-   * @default 'Title'
-   *
-   * @since 1.2.0
-   */
-  title?: string;
-
+export interface ButtonProps extends PressableProps {
   /**
    * @description This property is used to determine the button theme.
    *
@@ -48,6 +40,15 @@ export interface ButtonProps extends TouchableHighlightProps {
    * @since 1.2.0
    */
   duration?: number;
+
+  /**
+   * @description Whether the press behavior is disabled.
+   *
+   * @default false
+   *
+   * @since 1.4.0
+   */
+  disabled?: boolean;
 
   /**
    * @description This property is used to determine if the button is loading.
@@ -89,4 +90,22 @@ export interface ButtonProps extends TouchableHighlightProps {
    * @since 1.2.0
    */
   useNativeDriver?: boolean;
+
+  /**
+   * @description Either children to render in button.
+   *
+   * @default undefined
+   *
+   * @since 1.4.0
+   */
+  children?: ReactNode;
+
+  /**
+   * @description Either view styles.
+   *
+   * @default undefined
+   *
+   * @since 1.4.0
+   */
+  style?: StyleProp<ViewStyle>;
 }

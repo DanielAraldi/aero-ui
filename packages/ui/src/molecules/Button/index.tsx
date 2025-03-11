@@ -5,175 +5,169 @@ import {
   isValidElement,
   memo,
   ReactNode,
+  useCallback,
   useEffect,
+  useMemo,
   useState,
 } from 'react';
 import {
   Text as RNText,
   ActivityIndicator,
   Animated,
-  ColorValue,
   GestureResponderEvent,
-  TouchableHighlight,
   View,
+  Pressable,
 } from 'react-native';
 import { colors } from '@aero-ui/tokens';
 
 import { Spinner, Text } from '../../atoms';
-import { ButtonProps, ButtonVariantType } from '../../@types';
+import { ButtonProps } from '../../@types';
 import { makeStyles } from './styles';
 
-const Button = forwardRef(
-  (props: ButtonProps, ref: ForwardedRef<TouchableHighlight>) => {
-    const {
-      variant = 'primary',
-      title = 'Title',
-      toScale = 0.98,
-      duration = 150,
-      hugWidth = true,
-      useNativeDriver = true,
-      loading = false,
-      bordered = false,
-      disabled = false,
-      activeOpacity = 1,
-      underlayColor,
-      children,
-      style,
-      onPressIn,
-      onPressOut,
-      ...rest
-    } = props;
+const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<View>) => {
+  const {
+    variant = 'primary',
+    toScale = 0.98,
+    duration = 150,
+    hugWidth = true,
+    useNativeDriver = true,
+    loading = false,
+    bordered = false,
+    disabled = false,
+    children,
+    style,
+    onPressIn,
+    onPressOut,
+    ...rest
+  } = props;
 
-    const [isPressed, setIsPressed] = useState<boolean>(false);
+  const [isPressed, setIsPressed] = useState<boolean>(false);
 
-    const measurement = new Animated.Value(0, { useNativeDriver });
-    const spinnerColorKey =
-      variant === 'ghost' || variant === 'secondary' ? 'black' : 'white';
-    const shouldDisableActions = disabled || loading;
-    let customSpinner: ReactNode = null;
-    let customText: ReactNode = null;
+  const measurement = new Animated.Value(0, { useNativeDriver });
+  const spinnerColorKey =
+    variant === 'ghost' || variant === 'secondary' ? 'black' : 'white';
+  const shouldDisableActions = disabled || loading;
+  let customSpinner: ReactNode = null;
+  let customText: ReactNode = null;
 
-    function handleScaleAnimation(): Animated.CompositeAnimation {
-      return Animated.timing(measurement, {
-        toValue: isPressed ? 1 : 0,
-        duration,
-        useNativeDriver,
-      });
+  Children.toArray(children).forEach(child => {
+    if (isValidElement(child)) {
+      switch (child.type) {
+        case ActivityIndicator:
+        case Spinner: {
+          customSpinner = child;
+          break;
+        }
+        case RNText:
+        case Text: {
+          customText = child;
+          break;
+        }
+        default:
+          break;
+      }
     }
+  });
 
-    function handlePressIn(event: GestureResponderEvent): void {
+  function handleScaleAnimation(): Animated.CompositeAnimation {
+    return Animated.timing(measurement, {
+      toValue: isPressed ? 1 : 0,
+      duration,
+      useNativeDriver,
+    });
+  }
+
+  const handlePressIn = useCallback(
+    (event: GestureResponderEvent) => {
       if (shouldDisableActions) return;
 
       setIsPressed(true);
       onPressIn?.(event);
-    }
+    },
+    [shouldDisableActions]
+  );
 
-    function handlePressOut(event: GestureResponderEvent): void {
+  const handlePressOut = useCallback(
+    (event: GestureResponderEvent) => {
       if (shouldDisableActions) return;
 
       setIsPressed(false);
       onPressOut?.(event);
-    }
+    },
+    [shouldDisableActions]
+  );
 
-    const underlayColors: Record<ButtonVariantType, ColorValue> = {
-      primary: colors.blue[400],
-      secondary: colors.white[85],
-      tertiary: colors.stone[800],
-      danger: colors.red[400],
-      ghost: 'transparent',
-      neutral: colors.neutral[400],
-      success: colors.green[400],
-      warning: colors.yellow[400],
-    };
+  const styles = useMemo(
+    () =>
+      makeStyles({
+        bordered,
+        disabled,
+        hugWidth,
+        loading,
+        variant,
+        pressed: isPressed,
+      }),
+    [variant, disabled, loading, hugWidth, isPressed, bordered]
+  );
 
-    const styles = makeStyles({
-      bordered,
-      disabled,
-      hugWidth,
-      loading,
-      variant,
-      pressed: isPressed,
-    });
+  const size = measurement.interpolate({
+    inputRange: [0, 1],
+    outputRange: [1, toScale],
+  });
 
-    const size = measurement.interpolate({
-      inputRange: [0, 1],
-      outputRange: [1, toScale],
-    });
+  useEffect(() => {
+    const scaleAnimation = handleScaleAnimation();
 
-    Children.forEach(children, child => {
-      if (isValidElement(child)) {
-        switch (child.type) {
-          case ActivityIndicator:
-          case Spinner: {
-            customSpinner = child;
-            break;
-          }
-          case RNText:
-          case Text: {
-            customText = child;
-            break;
-          }
-          default:
-            break;
-        }
-      }
-    });
+    if (!shouldDisableActions) scaleAnimation.start();
 
-    useEffect(() => {
-      const scaleAnimation = handleScaleAnimation();
+    return () => scaleAnimation.stop();
+  }, [shouldDisableActions, isPressed]);
 
-      if (!shouldDisableActions) scaleAnimation.start();
-
-      return () => scaleAnimation.stop();
-    }, [shouldDisableActions, isPressed]);
-
-    return (
-      <Animated.View
-        testID='wrapper'
-        style={[styles.container, { transform: [{ scale: size }] }]}
+  return (
+    <Animated.View
+      testID='wrapper'
+      style={[styles.container, { transform: [{ scale: size }] }]}
+    >
+      <Pressable
+        ref={ref}
+        testID='pressable'
+        accessible
+        accessibilityRole='button'
+        accessibilityState={{
+          disabled: shouldDisableActions,
+          selected: isPressed,
+          busy: loading,
+        }}
+        aria-disabled={shouldDisableActions}
+        aria-selected={isPressed}
+        disabled={shouldDisableActions}
+        style={[styles.button, style]}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+        {...rest}
       >
-        <TouchableHighlight
-          ref={ref}
-          testID='touchable'
-          accessible
-          accessibilityRole='button'
-          accessibilityState={{
-            disabled: shouldDisableActions,
-            selected: isPressed,
-          }}
-          aria-disabled={shouldDisableActions}
-          aria-selected={isPressed}
-          activeOpacity={activeOpacity}
-          underlayColor={underlayColor || underlayColors[variant]}
-          disabled={shouldDisableActions}
-          style={[styles.button, style]}
-          onPressIn={handlePressIn}
-          onPressOut={handlePressOut}
-          {...rest}
-        >
-          <View style={styles.wrapper}>
-            {loading
-              ? customSpinner || (
-                  <Spinner
-                    testID='spinner'
-                    variant='half'
-                    size='small'
-                    startBy='bottom'
-                    color={colors[spinnerColorKey][100]}
-                    overlayColor={colors[spinnerColorKey][25]}
-                    useNativeDriver={useNativeDriver}
-                  />
-                )
-              : customText || (
-                  <Text testID='text' style={styles.text}>
-                    {title}
-                  </Text>
-                )}
-          </View>
-        </TouchableHighlight>
-      </Animated.View>
-    );
-  }
-);
+        <View testID='content' style={styles.wrapper}>
+          {loading
+            ? customSpinner || (
+                <Spinner
+                  testID='spinner'
+                  variant='half'
+                  size='small'
+                  startBy='bottom'
+                  color={colors[spinnerColorKey][100]}
+                  overlayColor={colors[spinnerColorKey][25]}
+                  useNativeDriver={useNativeDriver}
+                />
+              )
+            : customText || (
+                <Text testID='text' style={styles.text}>
+                  {children}
+                </Text>
+              )}
+        </View>
+      </Pressable>
+    </Animated.View>
+  );
+});
 
 export default memo(Button);
