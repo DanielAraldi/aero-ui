@@ -47,20 +47,20 @@ const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<View>) => {
   const spinnerColorKey =
     variant === 'ghost' || variant === 'secondary' ? 'black' : 'white';
   const shouldDisableActions = disabled || loading;
-  let customSpinner: ReactNode = null;
-  let customText: ReactNode = null;
+  const customSpinner: ReactNode[] = [];
+  const customText: ReactNode[] = [];
 
   Children.toArray(children).forEach(child => {
     if (isValidElement(child)) {
       switch (child.type) {
         case ActivityIndicator:
         case Spinner: {
-          customSpinner = child;
+          customSpinner.push(child);
           break;
         }
         case RNText:
         case Text: {
-          customText = child;
+          customText.push(child);
           break;
         }
         default:
@@ -110,6 +110,28 @@ const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<View>) => {
     [variant, disabled, loading, hugWidth, isPressed, bordered]
   );
 
+  const renderSpinner = customSpinner.length ? (
+    <>{customSpinner.map(spinner => spinner)}</>
+  ) : (
+    <Spinner
+      testID='spinner'
+      variant='half'
+      size='small'
+      startBy='bottom'
+      color={colors[spinnerColorKey][100]}
+      overlayColor={colors[spinnerColorKey][25]}
+      useNativeDriver={useNativeDriver}
+    />
+  );
+
+  const renderText = customText.length ? (
+    <>{customText.map(text => text)}</>
+  ) : (
+    <Text testID='text' style={styles.text}>
+      {children}
+    </Text>
+  );
+
   const size = measurement.interpolate({
     inputRange: [0, 1],
     outputRange: [1, toScale],
@@ -147,23 +169,7 @@ const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<View>) => {
         {...rest}
       >
         <View testID='content' style={styles.wrapper}>
-          {loading
-            ? customSpinner || (
-                <Spinner
-                  testID='spinner'
-                  variant='half'
-                  size='small'
-                  startBy='bottom'
-                  color={colors[spinnerColorKey][100]}
-                  overlayColor={colors[spinnerColorKey][25]}
-                  useNativeDriver={useNativeDriver}
-                />
-              )
-            : customText || (
-                <Text testID='text' style={styles.text}>
-                  {children}
-                </Text>
-              )}
+          {loading ? renderSpinner : renderText}
         </View>
       </Pressable>
     </Animated.View>
