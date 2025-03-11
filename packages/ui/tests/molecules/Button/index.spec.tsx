@@ -3,7 +3,7 @@ import { borderWidths, colors, spacings } from '@aero-ui/tokens';
 import { render, screen, fireEvent } from '@testing-library/react-native';
 import { faker } from '@faker-js/faker';
 
-import { Button, ButtonProps, Spinner, Text } from '../../../';
+import { Button, ButtonProps, Spinner, SpinnerProps, Text } from '../../../';
 import { mockPlatform } from '../../mocks';
 import { animatedSpy } from '../../spies';
 
@@ -565,6 +565,30 @@ describe('<Button />', () => {
 
       expect(customTextOne).toBeOnTheScreen();
       expect(customTextTwo).toBeOnTheScreen();
+      expect(wrapper).toBeOnTheScreen();
+    });
+
+    it('Should render Button component with more than one Spinner component', () => {
+      animatedSpy('loop');
+
+      const defaultSpinnerProps: SpinnerProps = {
+        useNativeDriver: false,
+      };
+
+      render(
+        <Button {...defaultProps}>
+          <Spinner testID='custom-spinner-one' {...defaultSpinnerProps} />
+
+          <Spinner testID='custom-spinner-two' {...defaultSpinnerProps} />
+        </Button>
+      );
+
+      const wrapper = screen.getByTestId('wrapper');
+      const customSpinnerOne = screen.queryByTestId('custom-spinner-one');
+      const customSpinnerTwo = screen.getByTestId('custom-spinner-two');
+
+      expect(customSpinnerOne).toBeOnTheScreen();
+      expect(customSpinnerTwo).toBeOnTheScreen();
       expect(wrapper).toBeOnTheScreen();
     });
 
