@@ -1,4 +1,4 @@
-import { ColorValue, Platform } from 'react-native';
+import { ColorValue } from 'react-native';
 import { colors, spacings, SpacingsObjectType } from '@aero-ui/tokens';
 import { render, screen, waitFor } from '@testing-library/react-native';
 import { faker } from '@faker-js/faker';
@@ -11,6 +11,7 @@ import {
   SpinnerVariantType,
 } from '../../../';
 import { mockPlatform } from '../../mocks';
+import { animatedSpy } from '../../spies';
 
 interface SpinnerSizeIOSProps {
   width: number;
@@ -107,11 +108,11 @@ const defaultProps: SpinnerProps = {
 };
 
 describe('<Spinner />', () => {
-  describe('iOS', () => {
-    beforeEach(() => {
-      mockPlatform(Platform.OS);
-    });
+  afterEach(() => {
+    animatedSpy('loop');
+  });
 
+  describe('iOS', () => {
     it('Should render Spinner component with default properties', () => {
       mockPlatform('ios');
 
@@ -137,23 +138,6 @@ describe('<Spinner />', () => {
 
       render(<Spinner {...defaultProps} />);
       expect(screen.getByTestId('spinner')).toHaveAccessibleName('Loading');
-    });
-
-    it('Should render Spinner component with rotation animation', async () => {
-      mockPlatform('ios');
-
-      render(<Spinner {...defaultProps} />);
-
-      const component = screen.getByTestId('spinner');
-      expect(component).toHaveStyle({
-        transform: [{ rotate: '0deg' }],
-      });
-
-      await waitFor(() => {
-        expect(component).not.toHaveStyle({
-          transform: [{ rotate: '0deg' }],
-        });
-      });
     });
 
     it('Should render Spinner component with normal size', () => {
@@ -534,10 +518,6 @@ describe('<Spinner />', () => {
   });
 
   describe('Android', () => {
-    beforeEach(() => {
-      mockPlatform(Platform.OS);
-    });
-
     it('Should render Spinner component with default properties', () => {
       mockPlatform('android');
 

@@ -5,6 +5,7 @@ import { faker } from '@faker-js/faker';
 
 import { Button, ButtonProps, Spinner, Text } from '../../../';
 import { mockPlatform } from '../../mocks';
+import { animatedSpy } from '../../spies';
 
 const defaultProps: ButtonProps = {
   useNativeDriver: false,
@@ -12,7 +13,11 @@ const defaultProps: ButtonProps = {
 
 describe('<Button />', () => {
   describe('Both (iOS and Android)', () => {
-    test('Should render Button component with default properties', () => {
+    afterEach(() => {
+      animatedSpy('timing');
+    });
+
+    it('Should render Button component with default properties', () => {
       render(<Button {...defaultProps} />);
 
       const wrapper = screen.getByTestId('wrapper');
@@ -47,7 +52,7 @@ describe('<Button />', () => {
       expect(spinner).toBeNull();
     });
 
-    test('Should change title of Button component when title is changed', () => {
+    it('Should change title of Button component when title is changed', () => {
       const words = faker.word.words({ count: { min: 1, max: 5 } });
 
       render(<Button title={words} {...defaultProps} />);
@@ -57,7 +62,7 @@ describe('<Button />', () => {
       expect(text).toHaveProp('children', words);
     });
 
-    test("Should render Button component with primary variant and change your color when it's pressed", async () => {
+    it("Should render Button component with primary variant and change your color when it's pressed", () => {
       render(<Button variant='primary' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -79,7 +84,7 @@ describe('<Button />', () => {
       });
     });
 
-    test("Should render Button component with secondary variant and change your color when it's pressed", async () => {
+    it("Should render Button component with secondary variant and change your color when it's pressed", () => {
       render(<Button variant='secondary' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -101,7 +106,7 @@ describe('<Button />', () => {
       });
     });
 
-    test("Should render Button component with tertiary variant and change your color when it's pressed", async () => {
+    it("Should render Button component with tertiary variant and change your color when it's pressed", () => {
       render(<Button variant='tertiary' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -123,7 +128,7 @@ describe('<Button />', () => {
       });
     });
 
-    test("Should render Button component with success variant and change your color when it's pressed", async () => {
+    it("Should render Button component with success variant and change your color when it's pressed", () => {
       render(<Button variant='success' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -145,7 +150,7 @@ describe('<Button />', () => {
       });
     });
 
-    test("Should render Button component with ghost variant and change your color when it's pressed", async () => {
+    it("Should render Button component with ghost variant and change your color when it's pressed", () => {
       render(<Button variant='ghost' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -167,7 +172,7 @@ describe('<Button />', () => {
       });
     });
 
-    test("Should render Button component with danger variant and change your color when it's pressed", async () => {
+    it("Should render Button component with danger variant and change your color when it's pressed", () => {
       render(<Button variant='danger' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -189,7 +194,7 @@ describe('<Button />', () => {
       });
     });
 
-    test("Should render Button component with warning variant and change your color when it's pressed", async () => {
+    it("Should render Button component with warning variant and change your color when it's pressed", () => {
       render(<Button variant='warning' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -211,7 +216,7 @@ describe('<Button />', () => {
       });
     });
 
-    test("Should render Button component with neutral variant and change your color when it's pressed", async () => {
+    it("Should render Button component with neutral variant and change your color when it's pressed", () => {
       render(<Button variant='neutral' bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -233,7 +238,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component with primary variant disabled', async () => {
+    it('Should render Button component with primary variant disabled', () => {
       render(<Button variant='primary' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -245,7 +250,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component with secondary variant disabled', async () => {
+    it('Should render Button component with secondary variant disabled', () => {
       render(
         <Button variant='secondary' disabled bordered {...defaultProps} />
       );
@@ -259,7 +264,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component with tertiary variant disabled', async () => {
+    it('Should render Button component with tertiary variant disabled', () => {
       render(<Button variant='tertiary' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -271,7 +276,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component with success variant disabled', async () => {
+    it('Should render Button component with success variant disabled', () => {
       render(<Button variant='success' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -283,7 +288,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component with ghost variant disabled', async () => {
+    it('Should render Button component with ghost variant disabled', () => {
       render(<Button variant='ghost' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -295,7 +300,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component with danger variant disabled', async () => {
+    it('Should render Button component with danger variant disabled', () => {
       render(<Button variant='danger' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -307,7 +312,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component with warning variant disabled', async () => {
+    it('Should render Button component with warning variant disabled', () => {
       render(<Button variant='warning' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -319,7 +324,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component with neutral variant disabled', async () => {
+    it('Should render Button component with neutral variant disabled', () => {
       render(<Button variant='neutral' disabled bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -331,7 +336,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component with hugWidth as true', async () => {
+    it('Should render Button component with hugWidth as true', () => {
       render(<Button hugWidth {...defaultProps} />);
 
       const wrapper = screen.getByTestId('wrapper');
@@ -346,7 +351,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component with hugWidth as false', async () => {
+    it('Should render Button component with hugWidth as false', () => {
       render(<Button hugWidth={false} {...defaultProps} />);
 
       const wrapper = screen.getByTestId('wrapper');
@@ -361,7 +366,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component with border when bordered is true', async () => {
+    it('Should render Button component with border when bordered is true', () => {
       render(<Button bordered {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -372,7 +377,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should render Button component without border when bordered is false', async () => {
+    it('Should render Button component without border when bordered is false', () => {
       render(<Button bordered={false} {...defaultProps} />);
 
       const touchable = screen.getByTestId('touchable');
@@ -383,7 +388,7 @@ describe('<Button />', () => {
       });
     });
 
-    test('Should call onPressIn when the Button component is pressed', async () => {
+    it('Should call onPressIn when the Button component is pressed', () => {
       const onPressIn = jest.fn(() => {});
 
       render(<Button onPressIn={onPressIn} {...defaultProps} />);
@@ -395,7 +400,7 @@ describe('<Button />', () => {
       expect(onPressIn).toHaveBeenCalledTimes(1);
     });
 
-    test('Should call onPressOut when the Button component is pressed', async () => {
+    it('Should call onPressOut when the Button component is pressed', () => {
       const onPressOut = jest.fn(() => {});
 
       render(<Button onPressOut={onPressOut} {...defaultProps} />);
@@ -425,6 +430,8 @@ describe('<Button />', () => {
     });
 
     it('Should render Button component with customized Spinner component', () => {
+      animatedSpy('loop');
+
       render(
         <Button loading {...defaultProps}>
           <Spinner testID='custom-spinner' useNativeDriver={false} />
@@ -459,6 +466,8 @@ describe('<Button />', () => {
     });
 
     it('Should render Button component with the Spinner as priority component when loading is true', () => {
+      animatedSpy('loop');
+
       const words = faker.word.words({ count: { min: 1, max: 5 } });
 
       render(
@@ -485,6 +494,11 @@ describe('<Button />', () => {
   });
 
   describe('iOS', () => {
+    afterAll(() => {
+      animatedSpy('timing');
+      animatedSpy('loop');
+    });
+
     beforeEach(() => {
       mockPlatform(Platform.OS);
     });
@@ -520,6 +534,11 @@ describe('<Button />', () => {
   });
 
   describe('Android', () => {
+    afterAll(() => {
+      animatedSpy('timing');
+      animatedSpy('loop');
+    });
+
     beforeEach(() => {
       mockPlatform(Platform.OS);
     });
