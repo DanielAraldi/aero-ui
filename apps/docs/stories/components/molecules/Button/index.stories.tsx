@@ -8,23 +8,17 @@ import { styles } from './styles';
 const meta: Meta<ButtonProps> = {
   title: 'Components/Molecules/Button',
   args: {
-    title: 'Aero UI',
     variant: 'primary',
-    toScale: 0.98,
+    children: 'Aero UI',
+    toScale: 0.99,
     duration: 150,
     loading: false,
     bordered: false,
     disabled: false,
     hugWidth: true,
     useNativeDriver: true,
-    activeOpacity: undefined,
   },
   argTypes: {
-    title: {
-      control: {
-        type: 'text',
-      },
-    },
     variant: {
       control: {
         type: 'select',
@@ -77,13 +71,6 @@ const meta: Meta<ButtonProps> = {
     useNativeDriver: {
       control: {
         type: 'boolean',
-      },
-    },
-    activeOpacity: {
-      control: {
-        type: 'number',
-        min: 0,
-        max: 1,
       },
     },
   },
