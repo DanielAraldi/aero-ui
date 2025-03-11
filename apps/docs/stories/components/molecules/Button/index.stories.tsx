@@ -131,7 +131,7 @@ export const Warning: StoryObj<ButtonProps> = {
 export const CustomText: StoryObj<ButtonProps> = {
   render: props => (
     <Button {...props}>
-      <Text style={{ color: colors.blue[100] }}>Aero UI</Text>
+      <Text style={{ color: colors.blue[100] }}>Custom Aero UI</Text>
     </Button>
   ),
 };
