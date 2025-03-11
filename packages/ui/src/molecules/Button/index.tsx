@@ -27,7 +27,7 @@ import { makeStyles } from './styles';
 const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<View>) => {
   const {
     variant = 'primary',
-    toScale = 0.98,
+    toScale = 0.99,
     duration = 150,
     hugWidth = true,
     useNativeDriver = true,

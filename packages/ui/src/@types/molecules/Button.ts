@@ -25,7 +25,7 @@ export interface ButtonProps extends PressableProps {
    * @description This property is used to control the size of the button when
    * it's pressed.
    *
-   * @default 0.98
+   * @default 0.99
    *
    * @since 1.2.0
    */
