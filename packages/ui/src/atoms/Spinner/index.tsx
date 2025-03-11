@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, memo, useEffect } from 'react';
+import { ForwardedRef, forwardRef, memo, useEffect, useMemo } from 'react';
 import {
   Easing,
   Animated,
@@ -6,6 +6,7 @@ import {
   Platform,
   ActivityIndicator,
   ViewProps,
+  ViewStyle,
 } from 'react-native';
 import { colors, spacings, SpacingsObjectType } from '@aero-ui/tokens';
 
@@ -30,6 +31,14 @@ const Spinner = forwardRef(
     } = props;
 
     const isAndroid = Platform.OS === 'android';
+    const spinnerSizes: Record<
+      SpinnerSizeType,
+      SpacingsObjectType[keyof SpacingsObjectType]
+    > = {
+      large: spacings[10],
+      normal: spacings[8],
+      small: spacings[6],
+    };
 
     const rotation = new Animated.Value(0, { useNativeDriver });
 
@@ -44,41 +53,38 @@ const Spinner = forwardRef(
       );
     }
 
+    const startByStyles: ViewStyle = useMemo(
+      () => makeStyle({ variant, color, overlayColor })[startBy],
+      [variant, startBy, color, overlayColor]
+    );
+
     const rotate = rotation.interpolate({
       inputRange: [0, 360],
       outputRange: ['0deg', '360deg'],
     });
 
-    const startByStyles = makeStyle({ variant, color, overlayColor })[startBy];
-
-    const spinnerSizes: Record<
-      SpinnerSizeType,
-      SpacingsObjectType[keyof SpacingsObjectType]
-    > = {
-      large: spacings[10],
-      normal: spacings[8],
-      small: spacings[6],
-    };
-
-    const commonViewProps: ViewProps = {
-      accessible: true,
-      accessibilityRole: 'none',
-      accessibilityLabel: 'Loading',
-      accessibilityState: { disabled: true },
-      'aria-label': 'Loading',
-      'aria-disabled': true,
-      style: isAndroid
-        ? style
-        : [
-            {
-              width: spinnerSizes[size],
-              height: spinnerSizes[size],
-            },
-            { transform: [{ rotate }] },
-            startByStyles,
-            style,
-          ],
-    };
+    const commonViewProps: ViewProps = useMemo(
+      () => ({
+        accessible: true,
+        accessibilityRole: 'none',
+        accessibilityLabel: 'Loading',
+        accessibilityState: { disabled: true },
+        'aria-label': 'Loading',
+        'aria-disabled': true,
+        style: isAndroid
+          ? style
+          : [
+              {
+                width: spinnerSizes[size],
+                height: spinnerSizes[size],
+              },
+              { transform: [{ rotate }] },
+              startByStyles,
+              style,
+            ],
+      }),
+      [isAndroid, spinnerSizes, startByStyles, style, rotate]
+    );
 
     useEffect(() => {
       if (!isAndroid) {
