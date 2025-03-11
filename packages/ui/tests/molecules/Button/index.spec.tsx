@@ -461,6 +461,16 @@ describe('<Button />', () => {
       expect(content).toHaveStyle(defaultContentStyle);
     });
 
+    it('Should remain with opacity in 75% when Button component is disabled', () => {
+      render(<Button disabled {...defaultProps} />);
+
+      const content = screen.getByTestId('content');
+
+      expect(content).toHaveStyle({
+        opacity: 0.75,
+      });
+    });
+
     it('Should render Button component with customized Text component', () => {
       const words = faker.word.words({ count: { min: 1, max: 5 } });
 
