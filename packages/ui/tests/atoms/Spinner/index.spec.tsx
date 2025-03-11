@@ -1,7 +1,6 @@
 import { ColorValue } from 'react-native';
 import { colors, spacings, SpacingsObjectType } from '@aero-ui/tokens';
-import { render, screen, waitFor } from '@testing-library/react-native';
-import { faker } from '@faker-js/faker';
+import { render, screen } from '@testing-library/react-native';
 
 import {
   Spinner,
@@ -10,7 +9,7 @@ import {
   SpinnerStartByType,
   SpinnerVariantType,
 } from '../../../';
-import { mockPlatform } from '../../mocks';
+import { mockPlatform, mockRGB } from '../../mocks';
 import { animatedSpy } from '../../spies';
 
 interface SpinnerSizeIOSProps {
@@ -179,8 +178,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner
@@ -207,8 +206,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner
@@ -235,8 +234,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner
@@ -263,8 +262,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner
@@ -291,8 +290,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner
@@ -319,8 +318,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner
@@ -347,8 +346,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner
@@ -375,8 +374,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner
@@ -403,8 +402,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner
@@ -431,8 +430,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner
@@ -459,8 +458,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner
@@ -487,8 +486,8 @@ describe('<Spinner />', () => {
 
       const { spinnerStartByStylesStub } = makeSut();
 
-      const color = faker.color.rgb();
-      const overlayColor = faker.color.rgb();
+      const color = mockRGB();
+      const overlayColor = mockRGB();
 
       render(
         <Spinner

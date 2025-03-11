@@ -1,10 +1,9 @@
 import { Platform, StyleProp, ViewStyle } from 'react-native';
 import { borderWidths, colors, spacings } from '@aero-ui/tokens';
 import { render, screen, fireEvent } from '@testing-library/react-native';
-import { faker } from '@faker-js/faker';
 
 import { Button, ButtonProps, Spinner, SpinnerProps, Text } from '../../../';
-import { mockPlatform } from '../../mocks';
+import { mockPlatform, mockWords } from '../../mocks';
 import { animatedSpy } from '../../spies';
 
 const defaultProps: ButtonProps = {
@@ -53,7 +52,7 @@ describe('<Button />', () => {
     });
 
     it('Should receive children to be shown in Button component as a title', () => {
-      const words = faker.word.words({ count: { min: 1, max: 5 } });
+      const words = mockWords();
 
       render(<Button {...defaultProps}>{words}</Button>);
 
@@ -472,7 +471,7 @@ describe('<Button />', () => {
     });
 
     it('Should render Button component with customized Text component', () => {
-      const words = faker.word.words({ count: { min: 1, max: 5 } });
+      const words = mockWords();
 
       render(
         <Button {...defaultProps}>
@@ -505,7 +504,7 @@ describe('<Button />', () => {
     });
 
     it('Should render Button component with the Text as priority component', () => {
-      const words = faker.word.words({ count: { min: 1, max: 5 } });
+      const words = mockWords();
 
       render(
         <Button {...defaultProps}>
@@ -527,7 +526,7 @@ describe('<Button />', () => {
     it('Should render Button component with the Spinner as priority component when loading is true', () => {
       animatedSpy('loop');
 
-      const words = faker.word.words({ count: { min: 1, max: 5 } });
+      const words = mockWords();
 
       render(
         <Button loading {...defaultProps}>
@@ -549,7 +548,7 @@ describe('<Button />', () => {
     it('Should render Button component with more than one Text component', () => {
       animatedSpy('loop');
 
-      const words = faker.word.words({ count: { min: 1, max: 5 } });
+      const words = mockWords();
 
       render(
         <Button {...defaultProps}>
