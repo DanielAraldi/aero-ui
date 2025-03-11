@@ -546,6 +546,28 @@ describe('<Button />', () => {
       expect(wrapper).toBeOnTheScreen();
     });
 
+    it('Should render Button component with more than one Text component', () => {
+      animatedSpy('loop');
+
+      const words = faker.word.words({ count: { min: 1, max: 5 } });
+
+      render(
+        <Button {...defaultProps}>
+          <Text testID='custom-text-one'>{words}</Text>
+
+          <Text testID='custom-text-two'>{words}</Text>
+        </Button>
+      );
+
+      const wrapper = screen.getByTestId('wrapper');
+      const customTextOne = screen.queryByTestId('custom-text-one');
+      const customTextTwo = screen.getByTestId('custom-text-two');
+
+      expect(customTextOne).toBeOnTheScreen();
+      expect(customTextTwo).toBeOnTheScreen();
+      expect(wrapper).toBeOnTheScreen();
+    });
+
     it('Should take a snapshot of the Button component', () => {
       const component = render(<Button {...defaultProps} />);
       expect(component).toMatchSnapshot();
