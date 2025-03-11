@@ -428,6 +428,16 @@ describe('<Button />', () => {
       expect(onPressOut).toHaveBeenCalledTimes(1);
     });
 
+    it('Should remain with opacity in 100% when Button component is enabled and not pressed', () => {
+      render(<Button {...defaultProps} />);
+
+      const content = screen.getByTestId('content');
+
+      expect(content).toHaveStyle({
+        opacity: 1,
+      });
+    });
+
     it('Should render Button component with customized Text component', () => {
       const words = faker.word.words({ count: { min: 1, max: 5 } });
 

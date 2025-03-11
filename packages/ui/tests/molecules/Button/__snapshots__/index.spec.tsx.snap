@@ -70,6 +70,7 @@ exports[`<Button /> Android Should take a snapshot of the Button component when 
           "opacity": 1,
         }
       }
+      testID="content"
     >
       <ActivityIndicator
         accessibilityLabel="Loading"
@@ -163,6 +164,7 @@ exports[`<Button /> Both (iOS and Android) Should take a snapshot of the Button 
           "opacity": 1,
         }
       }
+      testID="content"
     >
       <Text
         accessibilityRole="text"
@@ -257,6 +259,7 @@ exports[`<Button /> iOS Should take a snapshot of the Button component when it's
           "opacity": 1,
         }
       }
+      testID="content"
     >
       <View
         accessibilityLabel="Loading"
