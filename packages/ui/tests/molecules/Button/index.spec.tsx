@@ -438,6 +438,29 @@ describe('<Button />', () => {
       });
     });
 
+    it('Should remain with opacity in 85% when Button component is pressed', () => {
+      render(<Button {...defaultProps} />);
+
+      const pressable = screen.getByTestId('pressable');
+      const content = screen.getByTestId('content');
+
+      const defaultContentStyle: StyleProp<ViewStyle> = {
+        opacity: 1,
+      };
+
+      expect(content).toHaveStyle(defaultContentStyle);
+
+      fireEvent(pressable, 'pressIn');
+
+      expect(content).toHaveStyle({
+        opacity: 0.85,
+      });
+
+      fireEvent(pressable, 'pressOut');
+
+      expect(content).toHaveStyle(defaultContentStyle);
+    });
+
     it('Should render Button component with customized Text component', () => {
       const words = faker.word.words({ count: { min: 1, max: 5 } });
 
