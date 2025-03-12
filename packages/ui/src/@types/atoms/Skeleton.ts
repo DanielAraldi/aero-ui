@@ -11,6 +11,11 @@ export type SkeletonFontSizeType = number | FontSizesKeysType;
 
 export type SkeletonLineHeightType = number | LineHeightsKeysType;
 
+export type SkeletonContextProps = Pick<
+  SkeletonProps,
+  'activated' | 'duration' | 'useNativeDriver'
+>;
+
 export interface SkeletonProps extends ViewProps {
   /**
    * @description Whether to show the skeleton or hide it.
