@@ -108,15 +108,6 @@ export interface SkeletonTextProps extends SkeletonProps {
   width?: DimensionValue;
 
   /**
-   * @description This property set height of the skeleton.
-   *
-   * @default 64
-   *
-   * @since 1.4.0
-   */
-  height?: DimensionValue;
-
-  /**
    * @description This property set font size of the skeleton. Whether font
    * size to be `number` the line height **will not be applied**.
    *
