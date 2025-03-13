@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 import { SkeletonContextProps, SkeletonProps } from '../../../@types';
 
-export const RootContext = createContext({} as SkeletonContextProps);
+export const RootContext = createContext({} as Required<SkeletonContextProps>);
 
 function Root(props: SkeletonProps) {
   const {
