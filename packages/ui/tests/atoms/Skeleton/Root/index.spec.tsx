@@ -49,4 +49,15 @@ describe('<Skeleton.Root />', () => {
       String(Easing.bezier(0.4, 0, 0.6, 1))
     );
   });
+
+  it('Should take a snapshot of the Skeleton.Root component', () => {
+    const { childStub: ChildStub } = makeSut();
+
+    const component = render(
+      <Skeleton.Root>
+        <ChildStub />
+      </Skeleton.Root>
+    );
+    expect(component).toMatchSnapshot();
+  });
 });
