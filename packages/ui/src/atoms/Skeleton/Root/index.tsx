@@ -1,9 +1,9 @@
-import { createContext, memo, useContext } from 'react';
+import { createContext, memo } from 'react';
 import { View } from 'react-native';
 
 import { SkeletonContextProps, SkeletonProps } from '../../../@types';
 
-const RootContext = createContext({} as SkeletonContextProps);
+export const RootContext = createContext({} as SkeletonContextProps);
 
 function Root(props: SkeletonProps) {
   const {
@@ -27,10 +27,6 @@ function Root(props: SkeletonProps) {
       </View>
     </RootContext.Provider>
   );
-}
-
-export function useSkeleton(): SkeletonContextProps {
-  return useContext(RootContext);
 }
 
 export default memo(Root);
