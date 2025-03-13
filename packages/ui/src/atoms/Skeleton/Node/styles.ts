@@ -1,10 +1,14 @@
 import { StyleSheet } from 'react-native';
-import { borderRadius } from '@aero-ui/tokens';
+import { borderRadius, colors, zIndexes } from '@aero-ui/tokens';
 
 export const styles = StyleSheet.create({
   skeleton: {
+    zIndex: zIndexes.full,
+
     overflow: 'hidden',
 
-    borderRadius: borderRadius.lg,
+    backgroundColor: colors.gray[200],
+
+    borderRadius: borderRadius.base,
   },
 });

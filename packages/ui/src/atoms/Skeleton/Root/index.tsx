@@ -1,5 +1,5 @@
 import { createContext, memo } from 'react';
-import { View } from 'react-native';
+import { Easing, View } from 'react-native';
 
 import { SkeletonContextProps, SkeletonProps } from '../../../@types';
 
@@ -9,8 +9,9 @@ function Root(props: SkeletonProps) {
   const {
     children,
     activated = true,
-    duration = 1500,
+    duration = 2000,
     useNativeDriver = true,
+    easing = Easing.bezier(0.4, 0, 0.6, 1),
     ...rest
   } = props;
 
@@ -20,6 +21,7 @@ function Root(props: SkeletonProps) {
         activated,
         duration,
         useNativeDriver,
+        easing,
       }}
     >
       <View testID='root' {...rest}>

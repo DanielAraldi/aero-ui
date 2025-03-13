@@ -1,4 +1,4 @@
-import { DimensionValue, ViewProps } from 'react-native';
+import { DimensionValue, EasingFunction, ViewProps } from 'react-native';
 import {
   BorderRadiusKeysType,
   FontSizesKeysType,
@@ -13,7 +13,7 @@ export type SkeletonLineHeightType = number | LineHeightsKeysType;
 
 export type SkeletonContextProps = Pick<
   SkeletonProps,
-  'activated' | 'duration' | 'useNativeDriver'
+  'activated' | 'duration' | 'useNativeDriver' | 'easing'
 >;
 
 export interface SkeletonProps extends ViewProps {
@@ -30,7 +30,7 @@ export interface SkeletonProps extends ViewProps {
    * @description This property is used to control the duration of the
    * skeleton animation.
    *
-   * @default 1500
+   * @default 2000
    *
    * @since 1.4.0
    */
@@ -45,6 +45,16 @@ export interface SkeletonProps extends ViewProps {
    * @since 1.4.0
    */
   useNativeDriver?: boolean;
+
+  /**
+   * @description This property is used to control the easing function of the
+   * opacity animation.
+   *
+   * @default Easing.bezier(0.4, 0, 0.6, 1)
+   *
+   * @since 1.4.0
+   */
+  easing?: EasingFunction;
 }
 
 export interface SkeletonNodeProps extends SkeletonProps {

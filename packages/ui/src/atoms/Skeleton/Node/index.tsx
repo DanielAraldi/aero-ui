@@ -1,6 +1,6 @@
 import { forwardRef, memo, useEffect, ForwardedRef } from 'react';
 import { Animated, View } from 'react-native';
-import { colors, spacings } from '@aero-ui/tokens';
+import { spacings } from '@aero-ui/tokens';
 
 import { SkeletonNodeProps } from '../../../@types';
 import { isBoolean, isTypeBoolean, isTypeNumber } from '../../../utils';
@@ -14,20 +14,21 @@ const Node = forwardRef((props: SkeletonNodeProps, ref: ForwardedRef<View>) => {
     activated: nodeActivated,
     duration: nodeDuration,
     useNativeDriver: nodeUseNativeDriver,
+    easing: nodeEasing,
     style,
     ...rest
   } = props;
 
-  const { activated, duration, useNativeDriver } = useSkeleton();
+  const { activated, duration, useNativeDriver, easing } = useSkeleton();
 
-  const background = new Animated.Value(0, {
+  const overshadow = new Animated.Value(0, {
     useNativeDriver: isTypeBoolean(nodeUseNativeDriver)
       ? nodeUseNativeDriver
       : useNativeDriver,
   });
 
-  function handleBackgroundAnimation(): Animated.CompositeAnimation {
-    const commonAnimationProps: Omit<
+  function handleOpacityAnimation(): Animated.CompositeAnimation {
+    const commonTimingAnimationProps: Omit<
       Animated.TimingAnimationConfig,
       'toValue'
     > = {
@@ -35,38 +36,39 @@ const Node = forwardRef((props: SkeletonNodeProps, ref: ForwardedRef<View>) => {
       useNativeDriver: isTypeBoolean(nodeUseNativeDriver)
         ? nodeUseNativeDriver
         : useNativeDriver,
+      easing: nodeEasing || easing,
     };
 
     return Animated.loop(
       Animated.sequence([
-        Animated.timing(background, {
+        Animated.timing(overshadow, {
           toValue: 1,
-          ...commonAnimationProps,
+          ...commonTimingAnimationProps,
         }),
-        Animated.timing(background, {
+        Animated.timing(overshadow, {
           toValue: 0,
-          ...commonAnimationProps,
+          ...commonTimingAnimationProps,
         }),
       ])
     );
   }
 
-  const backgroundColor = background.interpolate({
+  const opacity = overshadow.interpolate({
     inputRange: [0, 1],
-    outputRange: [colors.black[100], colors.white[100]],
+    outputRange: [1, 0.5],
   });
 
   useEffect(() => {
-    const backgroundAnimation = handleBackgroundAnimation();
+    const opacityAnimation = handleOpacityAnimation();
 
     const isNodeActive = isBoolean(nodeActivated) && nodeActivated;
 
-    if (isNodeActive) backgroundAnimation.start();
-    else if (activated) backgroundAnimation.start();
-    else backgroundAnimation.stop();
+    if (isNodeActive) opacityAnimation.start();
+    else if (activated) opacityAnimation.start();
+    else opacityAnimation.stop();
 
-    return () => backgroundAnimation.stop();
-  }, [nodeActivated, activated, background, useNativeDriver, duration]);
+    return () => opacityAnimation.stop();
+  }, [nodeActivated, activated, opacity, useNativeDriver, duration]);
 
   return (
     <Animated.View
@@ -78,7 +80,7 @@ const Node = forwardRef((props: SkeletonNodeProps, ref: ForwardedRef<View>) => {
       accessibilityState={{ disabled: true }}
       aria-label='Loading'
       aria-disabled
-      style={[{ width, height, backgroundColor }, styles.skeleton, style]}
+      style={[{ width, height, opacity }, styles.skeleton, style]}
       {...rest}
     />
   );
