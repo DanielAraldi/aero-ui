@@ -1,4 +1,4 @@
-import { Text } from 'react-native';
+import { Easing, Text } from 'react-native';
 import { render, screen } from '@testing-library/react-native';
 
 import { Skeleton, useSkeleton } from '../../../../';
@@ -8,13 +8,14 @@ interface SutTypes {
 }
 
 const ChildStub = jest.fn(() => {
-  const { activated, duration, useNativeDriver } = useSkeleton();
+  const { activated, duration, useNativeDriver, easing } = useSkeleton();
 
   return (
     <>
       <Text testID='activated'>{String(activated)}</Text>
       <Text testID='duration'>{String(duration)}</Text>
       <Text testID='use-native-driver'>{String(useNativeDriver)}</Text>
+      <Text testID='easing'>{String(easing)}</Text>
     </>
   );
 });
@@ -41,8 +42,11 @@ describe('<Skeleton.Root />', () => {
     );
 
     expect(ChildStub).toHaveBeenCalled();
-    expect(screen.getByTestId('duration')).toHaveTextContent('1500');
+    expect(screen.getByTestId('duration')).toHaveTextContent('2000');
     expect(screen.getByTestId('activated')).toHaveTextContent('true');
     expect(screen.getByTestId('use-native-driver')).toHaveTextContent('true');
+    expect(screen.getByTestId('easing')).toHaveTextContent(
+      String(Easing.bezier(0.4, 0, 0.6, 1))
+    );
   });
 });
