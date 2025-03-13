@@ -3,6 +3,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Button, ButtonProps, Spinner, Text } from '@aero-ui/ui';
 import { colors } from '@aero-ui/tokens';
 
+import { buttonVariants } from '../../../constants';
 import { styles } from './styles';
 
 const meta: Meta<ButtonProps> = {
@@ -23,16 +24,7 @@ const meta: Meta<ButtonProps> = {
       control: {
         type: 'select',
       },
-      options: [
-        'primary',
-        'secondary',
-        'tertiary',
-        'success',
-        'neutral',
-        'ghost',
-        'danger',
-        'warning',
-      ],
+      options: buttonVariants,
     },
     toScale: {
       control: {
