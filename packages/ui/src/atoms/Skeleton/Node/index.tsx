@@ -1,11 +1,18 @@
-import { forwardRef, memo, useEffect, ForwardedRef } from 'react';
+import {
+  forwardRef,
+  memo,
+  useEffect,
+  ForwardedRef,
+  useMemo,
+  ReactNode,
+} from 'react';
 import { Animated, View } from 'react-native';
 import { spacings } from '@aero-ui/tokens';
 
 import { SkeletonNodeProps } from '../../../@types';
-import { isBoolean, isTypeBoolean, isTypeNumber } from '../../../utils';
+import { isTypeBoolean, isTypeNumber } from '../../../utils';
 import { useSkeleton } from '../hooks';
-import { styles } from './styles';
+import { makeStyles } from './styles';
 
 const Node = forwardRef((props: SkeletonNodeProps, ref: ForwardedRef<View>) => {
   const {
@@ -16,6 +23,7 @@ const Node = forwardRef((props: SkeletonNodeProps, ref: ForwardedRef<View>) => {
     useNativeDriver: nodeUseNativeDriver,
     easing: nodeEasing,
     style,
+    children,
     ...rest
   } = props;
 
@@ -58,17 +66,36 @@ const Node = forwardRef((props: SkeletonNodeProps, ref: ForwardedRef<View>) => {
     outputRange: [1, 0.5],
   });
 
+  const styles = useMemo(
+    () =>
+      makeStyles({
+        width,
+        height,
+        activated: isTypeBoolean(nodeActivated) ? nodeActivated : activated,
+      }),
+    [width, height, nodeActivated, activated]
+  );
+
+  const renderChildren: ReactNode = useMemo(() => {
+    if (isTypeBoolean(nodeActivated)) {
+      if (!nodeActivated) return children;
+    } else if (!activated) return children;
+
+    return null;
+  }, [children, activated]);
+
   useEffect(() => {
     const opacityAnimation = handleOpacityAnimation();
 
-    const isNodeActive = isBoolean(nodeActivated) && nodeActivated;
-
-    if (isNodeActive) opacityAnimation.start();
-    else if (activated) opacityAnimation.start();
-    else opacityAnimation.stop();
+    if (isTypeBoolean(nodeActivated)) {
+      if (nodeActivated) opacityAnimation.start();
+      else opacityAnimation.stop();
+    } else if (activated) {
+      opacityAnimation.start();
+    } else if (!activated) opacityAnimation.stop();
 
     return () => opacityAnimation.stop();
-  }, [nodeActivated, activated, opacity, useNativeDriver, duration]);
+  }, [nodeActivated, activated]);
 
   return (
     <Animated.View
@@ -80,9 +107,11 @@ const Node = forwardRef((props: SkeletonNodeProps, ref: ForwardedRef<View>) => {
       accessibilityState={{ disabled: true }}
       aria-label='Loading'
       aria-disabled
-      style={[{ width, height, opacity }, styles.skeleton, style]}
+      style={[{ opacity }, styles.skeleton, style]}
       {...rest}
-    />
+    >
+      {renderChildren}
+    </Animated.View>
   );
 });
 

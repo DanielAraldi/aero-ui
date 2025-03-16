@@ -1,14 +1,27 @@
-import { StyleSheet } from 'react-native';
+import { DimensionValue, StyleSheet } from 'react-native';
 import { borderRadius, colors, zIndexes } from '@aero-ui/tokens';
 
-export const styles = StyleSheet.create({
-  skeleton: {
-    zIndex: zIndexes.full,
+interface MakeStyleProps {
+  width: DimensionValue;
+  height: DimensionValue;
+  activated: boolean;
+}
 
-    overflow: 'hidden',
+export const makeStyles = (props: MakeStyleProps) => {
+  const { activated, height, width } = props;
 
-    backgroundColor: colors.gray[200],
+  return StyleSheet.create({
+    skeleton: {
+      width: activated ? width : 'auto',
+      height: activated ? height : 'auto',
 
-    borderRadius: borderRadius.base,
-  },
-});
+      zIndex: zIndexes.full,
+
+      overflow: 'hidden',
+
+      backgroundColor: activated ? colors.gray[200] : 'transparent',
+
+      borderRadius: borderRadius.base,
+    },
+  });
+};

@@ -1,11 +1,12 @@
 import { Easing } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { Skeleton, SkeletonNodeProps } from '@aero-ui/ui';
+import { Skeleton, SkeletonNodeProps, Text } from '@aero-ui/ui';
 import { spacings } from '@aero-ui/tokens';
 
 import { dimensions } from '../../../../constants';
 import { globalStyles } from '../../../../styles';
 import { styles } from './styles';
+import { useEffect, useState } from 'react';
 
 const meta: Meta<SkeletonNodeProps> = {
   title: 'Components/Atoms/Skeleton',
@@ -59,3 +60,21 @@ const meta: Meta<SkeletonNodeProps> = {
 export default meta;
 
 export const Node: StoryObj<SkeletonNodeProps> = {};
+
+export const WithChildren: StoryObj<SkeletonNodeProps> = {
+  render: ({ activated, ...rest }) => {
+    const [isActivated, setIsActivated] = useState<boolean>(activated);
+
+    useEffect(() => {
+      const interval = setInterval(() => setIsActivated(!isActivated), 3000);
+
+      return () => clearInterval(interval);
+    }, []);
+
+    return (
+      <Skeleton.Node activated={isActivated} {...rest}>
+        <Text>Aero UI</Text>
+      </Skeleton.Node>
+    );
+  },
+};

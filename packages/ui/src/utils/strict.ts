@@ -1,7 +1,3 @@
-export function isBoolean(value: any): boolean {
-  return typeof value === 'boolean';
-}
-
 export function isTypeBoolean(value: any): value is boolean {
   return typeof value === 'boolean';
 }
