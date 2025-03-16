@@ -17,6 +17,8 @@ describe('<Button />', () => {
     });
 
     it('Should render Button component with default properties', () => {
+      animatedSpy('timing');
+
       render(<Button {...defaultProps} />);
 
       const wrapper = screen.getByTestId('wrapper');
