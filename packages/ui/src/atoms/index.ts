@@ -1,5 +1,5 @@
-import Skeleton, { useSkeleton } from './Skeleton';
+import Skeleton from './Skeleton';
 import Spinner from './Spinner';
 import Text from './Text';
 
-export { Skeleton, useSkeleton, Spinner, Text };
+export { Skeleton, Spinner, Text };
