@@ -49,4 +49,21 @@ describe('<Skeleton />', () => {
     const skeleton = screen.getByTestId('skeleton');
     expect(skeleton).toHaveStyle(sizeProps);
   });
+
+  it('Should render Skeleton component with custom round', () => {
+    const roundProps: SkeletonProps = {
+      round: 'full',
+    };
+    const customProps: SkeletonProps = {
+      ...defaultProps,
+      ...roundProps,
+    };
+
+    render(<Skeleton {...customProps} />);
+
+    const skeleton = screen.getByTestId('skeleton');
+    expect(skeleton).toHaveStyle({
+      borderRadius: borderRadius.full,
+    });
+  });
 });
