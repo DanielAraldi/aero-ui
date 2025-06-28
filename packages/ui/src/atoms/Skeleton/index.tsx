@@ -1,8 +1,9 @@
 import { forwardRef, memo, useEffect, ForwardedRef, useMemo } from 'react';
-import { Animated, Easing, View } from 'react-native';
+import { Animated, Easing, View, StyleSheet } from 'react-native';
 
 import { SkeletonProps } from '../../@types';
 import { makeStyles } from './styles';
+import { borderWidths, colors } from '@aero-ui/tokens';
 
 const Skeleton = forwardRef((props: SkeletonProps, ref: ForwardedRef<View>) => {
   const {
@@ -18,11 +19,13 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: ForwardedRef<View>) => {
     ...rest
   } = props;
 
+  const pointerEvents = activated ? 'none' : 'auto';
+
   const overshadow = new Animated.Value(0, {
     useNativeDriver,
   });
 
-  function handleOpacityAnimation(): Animated.CompositeAnimation {
+  function handleOverColorAnimation(): Animated.CompositeAnimation {
     const commonTimingAnimationProps: Omit<
       Animated.TimingAnimationConfig,
       'toValue'
@@ -46,9 +49,9 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: ForwardedRef<View>) => {
     );
   }
 
-  const opacity = overshadow.interpolate({
+  const overColor = overshadow.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, 0.5],
+    outputRange: [colors.gray[200], colors.gray[300]],
   });
 
   const styles = useMemo(
@@ -62,22 +65,17 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: ForwardedRef<View>) => {
     [width, height, activated, round]
   );
 
-  const renderChildren = useMemo(
-    () => (activated ? null : children),
-    [activated, children]
-  );
-
   useEffect(() => {
-    const opacityAnimation = handleOpacityAnimation();
+    const overColorAnimation = handleOverColorAnimation();
 
-    if (activated) opacityAnimation.start();
-    else opacityAnimation.stop();
+    if (activated) overColorAnimation.start();
+    else overColorAnimation.stop();
 
-    return () => opacityAnimation.stop();
-  }, [activated]);
+    return () => overColorAnimation.stop();
+  }, [activated, duration, useNativeDriver, easing]);
 
-  return (
-    <Animated.View
+  return activated ? (
+    <View
       ref={ref}
       testID='skeleton'
       accessible
@@ -86,11 +84,28 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: ForwardedRef<View>) => {
       accessibilityState={{ disabled: true }}
       aria-label='Loading'
       aria-disabled
-      style={[{ opacity }, styles.skeleton, style]}
+      pointerEvents={pointerEvents}
+      style={[styles.container, style]}
       {...rest}
     >
-      {renderChildren}
-    </Animated.View>
+      <Animated.View
+        testID='animation'
+        pointerEvents='none'
+        style={[
+          {
+            backgroundColor: overColor,
+            borderColor: overColor,
+            borderWidth: borderWidths.px,
+          },
+          StyleSheet.absoluteFill,
+          styles.skeleton,
+        ]}
+      />
+
+      {children}
+    </View>
+  ) : (
+    children
   );
 });
 

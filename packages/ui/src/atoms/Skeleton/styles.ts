@@ -1,5 +1,5 @@
 import { DimensionValue, StyleSheet } from 'react-native';
-import { borderRadius, colors, zIndexes } from '@aero-ui/tokens';
+import { borderRadius, zIndexes } from '@aero-ui/tokens';
 
 import { SkeletonRoundType } from '../../@types';
 import { isNumber } from '../../utils';
@@ -41,17 +41,22 @@ export const makeStyles = (props: MakeStyleProps) => {
   });
 
   return StyleSheet.create({
-    skeleton: {
+    container: {
       overflow: 'hidden',
 
       width: activated ? width : 'auto',
       height: heightValue,
 
-      backgroundColor: activated ? colors.gray[200] : 'transparent',
+      borderRadius,
+    },
+
+    skeleton: {
+      zIndex: zIndexes.full,
+
+      width: '100%',
+      height: '100%',
 
       borderRadius,
-
-      ...(activated && { zIndex: zIndexes.full }),
     },
   });
 };
