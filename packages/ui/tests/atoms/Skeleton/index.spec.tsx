@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 
 import { Skeleton, SkeletonProps, Button } from '../../../';
 import { borderRadius, colors, zIndexes } from '@aero-ui/tokens';
@@ -24,6 +24,8 @@ const defaultStyles: ViewStyle = {
   backgroundColor: colors.gray[200],
   borderRadius: borderRadius.none,
 };
+
+const onPressSpy = jest.fn();
 
 describe('<Skeleton />', () => {
   it('Should render Skeleton component with default properties', () => {
@@ -88,11 +90,38 @@ describe('<Skeleton />', () => {
 
     render(
       <Skeleton {...defaultProps}>
-        <Button />
+        <Button onPress={onPressSpy} />
       </Skeleton>
     );
 
+    const button = screen.queryByTestId('wrapper');
+    if (button) fireEvent.press(button);
+
     expect(screen.getByTestId('skeleton')).toHaveStyle(defaultStyles);
-    expect(screen.getByTestId('wrapper')).toBeOnTheScreen();
+    expect(button).not.toBeOnTheScreen();
+    expect(onPressSpy).not.toHaveBeenCalled();
+  });
+
+  it('Should render Skeleton component with children and activated as false', () => {
+    animatedSpy('timing');
+
+    render(
+      <Skeleton {...defaultProps} activated={false}>
+        <Button onPress={onPressSpy} />
+      </Skeleton>
+    );
+
+    const skeleton = screen.getByTestId('skeleton');
+    const button = screen.getByTestId('wrapper');
+    fireEvent.press(button);
+
+    expect(skeleton).toHaveStyle({
+      backgroundColor: 'transparent',
+    });
+    expect(skeleton).not.toHaveStyle({
+      zIndex: zIndexes.full,
+    });
+    expect(button).toBeOnTheScreen();
+    expect(onPressSpy).toHaveBeenCalledTimes(1);
   });
 });
