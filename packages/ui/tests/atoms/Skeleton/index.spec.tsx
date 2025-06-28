@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react-native';
 
-import { Skeleton, SkeletonProps } from '../../../';
-import { animatedSpy } from '../../spies';
+import { Skeleton, SkeletonProps, Button } from '../../../';
 import { borderRadius, colors, zIndexes } from '@aero-ui/tokens';
 import { ViewStyle } from 'react-native';
+import { animatedSpy } from '../../spies';
 
 jest.mock('react-native', () => {
   const RN = jest.requireActual('react-native');
@@ -46,8 +46,7 @@ describe('<Skeleton />', () => {
 
     render(<Skeleton {...customProps} />);
 
-    const skeleton = screen.getByTestId('skeleton');
-    expect(skeleton).toHaveStyle(sizeProps);
+    expect(screen.getByTestId('skeleton')).toHaveStyle(sizeProps);
   });
 
   it('Should render Skeleton component with custom round', () => {
@@ -61,8 +60,7 @@ describe('<Skeleton />', () => {
 
     render(<Skeleton {...customProps} />);
 
-    const skeleton = screen.getByTestId('skeleton');
-    expect(skeleton).toHaveStyle({
+    expect(screen.getByTestId('skeleton')).toHaveStyle({
       borderRadius: borderRadius.full,
     });
   });
@@ -79,10 +77,22 @@ describe('<Skeleton />', () => {
 
     render(<Skeleton {...customProps} />);
 
-    const skeleton = screen.getByTestId('skeleton');
-    expect(skeleton).toHaveStyle({
+    expect(screen.getByTestId('skeleton')).toHaveStyle({
       ...defaultStyles,
       ...styleProps,
     });
+  });
+
+  it('Should render Skeleton component with children and activated as true', () => {
+    animatedSpy('timing');
+
+    render(
+      <Skeleton {...defaultProps}>
+        <Button />
+      </Skeleton>
+    );
+
+    expect(screen.getByTestId('skeleton')).toHaveStyle(defaultStyles);
+    expect(screen.getByTestId('wrapper')).toBeOnTheScreen();
   });
 });
