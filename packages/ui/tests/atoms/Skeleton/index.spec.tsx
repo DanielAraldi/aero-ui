@@ -16,24 +16,36 @@ const defaultProps: SkeletonProps = {
   useNativeDriver: false,
 };
 
-const defaultStyles: ViewStyle = {
-  width: 'auto',
-  height: 'auto',
-  overflow: 'hidden',
-  zIndex: zIndexes.full,
-  backgroundColor: colors.gray[200],
-  borderRadius: borderRadius.none,
+const defaultStyles: Record<string, ViewStyle> = {
+  skeleton: {
+    width: 'auto',
+    height: 'auto',
+    overflow: 'hidden',
+    borderRadius: borderRadius.none,
+  },
+
+  animation: {
+    zIndex: zIndexes.full,
+    width: '100%',
+    height: '100%',
+    borderRadius: borderRadius.none,
+  },
 };
 
-const onPressSpy = jest.fn();
+const onTap = jest.fn();
 
 describe('<Skeleton />', () => {
   it('Should render Skeleton component with default properties', () => {
     render(<Skeleton {...defaultProps} />);
 
     const skeleton = screen.getByTestId('skeleton');
+    const animation = screen.getByTestId('animation');
+
     expect(skeleton).toBeOnTheScreen();
-    expect(skeleton).toHaveStyle(defaultStyles);
+    expect(skeleton).toHaveStyle(defaultStyles.skeleton);
+
+    expect(animation).toBeOnTheScreen();
+    expect(animation).toHaveStyle(defaultStyles.animation);
   });
 
   it('Should render Skeleton component with custom size', () => {
@@ -65,6 +77,9 @@ describe('<Skeleton />', () => {
     expect(screen.getByTestId('skeleton')).toHaveStyle({
       borderRadius: borderRadius.full,
     });
+    expect(screen.getByTestId('animation')).toHaveStyle({
+      borderRadius: borderRadius.full,
+    });
   });
 
   it('Should render Skeleton component with custom style', () => {
@@ -80,49 +95,43 @@ describe('<Skeleton />', () => {
     render(<Skeleton {...customProps} />);
 
     expect(screen.getByTestId('skeleton')).toHaveStyle({
-      ...defaultStyles,
+      ...defaultStyles.skeleton,
       ...styleProps,
     });
   });
 
-  it('Should render Skeleton component with children and activated as true', () => {
+  it('Should render Skeleton component with pointer event none when activated is true', () => {
     animatedSpy('timing');
 
     render(
-      <Skeleton {...defaultProps}>
-        <Button onPress={onPressSpy} />
+      <Skeleton {...defaultProps} onMagicTap={onTap}>
+        <Button />
       </Skeleton>
     );
 
-    const button = screen.queryByTestId('wrapper');
-    if (button) fireEvent.press(button);
-
-    expect(screen.getByTestId('skeleton')).toHaveStyle(defaultStyles);
-    expect(button).not.toBeOnTheScreen();
-    expect(onPressSpy).not.toHaveBeenCalled();
+    expect(screen.getByTestId('skeleton')).toHaveStyle(defaultStyles.skeleton);
+    expect(onTap).not.toHaveBeenCalled();
   });
 
-  it('Should render Skeleton component with children and activated as false', () => {
+  it('Should render Skeleton component with pointer event enable when activated is false', () => {
     animatedSpy('timing');
 
     render(
       <Skeleton {...defaultProps} activated={false}>
-        <Button onPress={onPressSpy} />
+        <Button testID='button' onPress={onTap} />
       </Skeleton>
     );
 
-    const skeleton = screen.getByTestId('skeleton');
-    const button = screen.getByTestId('wrapper');
+    const skeleton = screen.queryByTestId('skeleton');
+    const animation = screen.queryByTestId('animation');
+    const button = screen.getByTestId('button');
+
     fireEvent.press(button);
 
-    expect(skeleton).toHaveStyle({
-      backgroundColor: 'transparent',
-    });
-    expect(skeleton).not.toHaveStyle({
-      zIndex: zIndexes.full,
-    });
+    expect(skeleton).not.toBeOnTheScreen();
+    expect(animation).not.toBeOnTheScreen();
     expect(button).toBeOnTheScreen();
-    expect(onPressSpy).toHaveBeenCalledTimes(1);
+    expect(onTap).toHaveBeenCalledTimes(1);
   });
 
   it('Should take a snapshot of the Skeleton component', () => {

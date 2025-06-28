@@ -12,22 +12,45 @@ exports[`<Skeleton /> Should take a snapshot of the Skeleton component 1`] = `
   accessible={true}
   aria-disabled={true}
   aria-label="Loading"
+  pointerEvents="none"
   style={
     [
       {
-        "opacity": 1,
-      },
-      {
-        "backgroundColor": "#E5E7EB",
         "borderRadius": 0,
         "height": "auto",
         "overflow": "hidden",
         "width": "auto",
-        "zIndex": 9999,
       },
       undefined,
     ]
   }
   testID="skeleton"
-/>
+>
+  <View
+    pointerEvents="none"
+    style={
+      [
+        {
+          "backgroundColor": "rgba(229, 231, 235, 1)",
+          "borderColor": "rgba(229, 231, 235, 1)",
+          "borderWidth": 1,
+        },
+        {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        {
+          "borderRadius": 0,
+          "height": "100%",
+          "width": "100%",
+          "zIndex": 9999,
+        },
+      ]
+    }
+    testID="animation"
+  />
+</View>
 `;
