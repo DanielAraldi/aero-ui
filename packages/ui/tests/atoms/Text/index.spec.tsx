@@ -7,9 +7,9 @@ import {
   letterSpacings,
   lineHeights,
 } from '@aero-ui/tokens';
-import { faker } from '@faker-js/faker';
 
 import { Text, TextProps, TextVariantType } from '../../../';
+import { mockWords } from '../../mocks';
 
 type SutTypes = {
   textComponentStub(variant: TextVariantType): ReactElement<TextProps>;
@@ -49,7 +49,7 @@ describe('<Text />', () => {
   });
 
   it('Should render Text component with a text', () => {
-    const words = faker.word.words({ count: { min: 1, max: 5 } });
+    const words = mockWords();
 
     render(<Text>{words}</Text>);
     expect(screen.getByText(words)).toBeOnTheScreen();

@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
 import { Text, TextProps } from '@aero-ui/ui';
 
+import { textVariants } from '../../../constants';
 import { globalStyles } from '../../../styles';
 
 const meta: Meta<TextProps> = {
@@ -14,21 +15,7 @@ const meta: Meta<TextProps> = {
       control: {
         type: 'select',
       },
-      options: [
-        'xs',
-        'sm',
-        'base',
-        'lg',
-        'xl',
-        '2xl',
-        '3xl',
-        '4xl',
-        '5xl',
-        '6xl',
-        '7xl',
-        '8xl',
-        '9xl',
-      ],
+      options: textVariants,
     },
   },
   component: props => <Text {...props}>Aero UI</Text>,

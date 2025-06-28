@@ -3,6 +3,11 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Spinner, SpinnerProps } from '@aero-ui/ui';
 import { colors } from '@aero-ui/tokens';
 
+import {
+  spinnerSizes,
+  spinnerStartBy,
+  spinnerVariants,
+} from '../../../constants';
 import { globalStyles } from '../../../styles';
 
 const meta: Meta<SpinnerProps> = {
@@ -24,19 +29,19 @@ const meta: Meta<SpinnerProps> = {
       control: {
         type: 'select',
       },
-      options: ['unique', 'double', 'half'],
+      options: spinnerVariants,
     },
     size: {
       control: {
         type: 'select',
       },
-      options: ['small', 'normal', 'large'],
+      options: spinnerSizes,
     },
     startBy: {
       control: {
         type: 'select',
       },
-      options: ['left', 'right', 'top', 'bottom'],
+      options: spinnerStartBy,
     },
     color: {
       control: {
