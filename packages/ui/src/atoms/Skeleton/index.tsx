@@ -62,6 +62,11 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: ForwardedRef<View>) => {
     [width, height, activated, round]
   );
 
+  const renderChildren = useMemo(
+    () => (activated ? null : children),
+    [activated, children]
+  );
+
   useEffect(() => {
     const opacityAnimation = handleOpacityAnimation();
 
@@ -84,7 +89,7 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: ForwardedRef<View>) => {
       style={[{ opacity }, styles.skeleton, style]}
       {...rest}
     >
-      {children}
+      {renderChildren}
     </Animated.View>
   );
 });
