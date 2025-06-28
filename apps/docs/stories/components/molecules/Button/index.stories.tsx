@@ -3,42 +3,28 @@ import { StoryObj, Meta } from '@storybook/react';
 import { Button, ButtonProps, Spinner, Text } from '@aero-ui/ui';
 import { colors } from '@aero-ui/tokens';
 
+import { buttonVariants } from '../../../constants';
 import { styles } from './styles';
 
 const meta: Meta<ButtonProps> = {
   title: 'Components/Molecules/Button',
   args: {
-    title: 'Aero UI',
     variant: 'primary',
-    toScale: 0.98,
+    children: 'Aero UI',
+    toScale: 0.99,
     duration: 150,
     loading: false,
     bordered: false,
     disabled: false,
     hugWidth: true,
     useNativeDriver: true,
-    activeOpacity: undefined,
   },
   argTypes: {
-    title: {
-      control: {
-        type: 'text',
-      },
-    },
     variant: {
       control: {
         type: 'select',
       },
-      options: [
-        'primary',
-        'secondary',
-        'tertiary',
-        'success',
-        'neutral',
-        'ghost',
-        'danger',
-        'warning',
-      ],
+      options: buttonVariants,
     },
     toScale: {
       control: {
@@ -77,13 +63,6 @@ const meta: Meta<ButtonProps> = {
     useNativeDriver: {
       control: {
         type: 'boolean',
-      },
-    },
-    activeOpacity: {
-      control: {
-        type: 'number',
-        min: 0,
-        max: 1,
       },
     },
   },
@@ -144,7 +123,7 @@ export const Warning: StoryObj<ButtonProps> = {
 export const CustomText: StoryObj<ButtonProps> = {
   render: props => (
     <Button {...props}>
-      <Text style={{ color: colors.blue[100] }}>Aero UI</Text>
+      <Text style={{ color: colors.blue[100] }}>Custom Aero UI</Text>
     </Button>
   ),
 };

@@ -1,10 +1,9 @@
-import { Platform } from 'react-native';
+import { Platform, StyleProp, ViewStyle } from 'react-native';
 import { borderWidths, colors, spacings } from '@aero-ui/tokens';
 import { render, screen, fireEvent } from '@testing-library/react-native';
-import { faker } from '@faker-js/faker';
 
-import { Button, ButtonProps, Spinner, Text } from '../../../';
-import { mockPlatform } from '../../mocks';
+import { Button, ButtonProps, Spinner, SpinnerProps, Text } from '../../../';
+import { mockPlatform, mockWords } from '../../mocks';
 import { animatedSpy } from '../../spies';
 
 const defaultProps: ButtonProps = {
@@ -18,10 +17,12 @@ describe('<Button />', () => {
     });
 
     it('Should render Button component with default properties', () => {
+      animatedSpy('timing');
+
       render(<Button {...defaultProps} />);
 
       const wrapper = screen.getByTestId('wrapper');
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
       const text = screen.getByTestId('text');
       const spinner = screen.queryByTestId('spinner');
 
@@ -30,32 +31,32 @@ describe('<Button />', () => {
         transform: [{ scale: 1 }],
       });
 
-      expect(touchable).toHaveStyle({
+      expect(pressable).toHaveStyle({
         backgroundColor: colors.blue[500],
       });
-      expect(touchable).not.toHaveStyle({
+      expect(pressable).not.toHaveStyle({
         backgroundColor: colors.blue[400],
       });
-      expect(touchable).not.toHaveStyle({
+      expect(pressable).not.toHaveStyle({
         backgroundColor: colors.blue[300],
       });
-      expect(touchable).not.toBeDisabled();
+      expect(pressable).not.toBeDisabled();
 
-      expect(text).toHaveProp('children', 'Title');
+      expect(text).toHaveProp('children', undefined);
       expect(text).toHaveStyle({
         color: colors.white[100],
       });
 
       expect(wrapper).toBeOnTheScreen();
-      expect(touchable).toBeOnTheScreen();
+      expect(pressable).toBeOnTheScreen();
       expect(text).toBeOnTheScreen();
       expect(spinner).toBeNull();
     });
 
-    it('Should change title of Button component when title is changed', () => {
-      const words = faker.word.words({ count: { min: 1, max: 5 } });
+    it('Should receive children to be shown in Button component as a title', () => {
+      const words = mockWords();
 
-      render(<Button title={words} {...defaultProps} />);
+      render(<Button {...defaultProps}>{words}</Button>);
 
       const text = screen.getByTestId('text');
 
@@ -65,186 +66,202 @@ describe('<Button />', () => {
     it("Should render Button component with primary variant and change your color when it's pressed", () => {
       render(<Button variant='primary' bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toHaveStyle({
+      const defaultPrimaryStyle: StyleProp<ViewStyle> = {
+        backgroundColor: colors.blue[500],
         borderColor: colors.white[100],
-      });
+      };
 
-      fireEvent(touchable, 'pressIn');
+      expect(pressable).toHaveStyle(defaultPrimaryStyle);
 
-      expect(touchable).toHaveStyle({
+      fireEvent(pressable, 'pressIn');
+
+      expect(pressable).toHaveStyle({
+        backgroundColor: colors.blue[400],
         borderColor: colors.blue[100],
       });
 
-      fireEvent(touchable, 'pressOut');
+      fireEvent(pressable, 'pressOut');
 
-      expect(touchable).toHaveStyle({
-        borderColor: colors.white[100],
-      });
+      expect(pressable).toHaveStyle(defaultPrimaryStyle);
     });
 
     it("Should render Button component with secondary variant and change your color when it's pressed", () => {
       render(<Button variant='secondary' bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toHaveStyle({
+      const defaultSecondaryStyle: StyleProp<ViewStyle> = {
+        backgroundColor: colors.white[100],
         borderColor: colors.black[100],
-      });
+      };
 
-      fireEvent(touchable, 'pressIn');
+      expect(pressable).toHaveStyle(defaultSecondaryStyle);
 
-      expect(touchable).toHaveStyle({
+      fireEvent(pressable, 'pressIn');
+
+      expect(pressable).toHaveStyle({
+        backgroundColor: colors.white[85],
         borderColor: colors.black[85],
       });
 
-      fireEvent(touchable, 'pressOut');
+      fireEvent(pressable, 'pressOut');
 
-      expect(touchable).toHaveStyle({
-        borderColor: colors.black[100],
-      });
+      expect(pressable).toHaveStyle(defaultSecondaryStyle);
     });
 
     it("Should render Button component with tertiary variant and change your color when it's pressed", () => {
       render(<Button variant='tertiary' bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toHaveStyle({
+      const defaultTertiaryStyle: StyleProp<ViewStyle> = {
+        backgroundColor: colors.stone[900],
         borderColor: colors.white[100],
-      });
+      };
 
-      fireEvent(touchable, 'pressIn');
+      expect(pressable).toHaveStyle(defaultTertiaryStyle);
 
-      expect(touchable).toHaveStyle({
+      fireEvent(pressable, 'pressIn');
+
+      expect(pressable).toHaveStyle({
+        backgroundColor: colors.stone[800],
         borderColor: colors.stone[100],
       });
 
-      fireEvent(touchable, 'pressOut');
+      fireEvent(pressable, 'pressOut');
 
-      expect(touchable).toHaveStyle({
-        borderColor: colors.white[100],
-      });
+      expect(pressable).toHaveStyle(defaultTertiaryStyle);
     });
 
     it("Should render Button component with success variant and change your color when it's pressed", () => {
       render(<Button variant='success' bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toHaveStyle({
+      const defaultSuccessStyle: StyleProp<ViewStyle> = {
+        backgroundColor: colors.green[500],
         borderColor: colors.white[100],
-      });
+      };
 
-      fireEvent(touchable, 'pressIn');
+      expect(pressable).toHaveStyle(defaultSuccessStyle);
 
-      expect(touchable).toHaveStyle({
+      fireEvent(pressable, 'pressIn');
+
+      expect(pressable).toHaveStyle({
+        backgroundColor: colors.green[400],
         borderColor: colors.green[100],
       });
 
-      fireEvent(touchable, 'pressOut');
+      fireEvent(pressable, 'pressOut');
 
-      expect(touchable).toHaveStyle({
-        borderColor: colors.white[100],
-      });
+      expect(pressable).toHaveStyle(defaultSuccessStyle);
     });
 
     it("Should render Button component with ghost variant and change your color when it's pressed", () => {
       render(<Button variant='ghost' bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toHaveStyle({
+      const defaultGhostStyle: StyleProp<ViewStyle> = {
+        backgroundColor: 'transparent',
         borderColor: colors.black[100],
-      });
+      };
 
-      fireEvent(touchable, 'pressIn');
+      expect(pressable).toHaveStyle(defaultGhostStyle);
 
-      expect(touchable).toHaveStyle({
+      fireEvent(pressable, 'pressIn');
+
+      expect(pressable).toHaveStyle({
+        backgroundColor: 'transparent',
         borderColor: colors.black[85],
       });
 
-      fireEvent(touchable, 'pressOut');
+      fireEvent(pressable, 'pressOut');
 
-      expect(touchable).toHaveStyle({
-        borderColor: colors.black[100],
-      });
+      expect(pressable).toHaveStyle(defaultGhostStyle);
     });
 
     it("Should render Button component with danger variant and change your color when it's pressed", () => {
       render(<Button variant='danger' bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toHaveStyle({
+      const defaultDangerStyle: StyleProp<ViewStyle> = {
+        backgroundColor: colors.red[500],
         borderColor: colors.white[100],
-      });
+      };
 
-      fireEvent(touchable, 'pressIn');
+      expect(pressable).toHaveStyle(defaultDangerStyle);
 
-      expect(touchable).toHaveStyle({
+      fireEvent(pressable, 'pressIn');
+
+      expect(pressable).toHaveStyle({
+        backgroundColor: colors.red[400],
         borderColor: colors.red[100],
       });
 
-      fireEvent(touchable, 'pressOut');
+      fireEvent(pressable, 'pressOut');
 
-      expect(touchable).toHaveStyle({
-        borderColor: colors.white[100],
-      });
+      expect(pressable).toHaveStyle(defaultDangerStyle);
     });
 
     it("Should render Button component with warning variant and change your color when it's pressed", () => {
       render(<Button variant='warning' bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toHaveStyle({
+      const defaultWarningStyle: StyleProp<ViewStyle> = {
+        backgroundColor: colors.yellow[500],
         borderColor: colors.white[100],
-      });
+      };
 
-      fireEvent(touchable, 'pressIn');
+      expect(pressable).toHaveStyle(defaultWarningStyle);
 
-      expect(touchable).toHaveStyle({
+      fireEvent(pressable, 'pressIn');
+
+      expect(pressable).toHaveStyle({
+        backgroundColor: colors.yellow[400],
         borderColor: colors.yellow[100],
       });
 
-      fireEvent(touchable, 'pressOut');
+      fireEvent(pressable, 'pressOut');
 
-      expect(touchable).toHaveStyle({
-        borderColor: colors.white[100],
-      });
+      expect(pressable).toHaveStyle(defaultWarningStyle);
     });
 
     it("Should render Button component with neutral variant and change your color when it's pressed", () => {
       render(<Button variant='neutral' bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toHaveStyle({
+      const defaultNeutralStyle: StyleProp<ViewStyle> = {
+        backgroundColor: colors.neutral[500],
         borderColor: colors.white[100],
-      });
+      };
 
-      fireEvent(touchable, 'pressIn');
+      expect(pressable).toHaveStyle(defaultNeutralStyle);
 
-      expect(touchable).toHaveStyle({
+      fireEvent(pressable, 'pressIn');
+
+      expect(pressable).toHaveStyle({
+        backgroundColor: colors.neutral[400],
         borderColor: colors.neutral[100],
       });
 
-      fireEvent(touchable, 'pressOut');
+      fireEvent(pressable, 'pressOut');
 
-      expect(touchable).toHaveStyle({
-        borderColor: colors.white[100],
-      });
+      expect(pressable).toHaveStyle(defaultNeutralStyle);
     });
 
     it('Should render Button component with primary variant disabled', () => {
       render(<Button variant='primary' disabled bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toBeDisabled();
-      expect(touchable).toHaveStyle({
+      expect(pressable).toBeDisabled();
+      expect(pressable).toHaveStyle({
         backgroundColor: colors.blue[300],
         borderColor: colors.blue[50],
       });
@@ -255,10 +272,10 @@ describe('<Button />', () => {
         <Button variant='secondary' disabled bordered {...defaultProps} />
       );
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toBeDisabled();
-      expect(touchable).toHaveStyle({
+      expect(pressable).toBeDisabled();
+      expect(pressable).toHaveStyle({
         backgroundColor: colors.white[85],
         borderColor: colors.black[50],
       });
@@ -267,10 +284,10 @@ describe('<Button />', () => {
     it('Should render Button component with tertiary variant disabled', () => {
       render(<Button variant='tertiary' disabled bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toBeDisabled();
-      expect(touchable).toHaveStyle({
+      expect(pressable).toBeDisabled();
+      expect(pressable).toHaveStyle({
         backgroundColor: colors.stone[700],
         borderColor: colors.stone[50],
       });
@@ -279,10 +296,10 @@ describe('<Button />', () => {
     it('Should render Button component with success variant disabled', () => {
       render(<Button variant='success' disabled bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toBeDisabled();
-      expect(touchable).toHaveStyle({
+      expect(pressable).toBeDisabled();
+      expect(pressable).toHaveStyle({
         backgroundColor: colors.green[300],
         borderColor: colors.green[50],
       });
@@ -291,10 +308,10 @@ describe('<Button />', () => {
     it('Should render Button component with ghost variant disabled', () => {
       render(<Button variant='ghost' disabled bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toBeDisabled();
-      expect(touchable).toHaveStyle({
+      expect(pressable).toBeDisabled();
+      expect(pressable).toHaveStyle({
         backgroundColor: 'transparent',
         borderColor: colors.black[50],
       });
@@ -303,10 +320,10 @@ describe('<Button />', () => {
     it('Should render Button component with danger variant disabled', () => {
       render(<Button variant='danger' disabled bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toBeDisabled();
-      expect(touchable).toHaveStyle({
+      expect(pressable).toBeDisabled();
+      expect(pressable).toHaveStyle({
         backgroundColor: colors.red[300],
         borderColor: colors.red[50],
       });
@@ -315,10 +332,10 @@ describe('<Button />', () => {
     it('Should render Button component with warning variant disabled', () => {
       render(<Button variant='warning' disabled bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toBeDisabled();
-      expect(touchable).toHaveStyle({
+      expect(pressable).toBeDisabled();
+      expect(pressable).toHaveStyle({
         backgroundColor: colors.yellow[300],
         borderColor: colors.yellow[50],
       });
@@ -327,10 +344,10 @@ describe('<Button />', () => {
     it('Should render Button component with neutral variant disabled', () => {
       render(<Button variant='neutral' disabled bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toBeDisabled();
-      expect(touchable).toHaveStyle({
+      expect(pressable).toBeDisabled();
+      expect(pressable).toHaveStyle({
         backgroundColor: colors.neutral[300],
         borderColor: colors.neutral[50],
       });
@@ -340,13 +357,13 @@ describe('<Button />', () => {
       render(<Button hugWidth {...defaultProps} />);
 
       const wrapper = screen.getByTestId('wrapper');
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
       expect(wrapper).toHaveStyle({
         width: '100%',
       });
 
-      expect(touchable).toHaveStyle({
+      expect(pressable).toHaveStyle({
         paddingHorizontal: spacings[2],
       });
     });
@@ -355,13 +372,13 @@ describe('<Button />', () => {
       render(<Button hugWidth={false} {...defaultProps} />);
 
       const wrapper = screen.getByTestId('wrapper');
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
       expect(wrapper).toHaveStyle({
         width: 'auto',
       });
 
-      expect(touchable).toHaveStyle({
+      expect(pressable).toHaveStyle({
         paddingHorizontal: spacings[5],
       });
     });
@@ -369,9 +386,9 @@ describe('<Button />', () => {
     it('Should render Button component with border when bordered is true', () => {
       render(<Button bordered {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toHaveStyle({
+      expect(pressable).toHaveStyle({
         borderWidth: borderWidths.px,
         borderColor: colors.white[100],
       });
@@ -380,9 +397,9 @@ describe('<Button />', () => {
     it('Should render Button component without border when bordered is false', () => {
       render(<Button bordered={false} {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      expect(touchable).toHaveStyle({
+      expect(pressable).toHaveStyle({
         borderWidth: undefined,
         borderColor: undefined,
       });
@@ -393,9 +410,9 @@ describe('<Button />', () => {
 
       render(<Button onPressIn={onPressIn} {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      fireEvent(touchable, 'pressIn');
+      fireEvent(pressable, 'pressIn');
 
       expect(onPressIn).toHaveBeenCalledTimes(1);
     });
@@ -405,15 +422,58 @@ describe('<Button />', () => {
 
       render(<Button onPressOut={onPressOut} {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
 
-      fireEvent(touchable, 'pressOut');
+      fireEvent(pressable, 'pressOut');
 
       expect(onPressOut).toHaveBeenCalledTimes(1);
     });
 
+    it('Should remain with opacity in 100% when Button component is enabled and not pressed', () => {
+      render(<Button {...defaultProps} />);
+
+      const content = screen.getByTestId('content');
+
+      expect(content).toHaveStyle({
+        opacity: 1,
+      });
+    });
+
+    it('Should remain with opacity in 85% when Button component is pressed', () => {
+      render(<Button {...defaultProps} />);
+
+      const pressable = screen.getByTestId('pressable');
+      const content = screen.getByTestId('content');
+
+      const defaultContentStyle: StyleProp<ViewStyle> = {
+        opacity: 1,
+      };
+
+      expect(content).toHaveStyle(defaultContentStyle);
+
+      fireEvent(pressable, 'pressIn');
+
+      expect(content).toHaveStyle({
+        opacity: 0.85,
+      });
+
+      fireEvent(pressable, 'pressOut');
+
+      expect(content).toHaveStyle(defaultContentStyle);
+    });
+
+    it('Should remain with opacity in 75% when Button component is disabled', () => {
+      render(<Button disabled {...defaultProps} />);
+
+      const content = screen.getByTestId('content');
+
+      expect(content).toHaveStyle({
+        opacity: 0.75,
+      });
+    });
+
     it('Should render Button component with customized Text component', () => {
-      const words = faker.word.words({ count: { min: 1, max: 5 } });
+      const words = mockWords();
 
       render(
         <Button {...defaultProps}>
@@ -446,7 +506,7 @@ describe('<Button />', () => {
     });
 
     it('Should render Button component with the Text as priority component', () => {
-      const words = faker.word.words({ count: { min: 1, max: 5 } });
+      const words = mockWords();
 
       render(
         <Button {...defaultProps}>
@@ -468,7 +528,7 @@ describe('<Button />', () => {
     it('Should render Button component with the Spinner as priority component when loading is true', () => {
       animatedSpy('loop');
 
-      const words = faker.word.words({ count: { min: 1, max: 5 } });
+      const words = mockWords();
 
       render(
         <Button loading {...defaultProps}>
@@ -484,6 +544,52 @@ describe('<Button />', () => {
 
       expect(customText).not.toBeOnTheScreen();
       expect(customSpinner).toBeOnTheScreen();
+      expect(wrapper).toBeOnTheScreen();
+    });
+
+    it('Should render Button component with more than one Text component', () => {
+      animatedSpy('loop');
+
+      const words = mockWords();
+
+      render(
+        <Button {...defaultProps}>
+          <Text testID='custom-text-one'>{words}</Text>
+
+          <Text testID='custom-text-two'>{words}</Text>
+        </Button>
+      );
+
+      const wrapper = screen.getByTestId('wrapper');
+      const customTextOne = screen.queryByTestId('custom-text-one');
+      const customTextTwo = screen.getByTestId('custom-text-two');
+
+      expect(customTextOne).toBeOnTheScreen();
+      expect(customTextTwo).toBeOnTheScreen();
+      expect(wrapper).toBeOnTheScreen();
+    });
+
+    it('Should render Button component with more than one Spinner component', () => {
+      animatedSpy('loop');
+
+      const defaultSpinnerProps: SpinnerProps = {
+        useNativeDriver: false,
+      };
+
+      render(
+        <Button {...defaultProps}>
+          <Spinner testID='custom-spinner-one' {...defaultSpinnerProps} />
+
+          <Spinner testID='custom-spinner-two' {...defaultSpinnerProps} />
+        </Button>
+      );
+
+      const wrapper = screen.getByTestId('wrapper');
+      const customSpinnerOne = screen.queryByTestId('custom-spinner-one');
+      const customSpinnerTwo = screen.getByTestId('custom-spinner-two');
+
+      expect(customSpinnerOne).toBeOnTheScreen();
+      expect(customSpinnerTwo).toBeOnTheScreen();
       expect(wrapper).toBeOnTheScreen();
     });
 
@@ -508,11 +614,11 @@ describe('<Button />', () => {
 
       render(<Button loading {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
       const spinner = screen.getByTestId('spinner');
       const text = screen.queryByTestId('text');
 
-      expect(touchable).toBeDisabled();
+      expect(pressable).toBeDisabled();
       expect(spinner).toHaveStyle({
         width: spacings[6],
         height: spacings[6],
@@ -548,11 +654,11 @@ describe('<Button />', () => {
 
       render(<Button loading {...defaultProps} />);
 
-      const touchable = screen.getByTestId('touchable');
+      const pressable = screen.getByTestId('pressable');
       const spinner = screen.getByTestId('spinner');
       const text = screen.queryByTestId('text');
 
-      expect(touchable).toBeDisabled();
+      expect(pressable).toBeDisabled();
       expect(spinner).toHaveProp('size', spacings[6]);
       expect(spinner).toHaveProp('color', colors.white[100]);
       expect(spinner).toBeOnTheScreen();

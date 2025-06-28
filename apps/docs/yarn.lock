@@ -26,12 +26,12 @@ __metadata:
 
 "@aero-ui/ui@file:../../packages/ui::locator=docs%40workspace%3A.":
   version: 1.3.0
-  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=b58d60&locator=docs%40workspace%3A."
+  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=55112c&locator=docs%40workspace%3A."
   peerDependencies:
     "@aero-ui/tokens": "*"
     react: ^18.2.0
     react-native: ^0.74.5
-  checksum: 10c0/a3d1379ddf75936d20771ee13f576667db337e16179c7dccbad2a3a91754b9019bf552fff13488108271694ea82b8a469eb9f4d425f2554e82d765c88d4fc647
+  checksum: 10c0/f0aaa7f489e15c0d561b8002be37ecbc405e70f52b1a3be89ac2c45d74b96712686e892594d5733b7a30d7522a90cec56e0cf158291834c54fb93bbbb6c9399e
   languageName: node
   linkType: hard
 
@@ -3672,12 +3672,12 @@ __metadata:
   linkType: hard
 
 "brace-expansion@npm:^1.1.7":
-  version: 1.1.11
-  resolution: "brace-expansion@npm:1.1.11"
+  version: 1.1.12
+  resolution: "brace-expansion@npm:1.1.12"
   dependencies:
     balanced-match: "npm:^1.0.0"
     concat-map: "npm:0.0.1"
-  checksum: 10c0/695a56cd058096a7cb71fb09d9d6a7070113c7be516699ed361317aca2ec169f618e28b8af352e02ab4233fb54eb0168460a40dc320bab0034b36ab59aaad668
+  checksum: 10c0/975fecac2bb7758c062c20d0b3b6288c7cc895219ee25f0a64a9de662dbac981ff0b6e89909c3897c1f84fa353113a721923afdec5f8b2350255b097f12b1f73
   languageName: node
   linkType: hard
 
