@@ -42,16 +42,16 @@ export const makeStyles = (props: MakeStyleProps) => {
 
   return StyleSheet.create({
     skeleton: {
+      overflow: 'hidden',
+
       width: activated ? width : 'auto',
       height: heightValue,
-
-      zIndex: activated ? zIndexes.full : -1,
-
-      overflow: 'hidden',
 
       backgroundColor: activated ? colors.gray[200] : 'transparent',
 
       borderRadius,
+
+      ...(activated && { zIndex: zIndexes.full }),
     },
   });
 };
