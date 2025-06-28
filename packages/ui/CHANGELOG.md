@@ -1,5 +1,16 @@
 # @aero-ui/ui
 
+## 1.4.0
+
+### Minor Changes
+
+- - Add `Skeleton` component.
+  - Swap `TouchableHighlight` by `Pressable` in the `Button` component.
+    - Remove property `title`.
+    - Change `toScale` default value of `0.98` from `0.99`.
+  - Improve performance in `Spinner` and `Button` component.
+  - Fix `Button` component to allow it to receive more than one child.
+
 ## 1.3.0
 
 ### Minor Changes
