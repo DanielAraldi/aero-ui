@@ -19,19 +19,19 @@ __metadata:
 
 "@aero-ui/tokens@file:../../packages/tokens::locator=docs%40workspace%3A.":
   version: 1.3.0
-  resolution: "@aero-ui/tokens@file:../../packages/tokens#../../packages/tokens::hash=7e4087&locator=docs%40workspace%3A."
-  checksum: 10c0/17970b0fff606ba818f526032b6661e7ef485c79825844cbca9fea6eba75730db8b29b83d29131aee3334c4622fcd19c1040eb19c75528ee01c8a69a5662a72d
+  resolution: "@aero-ui/tokens@file:../../packages/tokens#../../packages/tokens::hash=03a06c&locator=docs%40workspace%3A."
+  checksum: 10c0/d9ce8aff1cb95bf1f5a7d2ac1a865ffc8f143415c99a6cc2387718d093a0d46692398ebda8958913c1c00cfe96009ef9818d0ffcb99cf3b4144fab92dc56b2b5
   languageName: node
   linkType: hard
 
 "@aero-ui/ui@file:../../packages/ui::locator=docs%40workspace%3A.":
   version: 1.3.0
-  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=0433d4&locator=docs%40workspace%3A."
+  resolution: "@aero-ui/ui@file:../../packages/ui#../../packages/ui::hash=b58d60&locator=docs%40workspace%3A."
   peerDependencies:
     "@aero-ui/tokens": "*"
     react: ^18.2.0
     react-native: ^0.74.5
-  checksum: 10c0/edf0222f15922f5755887cd3c53745ba9aff01b7a8a2ef70c89667cfaa3a6ef7baeb9fbbcb0563fa93a04e9a8c065b2ef0711f824d04834cfa59bac3d833834d
+  checksum: 10c0/a3d1379ddf75936d20771ee13f576667db337e16179c7dccbad2a3a91754b9019bf552fff13488108271694ea82b8a469eb9f4d425f2554e82d765c88d4fc647
   languageName: node
   linkType: hard
 
@@ -6116,13 +6116,13 @@ __metadata:
   linkType: hard
 
 "image-size@npm:^1.0.2":
-  version: 1.1.1
-  resolution: "image-size@npm:1.1.1"
+  version: 1.2.1
+  resolution: "image-size@npm:1.2.1"
   dependencies:
     queue: "npm:6.0.2"
   bin:
     image-size: bin/image-size.js
-  checksum: 10c0/2660470096d12be82195f7e80fe03274689fbd14184afb78eaf66ade7cd06352518325814f88af4bde4b26647889fe49e573129f6e7ba8f5ff5b85cc7f559000
+  checksum: 10c0/f8b3c19d4476513f1d7e55c3e6db80997b315444743e2040d545cbcaee59be03d2eb40c46be949a8372697b7003fdb0c04925d704390a7f606bc8181e25c0ed4
   languageName: node
   linkType: hard
 
