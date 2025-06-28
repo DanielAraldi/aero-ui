@@ -12,7 +12,6 @@ exports[`<Skeleton /> Should take a snapshot of the Skeleton component 1`] = `
   accessible={true}
   aria-disabled={true}
   aria-label="Loading"
-  pointerEvents="none"
   style={
     [
       {
