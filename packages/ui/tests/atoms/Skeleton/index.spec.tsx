@@ -66,4 +66,23 @@ describe('<Skeleton />', () => {
       borderRadius: borderRadius.full,
     });
   });
+
+  it('Should render Skeleton component with custom style', () => {
+    const styleProps: SkeletonProps['style'] = {
+      borderColor: colors.gray[400],
+      borderWidth: 1,
+    };
+    const customProps: SkeletonProps = {
+      ...defaultProps,
+      style: styleProps,
+    };
+
+    render(<Skeleton {...customProps} />);
+
+    const skeleton = screen.getByTestId('skeleton');
+    expect(skeleton).toHaveStyle({
+      ...defaultStyles,
+      ...styleProps,
+    });
+  });
 });
