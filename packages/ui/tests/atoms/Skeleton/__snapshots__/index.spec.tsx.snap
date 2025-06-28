@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Skeleton /> Should take a snapshot of the Skeleton component 1`] = `
+<View
+  accessibilityLabel="Loading"
+  accessibilityRole="none"
+  accessibilityState={
+    {
+      "disabled": true,
+    }
+  }
+  accessible={true}
+  aria-disabled={true}
+  aria-label="Loading"
+  pointerEvents="none"
+  style={
+    [
+      {
+        "opacity": 1,
+      },
+      {
+        "backgroundColor": "#E5E7EB",
+        "borderRadius": 0,
+        "height": "auto",
+        "overflow": "hidden",
+        "width": "auto",
+        "zIndex": 9999,
+      },
+      undefined,
+    ]
+  }
+  testID="skeleton"
+/>
+`;

@@ -124,4 +124,9 @@ describe('<Skeleton />', () => {
     expect(button).toBeOnTheScreen();
     expect(onPressSpy).toHaveBeenCalledTimes(1);
   });
+
+  it('Should take a snapshot of the Skeleton component', () => {
+    const component = render(<Skeleton {...defaultProps} />);
+    expect(component).toMatchSnapshot();
+  });
 });
