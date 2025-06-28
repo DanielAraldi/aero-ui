@@ -33,4 +33,20 @@ describe('<Skeleton />', () => {
     expect(skeleton).toBeOnTheScreen();
     expect(skeleton).toHaveStyle(defaultStyles);
   });
+
+  it('Should render Skeleton component with custom size', () => {
+    const sizeProps: SkeletonProps = {
+      width: 64,
+      height: 64,
+    };
+    const customProps: SkeletonProps = {
+      ...defaultProps,
+      ...sizeProps,
+    };
+
+    render(<Skeleton {...customProps} />);
+
+    const skeleton = screen.getByTestId('skeleton');
+    expect(skeleton).toHaveStyle(sizeProps);
+  });
 });
