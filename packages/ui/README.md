@@ -7,6 +7,7 @@ Fluidity and sophistication Aero UI components.
 - [Installation](#installation-️)
 - [Components](#components-️)
   - [Button](#button-)
+  - [Skeleton](#skeleton-)
   - [Spinner](#spinner-)
   - [Text](#text-)
 - [TypeScript Support](#typescript-support-️)
@@ -68,6 +69,40 @@ export function MyComponent() {
         <Text>Bar</Text>
       </Button>
     </View>
+  );
+}
+```
+
+### Skeleton 🩻
+
+The `Skeleton` component is a parent component that camouflages through the activated property of its children. It adapts to the size of your children. By default it uses the tailwind skeleton animation, changing between gray colors. Below we add some properties for it:
+
+| Property          | Description                                                                               | Default                         | Platform |
+| ----------------- | ----------------------------------------------------------------------------------------- | ------------------------------- | -------- |
+| `width`           | Skeleton's width.                                                                         | `auto`                          | Both     |
+| `height`          | Skeleton's height.                                                                        | `auto`                          | Both     |
+| `round`           | Border radius of the skeleton.                                                            | `none`                          | Both     |
+| `activated`       | Active skeleton shimmer.                                                                  | `true`                          | Both     |
+| `duration`        | Duration of the bezier animation.                                                         | `2000`                          | Both     |
+| `useNativeDriver` | Determines if the skeleton animation to be executed using native thread UI or JavaScript. | `true`                          | Both     |
+| `easing`          | Easing function of the bezier animation.                                                  | `Easing.bezier(0.4, 0, 0.6, 1)` | Both     |
+
+**Note**: All properties of the spinner are **optional**.
+
+```tsx
+import { useState } from 'react';
+import { Skeleton, Button } from '@aero-ui/ui';
+
+// ...
+
+export function MyComponent() {
+  // ...
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  return (
+    <Skeleton activated={isLoading}>
+      <Button>Foo</Button>
+    </Skeleton>
   );
 }
 ```
