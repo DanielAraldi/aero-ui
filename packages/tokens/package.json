@@ -40,8 +40,8 @@
     "tag": "latest"
   },
   "devDependencies": {
-    "tsup": "^8.3.6",
-    "typescript": "^5.3.3"
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
   },
   "packageManager": "yarn@1.22.22"
 }
