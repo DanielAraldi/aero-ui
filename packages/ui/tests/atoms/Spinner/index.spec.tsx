@@ -522,19 +522,23 @@ describe('<Spinner />', () => {
       mockPlatform('android');
 
       render(<Spinner {...defaultProps} />);
-      expect(screen.getByTestId('spinner')).toHaveProp(
-        'color',
-        colors.black[100]
-      );
-      expect(screen.getByTestId('spinner')).toHaveProp('size', spacings[8]);
-      expect(screen.getByTestId('spinner')).toBeOnTheScreen();
+      const component = screen.getByTestId('spinner');
+      expect(component).toHaveProp('color', colors.black[100]);
+      expect(component).toHaveProp('size', spacings[8]);
+      expect(component).toBeOnTheScreen();
     });
 
-    it("Should render Spinner component with accessibility label as 'Loading' text", () => {
+    it('Should render Spinner component with accessible properties', () => {
       mockPlatform('android');
 
       render(<Spinner {...defaultProps} />);
-      expect(screen.getByTestId('spinner')).toHaveAccessibleName('Loading');
+      const component = screen.getByTestId('spinner');
+      expect(component).toHaveProp('accessible', true);
+      expect(component).toHaveProp('accessibilityRole', 'none');
+      expect(component).toHaveProp('accessibilityLabel', 'Loading');
+      expect(component).toHaveProp('accessibilityState', { disabled: true });
+      expect(component).toHaveProp('aria-label', 'Loading');
+      expect(component).toHaveProp('aria-disabled', true);
     });
 
     it('Should render Spinner component with normal size', () => {
