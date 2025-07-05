@@ -77,7 +77,7 @@ export function MyComponent() {
 
 ### Skeleton 🩻
 
-The `Skeleton` component is a parent component that camouflages through the activated property of its children. It adapts to the size of your children. By default it uses the tailwind skeleton animation, changing between gray colors. Below we add some properties for it:
+The `Skeleton` component is a parent component that camouflages through the activated property of its children. It adapts to the size of your children. This component have accessibility attributes configured. By default it uses the [TailwindCSS](https://tailwindcss.com/) skeleton [animation](https://tailwindcss.com/docs/animation#adding-a-pulse-animation), changing between gray colors. Below we add some properties for it:
 
 | Property          | Description                                                                               | Default                         | Platform |
 | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------------- | -------- |
