@@ -43,9 +43,21 @@ describe('<Skeleton />', () => {
 
     expect(skeleton).toBeOnTheScreen();
     expect(skeleton).toHaveStyle(defaultStyles.skeleton);
-
     expect(animation).toBeOnTheScreen();
     expect(animation).toHaveStyle(defaultStyles.animation);
+  });
+
+  it('Should render Skeleton component with accessible properties', () => {
+    render(<Skeleton {...defaultProps} />);
+
+    const skeleton = screen.getByTestId('skeleton');
+
+    expect(skeleton).toHaveProp('accessible', true);
+    expect(skeleton).toHaveProp('accessibilityRole', 'none');
+    expect(skeleton).toHaveProp('accessibilityLabel', 'Loading');
+    expect(skeleton).toHaveProp('accessibilityState', { disabled: true });
+    expect(skeleton).toHaveProp('aria-label', 'Loading');
+    expect(skeleton).toHaveProp('aria-disabled', true);
   });
 
   it('Should render Skeleton component with custom size', () => {
@@ -100,7 +112,7 @@ describe('<Skeleton />', () => {
     });
   });
 
-  it('Should render Skeleton component with pointer event none when activated is true', () => {
+  it('Should render Skeleton component with pointer events none when activated is true', () => {
     animatedSpy('timing');
 
     render(
@@ -109,11 +121,15 @@ describe('<Skeleton />', () => {
       </Skeleton>
     );
 
-    expect(screen.getByTestId('skeleton')).toHaveStyle(defaultStyles.skeleton);
+    const skeleton = screen.getByTestId('skeleton');
+
+    expect(skeleton).toHaveStyle(defaultStyles.skeleton);
+    expect(skeleton).toHaveProp('pointerEvents', 'none');
+    expect(screen.getByTestId('animation')).toHaveProp('pointerEvents', 'none');
     expect(onTap).not.toHaveBeenCalled();
   });
 
-  it('Should render Skeleton component with pointer event enable when activated is false', () => {
+  it('Should render Skeleton component with pointer events enable when activated is false', () => {
     animatedSpy('timing');
 
     render(
@@ -122,14 +138,12 @@ describe('<Skeleton />', () => {
       </Skeleton>
     );
 
-    const skeleton = screen.queryByTestId('skeleton');
-    const animation = screen.queryByTestId('animation');
     const button = screen.getByTestId('button');
 
     fireEvent.press(button);
 
-    expect(skeleton).not.toBeOnTheScreen();
-    expect(animation).not.toBeOnTheScreen();
+    expect(screen.queryByTestId('skeleton')).not.toBeOnTheScreen();
+    expect(screen.queryByTestId('animation')).not.toBeOnTheScreen();
     expect(button).toBeOnTheScreen();
     expect(onTap).toHaveBeenCalledTimes(1);
   });
