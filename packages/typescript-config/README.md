@@ -2,6 +2,8 @@
 
 A sample TypeScript configuration of the Aero UI.
 
+![Version](https://img.shields.io/npm/v/%40aero-ui%2Ftypescript-config?style=flat&color=brightgreen&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40aero-ui%2Ftypescript-config)
+
 ## Summary 📖
 
 - [Installation ☁️](#installation-️)

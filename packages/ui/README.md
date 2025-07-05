@@ -2,6 +2,8 @@
 
 Fluidity and sophistication Aero UI components.
 
+![Version](https://img.shields.io/npm/v/%40aero-ui%2Fui?style=flat&color=brightgreen&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40aero-ui%2Fui)
+
 ## Summary 📖
 
 - [Installation](#installation-️)
