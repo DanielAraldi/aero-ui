@@ -55,6 +55,13 @@ describe('<Text />', () => {
     expect(screen.getByText(words)).toBeOnTheScreen();
   });
 
+  it('Should render Text component with accessible properties', () => {
+    render(<Text />);
+    const component = screen.getByTestId('text');
+    expect(component).toHaveProp('accessible', true);
+    expect(component).toHaveProp('accessibilityRole', 'text');
+  });
+
   it('Should render Text component with xs font configuration for text', () => {
     const { textComponentStub, textStyleStub } = makeSut();
 
