@@ -72,7 +72,7 @@ describe('<Button />', () => {
     it('Should render Button component with accessible state properties as false when disabled', () => {
       animatedSpy('timing');
 
-      render(<Button {...defaultProps} disabled />);
+      render(<Button disabled {...defaultProps} />);
 
       const component = screen.getByTestId('pressable');
 
@@ -82,6 +82,23 @@ describe('<Button />', () => {
         disabled: true,
         selected: false,
         busy: false,
+      });
+    });
+
+    it('Should render Button component with accessible state properties as false when loading', () => {
+      animatedSpy('timing');
+      animatedSpy('loop');
+
+      render(<Button loading {...defaultProps} />);
+
+      const component = screen.getByTestId('pressable');
+
+      expect(component).toHaveProp('accessible', true);
+      expect(component).toHaveProp('accessibilityRole', 'button');
+      expect(component).toHaveProp('accessibilityState', {
+        disabled: true,
+        selected: false,
+        busy: true,
       });
     });
 
