@@ -69,6 +69,22 @@ describe('<Button />', () => {
       });
     });
 
+    it('Should render Button component with accessible state properties as false when disabled', () => {
+      animatedSpy('timing');
+
+      render(<Button {...defaultProps} disabled />);
+
+      const component = screen.getByTestId('pressable');
+
+      expect(component).toHaveProp('accessible', true);
+      expect(component).toHaveProp('accessibilityRole', 'button');
+      expect(component).toHaveProp('accessibilityState', {
+        disabled: true,
+        selected: false,
+        busy: false,
+      });
+    });
+
     it('Should receive children to be shown in Button component as a title', () => {
       const words = mockWords();
 
