@@ -53,14 +53,28 @@ describe('<Button />', () => {
       expect(spinner).toBeNull();
     });
 
+    it('Should render Button component with accessible properties', () => {
+      animatedSpy('timing');
+
+      render(<Button {...defaultProps} />);
+
+      const component = screen.getByTestId('pressable');
+
+      expect(component).toHaveProp('accessible', true);
+      expect(component).toHaveProp('accessibilityRole', 'button');
+      expect(component).toHaveProp('accessibilityState', {
+        disabled: false,
+        selected: false,
+        busy: false,
+      });
+    });
+
     it('Should receive children to be shown in Button component as a title', () => {
       const words = mockWords();
 
       render(<Button {...defaultProps}>{words}</Button>);
 
-      const text = screen.getByTestId('text');
-
-      expect(text).toHaveProp('children', words);
+      expect(screen.getByTestId('text')).toHaveProp('children', words);
     });
 
     it("Should render Button component with primary variant and change your color when it's pressed", () => {
@@ -356,14 +370,10 @@ describe('<Button />', () => {
     it('Should render Button component with hugWidth as true', () => {
       render(<Button hugWidth {...defaultProps} />);
 
-      const wrapper = screen.getByTestId('wrapper');
-      const pressable = screen.getByTestId('pressable');
-
-      expect(wrapper).toHaveStyle({
+      expect(screen.getByTestId('wrapper')).toHaveStyle({
         width: '100%',
       });
-
-      expect(pressable).toHaveStyle({
+      expect(screen.getByTestId('pressable')).toHaveStyle({
         paddingHorizontal: spacings[2],
       });
     });
@@ -371,14 +381,10 @@ describe('<Button />', () => {
     it('Should render Button component with hugWidth as false', () => {
       render(<Button hugWidth={false} {...defaultProps} />);
 
-      const wrapper = screen.getByTestId('wrapper');
-      const pressable = screen.getByTestId('pressable');
-
-      expect(wrapper).toHaveStyle({
+      expect(screen.getByTestId('wrapper')).toHaveStyle({
         width: 'auto',
       });
-
-      expect(pressable).toHaveStyle({
+      expect(screen.getByTestId('pressable')).toHaveStyle({
         paddingHorizontal: spacings[5],
       });
     });
@@ -386,9 +392,7 @@ describe('<Button />', () => {
     it('Should render Button component with border when bordered is true', () => {
       render(<Button bordered {...defaultProps} />);
 
-      const pressable = screen.getByTestId('pressable');
-
-      expect(pressable).toHaveStyle({
+      expect(screen.getByTestId('pressable')).toHaveStyle({
         borderWidth: borderWidths.px,
         borderColor: colors.white[100],
       });
@@ -397,9 +401,7 @@ describe('<Button />', () => {
     it('Should render Button component without border when bordered is false', () => {
       render(<Button bordered={false} {...defaultProps} />);
 
-      const pressable = screen.getByTestId('pressable');
-
-      expect(pressable).toHaveStyle({
+      expect(screen.getByTestId('pressable')).toHaveStyle({
         borderWidth: undefined,
         borderColor: undefined,
       });
@@ -410,9 +412,7 @@ describe('<Button />', () => {
 
       render(<Button onPressIn={onPressIn} {...defaultProps} />);
 
-      const pressable = screen.getByTestId('pressable');
-
-      fireEvent(pressable, 'pressIn');
+      fireEvent(screen.getByTestId('pressable'), 'pressIn');
 
       expect(onPressIn).toHaveBeenCalledTimes(1);
     });
@@ -422,9 +422,7 @@ describe('<Button />', () => {
 
       render(<Button onPressOut={onPressOut} {...defaultProps} />);
 
-      const pressable = screen.getByTestId('pressable');
-
-      fireEvent(pressable, 'pressOut');
+      fireEvent(screen.getByTestId('pressable'), 'pressOut');
 
       expect(onPressOut).toHaveBeenCalledTimes(1);
     });
@@ -432,9 +430,7 @@ describe('<Button />', () => {
     it('Should remain with opacity in 100% when Button component is enabled and not pressed', () => {
       render(<Button {...defaultProps} />);
 
-      const content = screen.getByTestId('content');
-
-      expect(content).toHaveStyle({
+      expect(screen.getByTestId('content')).toHaveStyle({
         opacity: 1,
       });
     });
@@ -465,9 +461,7 @@ describe('<Button />', () => {
     it('Should remain with opacity in 75% when Button component is disabled', () => {
       render(<Button disabled {...defaultProps} />);
 
-      const content = screen.getByTestId('content');
-
-      expect(content).toHaveStyle({
+      expect(screen.getByTestId('content')).toHaveStyle({
         opacity: 0.75,
       });
     });
@@ -481,12 +475,11 @@ describe('<Button />', () => {
         </Button>
       );
 
-      const wrapper = screen.getByTestId('wrapper');
       const customText = screen.getByTestId('custom-text');
 
       expect(customText).toHaveProp('children', words);
       expect(customText).toBeOnTheScreen();
-      expect(wrapper).toBeOnTheScreen();
+      expect(screen.getByTestId('wrapper')).toBeOnTheScreen();
     });
 
     it('Should render Button component with customized Spinner component', () => {
@@ -498,11 +491,8 @@ describe('<Button />', () => {
         </Button>
       );
 
-      const wrapper = screen.getByTestId('wrapper');
-      const customSpinner = screen.getByTestId('custom-spinner');
-
-      expect(customSpinner).toBeOnTheScreen();
-      expect(wrapper).toBeOnTheScreen();
+      expect(screen.getByTestId('custom-spinner')).toBeOnTheScreen();
+      expect(screen.getByTestId('wrapper')).toBeOnTheScreen();
     });
 
     it('Should render Button component with the Text as priority component', () => {
@@ -516,13 +506,9 @@ describe('<Button />', () => {
         </Button>
       );
 
-      const wrapper = screen.getByTestId('wrapper');
-      const customText = screen.getByTestId('custom-text');
-      const customSpinner = screen.queryByTestId('custom-spinner');
-
-      expect(customText).toBeOnTheScreen();
-      expect(customSpinner).not.toBeOnTheScreen();
-      expect(wrapper).toBeOnTheScreen();
+      expect(screen.getByTestId('custom-text')).toBeOnTheScreen();
+      expect(screen.queryByTestId('custom-spinner')).not.toBeOnTheScreen();
+      expect(screen.getByTestId('wrapper')).toBeOnTheScreen();
     });
 
     it('Should render Button component with the Spinner as priority component when loading is true', () => {
@@ -538,13 +524,9 @@ describe('<Button />', () => {
         </Button>
       );
 
-      const wrapper = screen.getByTestId('wrapper');
-      const customText = screen.queryByTestId('custom-text');
-      const customSpinner = screen.getByTestId('custom-spinner');
-
-      expect(customText).not.toBeOnTheScreen();
-      expect(customSpinner).toBeOnTheScreen();
-      expect(wrapper).toBeOnTheScreen();
+      expect(screen.queryByTestId('custom-text')).not.toBeOnTheScreen();
+      expect(screen.getByTestId('custom-spinner')).toBeOnTheScreen();
+      expect(screen.getByTestId('wrapper')).toBeOnTheScreen();
     });
 
     it('Should render Button component with more than one Text component', () => {
@@ -560,13 +542,9 @@ describe('<Button />', () => {
         </Button>
       );
 
-      const wrapper = screen.getByTestId('wrapper');
-      const customTextOne = screen.queryByTestId('custom-text-one');
-      const customTextTwo = screen.getByTestId('custom-text-two');
-
-      expect(customTextOne).toBeOnTheScreen();
-      expect(customTextTwo).toBeOnTheScreen();
-      expect(wrapper).toBeOnTheScreen();
+      expect(screen.getByTestId('custom-text-one')).toBeOnTheScreen();
+      expect(screen.getByTestId('custom-text-two')).toBeOnTheScreen();
+      expect(screen.getByTestId('wrapper')).toBeOnTheScreen();
     });
 
     it('Should render Button component with more than one Spinner component', () => {
@@ -584,13 +562,9 @@ describe('<Button />', () => {
         </Button>
       );
 
-      const wrapper = screen.getByTestId('wrapper');
-      const customSpinnerOne = screen.queryByTestId('custom-spinner-one');
-      const customSpinnerTwo = screen.getByTestId('custom-spinner-two');
-
-      expect(customSpinnerOne).toBeOnTheScreen();
-      expect(customSpinnerTwo).toBeOnTheScreen();
-      expect(wrapper).toBeOnTheScreen();
+      expect(screen.getByTestId('custom-spinner-one')).toBeOnTheScreen();
+      expect(screen.getByTestId('custom-spinner-two')).toBeOnTheScreen();
+      expect(screen.getByTestId('wrapper')).toBeOnTheScreen();
     });
 
     it('Should take a snapshot of the Button component', () => {
@@ -614,11 +588,9 @@ describe('<Button />', () => {
 
       render(<Button loading {...defaultProps} />);
 
-      const pressable = screen.getByTestId('pressable');
       const spinner = screen.getByTestId('spinner');
-      const text = screen.queryByTestId('text');
 
-      expect(pressable).toBeDisabled();
+      expect(screen.getByTestId('pressable')).toBeDisabled();
       expect(spinner).toHaveStyle({
         width: spacings[6],
         height: spacings[6],
@@ -628,7 +600,7 @@ describe('<Button />', () => {
         borderLeftColor: colors.white[100],
       });
       expect(spinner).toBeOnTheScreen();
-      expect(text).not.toBeOnTheScreen();
+      expect(screen.queryByTestId('text')).not.toBeOnTheScreen();
     });
 
     it("Should take a snapshot of the Button component when it's loading", () => {
@@ -654,15 +626,13 @@ describe('<Button />', () => {
 
       render(<Button loading {...defaultProps} />);
 
-      const pressable = screen.getByTestId('pressable');
       const spinner = screen.getByTestId('spinner');
-      const text = screen.queryByTestId('text');
 
-      expect(pressable).toBeDisabled();
+      expect(screen.getByTestId('pressable')).toBeDisabled();
       expect(spinner).toHaveProp('size', spacings[6]);
       expect(spinner).toHaveProp('color', colors.white[100]);
       expect(spinner).toBeOnTheScreen();
-      expect(text).not.toBeOnTheScreen();
+      expect(screen.queryByTestId('text')).not.toBeOnTheScreen();
     });
 
     it("Should take a snapshot of the Button component when it's loading", () => {
