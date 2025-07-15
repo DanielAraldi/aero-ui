@@ -3,7 +3,6 @@
   "version": "1.4.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "private": false,
   "license": "MIT",
   "description": "Your lightness, fluidity, and sophistication Aero UI library.",
   "bugs": {
@@ -36,8 +35,8 @@
     "test:watch": "jest --passWithNoTests --watch"
   },
   "peerDependencies": {
-    "@aero-ui/tokens": "file:../tokens",
-    "react": "^19.0.0",
+    "@aero-ui/tokens": "*",
+    "react": "19.0.0",
     "react-native": "^0.79.2"
   },
   "devDependencies": {
@@ -50,15 +49,15 @@
     "@react-native/typescript-config": "0.79.2",
     "@testing-library/react-native": "^13.2.0",
     "@types/jest": "^29.5.14",
-    "@types/react": "^18.2.79",
+    "@types/react": "^19.1.8",
     "jest": "^29.7.0",
-    "react-test-renderer": "18.2.0",
+    "react-test-renderer": "19.0.0",
     "ts-node": "^10.9.2",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public",

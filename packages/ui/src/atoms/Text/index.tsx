@@ -1,11 +1,11 @@
-import { memo, forwardRef, ForwardedRef } from 'react';
+import { memo } from 'react';
 import { Text as RNText } from 'react-native';
 
 import { TextProps } from '../../@types';
 import { makeStyle } from './styles';
 
-const Text = forwardRef((props: TextProps, ref: ForwardedRef<RNText>) => {
-  const { variant = 'base', style, ...rest } = props;
+function Text(props: TextProps) {
+  const { variant = 'base', style, ref, ...rest } = props;
 
   const { text } = makeStyle(variant);
 
@@ -19,6 +19,6 @@ const Text = forwardRef((props: TextProps, ref: ForwardedRef<RNText>) => {
       {...rest}
     />
   );
-});
+}
 
 export default memo(Text);
