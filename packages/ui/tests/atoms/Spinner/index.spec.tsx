@@ -4,7 +4,6 @@ import { render, screen } from '@testing-library/react-native';
 
 import {
   Spinner,
-  SpinnerProps,
   SpinnerSizeType,
   SpinnerStartByType,
   SpinnerVariantType,
@@ -102,10 +101,6 @@ function makeSut(): SutTypes {
   };
 }
 
-const defaultProps: SpinnerProps = {
-  useNativeDriver: false,
-};
-
 describe('<Spinner />', () => {
   describe('iOS', () => {
     afterEach(() => {
@@ -118,7 +113,7 @@ describe('<Spinner />', () => {
 
       const { spinnerSizeIOSStub, spinnerStartByStylesStub } = makeSut();
 
-      render(<Spinner {...defaultProps} />);
+      render(<Spinner />);
 
       const component = screen.getByTestId('spinner');
       const startByStyles = spinnerStartByStylesStub({
@@ -136,7 +131,7 @@ describe('<Spinner />', () => {
     it("Should render Spinner component with accessibility label as 'Loading' text", () => {
       mockPlatform('ios');
 
-      render(<Spinner {...defaultProps} />);
+      render(<Spinner />);
       expect(screen.getByTestId('spinner')).toHaveAccessibleName('Loading');
     });
 
@@ -145,7 +140,7 @@ describe('<Spinner />', () => {
 
       const { spinnerSizeIOSStub } = makeSut();
 
-      render(<Spinner size='normal' {...defaultProps} />);
+      render(<Spinner size='normal' />);
       expect(screen.getByTestId('spinner')).toHaveStyle(
         spinnerSizeIOSStub('normal')
       );
@@ -156,7 +151,7 @@ describe('<Spinner />', () => {
 
       const { spinnerSizeIOSStub } = makeSut();
 
-      render(<Spinner size='small' {...defaultProps} />);
+      render(<Spinner size='small' />);
       expect(screen.getByTestId('spinner')).toHaveStyle(
         spinnerSizeIOSStub('small')
       );
@@ -167,7 +162,7 @@ describe('<Spinner />', () => {
 
       const { spinnerSizeIOSStub } = makeSut();
 
-      render(<Spinner size='large' {...defaultProps} />);
+      render(<Spinner size='large' />);
       expect(screen.getByTestId('spinner')).toHaveStyle(
         spinnerSizeIOSStub('large')
       );
@@ -187,7 +182,6 @@ describe('<Spinner />', () => {
           startBy='left'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -215,7 +209,6 @@ describe('<Spinner />', () => {
           startBy='right'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -243,7 +236,6 @@ describe('<Spinner />', () => {
           startBy='top'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -271,7 +263,6 @@ describe('<Spinner />', () => {
           startBy='bottom'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -299,7 +290,6 @@ describe('<Spinner />', () => {
           startBy='left'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -327,7 +317,6 @@ describe('<Spinner />', () => {
           startBy='right'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -355,7 +344,6 @@ describe('<Spinner />', () => {
           startBy='top'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -383,7 +371,6 @@ describe('<Spinner />', () => {
           startBy='bottom'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -411,7 +398,6 @@ describe('<Spinner />', () => {
           startBy='left'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -439,7 +425,6 @@ describe('<Spinner />', () => {
           startBy='right'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -467,7 +452,6 @@ describe('<Spinner />', () => {
           startBy='top'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -495,7 +479,6 @@ describe('<Spinner />', () => {
           startBy='bottom'
           color={color}
           overlayColor={overlayColor}
-          {...defaultProps}
         />
       );
 
@@ -512,7 +495,7 @@ describe('<Spinner />', () => {
     it('Should take a snapshot of the Spinner component', () => {
       mockPlatform('ios');
 
-      const component = render(<Spinner {...defaultProps} />);
+      const component = render(<Spinner />);
       expect(component).toMatchSnapshot();
     });
   });
@@ -521,7 +504,7 @@ describe('<Spinner />', () => {
     it('Should render Spinner component with default properties', () => {
       mockPlatform('android');
 
-      render(<Spinner {...defaultProps} />);
+      render(<Spinner />);
       const component = screen.getByTestId('spinner');
       expect(component).toHaveProp('color', colors.black[100]);
       expect(component).toHaveProp('size', spacings[8]);
@@ -531,7 +514,7 @@ describe('<Spinner />', () => {
     it('Should render Spinner component with accessible properties', () => {
       mockPlatform('android');
 
-      render(<Spinner {...defaultProps} />);
+      render(<Spinner />);
       const component = screen.getByTestId('spinner');
       expect(component).toHaveProp('accessible', true);
       expect(component).toHaveProp('accessibilityRole', 'none');
@@ -544,28 +527,28 @@ describe('<Spinner />', () => {
     it('Should render Spinner component with normal size', () => {
       mockPlatform('android');
 
-      render(<Spinner size='normal' {...defaultProps} />);
+      render(<Spinner size='normal' />);
       expect(screen.getByTestId('spinner')).toHaveProp('size', spacings[8]);
     });
 
     it('Should render Spinner component with small size', () => {
       mockPlatform('android');
 
-      render(<Spinner size='small' {...defaultProps} />);
+      render(<Spinner size='small' />);
       expect(screen.getByTestId('spinner')).toHaveProp('size', spacings[6]);
     });
 
     it('Should render Spinner component with large size', () => {
       mockPlatform('android');
 
-      render(<Spinner size='large' {...defaultProps} />);
+      render(<Spinner size='large' />);
       expect(screen.getByTestId('spinner')).toHaveProp('size', spacings[10]);
     });
 
     it('Should render Spinner component with color provided', () => {
       mockPlatform('android');
 
-      render(<Spinner color={colors.blue[400]} {...defaultProps} />);
+      render(<Spinner color={colors.blue[400]} />);
       expect(screen.getByTestId('spinner')).toHaveProp(
         'color',
         colors.blue[400]
@@ -575,7 +558,7 @@ describe('<Spinner />', () => {
     it('Should take a snapshot of the Spinner component', () => {
       mockPlatform('android');
 
-      const component = render(<Spinner {...defaultProps} />);
+      const component = render(<Spinner />);
       expect(component).toMatchSnapshot();
     });
   });

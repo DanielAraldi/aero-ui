@@ -12,10 +12,6 @@ jest.mock('react-native', () => {
   return RN;
 });
 
-const defaultProps: SkeletonProps = {
-  useNativeDriver: false,
-};
-
 const defaultStyles: Record<string, ViewStyle> = {
   skeleton: {
     width: 'auto',
@@ -36,7 +32,7 @@ const onTap = jest.fn();
 
 describe('<Skeleton />', () => {
   it('Should render Skeleton component with default properties', () => {
-    render(<Skeleton {...defaultProps} />);
+    render(<Skeleton />);
 
     const skeleton = screen.getByTestId('skeleton');
     const animation = screen.getByTestId('animation');
@@ -48,7 +44,7 @@ describe('<Skeleton />', () => {
   });
 
   it('Should render Skeleton component with accessible properties', () => {
-    render(<Skeleton {...defaultProps} />);
+    render(<Skeleton />);
 
     const skeleton = screen.getByTestId('skeleton');
 
@@ -65,26 +61,14 @@ describe('<Skeleton />', () => {
       width: 64,
       height: 64,
     };
-    const customProps: SkeletonProps = {
-      ...defaultProps,
-      ...sizeProps,
-    };
 
-    render(<Skeleton {...customProps} />);
+    render(<Skeleton {...sizeProps} />);
 
     expect(screen.getByTestId('skeleton')).toHaveStyle(sizeProps);
   });
 
   it('Should render Skeleton component with custom round', () => {
-    const roundProps: SkeletonProps = {
-      round: 'full',
-    };
-    const customProps: SkeletonProps = {
-      ...defaultProps,
-      ...roundProps,
-    };
-
-    render(<Skeleton {...customProps} />);
+    render(<Skeleton round='full' />);
 
     expect(screen.getByTestId('skeleton')).toHaveStyle({
       borderRadius: borderRadius.full,
@@ -99,12 +83,8 @@ describe('<Skeleton />', () => {
       borderColor: colors.gray[400],
       borderWidth: 1,
     };
-    const customProps: SkeletonProps = {
-      ...defaultProps,
-      style: styleProps,
-    };
 
-    render(<Skeleton {...customProps} />);
+    render(<Skeleton style={styleProps} />);
 
     expect(screen.getByTestId('skeleton')).toHaveStyle({
       ...defaultStyles.skeleton,
@@ -116,7 +96,7 @@ describe('<Skeleton />', () => {
     animatedSpy('timing');
 
     render(
-      <Skeleton {...defaultProps} onMagicTap={onTap}>
+      <Skeleton onMagicTap={onTap}>
         <Button />
       </Skeleton>
     );
@@ -133,7 +113,7 @@ describe('<Skeleton />', () => {
     animatedSpy('timing');
 
     render(
-      <Skeleton {...defaultProps} activated={false}>
+      <Skeleton activated={false}>
         <Button testID='button' onPress={onTap} />
       </Skeleton>
     );
@@ -149,7 +129,7 @@ describe('<Skeleton />', () => {
   });
 
   it('Should take a snapshot of the Skeleton component', () => {
-    const component = render(<Skeleton {...defaultProps} />);
+    const component = render(<Skeleton />);
     expect(component).toMatchSnapshot();
   });
 });

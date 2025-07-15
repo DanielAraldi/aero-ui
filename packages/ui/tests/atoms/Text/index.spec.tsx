@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { JSX } from 'react';
 import { StyleProp, TextStyle } from 'react-native';
 import { render, screen } from '@testing-library/react-native';
 import {
@@ -12,13 +12,11 @@ import { Text, TextProps, TextVariantType } from '../../../';
 import { mockWords } from '../../mocks';
 
 type SutTypes = {
-  textComponentStub(variant: TextVariantType): ReactElement<TextProps>;
+  textComponentStub(variant: TextVariantType): JSX.Element;
   textStyleStub(variant: TextVariantType): StyleProp<TextStyle>;
 };
 
-function getTextComponentStub(
-  variant: TextVariantType
-): ReactElement<TextProps> {
+function getTextComponentStub(variant: TextVariantType): JSX.Element {
   return <Text variant={variant}>{variant}</Text>;
 }
 
