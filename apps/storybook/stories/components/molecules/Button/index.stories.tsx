@@ -1,23 +1,21 @@
 import { View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
-import { Button, ButtonProps, Spinner, Text } from '@aero-ui/ui';
-import { colors } from '@aero-ui/tokens';
+import { Button, ButtonProps } from '@aero-ui/ui';
 
 import { buttonVariants } from '../../../constants';
 import { styles } from './styles';
 
-const meta: Meta<ButtonProps> = {
+const meta = {
   title: 'Components/Molecules/Button',
   args: {
     variant: 'primary',
-    children: 'Aero UI',
-    toScale: 0.99,
-    duration: 150,
+    title: 'Aero UI',
+    toScale: 0.94,
     loading: false,
     bordered: false,
     disabled: false,
     hugWidth: true,
-    useNativeDriver: true,
+    useNativeDriver: false,
   },
   argTypes: {
     variant: {
@@ -26,18 +24,16 @@ const meta: Meta<ButtonProps> = {
       },
       options: buttonVariants,
     },
+    title: {
+      control: {
+        type: 'text',
+      },
+    },
     toScale: {
       control: {
         type: 'number',
         min: 0,
         max: 1,
-      },
-    },
-    duration: {
-      control: {
-        type: 'number',
-        min: 0,
-        max: 10_000,
       },
     },
     loading: {
@@ -65,6 +61,16 @@ const meta: Meta<ButtonProps> = {
         type: 'boolean',
       },
     },
+    pressInAnimateProps: {
+      control: {
+        type: 'object',
+      },
+    },
+    pressOutAnimateProps: {
+      control: {
+        type: 'object',
+      },
+    },
   },
   component: props => <Button {...props} />,
   decorators: Component => (
@@ -72,7 +78,7 @@ const meta: Meta<ButtonProps> = {
       <Component />
     </View>
   ),
-};
+} satisfies Meta<ButtonProps>;
 
 export default meta;
 
@@ -118,24 +124,4 @@ export const Warning: StoryObj<ButtonProps> = {
   args: {
     variant: 'warning',
   },
-};
-
-export const CustomText: StoryObj<ButtonProps> = {
-  render: props => (
-    <Button {...props}>
-      <Text style={{ color: colors.blue[100] }}>Custom Aero UI</Text>
-    </Button>
-  ),
-};
-
-export const CustomSpinner: StoryObj<ButtonProps> = {
-  render: props => (
-    <Button {...props} loading>
-      <Spinner
-        variant='unique'
-        color={colors.blue[100]}
-        overlayColor={colors.white[25]}
-      />
-    </Button>
-  ),
 };

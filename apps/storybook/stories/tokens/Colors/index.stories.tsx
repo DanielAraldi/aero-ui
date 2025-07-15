@@ -8,7 +8,7 @@ import { globalStyles } from '../../styles';
 
 function getTextColor(key: ColorsKeysType, keyColor: string): string {
   if (key === 'black') return colors.white[100];
-  else if (Number(keyColor) <= 400) colors.black[100];
+  else if (Number(keyColor) <= 400) return colors.black[100];
   else return colors.white[100];
 }
 
@@ -19,27 +19,25 @@ const meta: Meta = {
       style={globalStyles.container}
       showsVerticalScrollIndicator={false}
     >
-      {Object.keys(colors).map((key: ColorsKeysType) => (
+      {Object.keys(colors).map(key => (
         <View key={key} style={styles.content}>
-          {Object.entries(colors[key]).map(
-            ([keyColor, color]: [string, string]) => (
-              <View
-                key={color}
-                style={[styles.ghostContent, { backgroundColor: color }]}
+          {Object.entries<string>(colors[key]).map(([keyColor, color]) => (
+            <View
+              key={color}
+              style={[styles.ghostContent, { backgroundColor: color }]}
+            >
+              <Text
+                style={[
+                  styles.text,
+                  {
+                    color: getTextColor(key as ColorsKeysType, keyColor),
+                  },
+                ]}
               >
-                <Text
-                  style={[
-                    styles.text,
-                    {
-                      color: getTextColor(key, keyColor),
-                    },
-                  ]}
-                >
-                  {key}/{keyColor} - {color}
-                </Text>
-              </View>
-            )
-          )}
+                {key}/{keyColor} - {color}
+              </Text>
+            </View>
+          ))}
         </View>
       ))}
     </ScrollView>
