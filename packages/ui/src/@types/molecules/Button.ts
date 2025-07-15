@@ -18,8 +18,6 @@ export type ButtonVariantType =
   | 'warning'
   | 'neutral';
 
-export type ButtonPressType = 'in' | 'out' | 'none';
-
 export interface ButtonProps extends Omit<PressableProps, 'children'> {
   /**
    * @description This property is used to determine the button theme.
