@@ -1,5 +1,11 @@
 # @aero-ui/tokens
 
+## 1.4.0
+
+### Minor Changes
+
+- - Upgrade the libraries and `node` version to 22.x of the `tokens` library.
+
 ## 1.3.0
 
 ### Minor Changes
