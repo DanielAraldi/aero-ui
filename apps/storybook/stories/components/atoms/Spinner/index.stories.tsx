@@ -10,7 +10,7 @@ import {
 } from '../../../constants';
 import { globalStyles } from '../../../styles';
 
-const meta: Meta<SpinnerProps> = {
+const meta = {
   title: 'Components/Atoms/Spinner',
   args: {
     variant: 'unique',
@@ -75,10 +75,6 @@ const meta: Meta<SpinnerProps> = {
         type: 'boolean',
       },
     },
-    easing: {
-      type: 'function',
-      control: null,
-    },
   },
   component: props => <Spinner {...props} />,
   decorators: Component => (
@@ -86,7 +82,7 @@ const meta: Meta<SpinnerProps> = {
       <Component />
     </View>
   ),
-};
+} satisfies Meta<SpinnerProps>;
 
 export default meta;
 

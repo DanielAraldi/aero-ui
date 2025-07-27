@@ -5,7 +5,7 @@ import { Text, TextProps } from '@aero-ui/ui';
 import { textVariants } from '../../../constants';
 import { globalStyles } from '../../../styles';
 
-const meta: Meta<TextProps> = {
+const meta = {
   title: 'Components/Atoms/Text',
   args: {
     variant: 'base',
@@ -24,7 +24,7 @@ const meta: Meta<TextProps> = {
       <Component />
     </View>
   ),
-};
+} satisfies Meta<TextProps>;
 
 export default meta;
 

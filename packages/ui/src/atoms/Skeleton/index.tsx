@@ -1,21 +1,22 @@
-import { forwardRef, memo, useEffect, ForwardedRef, useMemo } from 'react';
+import { memo, useEffect, useMemo } from 'react';
 import { Animated, Easing, View, StyleSheet } from 'react-native';
 
 import { SkeletonProps } from '../../@types';
 import { makeStyles } from './styles';
 import { borderWidths, colors } from '@aero-ui/tokens';
 
-const Skeleton = forwardRef((props: SkeletonProps, ref: ForwardedRef<View>) => {
+function Skeleton(props: SkeletonProps) {
   const {
     width = 'auto',
     height = 'auto',
     round = 'none',
     duration = 2000,
     activated = true,
-    useNativeDriver = true,
+    useNativeDriver = false,
     easing = Easing.bezier(0.4, 0, 0.6, 1),
     style,
     children,
+    ref,
     ...rest
   } = props;
 
@@ -107,6 +108,6 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: ForwardedRef<View>) => {
   ) : (
     children
   );
-});
+}
 
 export default memo(Skeleton);
