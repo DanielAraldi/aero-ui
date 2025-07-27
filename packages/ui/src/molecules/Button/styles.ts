@@ -1,5 +1,11 @@
 import { ColorValue, StyleSheet } from 'react-native';
-import { borderRadius, borderWidths, colors, spacings } from '@aero-ui/tokens';
+import {
+  borderRadius,
+  borderWidths,
+  colors,
+  opacities,
+  spacings,
+} from '@aero-ui/tokens';
 
 import { ButtonVariantType } from '../../@types';
 
@@ -95,9 +101,9 @@ function getBorderColor(props: MakeColorProps): ColorValue {
 function getWrapperOpacity(props: MakeOpacityProps): number {
   const { disabled, pressed } = props;
 
-  if (disabled) return 0.75;
-  else if (pressed) return 0.85;
-  else return 1;
+  if (disabled) return opacities[90];
+  else if (pressed) return opacities[95];
+  else return opacities[100];
 }
 
 export const makeStyles = (props: MakeStyleProps) => {
