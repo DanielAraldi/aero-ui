@@ -1,5 +1,5 @@
 import { Platform, StyleProp, ViewStyle } from 'react-native';
-import { borderWidths, colors, spacings } from '@aero-ui/tokens';
+import { borderWidths, colors, opacities, spacings } from '@aero-ui/tokens';
 import { render, screen, fireEvent } from '@testing-library/react-native';
 
 import { Button } from '../../../';
@@ -458,18 +458,18 @@ describe('<Button />', () => {
       render(<Button />);
 
       expect(screen.getByTestId('content')).toHaveStyle({
-        opacity: 1,
+        opacity: opacities[100],
       });
     });
 
-    it('Should remain with opacity in 85% when Button component is pressed', () => {
+    it('Should remain with opacity in 95% when Button component is pressed', () => {
       render(<Button />);
 
       const pressable = screen.getByTestId('pressable');
       const content = screen.getByTestId('content');
 
       const defaultContentStyle: StyleProp<ViewStyle> = {
-        opacity: 1,
+        opacity: opacities[100],
       };
 
       expect(content).toHaveStyle(defaultContentStyle);
@@ -477,7 +477,7 @@ describe('<Button />', () => {
       fireEvent(pressable, 'pressIn');
 
       expect(content).toHaveStyle({
-        opacity: 0.85,
+        opacity: opacities[95],
       });
 
       fireEvent(pressable, 'pressOut');
@@ -485,11 +485,11 @@ describe('<Button />', () => {
       expect(content).toHaveStyle(defaultContentStyle);
     });
 
-    it('Should remain with opacity in 75% when Button component is disabled', () => {
+    it('Should remain with opacity in 90% when Button component is disabled', () => {
       render(<Button disabled />);
 
       expect(screen.getByTestId('content')).toHaveStyle({
-        opacity: 0.75,
+        opacity: opacities[90],
       });
     });
 
