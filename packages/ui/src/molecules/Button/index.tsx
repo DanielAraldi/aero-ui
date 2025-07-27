@@ -1,41 +1,27 @@
-import {
-  Children,
-  ForwardedRef,
-  forwardRef,
-  isValidElement,
-  memo,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
-import {
-  Text as RNText,
-  ActivityIndicator,
-  Animated,
-  GestureResponderEvent,
-  View,
-  Pressable,
-} from 'react-native';
+import { memo, useCallback, useMemo, useRef, useState } from 'react';
+import { Animated, GestureResponderEvent, View, Pressable } from 'react-native';
 import { colors } from '@aero-ui/tokens';
 
 import { Spinner, Text } from '../../atoms';
 import { ButtonProps } from '../../@types';
 import { makeStyles } from './styles';
 
-const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<View>) => {
+function Button(props: ButtonProps) {
   const {
     variant = 'primary',
-    toScale = 0.99,
-    duration = 150,
+    title = 'Title',
+    toScale = 0.94,
     hugWidth = true,
-    useNativeDriver = true,
+    useNativeDriver = false,
     loading = false,
     bordered = false,
     disabled = false,
-    children,
     style,
+    ref,
+    spinnerProps,
+    textProps,
+    pressInAnimateProps,
+    pressOutAnimateProps,
     onPressIn,
     onPressOut,
     ...rest
@@ -43,39 +29,10 @@ const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<View>) => {
 
   const [isPressed, setIsPressed] = useState<boolean>(false);
 
-  const measurement = new Animated.Value(0, { useNativeDriver });
+  const scale = useRef(new Animated.Value(1, { useNativeDriver })).current;
   const spinnerColorKey =
     variant === 'ghost' || variant === 'secondary' ? 'black' : 'white';
   const shouldDisableActions = disabled || loading;
-  const customSpinner: ReactNode[] = [];
-  const customText: ReactNode[] = [];
-
-  Children.toArray(children).forEach(child => {
-    if (isValidElement(child)) {
-      switch (child.type) {
-        case ActivityIndicator:
-        case Spinner: {
-          customSpinner.push(child);
-          break;
-        }
-        case RNText:
-        case Text: {
-          customText.push(child);
-          break;
-        }
-        default:
-          break;
-      }
-    }
-  });
-
-  function handleScaleAnimation(): Animated.CompositeAnimation {
-    return Animated.timing(measurement, {
-      toValue: isPressed ? 1 : 0,
-      duration,
-      useNativeDriver,
-    });
-  }
 
   const handlePressIn = useCallback(
     (event: GestureResponderEvent) => {
@@ -83,8 +40,18 @@ const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<View>) => {
 
       setIsPressed(true);
       onPressIn?.(event);
+
+      const animation = Animated.spring(scale, {
+        useNativeDriver,
+        toValue: toScale,
+        ...pressInAnimateProps,
+      });
+
+      animation.start(isFinished => {
+        if (isFinished) animation.stop();
+      });
     },
-    [shouldDisableActions]
+    [toScale, pressInAnimateProps, useNativeDriver, shouldDisableActions, scale]
   );
 
   const handlePressOut = useCallback(
@@ -93,8 +60,24 @@ const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<View>) => {
 
       setIsPressed(false);
       onPressOut?.(event);
+
+      const animation = Animated.spring(scale, {
+        useNativeDriver,
+        toValue: 1,
+        ...pressOutAnimateProps,
+      });
+
+      animation.start(isFinished => {
+        if (isFinished) animation.stop();
+      });
     },
-    [shouldDisableActions]
+    [
+      toScale,
+      pressOutAnimateProps,
+      useNativeDriver,
+      shouldDisableActions,
+      scale,
+    ]
   );
 
   const styles = useMemo(
@@ -110,45 +93,10 @@ const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<View>) => {
     [variant, disabled, loading, hugWidth, isPressed, bordered]
   );
 
-  const renderSpinner = customSpinner.length ? (
-    <>{customSpinner.map(spinner => spinner)}</>
-  ) : (
-    <Spinner
-      testID='spinner'
-      variant='half'
-      size='small'
-      startBy='bottom'
-      color={colors[spinnerColorKey][100]}
-      overlayColor={colors[spinnerColorKey][25]}
-      useNativeDriver={useNativeDriver}
-    />
-  );
-
-  const renderText = customText.length ? (
-    <>{customText.map(text => text)}</>
-  ) : (
-    <Text testID='text' style={styles.text}>
-      {children}
-    </Text>
-  );
-
-  const size = measurement.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, toScale],
-  });
-
-  useEffect(() => {
-    const scaleAnimation = handleScaleAnimation();
-
-    if (!shouldDisableActions) scaleAnimation.start();
-
-    return () => scaleAnimation.stop();
-  }, [shouldDisableActions, isPressed]);
-
   return (
     <Animated.View
       testID='wrapper'
-      style={[styles.container, { transform: [{ scale: size }] }]}
+      style={[styles.container, { transform: [{ scale }] }]}
     >
       <Pressable
         ref={ref}
@@ -169,11 +117,26 @@ const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<View>) => {
         {...rest}
       >
         <View testID='content' style={styles.wrapper}>
-          {loading ? renderSpinner : renderText}
+          {loading ? (
+            <Spinner
+              testID='spinner'
+              variant='half'
+              size='small'
+              startBy='bottom'
+              color={colors[spinnerColorKey][100]}
+              overlayColor={colors[spinnerColorKey][25]}
+              useNativeDriver={useNativeDriver}
+              {...spinnerProps}
+            />
+          ) : (
+            <Text testID='text' style={styles.text} {...textProps}>
+              {title}
+            </Text>
+          )}
         </View>
       </Pressable>
     </Animated.View>
   );
-});
+}
 
 export default memo(Button);

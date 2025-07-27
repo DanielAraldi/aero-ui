@@ -1,0 +1,74 @@
+{
+  "version": "0.1.0",
+  "private": true,
+  "name": "storybook",
+  "main": "index.js",
+  "license": "MIT",
+  "description": "Aero UI documentation.",
+  "bugs": {
+    "email": "danielsaraldi@gmail.com",
+    "url": "https://github.com/DanielAraldi/aero-ui/issues"
+  },
+  "author": {
+    "email": "danielsaraldi@gmail.com",
+    "name": "Daniel Sansão Araldi",
+    "url": "https://github.com/DanielAraldi"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-class-static-block": "^7.27.1",
+    "@expo/metro-runtime": "~5.0.4",
+    "@gorhom/bottom-sheet": "^5.0.6",
+    "@react-native-async-storage/async-storage": "2.1.2",
+    "@react-native-community/datetimepicker": "8.3.0",
+    "@react-native-community/slider": "4.5.6",
+    "@storybook/addon-ondevice-actions": "^9.0.14",
+    "@storybook/addon-ondevice-backgrounds": "^9.0.14",
+    "@storybook/addon-ondevice-controls": "^9.0.14",
+    "@storybook/addon-ondevice-notes": "^9.0.14",
+    "@storybook/addon-react-native-server": "^1.0.0",
+    "@storybook/global": "^5.0.0",
+    "@storybook/react": "9.0.14",
+    "@storybook/react-native": "^9.0.14",
+    "@storybook/react-native-theming": "^9.0.14",
+    "@storybook/react-native-ui-lite": "^9.0.14",
+    "@storybook/react-native-web-vite": "9.0.14",
+    "babel-plugin-react-compiler": "^19.1.0-rc.2",
+    "expo": "~53.0.9",
+    "react": "19.0.0",
+    "react-compiler-runtime": "^19.1.0-rc.2",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.2",
+    "react-native-gesture-handler": "~2.24.0",
+    "react-native-reanimated": "~3.17.4",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-svg": "15.11.2",
+    "react-native-web": "^0.20.0",
+    "storybook": "9.0.14",
+    "storybook-addon-deep-controls": "^0.9.3",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@types/looks-same": "^4.1.0",
+    "@types/react": "^19.1.8",
+    "@types/ws": "^8.5.10",
+    "babel-plugin-react-docgen-typescript": "^1.5.1",
+    "looks-same": "^9.0.1",
+    "typescript": "~5.8.3",
+    "vite": "^6.1.1"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "check": "tsc --noEmit",
+    "storybook": "sb-rn-get-stories",
+    "storybook:web": "storybook dev -p 6006",
+    "build:web:storybook": "storybook build"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "yarn@4.5.0"
+}

@@ -1,7 +1,6 @@
 {
   "name": "@aero-ui/typescript-config",
   "version": "1.1.1",
-  "private": false,
   "license": "MIT",
   "description": "The Aero UI TypeScript configuration.",
   "bugs": {
@@ -32,7 +31,7 @@
     "tag": "latest"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "packageManager": "yarn@1.22.22"
 }

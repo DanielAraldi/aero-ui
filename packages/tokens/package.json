@@ -3,7 +3,6 @@
   "version": "1.3.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "private": false,
   "license": "MIT",
   "description": "The Aero UI tokens.",
   "bugs": {
@@ -32,7 +31,7 @@
     "clean": "rm -rf dist"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public",
@@ -40,8 +39,8 @@
     "tag": "latest"
   },
   "devDependencies": {
-    "tsup": "^8.3.6",
-    "typescript": "^5.3.3"
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
   },
   "packageManager": "yarn@1.22.22"
 }
