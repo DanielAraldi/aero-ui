@@ -1,6 +1,6 @@
 {
   "name": "@aero-ui/typescript-config",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "license": "MIT",
   "description": "The Aero UI TypeScript configuration.",
   "bugs": {

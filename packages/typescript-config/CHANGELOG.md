@@ -1,5 +1,11 @@
 # @aero-ui/typescript-config
 
+## 1.2.0
+
+### Minor Changes
+
+- - Upgrade the `node` version to 22.x of the `typescript-config` library.
+
 ## 1.1.1
 
 ### Patch Changes
