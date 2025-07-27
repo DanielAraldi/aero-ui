@@ -1,5 +1,24 @@
 # @aero-ui/ui
 
+## 1.5.0
+
+### Minor Changes
+
+- - Upgrade `react` (19.0.0), `react-native` (0.79.2) and `node` (22.x) version in the `ui` library.
+    - All `useNativeDriver` properties are `false` by default.
+    - All components receive `ref` via props; we removed `forwardRef` from them.
+    - The `Button` component doesn't receive `children` now. Swap it for the `title` property.
+    - To customize the `title` property and `spinner`, use `textProps` and `spinnerProps`.
+    - Add two new properties to handle animation in `pressIn` and `pressOut` of the `Button` component. Now, you can use `pressInAnimateProps` and `pressOutAnimateProps` to customize the spring animation.
+    - Change opacity on press action `Button` component of 85% to 95%.
+    - Change opacity when `Button` component is disabled of 75% to 90%.
+    - Removed the `duration` property of the animation on the `Button` component.
+    - Update UI documentation to support new properties and add more details.
+  - Bump form-data from 3.0.2 to 3.0.4 via dependabot.
+  - Bump @babel/helpers from 7.26.0 to 7.28.2 in the npm_and_yarn group across 1 directories via dependabot.
+  - Bump brace-expansion from 1.1.11 to 1.1.12 in the npm_and_yarn group across 1 directory via dependabot.
+  - Bump the npm_and_yarn group across 2 directories with 3 updates via dependabot.
+
 ## 1.4.0
 
 ### Minor Changes
