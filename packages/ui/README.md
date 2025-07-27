@@ -53,8 +53,8 @@ The `Button` component is a `Pressable` component, but it also includes scale an
 | `style`                | Either view styles.                                                                     | `undefined` | Both     |
 | `spinnerProps`         | This property is used to customize the spinner.                                         | `undefined` | Both     |
 | `textProps`            | This property is used to customize the text.                                            | `undefined` | Both     |
-| `pressInAnimateProps`  | This property is used to customize the spring animation in pressIn event.               | `undefined` | Both     |
-| `pressOutAnimateProps` | This property is used to customize the spring animation in pressOut event.              | `undefined` | Both     |
+| `pressInAnimateProps`  | This property is used to customize the spring animation on `onPressIn` event.           | `undefined` | Both     |
+| `pressOutAnimateProps` | This property is used to customize the spring animation on `onPressOut` event.          | `undefined` | Both     |
 
 **Note**: All properties of the button are **optional**.
 
