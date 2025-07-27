@@ -2,7 +2,7 @@ import { Platform, StyleProp, ViewStyle } from 'react-native';
 import { borderWidths, colors, spacings } from '@aero-ui/tokens';
 import { render, screen, fireEvent } from '@testing-library/react-native';
 
-import { Button, Spinner, Text } from '../../../';
+import { Button } from '../../../';
 import { mockPlatform, mockWords } from '../../mocks';
 import { animatedSpy } from '../../spies';
 
