@@ -1,13 +1,13 @@
+import { useCallback, useState } from 'react';
 import { Easing, Image, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
 import { Skeleton, SkeletonProps, Button, Text } from '@aero-ui/ui';
 
 import { borderRadius, dimensions } from '../../../constants';
-import { styles } from './styles';
 import { globalStyles } from '../../../styles';
-import { useCallback, useState } from 'react';
+import { styles } from './styles';
 
-const meta: Meta<SkeletonProps> = {
+const meta = {
   title: 'Components/Atoms/Skeleton',
   args: {
     width: 'auto',
@@ -15,7 +15,7 @@ const meta: Meta<SkeletonProps> = {
     round: 'none',
     activated: true,
     duration: 2000,
-    useNativeDriver: true,
+    useNativeDriver: false,
     easing: Easing.bezier(0.4, 0, 0.6, 1),
   },
   argTypes: {
@@ -48,10 +48,6 @@ const meta: Meta<SkeletonProps> = {
         type: 'boolean',
       },
     },
-    easing: {
-      type: 'function',
-      control: null,
-    },
   },
   component: props => <Skeleton {...props} />,
   decorators: Component => (
@@ -59,7 +55,7 @@ const meta: Meta<SkeletonProps> = {
       <Component />
     </View>
   ),
-};
+} satisfies Meta<SkeletonProps>;
 
 export default meta;
 
@@ -70,7 +66,7 @@ export const Default: StoryObj<SkeletonProps> = {
 export const WithButton: StoryObj<SkeletonProps> = {
   render: props => (
     <Skeleton {...props} width='100%' round='full'>
-      <Button>Aero UI</Button>
+      <Button title='Aero UI' />
     </Skeleton>
   ),
 };

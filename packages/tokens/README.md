@@ -2,6 +2,8 @@
 
 Sample, elegant and beautiful UI tokens of the Aero UI library based in the [TailwindCSS](https://tailwindcss.com/).
 
+![Version](https://img.shields.io/npm/v/%40aero-ui%2Ftokens?style=flat&color=brightgreen&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40aero-ui%2Ftokens)
+
 ## Summary 📖
 
 - [Installation ☁️](#installation-️)
