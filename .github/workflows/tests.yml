@@ -17,10 +17,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 20.x
+      - name: Setup Node.js 22.x
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install Dependencies
@@ -32,7 +32,7 @@ jobs:
       - name: Install React and React Native Dependencies as devDependencies
         run: |
           cd ./packages/ui
-          yarn add react@18.2.0 react-native@0.74.5 -D
+          yarn add react@19.0.0 react-native@0.79.2 -D
           cd ../..
 
       - name: Test Packages

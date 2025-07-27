@@ -12,10 +12,6 @@ jest.mock('react-native', () => {
   return RN;
 });
 
-const defaultProps: SkeletonProps = {
-  useNativeDriver: false,
-};
-
 const defaultStyles: Record<string, ViewStyle> = {
   skeleton: {
     width: 'auto',
@@ -36,16 +32,28 @@ const onTap = jest.fn();
 
 describe('<Skeleton />', () => {
   it('Should render Skeleton component with default properties', () => {
-    render(<Skeleton {...defaultProps} />);
+    render(<Skeleton />);
 
     const skeleton = screen.getByTestId('skeleton');
     const animation = screen.getByTestId('animation');
 
     expect(skeleton).toBeOnTheScreen();
     expect(skeleton).toHaveStyle(defaultStyles.skeleton);
-
     expect(animation).toBeOnTheScreen();
     expect(animation).toHaveStyle(defaultStyles.animation);
+  });
+
+  it('Should render Skeleton component with accessible properties', () => {
+    render(<Skeleton />);
+
+    const skeleton = screen.getByTestId('skeleton');
+
+    expect(skeleton).toHaveProp('accessible', true);
+    expect(skeleton).toHaveProp('accessibilityRole', 'none');
+    expect(skeleton).toHaveProp('accessibilityLabel', 'Loading');
+    expect(skeleton).toHaveProp('accessibilityState', { disabled: true });
+    expect(skeleton).toHaveProp('aria-label', 'Loading');
+    expect(skeleton).toHaveProp('aria-disabled', true);
   });
 
   it('Should render Skeleton component with custom size', () => {
@@ -53,26 +61,14 @@ describe('<Skeleton />', () => {
       width: 64,
       height: 64,
     };
-    const customProps: SkeletonProps = {
-      ...defaultProps,
-      ...sizeProps,
-    };
 
-    render(<Skeleton {...customProps} />);
+    render(<Skeleton {...sizeProps} />);
 
     expect(screen.getByTestId('skeleton')).toHaveStyle(sizeProps);
   });
 
   it('Should render Skeleton component with custom round', () => {
-    const roundProps: SkeletonProps = {
-      round: 'full',
-    };
-    const customProps: SkeletonProps = {
-      ...defaultProps,
-      ...roundProps,
-    };
-
-    render(<Skeleton {...customProps} />);
+    render(<Skeleton round='full' />);
 
     expect(screen.getByTestId('skeleton')).toHaveStyle({
       borderRadius: borderRadius.full,
@@ -87,12 +83,8 @@ describe('<Skeleton />', () => {
       borderColor: colors.gray[400],
       borderWidth: 1,
     };
-    const customProps: SkeletonProps = {
-      ...defaultProps,
-      style: styleProps,
-    };
 
-    render(<Skeleton {...customProps} />);
+    render(<Skeleton style={styleProps} />);
 
     expect(screen.getByTestId('skeleton')).toHaveStyle({
       ...defaultStyles.skeleton,
@@ -100,42 +92,44 @@ describe('<Skeleton />', () => {
     });
   });
 
-  it('Should render Skeleton component with pointer event none when activated is true', () => {
+  it('Should render Skeleton component with pointer events none when activated is true', () => {
     animatedSpy('timing');
 
     render(
-      <Skeleton {...defaultProps} onMagicTap={onTap}>
+      <Skeleton onMagicTap={onTap}>
         <Button />
       </Skeleton>
     );
 
-    expect(screen.getByTestId('skeleton')).toHaveStyle(defaultStyles.skeleton);
+    const skeleton = screen.getByTestId('skeleton');
+
+    expect(skeleton).toHaveStyle(defaultStyles.skeleton);
+    expect(skeleton).toHaveProp('pointerEvents', 'none');
+    expect(screen.getByTestId('animation')).toHaveProp('pointerEvents', 'none');
     expect(onTap).not.toHaveBeenCalled();
   });
 
-  it('Should render Skeleton component with pointer event enable when activated is false', () => {
+  it('Should render Skeleton component with pointer events enable when activated is false', () => {
     animatedSpy('timing');
 
     render(
-      <Skeleton {...defaultProps} activated={false}>
+      <Skeleton activated={false}>
         <Button testID='button' onPress={onTap} />
       </Skeleton>
     );
 
-    const skeleton = screen.queryByTestId('skeleton');
-    const animation = screen.queryByTestId('animation');
     const button = screen.getByTestId('button');
 
     fireEvent.press(button);
 
-    expect(skeleton).not.toBeOnTheScreen();
-    expect(animation).not.toBeOnTheScreen();
+    expect(screen.queryByTestId('skeleton')).not.toBeOnTheScreen();
+    expect(screen.queryByTestId('animation')).not.toBeOnTheScreen();
     expect(button).toBeOnTheScreen();
     expect(onTap).toHaveBeenCalledTimes(1);
   });
 
   it('Should take a snapshot of the Skeleton component', () => {
-    const component = render(<Skeleton {...defaultProps} />);
+    const component = render(<Skeleton />);
     expect(component).toMatchSnapshot();
   });
 });
