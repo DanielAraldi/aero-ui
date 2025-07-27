@@ -2,6 +2,6 @@ import { LogBox } from 'react-native';
 
 LogBox.ignoreAllLogs();
 
-let AppEntryPoint = require('./.storybook').default;
+const AppEntryPoint = require('./.rnstorybook').default;
 
 export default AppEntryPoint;

@@ -1,4 +1,11 @@
-import { ColorValue, EasingFunction, ViewProps } from 'react-native';
+import { RefObject } from 'react';
+import {
+  ActivityIndicator,
+  ColorValue,
+  EasingFunction,
+  View,
+  ViewProps,
+} from 'react-native';
 
 export type SpinnerVariantType = 'unique' | 'double' | 'half';
 
@@ -77,7 +84,7 @@ export interface SpinnerProps extends Omit<ViewProps, 'children'> {
    * @description This property determines if the spinner animation to be
    * executed using native thread UI or JavaScript.
    *
-   * @default true
+   * @default false
    *
    * @platform ios
    *
@@ -118,4 +125,13 @@ export interface SpinnerProps extends Omit<ViewProps, 'children'> {
    * @since 1.1.0
    */
   easing?: EasingFunction;
+
+  /**
+   * @description This property is used as ref for the spinner.
+   *
+   * @default undefined
+   *
+   * @since 1.5.0
+   */
+  ref?: RefObject<View | ActivityIndicator>;
 }

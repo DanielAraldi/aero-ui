@@ -183,7 +183,9 @@ exports[`<Button /> Both (iOS and Android) Should take a snapshot of the Button 
           ]
         }
         testID="text"
-      />
+      >
+        Title
+      </Text>
     </View>
   </View>
 </View>
