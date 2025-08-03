@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { fontSizes, spacings } from '@aero-ui/tokens';
+import { fontSizes, fontWeights, spacings } from '@aero-ui/tokens';
 
 export const styles = StyleSheet.create({
   content: {
@@ -12,6 +12,15 @@ export const styles = StyleSheet.create({
 
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  header: {
+    padding: spacings[5],
+
+    fontSize: fontSizes['2xl'],
+    fontWeight: fontWeights.semibold,
+
+    textTransform: 'capitalize',
   },
 
   text: {

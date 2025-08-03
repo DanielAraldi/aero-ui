@@ -1,4 +1,4 @@
-import { ScrollView, View } from 'react-native';
+import { SectionList, View } from 'react-native';
 import { StoryObj, Meta } from '@storybook/react';
 import { Text } from '@aero-ui/ui';
 import { colors, ColorsKeysType } from '@aero-ui/tokens';
@@ -12,16 +12,22 @@ function getTextColor(key: ColorsKeysType, keyColor: string): string {
   else return colors.white[100];
 }
 
+const sections = Object.keys(colors).map(key => ({ title: key, data: [key] }));
+
 const meta: Meta = {
   title: 'Tokens',
   component: () => (
-    <ScrollView
+    <SectionList
+      sections={sections}
       style={globalStyles.container}
       showsVerticalScrollIndicator={false}
-    >
-      {Object.keys(colors).map(key => (
-        <View key={key} style={styles.content}>
-          {Object.entries<string>(colors[key]).map(([keyColor, color]) => (
+      keyExtractor={item => colors[item]}
+      renderSectionHeader={({ section: { title } }) => (
+        <Text style={styles.header}>{title}</Text>
+      )}
+      renderItem={({ item }) => (
+        <View key={item} style={styles.content}>
+          {Object.entries<string>(colors[item]).map(([keyColor, color]) => (
             <View
               key={color}
               style={[styles.ghostContent, { backgroundColor: color }]}
@@ -30,17 +36,17 @@ const meta: Meta = {
                 style={[
                   styles.text,
                   {
-                    color: getTextColor(key as ColorsKeysType, keyColor),
+                    color: getTextColor(item as ColorsKeysType, keyColor),
                   },
                 ]}
               >
-                {key}/{keyColor} - {color}
+                {item}/{keyColor} - {color}
               </Text>
             </View>
           ))}
         </View>
-      ))}
-    </ScrollView>
+      )}
+    />
   ),
 };
 
