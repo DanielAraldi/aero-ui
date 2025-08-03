@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
   "private": true,
-  "name": "storybook",
+  "name": "rnstorybook",
   "main": "index.js",
   "license": "MIT",
   "description": "Aero UI documentation.",
