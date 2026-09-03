@@ -42,7 +42,7 @@
   "devDependencies": {
     "@aero-ui/typescript-config": "*",
     "@babel/preset-flow": "^7.25.9",
-    "@faker-js/faker": "^9.9.0",
+    "@faker-js/faker": "^10.6.0",
     "@react-native/babel-preset": "0.79.2",
     "@react-native/eslint-config": "0.79.2",
     "@react-native/metro-config": "0.79.2",
